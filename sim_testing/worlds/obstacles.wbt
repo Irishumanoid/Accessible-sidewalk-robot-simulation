@@ -1,0 +1,131 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation 0.12926745387581015 -0.10808191085895821 -0.985701895054251 4.520166033489058
+  position 0.14190307025151327 -1.1270180013849826 0.9112362252938397
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+Solid {
+  translation -0.35879313363676973 0.03000907988117619 0.04958907968115138
+  rotation -0.871854199871279 0.158337582504994 -0.4634646309410095 1.681443529910264
+  children [
+    Shape {
+      appearance PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BALL_GEOMETRY Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE BALL_GEOMETRY
+  physics Physics {
+  }
+  linearVelocity 0 0 -3.803719487955266e-12
+}
+WoodenBox {
+  translation 0.3913961505056551 -0.4198112916318232 0.0498038000000012
+  rotation -2.1309900489111595e-16 1.9790704618662191e-16 -1 0.1599505802032933
+  size 0.1 0.1 0.1
+  mass 1
+}
+E-puck {
+  hidden position_0_0 43.59017974549469
+  hidden position_0_1 43.59017974610662
+  hidden rotation_1 0 1 0 1.2685092800363014
+  hidden rotation_2 0 1 0 2.051605039301888
+  translation 0.0810048 -0.0412222 -3.19742e-05
+  rotation -0.00043809163628817687 0.003174648355978968 0.999994864828582 0.27426245756188977
+  controller "epuck_go_forward"
+}
+WoodenBox {
+  translation 0.363808 0.419359 0.05
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation -0.355049 -0.383898 0.05
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+}
+Solid {
+  translation -0.0995815 -0.250537 0.04958907968091047
+  children [
+    DEF SHAPE_DEF Shape {
+      appearance PBRAppearance {
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE SHAPE_DEF
+  physics Physics {
+  }
+  linearVelocity 0 0 -1.3797527067784608e-16
+}
+Solid {
+  translation -0.5 -3.6248516242558794e-19 0.04980379946355839
+  rotation -0.007710614038571912 0.999970258127301 -0.0001711489619511934 1.313839629548016e-16
+  children [
+    DEF WALL Shape {
+      appearance PBRAppearance {
+        baseColor 0.477684 0.472068 0.472068
+      }
+      geometry Box {
+        size 0.01 1 0.1
+      }
+    }
+    Solid {
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE WALL
+  physics Physics {
+  }
+  linearVelocity -6.69514327069006e-17 2.4927797316504655e-19 8.42323206078284e-09
+  angularVelocity -6.331568932515742e-17 -1.352053782464301e-15 -1.3358509529649564e-18
+}
+Solid {
+  translation 0.5 0 0.05
+  children [
+    USE WALL
+  ]
+  name "solid(3)"
+}
+Solid {
+  translation 0 0.5 0.05
+  rotation 0 0 1 1.5707996938995747
+  children [
+    USE WALL
+  ]
+  name "solid(4)"
+}
+Solid {
+  translation 0 -0.5 0.05
+  rotation 0 0 1 1.5707996938995747
+  children [
+    USE WALL
+  ]
+  name "solid(5)"
+}

@@ -1,0 +1,19 @@
+# general
+.conda
+.vscode
+../build
+
+# webots stuff
+.cache/
+.cache-*
+.webots/
+*.log
+*.out
+*.err
+build/
+*.o
+*.so
+*.dll
+*.dylib
+*.exe
+cmake-build-*/
