@@ -2,6 +2,8 @@
 .conda
 .vscode
 ../build
+.DS_Store
+._*
 
 # webots stuff
 .cache/
