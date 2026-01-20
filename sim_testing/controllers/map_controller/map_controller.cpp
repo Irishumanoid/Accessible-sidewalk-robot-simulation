@@ -4,9 +4,48 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <unordered_map>
+#include <format>
+
 
 #define TIME_STEP 32
 using namespace webots;
+
+const std::unordered_map<std::string, std::string> MARKER_TEMPLATES = {
+  { "SurfaceProblem", "SurfaceProblemMarker" },
+  { "NoCurbRamp", "NoCurbRampMarker" },
+  { "NoSidewalk", "NoSidewalkMarker" }
+};
+
+Node *createMarker(
+  Supervisor *robot,
+  Field *children,
+  const std::string &type,
+  int id,
+  double x,
+  double y,
+  double z
+) {
+  std::string defName = type + "_MARKER_" + std::to_string(id);
+
+  Node *existingNode = robot->getFromDef(defName);
+  if (existingNode) {
+    return nullptr;
+  }
+
+  std::string nodeString =
+    "DEF " + defName + " " + MARKER_TEMPLATES.at(type) + " {\n"
+    "  translation " + std::to_string(x) + " " + std::to_string(y) + " " + std::to_string(z) + "\n"
+    "  name \"" + defName + "\"\n}";
+
+  children->importMFNodeFromString(-1, nodeString);
+  Node *node = robot->getFromDef(defName);
+  if (!node) {
+    std::cerr << "Failed to create marker: " << defName << '\n';
+  }
+
+  return node;
+}
 
 int main(int argc, char **argv) {
   Supervisor *robot = new Supervisor();
@@ -54,27 +93,19 @@ int main(int argc, char **argv) {
     }
     std::cout << '\n';
 
-    std::string markerName = "DEF MARKER_" + std::to_string(counter);
-    std::string curMarkerString = markerString;
-    size_t pos = curMarkerString.find("DEF MARKER");
-    if (pos == std::string::npos) {
-      std::cerr << "DEF MARKER not found in markerString\n";
-      continue;
-    }
-    curMarkerString.replace(pos, 10, markerName);
-    childrenField->importMFNodeFromString(-1, curMarkerString);
-    robot->step(TIME_STEP);
+    Node *marker = createMarker(
+      robot,
+      childrenField,
+      entries[1],             
+      counter,                 
+      std::stod(entries[2]),  
+      std::stod(entries[3]),   
+      0.0                     
+    );
 
-    int newIndex = childrenField->getCount() - 1;
-    Node *markerClone = childrenField->getMFNode(newIndex);
-    if (!markerClone) {
-      std::cerr << "marker NOT found after import\n";
-    } else {
-      std::cout << "marker successfully created\n";
-      double pos[3] = {std::stod(entries[2]), std::stod(entries[3]), 0};
-      markerClone->getField("translation")->setSFVec3f(pos);
+    if (marker) {
+      std::cout << entries[1] << " marker created successfully\n";
     }
-
     counter++;
   }
 

@@ -1,0 +1,31 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/SignPole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/DirectionPanel.proto"
+
+PROTO SurfaceProblemMarker [
+  field SFVec3f translation -0.831559 -16.2464 2.22474e-14
+  field SFString name "surface_problem_marker"
+]
+{
+  DEF SURFACE_PROB_MARKER SignPole {
+    translation IS translation
+    name IS name
+    height 5
+    radius 0.05
+    color 0 0.105165 0.837415
+    signBoards [
+      DirectionPanel {
+        translation 0 0 3
+        height 1
+        thickness 0.1
+        frontTextTexture [
+          "../../assets/surfaceproblem.png"
+        ]
+        backTextTexture [
+          "../../assets/surfaceproblem.png"
+        ]
+      }
+    ]
+  }
+}

@@ -10,6 +10,9 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/buildings/protos/SimpleBuilding.proto"
 IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/SignPole.proto"
 IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/DirectionPanel.proto"
+IMPORTABLE EXTERNPROTO "../protos/SurfaceProblemMarker.proto"
+IMPORTABLE EXTERNPROTO "../protos/NoCurbRampMarker.proto"
+IMPORTABLE EXTERNPROTO "../protos/NoSidewalkMarker.proto"
 
 WorldInfo {
   info [
@@ -21,8 +24,8 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation 0.2679736565288511 0.1712000433246213 -0.9480931729382958 2.0523649041991145
-  position 0.10218649067934393 218.69521139885518 199.94413841134997
+  orientation -0.033899396246489716 0.9900675092906273 0.13644470668068137 0.49185998207492404
+  position 149.40373010236002 178.08619002858123 16.06963967676066
   near 3
 }
 TexturedBackground {
@@ -43,7 +46,7 @@ Floor {
   }
 }
 DEF MARKER SignPole {
-  translation -0.831559 -16.2464 2.22474e-14
+  translation 4.96542 -6.91767 -5.31947e-13
   height 5
   radius 0.05
   color 0 0.105165 0.837415
@@ -53,10 +56,10 @@ DEF MARKER SignPole {
       height 1
       thickness 0.1
       frontTextTexture [
-        "../../../Desktop/Screenshot 2025-12-09 at 10.00.25 PM.png"
+        "../../assets/surfaceproblem.png"
       ]
       backTextTexture [
-        "../../../Desktop/Screenshot 2025-12-09 at 10.00.25 PM.png"
+        "../../assets/surfaceproblem.png"
       ]
     }
   ]
@@ -16072,23 +16075,443 @@ DEF parking Pose {
     }
   ]
 }
-DEF MARKER_1 SignPole {
-  translation 50 50 0
-  name "sign pole(1)"
-  height 5
-  radius 0.05
-  color 0 0.105165 0.837415
-  signBoards [
-    DirectionPanel {
-      translation 0 0 3
-      height 1
-      thickness 0.1
-      frontTextTexture [
-        "../../../Desktop/Screenshot 2025-12-09 at 10.00.25 PM.png"
-      ]
-      backTextTexture [
-        "../../../Desktop/Screenshot 2025-12-09 at 10.00.25 PM.png"
-      ]
-    }
-  ]
+DEF SurfaceProblem_MARKER_1 SurfaceProblemMarker {
+  translation 305.790606 114.380777 0
+  name "SurfaceProblem_MARKER_1"
+}
+DEF SurfaceProblem_MARKER_2 SurfaceProblemMarker {
+  translation 317.780925 100.799799 0
+  name "SurfaceProblem_MARKER_2"
+}
+DEF SurfaceProblem_MARKER_3 SurfaceProblemMarker {
+  translation -258.204027 190.857267 0
+  name "SurfaceProblem_MARKER_3"
+}
+DEF SurfaceProblem_MARKER_4 SurfaceProblemMarker {
+  translation -21.694984 98.963027 0
+  name "SurfaceProblem_MARKER_4"
+}
+DEF SurfaceProblem_MARKER_5 SurfaceProblemMarker {
+  translation -59.164731 112.710984 0
+  name "SurfaceProblem_MARKER_5"
+}
+DEF SurfaceProblem_MARKER_6 SurfaceProblemMarker {
+  translation -16.449219 194.53081 0
+  name "SurfaceProblem_MARKER_6"
+}
+DEF SurfaceProblem_MARKER_7 SurfaceProblemMarker {
+  translation -161.831837 87.664099 0
+  name "SurfaceProblem_MARKER_7"
+}
+DEF SurfaceProblem_MARKER_8 SurfaceProblemMarker {
+  translation -161.082442 71.522773 0
+  name "SurfaceProblem_MARKER_8"
+}
+DEF SurfaceProblem_MARKER_9 SurfaceProblemMarker {
+  translation -148.342728 98.796048 0
+  name "SurfaceProblem_MARKER_9"
+}
+DEF SurfaceProblem_MARKER_10 SurfaceProblemMarker {
+  translation -108.624797 99.463965 0
+  name "SurfaceProblem_MARKER_10"
+}
+DEF SurfaceProblem_MARKER_11 SurfaceProblemMarker {
+  translation -212.415996 94.343268 0
+  name "SurfaceProblem_MARKER_11"
+}
+DEF SurfaceProblem_MARKER_12 SurfaceProblemMarker {
+  translation -271.243499 -52.208841 0
+  name "SurfaceProblem_MARKER_12"
+}
+DEF SurfaceProblem_MARKER_13 SurfaceProblemMarker {
+  translation -247.262861 -72.07937 0
+  name "SurfaceProblem_MARKER_13"
+}
+DEF SurfaceProblem_MARKER_14 SurfaceProblemMarker {
+  translation -24.317866 -54.268252 0
+  name "SurfaceProblem_MARKER_14"
+}
+DEF SurfaceProblem_MARKER_15 SurfaceProblemMarker {
+  translation -50.171991 -55.492766 0
+  name "SurfaceProblem_MARKER_15"
+}
+DEF SurfaceProblem_MARKER_16 SurfaceProblemMarker {
+  translation 38.256612 -104.195043 0
+  name "SurfaceProblem_MARKER_16"
+}
+DEF SurfaceProblem_MARKER_17 SurfaceProblemMarker {
+  translation 41.254191 -71.188814 0
+  name "SurfaceProblem_MARKER_17"
+}
+DEF SurfaceProblem_MARKER_18 SurfaceProblemMarker {
+  translation 37.507217 -83.1 0
+  name "SurfaceProblem_MARKER_18"
+}
+DEF SurfaceProblem_MARKER_19 SurfaceProblemMarker {
+  translation 15.774764 -53.377696 0
+  name "SurfaceProblem_MARKER_19"
+}
+DEF SurfaceProblem_MARKER_20 SurfaceProblemMarker {
+  translation 38.256612 -103.248828 0
+  name "SurfaceProblem_MARKER_20"
+}
+DEF SurfaceProblem_MARKER_21 SurfaceProblemMarker {
+  translation 50.546689 -100.911118 0
+  name "SurfaceProblem_MARKER_21"
+}
+DEF SurfaceProblem_MARKER_22 SurfaceProblemMarker {
+  translation 50.546689 -85.660348 0
+  name "SurfaceProblem_MARKER_22"
+}
+DEF SurfaceProblem_MARKER_23 SurfaceProblemMarker {
+  translation 47.998746 -20.315807 0
+  name "SurfaceProblem_MARKER_23"
+}
+DEF SurfaceProblem_MARKER_24 SurfaceProblemMarker {
+  translation 125.93582 -49.926792 0
+  name "SurfaceProblem_MARKER_24"
+}
+DEF SurfaceProblem_MARKER_25 SurfaceProblemMarker {
+  translation 299.046051 -144.659678 0
+  name "SurfaceProblem_MARKER_25"
+}
+DEF SurfaceProblem_MARKER_26 SurfaceProblemMarker {
+  translation -25.441958 195.087408 0
+  name "SurfaceProblem_MARKER_26"
+}
+DEF SurfaceProblem_MARKER_27 SurfaceProblemMarker {
+  translation -56.167151 192.081781 0
+  name "SurfaceProblem_MARKER_27"
+}
+DEF SurfaceProblem_MARKER_28 SurfaceProblemMarker {
+  translation -96.934236 171.153717 0
+  name "SurfaceProblem_MARKER_28"
+}
+DEF SurfaceProblem_MARKER_29 SurfaceProblemMarker {
+  translation -1.46132 113.267582 0
+  name "SurfaceProblem_MARKER_29"
+}
+DEF SurfaceProblem_MARKER_30 SurfaceProblemMarker {
+  translation 21.395226 101.022438 0
+  name "SurfaceProblem_MARKER_30"
+}
+DEF SurfaceProblem_MARKER_31 SurfaceProblemMarker {
+  translation -58.115578 99.909243 0
+  name "SurfaceProblem_MARKER_31"
+}
+DEF SurfaceProblem_MARKER_32 SurfaceProblemMarker {
+  translation -44.926227 96.903617 0
+  name "SurfaceProblem_MARKER_32"
+}
+DEF SurfaceProblem_MARKER_33 SurfaceProblemMarker {
+  translation -28.439538 100.354521 0
+  name "SurfaceProblem_MARKER_33"
+}
+DEF SurfaceProblem_MARKER_34 SurfaceProblemMarker {
+  translation 257.529571 98.796048 0
+  name "SurfaceProblem_MARKER_34"
+}
+DEF SurfaceProblem_MARKER_35 SurfaceProblemMarker {
+  translation 315.832498 99.130007 0
+  name "SurfaceProblem_MARKER_35"
+}
+DEF SurfaceProblem_MARKER_36 SurfaceProblemMarker {
+  translation 161.906777 114.380777 0
+  name "SurfaceProblem_MARKER_36"
+}
+DEF SurfaceProblem_MARKER_37 SurfaceProblemMarker {
+  translation 130.432189 100.799799 0
+  name "SurfaceProblem_MARKER_37"
+}
+DEF SurfaceProblem_MARKER_38 SurfaceProblemMarker {
+  translation 143.359252 194.53081 0
+  name "SurfaceProblem_MARKER_38"
+}
+DEF SurfaceProblem_MARKER_39 SurfaceProblemMarker {
+  translation 183.189593 173.825385 0
+  name "SurfaceProblem_MARKER_39"
+}
+DEF SurfaceProblem_MARKER_40 SurfaceProblemMarker {
+  translation 27.015688 95.456463 0
+  name "SurfaceProblem_MARKER_40"
+}
+DEF SurfaceProblem_MARKER_41 SurfaceProblemMarker {
+  translation 68.232409 101.022438 0
+  name "SurfaceProblem_MARKER_41"
+}
+DEF SurfaceProblem_MARKER_42 SurfaceProblemMarker {
+  translation 45.750561 173.825385 0
+  name "SurfaceProblem_MARKER_42"
+}
+DEF SurfaceProblem_MARKER_43 SurfaceProblemMarker {
+  translation -7.756238 192.972337 0
+  name "SurfaceProblem_MARKER_43"
+}
+DEF SurfaceProblem_MARKER_44 SurfaceProblemMarker {
+  translation -265.623037 94.343268 0
+  name "SurfaceProblem_MARKER_44"
+}
+DEF SurfaceProblem_MARKER_45 SurfaceProblemMarker {
+  translation -212.790693 96.569658 0
+  name "SurfaceProblem_MARKER_45"
+}
+DEF SurfaceProblem_MARKER_46 SurfaceProblemMarker {
+  translation -241.642399 -71.522773 0
+  name "SurfaceProblem_MARKER_46"
+}
+DEF SurfaceProblem_MARKER_47 SurfaceProblemMarker {
+  translation -237.520726 -52.041862 0
+  name "SurfaceProblem_MARKER_47"
+}
+DEF SurfaceProblem_MARKER_48 SurfaceProblemMarker {
+  translation -159.283895 1.391494 0
+  name "SurfaceProblem_MARKER_48"
+}
+DEF SurfaceProblem_MARKER_49 SurfaceProblemMarker {
+  translation 38.55637 -115.382652 0
+  name "SurfaceProblem_MARKER_49"
+}
+DEF SurfaceProblem_MARKER_50 SurfaceProblemMarker {
+  translation 21.395226 -131.0787 0
+  name "SurfaceProblem_MARKER_50"
+}
+DEF SurfaceProblem_MARKER_51 SurfaceProblemMarker {
+  translation -50.921386 -53.711654 0
+  name "SurfaceProblem_MARKER_51"
+}
+DEF SurfaceProblem_MARKER_52 SurfaceProblemMarker {
+  translation -125.561122 -153.899196 0
+  name "SurfaceProblem_MARKER_52"
+}
+DEF SurfaceProblem_MARKER_53 SurfaceProblemMarker {
+  translation 317.780925 100.799799 0
+  name "SurfaceProblem_MARKER_53"
+}
+DEF SurfaceProblem_MARKER_54 SurfaceProblemMarker {
+  translation 52.869813 -198.426992 0
+  name "SurfaceProblem_MARKER_54"
+}
+DEF SurfaceProblem_MARKER_55 SurfaceProblemMarker {
+  translation -51.221144 -63.730408 0
+  name "SurfaceProblem_MARKER_55"
+}
+DEF SurfaceProblem_MARKER_56 SurfaceProblemMarker {
+  translation -34.434698 -65.734159 0
+  name "SurfaceProblem_MARKER_56"
+}
+DEF SurfaceProblem_MARKER_57 SurfaceProblemMarker {
+  translation -51.670781 -151.895445 0
+  name "SurfaceProblem_MARKER_57"
+}
+DEF SurfaceProblem_MARKER_58 SurfaceProblemMarker {
+  translation 38.256612 -109.3714 0
+  name "SurfaceProblem_MARKER_58"
+}
+DEF SurfaceProblem_MARKER_59 SurfaceProblemMarker {
+  translation -280.610936 -135.865439 0
+  name "SurfaceProblem_MARKER_59"
+}
+DEF SurfaceProblem_MARKER_60 SurfaceProblemMarker {
+  translation -263.749549 -151.895445 0
+  name "SurfaceProblem_MARKER_60"
+}
+DEF SurfaceProblem_MARKER_61 SurfaceProblemMarker {
+  translation -251.309593 -138.314467 0
+  name "SurfaceProblem_MARKER_61"
+}
+DEF SurfaceProblem_MARKER_62 SurfaceProblemMarker {
+  translation -217.586821 -133.861688 0
+  name "SurfaceProblem_MARKER_62"
+}
+DEF SurfaceProblem_MARKER_63 SurfaceProblemMarker {
+  translation -240.518306 -72.07937 0
+  name "SurfaceProblem_MARKER_63"
+}
+DEF NoCurbRamp_MARKER_64 NoCurbRampMarker {
+  translation 35.48385 177.10931 0
+  name "NoCurbRamp_MARKER_64"
+}
+DEF NoCurbRamp_MARKER_65 NoCurbRampMarker {
+  translation 39.505606 109.482719 0
+  name "NoCurbRamp_MARKER_65"
+}
+DEF NoCurbRamp_MARKER_66 NoCurbRampMarker {
+  translation 30.950011 16.057837 0
+  name "NoCurbRamp_MARKER_66"
+}
+DEF NoCurbRamp_MARKER_67 NoCurbRampMarker {
+  translation 37.557179 -53.711654 0
+  name "NoCurbRamp_MARKER_67"
+}
+DEF NoCurbRamp_MARKER_68 NoCurbRampMarker {
+  translation 37.844445 -146.49645 0
+  name "NoCurbRamp_MARKER_68"
+}
+DEF NoCurbRamp_MARKER_69 NoCurbRampMarker {
+  translation 51.246122 -134.455388 0
+  name "NoCurbRamp_MARKER_69"
+}
+DEF NoCurbRamp_MARKER_70 NoCurbRampMarker {
+  translation -179.067921 -134.974883 0
+  name "NoCurbRamp_MARKER_70"
+}
+DEF NoCurbRamp_MARKER_71 NoCurbRampMarker {
+  translation 23.143811 189.59565 0
+  name "NoCurbRamp_MARKER_71"
+}
+DEF NoCurbRamp_MARKER_72 NoCurbRampMarker {
+  translation 49.122838 -67.181313 0
+  name "NoCurbRamp_MARKER_72"
+}
+DEF NoCurbRamp_MARKER_73 NoCurbRampMarker {
+  translation 38.456453 -135.939655 0
+  name "NoCurbRamp_MARKER_73"
+}
+DEF NoCurbRamp_MARKER_74 NoCurbRampMarker {
+  translation 47.998746 -137.423911 0
+  name "NoCurbRamp_MARKER_74"
+}
+DEF NoCurbRamp_MARKER_75 NoCurbRampMarker {
+  translation 240.967943 -142.544608 0
+  name "NoCurbRamp_MARKER_75"
+}
+DEF NoCurbRamp_MARKER_76 NoCurbRampMarker {
+  translation 21.645021 109.779575 0
+  name "NoCurbRamp_MARKER_76"
+}
+DEF NoCurbRamp_MARKER_77 NoCurbRampMarker {
+  translation 27.765083 177.16497 0
+  name "NoCurbRamp_MARKER_77"
+}
+DEF NoCurbRamp_MARKER_78 NoCurbRampMarker {
+  translation -157.335468 109.26008 0
+  name "NoCurbRamp_MARKER_78"
+}
+DEF NoCurbRamp_MARKER_79 NoCurbRampMarker {
+  translation 23.768312 177.907103 0
+  name "NoCurbRamp_MARKER_79"
+}
+DEF NoCurbRamp_MARKER_80 NoCurbRampMarker {
+  translation 39.905281 97.460214 0
+  name "NoCurbRamp_MARKER_80"
+}
+DEF NoCurbRamp_MARKER_81 NoCurbRampMarker {
+  translation 31.13736 30.167582 0
+  name "NoCurbRamp_MARKER_81"
+}
+DEF NoCurbRamp_MARKER_82 NoCurbRampMarker {
+  translation 42.503186 29.740861 0
+  name "NoCurbRamp_MARKER_82"
+}
+DEF NoCurbRamp_MARKER_83 NoCurbRampMarker {
+  translation 39.755402 -67.84923 0
+  name "NoCurbRamp_MARKER_83"
+}
+DEF NoCurbRamp_MARKER_84 NoCurbRampMarker {
+  translation 32.261452 -71.188814 0
+  name "NoCurbRamp_MARKER_84"
+}
+DEF NoCurbRamp_MARKER_85 NoCurbRampMarker {
+  translation 43.127679 -57.051239 0
+  name "NoCurbRamp_MARKER_85"
+}
+DEF NoCurbRamp_MARKER_86 NoCurbRampMarker {
+  translation 50.32187 -132.358875 0
+  name "NoCurbRamp_MARKER_86"
+}
+DEF NoCurbRamp_MARKER_87 NoCurbRampMarker {
+  translation 40.005197 -149.965911 0
+  name "NoCurbRamp_MARKER_87"
+}
+DEF NoCurbRamp_MARKER_88 NoCurbRampMarker {
+  translation -164.080022 -132.303215 0
+  name "NoCurbRamp_MARKER_88"
+}
+DEF NoCurbRamp_MARKER_89 NoCurbRampMarker {
+  translation -304.066997 14.749833 0
+  name "NoCurbRamp_MARKER_89"
+}
+DEF NoCurbRamp_MARKER_90 NoCurbRampMarker {
+  translation 230.851111 -130.522103 0
+  name "NoCurbRamp_MARKER_90"
+}
+DEF NoCurbRamp_MARKER_91 NoCurbRampMarker {
+  translation 238.644819 -130.188144 0
+  name "NoCurbRamp_MARKER_91"
+}
+DEF NoCurbRamp_MARKER_92 NoCurbRampMarker {
+  translation 227.853532 16.419625 0
+  name "NoCurbRamp_MARKER_92"
+}
+DEF NoCurbRamp_MARKER_93 NoCurbRampMarker {
+  translation 44.43912 28.163831 0
+  name "NoCurbRamp_MARKER_93"
+}
+DEF NoCurbRamp_MARKER_94 NoCurbRampMarker {
+  translation 46.150236 16.234089 0
+  name "NoCurbRamp_MARKER_94"
+}
+DEF NoCurbRamp_MARKER_95 NoCurbRampMarker {
+  translation 39.155886 -66.513396 0
+  name "NoCurbRamp_MARKER_95"
+}
+DEF NoCurbRamp_MARKER_96 NoCurbRampMarker {
+  translation 40.354918 -132.414534 0
+  name "NoCurbRamp_MARKER_96"
+}
+DEF NoCurbRamp_MARKER_97 NoCurbRampMarker {
+  translation 52.307767 -64.175686 0
+  name "NoCurbRamp_MARKER_97"
+}
+DEF NoCurbRamp_MARKER_98 NoCurbRampMarker {
+  translation 39.605523 -134.640924 0
+  name "NoCurbRamp_MARKER_98"
+}
+DEF NoCurbRamp_MARKER_99 NoCurbRampMarker {
+  translation 48.997937 -147.702407 0
+  name "NoCurbRamp_MARKER_99"
+}
+DEF NoCurbRamp_MARKER_100 NoCurbRampMarker {
+  translation -303.842179 28.108171 0
+  name "NoCurbRamp_MARKER_100"
+}
+DEF NoCurbRamp_MARKER_101 NoCurbRampMarker {
+  translation -183.564291 92.673476 0
+  name "NoCurbRamp_MARKER_101"
+}
+DEF NoCurbRamp_MARKER_102 NoCurbRampMarker {
+  translation 25.516898 192.081781 0
+  name "NoCurbRamp_MARKER_102"
+}
+DEF NoCurbRamp_MARKER_103 NoCurbRampMarker {
+  translation 22.894015 96.569658 0
+  name "NoCurbRamp_MARKER_103"
+}
+DEF NoCurbRamp_MARKER_104 NoCurbRampMarker {
+  translation 29.113993 28.145274 0
+  name "NoCurbRamp_MARKER_104"
+}
+DEF NoCurbRamp_MARKER_105 NoCurbRampMarker {
+  translation 35.259032 192.30442 0
+  name "NoCurbRamp_MARKER_105"
+}
+DEF NoCurbRamp_MARKER_106 NoCurbRampMarker {
+  translation 243.216128 -133.639049 0
+  name "NoCurbRamp_MARKER_106"
+}
+DEF NoCurbRamp_MARKER_107 NoCurbRampMarker {
+  translation 50.097052 -54.861952 0
+  name "NoCurbRamp_MARKER_107"
+}
+DEF NoCurbRamp_MARKER_108 NoCurbRampMarker {
+  translation 29.263872 18.200737 0
+  name "NoCurbRamp_MARKER_108"
+}
+DEF NoCurbRamp_MARKER_109 NoCurbRampMarker {
+  translation 43.315028 15.139451 0
+  name "NoCurbRamp_MARKER_109"
+}
+DEF NoCurbRamp_MARKER_110 NoCurbRampMarker {
+  translation 48.997937 -142.025113 0
+  name "NoCurbRamp_MARKER_110"
 }
