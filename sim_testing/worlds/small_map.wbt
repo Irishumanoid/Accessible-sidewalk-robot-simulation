@@ -4,7 +4,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/Road.proto"
+EXTERNPROTO "../protos/Road.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/Crossroad.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/RoadLine.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/buildings/protos/SimpleBuilding.proto"
@@ -13,6 +13,9 @@ IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R20
 IMPORTABLE EXTERNPROTO "../protos/SurfaceProblemMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoCurbRampMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoSidewalkMarker.proto"
+IMPORTABLE EXTERNPROTO "../protos/Kephera4Modified.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/k-team/khepera4/protos/Khepera4.proto"
+EXTERNPROTO "../protos/FourWheelsRobot.proto"
 
 WorldInfo {
   info [
@@ -24,8 +27,8 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation -0.033899396246489716 0.9900675092906273 0.13644470668068137 0.49185998207492404
-  position 149.40373010236002 178.08619002858123 16.06963967676066
+  orientation -0.2870697119158515 -0.8057971919979817 0.5179593283924114 5.078204451861477
+  position 14.037095596984845 25.04533855374993 12.891285090012746
   near 3
 }
 TexturedBackground {
@@ -44,6 +47,28 @@ Floor {
     roughness 1
     metalness 0
   }
+}
+FourWheelsRobot {
+  hidden position_0_0 2505.961914579558
+  hidden position_0_1 2195.1662040764354
+  hidden position_0_2 764.3368086979583
+  hidden position_0_3 443.8430070733543
+  hidden linearVelocity_0 -0.9137254778989243 0.30078164909975597 -2.3331211212382112e-05
+  hidden angularVelocity_0 0.10969982263786504 0.15109520908687005 -0.005249016615222646
+  hidden rotation_1 -0.7810787300610199 0.44153968406291705 -0.44154130593171437 4.46778234622175
+  hidden linearVelocity_1 -0.9135671642548859 0.30433968138106215 0.02730519602920344
+  hidden angularVelocity_1 -1.516202765360552 -4.57662480092367 -0.022089811034198437
+  hidden rotation_2 -0.2890227743909096 -0.6769277913915182 0.6769302778907018 3.7043022340881744
+  hidden linearVelocity_2 -0.9150732267384379 0.3035187825741319 0.05969518141252987
+  hidden angularVelocity_2 -1.5137804578222807 -4.5777940768291145 -0.019168814087623776
+  hidden rotation_3 0.3342594037619859 -0.6664335631540456 0.6664360111057058 2.4964272902032096
+  hidden linearVelocity_3 -0.9147741677723974 0.300147162635459 -0.059742371507754445
+  hidden angularVelocity_3 -1.5157637101419974 -4.576792669563348 -0.022905230523071918
+  hidden rotation_4 -0.3152770818000931 0.6710428650994568 -0.6710453299820585 3.752416296323145
+  hidden linearVelocity_4 -0.9158432753561105 0.29862458608291687 -0.02735225286990623
+  hidden angularVelocity_4 -1.509618422285805 -4.578912691328673 -0.016129194655832513
+  translation 21.309842792027297 17.26567507845446 0.145122529598238
+  rotation -0.0010819852534074358 0.001903120606337138 -0.9999976037170636 -2.81312766488134
 }
 DEF MARKER SignPole {
   translation 4.96542 -6.91767 -5.31947e-13
@@ -3705,6 +3730,7 @@ Road {
       type "continuous"
     }
   ]
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     2.447566 -27.387354 0
@@ -3744,6 +3770,7 @@ Road {
       type "continuous"
     }
   ]
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     2.786789 -27.03259 0
@@ -3763,6 +3790,7 @@ Road {
     "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
+  roadBoundingObject TRUE
 }
 PedestrianCrossing {
   translation 44.837145 -50.873759 -0.07
@@ -3781,6 +3809,7 @@ Road {
   numberOfForwardLanes 0
   speedLimit 6.7056
   lines []
+  roadBorderHeight 0
   rightBorder FALSE
   leftBorder FALSE
   wayPoints [
@@ -3826,6 +3855,7 @@ Road {
   numberOfForwardLanes 0
   speedLimit 6.7056
   lines []
+  roadBorderHeight 0
   rightBorder FALSE
   leftBorder FALSE
   wayPoints [
@@ -3847,6 +3877,15 @@ Road {
   ]
   splineSubdivision 0
 }
+Khepera4 {
+  hidden position_0_0 1305.4543037029705
+  hidden position_0_1 1410.1103995079538
+  hidden rotation_1 0.7064422375277184 -0.7064422767279437 -0.043343681065064026 3.0549594276512364
+  hidden rotation_2 -0.46502999848932275 0.4650300705143258 -0.7533220652698698 1.8503449468847313
+  translation 9.374516793438175 21.351130507303665 -0.020160525382315126
+  rotation -1.1707480380673677e-10 -2.507639865327843e-10 1 2.268009570044224
+  controller "KheperaController"
+}
 PedestrianCrossing {
   translation 33.511053 -18.45796 -0.07
   rotation 0 0 1 1.579061
@@ -3863,6 +3902,7 @@ Road {
   numberOfLanes 1
   speedLimit 8.9408
   lines []
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     -0.247812 22.873707 0
@@ -3900,6 +3940,7 @@ Road {
   numberOfLanes 1
   speedLimit 8.9408
   lines []
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     -0.079535 29.999099 0
@@ -3938,6 +3979,7 @@ Road {
   numberOfForwardLanes 0
   speedLimit 6.7056
   lines []
+  roadBorderHeight 0
   rightBorder FALSE
   leftBorder FALSE
   wayPoints [
@@ -3982,6 +4024,7 @@ Road {
   numberOfForwardLanes 0
   speedLimit 6.7056
   lines []
+  roadBorderHeight 0
   rightBorder FALSE
   leftBorder FALSE
   wayPoints [
@@ -4038,6 +4081,7 @@ Road {
       type "continuous"
     }
   ]
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     116.492596 1.222662 0
@@ -4073,6 +4117,7 @@ Road {
       type "continuous"
     }
   ]
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     186.676215 1.650855 0
@@ -4119,6 +4164,7 @@ Road {
       type "continuous"
     }
   ]
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     0.081779 -0.987596 0
@@ -4159,6 +4205,7 @@ Road {
       type "continuous"
     }
   ]
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     -0.020516 3.901374 0
@@ -4194,6 +4241,7 @@ Road {
       type "continuous"
     }
   ]
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     -0.08799 4.146524 0
@@ -4256,6 +4304,7 @@ Road {
       type "continuous"
     }
   ]
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     26.342779 -0.031806 0
@@ -4296,6 +4345,7 @@ Road {
       type "continuous"
     }
   ]
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     5.230576 0.043529 0
@@ -4333,6 +4383,7 @@ Road {
   numberOfLanes 1
   speedLimit 8.9408
   lines []
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     0.37281 -1.497355 0
@@ -4356,6 +4407,7 @@ Road {
   numberOfLanes 1
   speedLimit 8.9408
   lines []
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     -1.115348 1.446702 0
@@ -4379,6 +4431,7 @@ Road {
   numberOfLanes 1
   speedLimit 8.9408
   lines []
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     -0.569921 0.776181 0
@@ -4401,6 +4454,7 @@ Road {
   numberOfLanes 1
   speedLimit 8.9408
   lines []
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     0.562049 0.574987 0
@@ -4423,6 +4477,7 @@ Road {
   numberOfLanes 1
   speedLimit 8.9408
   lines []
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     -0.629056 0.410363 0
@@ -4445,6 +4500,7 @@ Road {
   numberOfLanes 1
   speedLimit 8.9408
   lines []
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     -0.221783 -0.206929 0
@@ -4467,6 +4523,7 @@ Road {
   numberOfLanes 1
   speedLimit 8.9408
   lines []
+  roadBorderHeight 0
   wayPoints [
     0 0 0
     0.764613 -0.91388 0
@@ -13155,7 +13212,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 25.77 10.38 0
+  translation 25.8587 9.68622 5.84706e-16
   name "building(415)"
   floorNumber 2
   corners [
