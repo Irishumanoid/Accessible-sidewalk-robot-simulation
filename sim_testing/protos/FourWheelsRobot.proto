@@ -176,6 +176,9 @@ PROTO FourWheelsRobot [
       DEF GPS_MAIN GPS {
         name "gps_main"
       }
+      InertialUnit {
+        name "inertial-unit"
+      }
     ]
     boundingObject USE BODY
     physics Physics {

@@ -13,20 +13,18 @@ IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R20
 IMPORTABLE EXTERNPROTO "../protos/SurfaceProblemMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoCurbRampMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoSidewalkMarker.proto"
-EXTERNPROTO "../protos/FourWheelsRobot.proto"
 
 WorldInfo {
   info [
     "World generated using the Open Street Map to Webots importer"
     "Author: David Mansolino <david.mansolino@epfl.ch>"
   ]
-  gpsCoordinateSystem "WGS84"
   gpsReference 47.6860225 -122.3530305 0
   lineScale 3
 }
 Viewpoint {
-  orientation 0.40299653075889186 0.6789900393771421 -0.6136500001001585 1.5374478774376323
-  position 75.03815771703987 -59.85352685042041 38.79176001751057
+  orientation -0.3652905437992112 -0.5852676234152714 0.7238954534963711 4.860123940536939
+  position -6.897198031314513 19.707424930930266 31.93993834481607
   near 3
 }
 TexturedBackground {
@@ -45,28 +43,6 @@ Floor {
     roughness 1
     metalness 0
   }
-}
-FourWheelsRobot {
-  hidden position_0_0 6228.684893034832
-  hidden position_0_1 6260.030918668897
-  hidden position_0_2 2789.8842296588728
-  hidden position_0_3 2357.008283739085
-  hidden linearVelocity_0 0.576710806566483 0.8169483673630903 -1.6340640647173327e-12
-  hidden angularVelocity_0 1.753519814739634e-08 -2.477729978910194e-08 9.460598355330322e-07
-  hidden rotation_1 -0.39525874536803224 -0.6495257596384952 0.649528145484185 3.8944149786022773
-  hidden linearVelocity_1 0.5767281099292157 0.8169216473860356 4.152401648485769e-09
-  hidden angularVelocity_1 -4.084735840608627 2.883554913536251 1.0282514606944606e-05
-  hidden rotation_2 0.4215798190757682 0.6411970975371131 -0.6411994527898666 2.343654962339446
-  hidden linearVelocity_2 0.5767109899113275 0.8169587191256512 1.0162472307357767e-08
-  hidden angularVelocity_2 -4.084744904124465 2.8835551836289257 -3.148398520376604e-09
-  hidden rotation_3 0.9944047038827434 0.07469686708802489 -0.07469714146543538 1.576410978924024
-  hidden linearVelocity_3 0.5767110509559064 0.8169371956846233 -1.0168440444978126e-08
-  hidden angularVelocity_3 -4.0847385687708835 2.8835528882659234 3.6541604941319653e-06
-  hidden rotation_4 -0.8539124951262703 -0.36798943995747363 0.3679907916606234 4.555111202577689
-  hidden linearVelocity_4 0.5766930750174052 0.8169759055247628 -4.158235741344536e-09
-  hidden angularVelocity_4 -4.084748029652783 2.883553137893906 -7.1299974998205e-06
-  translation 72.23498258855246 -69.44902769710733 0.14512241234152737
-  rotation 1.292453299910577e-07 6.789685650245385e-08 0.9999999999999893 0.9560995966378766
 }
 DEF MARKER SignPole {
   translation 4.96542 -6.91767 -5.31947e-13
@@ -3841,6 +3817,198 @@ PedestrianCrossing {
   rotation 0 0 1 1.583349
   name "pedestrian crossing(97)"
   size 4 1.6
+}
+Robot {
+  translation -3.414474484868568 2.9235318112647244 0.1339784495170132
+  rotation 0.017772306985790378 0.004938930668893801 0.999829861560581 -3.0353592076373896
+  children [
+    InertialUnit {
+    }
+    DEF BODY Shape {
+      appearance PBRAppearance {
+        baseColor 0.917647 0.145098 0.145098
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.5 0.25
+      }
+    }
+    DEF WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 267.5057774654335
+        axis 0 1 0
+        anchor 0.25 0.3 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.25 0.3 0
+        rotation -0.1670671713160924 0.6971674797305807 -0.6971700405744282 3.4726681241497306
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.305882 0.898039 0.25098
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.1
+              radius 0.2
+              subdivision 24
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.00019899319081868324 -0.0007078722941048969 0.0020566963970473726
+        angularVelocity 0.5281713162579743 -4.967073234097804 0.03935396104912911
+      }
+    }
+    DEF WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 245.9354536086713
+        axis 0 1 0
+        anchor 0.25 -0.3 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.25 -0.3 0
+        rotation -0.8286539503014712 -0.3958102321281934 0.39581168602302824 4.525529664582652
+        children [
+          USE WHEEL
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.0004993256083667767 -0.0006946517394023004 0.0008833010143654437
+        angularVelocity 0.5281304864399167 -4.966944007957347 0.03933819392343298
+      }
+    }
+    DEF WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 258.62261758846046
+        axis 0 1 0
+        anchor -0.25 0.3 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation -0.25 0.3 0
+        rotation -0.7871034164656308 -0.4361575485133523 0.43615915061242766 4.475244188508049
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.0001474259062502494 -0.0010573343758454549 0.0001346402882996632
+        angularVelocity -0.0006703510489643302 -0.012474111401942545 -0.0004324177417347669
+      }
+    }
+    DEF WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 239.13142043280223
+        axis 0 1 0
+        anchor -0.25 -0.3 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation -0.25 -0.3 0
+        rotation 0.9666510340175627 0.18108773774438855 -0.18108840291801256 1.6047112200442264
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.0004643148532782036 -0.0010316931588941467 -0.0010350637123289165
+        angularVelocity -0.0008389261808173509 -0.010894080648046572 -0.000444901195111134
+      }
+    }
+    DEF DS_RIGHT DistanceSensor {
+      translation 0.5 -0.15 0
+      rotation 0 0 1 -0.3
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.184314 0.596078 0.847059
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 0.05 0.05
+          }
+        }
+      ]
+      name "ds_right"
+      lookupTable [
+        0 1000 0
+        5 0 0
+      ]
+    }
+    Camera {
+      translation 0.5 0 0.1375
+      fieldOfView 2.287
+      width 752
+      height 480
+      near 0.06
+    }
+    DEF DS_LEFT DistanceSensor {
+      translation 0.5 0.15 0
+      rotation 0 0 1 0.3
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.184314 0.596078 0.847059
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 0.05 0.05
+          }
+        }
+      ]
+      name "ds_left"
+      lookupTable [
+        0 1000 0
+        5 0 0
+      ]
+    }
+    DEF GPS_MAIN GPS {
+      name "gps_main"
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+    density -1
+    mass 125
+  }
+  controller "4wheel"
+  linearVelocity 0.0003228852197738597 -0.0008729167333295955 0.0005211011000219151
+  angularVelocity -0.002394112962586843 0.003690722338450097 -0.0005608474292112027
 }
 Road {
   translation 37.379316 -18.425634 0.01
