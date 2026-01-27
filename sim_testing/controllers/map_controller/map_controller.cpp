@@ -67,7 +67,7 @@ int main(int argc, char **argv) {
   }
 
   // read new markers from file
-  std::ifstream csvFile("/Users/irislitiu/Webots_sims/translations.csv");
+  std::ifstream csvFile("/Users/irislitiu/Webots-sims/translations.csv");
   if (!csvFile.is_open()) {
     std::cerr << "Failed to open csv\n";
     delete robot;

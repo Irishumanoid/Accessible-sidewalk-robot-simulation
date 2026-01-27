@@ -2,13 +2,25 @@
 #include <webots/Motor.hpp>
 #include <webots/DistanceSensor.hpp>
 #include <webots/Camera.hpp>
+#include <webots/GPS.hpp>
 #include <stdio.h>
 #include <stdlib.h>
 
 #define TIME_STEP 64
 #define DEFAULT_VEL 5
-#define THRESH 200
+#define SCALE_FACTOR 500.0
+#define THRESH 400
 using namespace webots;
+
+enum class State {
+  FORWARD,
+  TURN_LEFT,
+  TURN_RIGHT
+};
+
+State state = State::FORWARD;
+int turnCounter = 0;
+
 
 int main(int argc, char **argv) {
   Robot *robot = new Robot();
@@ -17,8 +29,10 @@ int main(int argc, char **argv) {
   DistanceSensor *ds[2];
   char dsNames[2][10] = {"ds_right", "ds_left"};
 
-  Camera camera = Camera("camera");
-  camera.enable(TIME_STEP);
+  Camera *camera = robot->getCamera("camera");
+  camera->enable(TIME_STEP);
+  GPS *gps = robot->getGPS("gps_main");
+  gps->enable(TIME_STEP);
 
   
   for (int i = 0; i < 4; i++) {
@@ -31,9 +45,7 @@ int main(int argc, char **argv) {
     ds[i]->enable(TIME_STEP);
   }
 
-  int timeStep = (int)robot->getBasicTimeStep();
-  int counter = 0;
-  while (robot->step(timeStep) != -1) {
+  while (robot->step(TIME_STEP) != -1) {
     double dsVals[2];
     for (int i = 0; i < 2; i++) {
       dsVals[i] = ds[i]->getValue();
@@ -41,25 +53,53 @@ int main(int argc, char **argv) {
     
     double leftVels = DEFAULT_VEL;
     double rightVels = DEFAULT_VEL;
-    if (counter > 0) {
-      leftVels = DEFAULT_VEL;
-      rightVels = DEFAULT_VEL / 2;
-      counter--;
-    } else {
-      if (dsVals[0] > THRESH || dsVals[1] > THRESH) {
-        counter = 5;
+
+    if (state == State::FORWARD) {
+      if (dsVals[0] > THRESH && dsVals[1] > THRESH) {
+        state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
+        turnCounter = 40;
+      } else if (dsVals[0] > THRESH) {
+        state = State::TURN_LEFT;
+        turnCounter = 30;
+      } else if (dsVals[1] > THRESH) {
+        state = State::TURN_RIGHT;
+        turnCounter = 30;
       }
+    }
+
+    switch (state) {
+      case State::FORWARD:
+        leftVels = DEFAULT_VEL;
+        rightVels = DEFAULT_VEL;
+        break;
+      case State::TURN_LEFT:
+        leftVels = DEFAULT_VEL / 4;
+        rightVels = DEFAULT_VEL;
+        turnCounter--;
+        break;
+      case State::TURN_RIGHT:
+        leftVels = DEFAULT_VEL;
+        rightVels = DEFAULT_VEL / 4;
+        turnCounter--;
+        break;
+    }
+
+    if (turnCounter <= 0) {
+      state = State::FORWARD;
     }
     
     printf("dist sensor vals: %.2f and %.2f\n", dsVals[0], dsVals[1]);
     printf("left wheel velocities: %.2f, %.2f\n", wheels[0]->getVelocity(), wheels[2]->getVelocity());
     printf("right wheel velocities: %.2f, %.2f\n", wheels[1]->getVelocity(), wheels[3]->getVelocity());
 
+    const double *gps_coords = gps->getValues();
+    printf("gps: (%.2f, %.2f, %.2f)", gps_coords[0], gps_coords[1], gps_coords[2]);
+
     wheels[0]->setVelocity(leftVels);
     wheels[1]->setVelocity(rightVels);
     wheels[2]->setVelocity(leftVels);
     wheels[3]->setVelocity(rightVels);
-   };
+  };
 
   delete robot;
   return 0;

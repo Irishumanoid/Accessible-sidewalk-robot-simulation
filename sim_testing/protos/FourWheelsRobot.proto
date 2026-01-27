@@ -146,7 +146,7 @@ PROTO FourWheelsRobot [
         ]
       }
       Camera {
-        translation 0.3 0 0.1375
+        translation 0.5 0 0.1375
         fieldOfView 2.287
         width 752
         height 480
@@ -172,6 +172,9 @@ PROTO FourWheelsRobot [
           0 1000 0
           5 0 0
         ]
+      }
+      DEF GPS_MAIN GPS {
+        name "gps_main"
       }
     ]
     boundingObject USE BODY

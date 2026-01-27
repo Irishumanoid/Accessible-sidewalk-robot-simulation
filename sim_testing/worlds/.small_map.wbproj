@@ -8,5 +8,4 @@ centralWidgetVisible: 1
 orthographicViewHeight: 1
 textFiles: 2 "controllers/map_controller/map_controller.cpp" "protos/NoSidewalkMarker.proto" "controllers/4wheel/4wheel.cpp" "protos/FourWheelsRobot.proto"
 consoles: Console:All:All
-renderingDevicePerspectives: Khepera IV:camera;0;0.683511;0;0
-renderingDevicePerspectives: robot:camera;0;0.848404;0;0
+renderingDevicePerspectives: robot:camera;1;0.337766;2.98023e-07;0.0246154
