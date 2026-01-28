@@ -8,28 +8,51 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cmath>
+#include <map>
+#include <vector>
+#include <tuple>
+#include <limits>
+#include <queue>
+#include <functional>
+#include <unordered_map>
+#include <unordered_set>
+#include <algorithm>
+#include <string>
+#include <fstream>
+
+#include "json.hpp"
+using json = nlohmann::json;
 
 #define TIME_STEP 64
 #define DEFAULT_VEL 5
 #define SCALE_FACTOR 500.0
 #define THRESH 400
+
 using namespace webots;
 
-enum class State {
-  FORWARD,
-  TURN_LEFT,
-  TURN_RIGHT
-};
-
-enum class NavState {
-  OBST_AVOID,
-  NAV_TO_POINT,
-};
+enum class State { FORWARD, TURN_LEFT, TURN_RIGHT };
+enum class NavState { OBST_AVOID, NAV_TO_POINT };
 
 State state = State::FORWARD;
 NavState navState = NavState::NAV_TO_POINT;
 int turnCounter = 0;
 
+struct Coord { double x, y; };
+
+struct PathNode {
+  long long id;
+  Coord loc;
+  bool issue;
+};
+
+struct Edge {
+  long long to;
+  double cost;
+};
+
+double heuristic(const Coord &a, const Coord &b) {
+  return std::sqrt(std::pow(a.x - b.x, 2) + std::pow(a.y - b.y, 2));
+}
 
 void logData(DistanceSensor *ds[2], Motor *wheels[4], GPS *gps, InertialUnit *imu) {
   printf("dist sensor vals: %.2f and %.2f\n", ds[0]->getValue(), ds[1]->getValue());
@@ -41,19 +64,20 @@ void logData(DistanceSensor *ds[2], Motor *wheels[4], GPS *gps, InertialUnit *im
   printf("imu yaw (deg): %.2f\n", imu->getRollPitchYaw()[2] * 180 / 3.14159);
 }
 
-void navToPoint(Robot* robot, Motor *wheels[4], GPS *gps, InertialUnit *imu, DistanceSensor *ds[2], double target_x, double target_y, double rot_thresh, double pos_thresh) {
+void navToPoint(Robot* robot, Motor *wheels[4], GPS *gps, InertialUnit *imu,
+                DistanceSensor *ds[2], double target_x, double target_y,
+                double rot_thresh, double pos_thresh) {
+
   const double *cur_pos = gps->getValues();
-  double cur_x = cur_pos[0];
-  double cur_y = cur_pos[1];
+  double cur_x = cur_pos[0], cur_y = cur_pos[1];
   double kP_turn = 5.0;
   double target_angle = std::atan2(target_y - cur_y, target_x - cur_x);
 
-  // turn, then drive straight
+  // turn towards target
   while (robot->step(TIME_STEP) != -1) {
     logData(ds, wheels, gps, imu);
     double cur_yaw = imu->getRollPitchYaw()[2];
     double error = target_angle - cur_yaw;
-    printf("target yaw: %.2f\n", target_angle);
 
     while (error > M_PI) error -= 2 * M_PI;
     while (error < -M_PI) error += 2 * M_PI;
@@ -65,24 +89,121 @@ void navToPoint(Robot* robot, Motor *wheels[4], GPS *gps, InertialUnit *imu, Dis
     }
   }
 
+  // drive straight
   while (robot->step(TIME_STEP) != -1) {
     logData(ds, wheels, gps, imu);
     cur_pos = gps->getValues();
-    cur_x = cur_pos[0];
-    cur_y = cur_pos[1];
+    cur_x = cur_pos[0]; cur_y = cur_pos[1];
     double error = std::sqrt(std::pow(target_x - cur_x, 2) + std::pow(target_y - cur_y, 2));
-    if (std::abs(error) < pos_thresh) break;
+    if (error < pos_thresh) break;
 
     for (int i = 0; i < 4; i++) {
       wheels[i]->setVelocity(DEFAULT_VEL);
     }
   }
 
-  for (int i = 0; i < 4; i++) {
-    wheels[i]->setVelocity(0.0);
-  }
+  for (int i = 0; i < 4; i++) wheels[i]->setVelocity(0.0);
 }
 
+const std::unordered_map<long long, PathNode> getPathNodes(const std::string &filepath) {
+  std::ifstream file(filepath);
+  if (!file.is_open()) throw std::runtime_error("Could not open json file");
+
+  json j; file >> j;
+  std::unordered_map<long long, PathNode> nodes;
+  const json &json_nodes = j.at("nodes");
+
+  for (auto it = json_nodes.begin(); it != json_nodes.end(); ++it) {
+    long long id = std::stoll(it.key());
+    const json &n = it.value();
+
+    PathNode node;
+    node.loc.x = n.at("x").get<double>();
+    node.loc.y = n.at("y").get<double>();
+    node.issue = n.at("issue").get<bool>();
+
+    nodes.emplace(id, node);
+  }
+  return nodes;
+}
+
+const std::unordered_map<long long, std::vector<Edge>> getEdges(const std::string &filepath) {
+  std::ifstream file(filepath);
+  if (!file.is_open()) throw std::runtime_error("Could not open json file");
+
+  json j; file >> j;
+  std::unordered_map<long long, std::vector<Edge>> edges;
+  const json &json_edges = j.at("adjacency");
+
+  for (auto it = json_edges.begin(); it != json_edges.end(); ++it) {
+    long long id = std::stoll(it.key());
+    const json &n = it.value();
+
+    std::vector<Edge> id_edges;
+    for (const auto &edge_end : n) {
+      long long to = edge_end["to"].get<long long>();
+      double cost = edge_end["cost"].get<double>();
+      id_edges.emplace_back(Edge{to, cost});
+    }
+    edges[id] = id_edges;
+  }
+  return edges;
+}
+
+std::vector<Coord> generateAStarPath(
+    const std::unordered_map<long long, PathNode> &nodes,
+    const std::unordered_map<long long, std::vector<Edge>> &edges,
+    Coord start_loc, Coord target_loc) {
+
+  auto closest = [&](Coord c) {
+    long long best = -1; double best_dist = std::numeric_limits<double>::max();
+    for (const auto &[id, n] : nodes) {
+      double d = heuristic(n.loc, c);
+      if (d < best_dist) { best_dist = d; best = id; }
+    }
+    return best;
+  };
+
+  long long start = closest(start_loc);
+  long long goal = closest(target_loc);
+
+  using State = std::pair<double, long long>; // cost, node id
+  std::priority_queue<State, std::vector<State>, std::greater<State>> open;
+  std::unordered_map<long long, double> g;
+  std::unordered_map<long long, long long> came_from;
+  std::unordered_set<long long> closed;
+
+  g[start] = 0.0;
+  open.push({heuristic(nodes.at(start).loc, nodes.at(goal).loc), start});
+
+  while (!open.empty()) {
+    auto [f, current] = open.top(); open.pop();
+    if (closed.count(current)) continue;
+    if (current == goal) break;
+
+    closed.insert(current);
+
+    for (const auto &e : edges.at(current)) {
+      if (closed.count(e.to)) continue;
+
+      double tentative = g[current] + e.cost;
+      if (!g.count(e.to) || tentative < g[e.to]) {
+        came_from[e.to] = current;
+        g[e.to] = tentative;
+        double fscore = tentative + heuristic(nodes.at(e.to).loc, nodes.at(goal).loc);
+        open.push({fscore, e.to});
+      }
+    }
+  }
+
+  std::vector<Coord> path;
+  for (long long cur = goal; cur != start; cur = came_from[cur]) {
+    path.push_back(nodes.at(cur).loc);
+  }
+  path.push_back(nodes.at(start).loc);
+  std::reverse(path.begin(), path.end());
+  return path;
+}
 
 int main(int argc, char **argv) {
   Robot *robot = new Robot();
@@ -98,12 +219,12 @@ int main(int argc, char **argv) {
   InertialUnit *imu = robot->getInertialUnit("inertial unit");
   imu->enable(TIME_STEP);
 
-  
   for (int i = 0; i < 4; i++) {
     wheels[i] = robot->getMotor(wheelNames[i]);
     wheels[i]->setPosition(INFINITY);
     wheels[i]->setVelocity(0.0);
   }
+
   for (int i = 0; i < 2; i++) {
     ds[i] = robot->getDistanceSensor(dsNames[i]);
     ds[i]->enable(TIME_STEP);
@@ -112,56 +233,47 @@ int main(int argc, char **argv) {
 
   if (navState == NavState::OBST_AVOID) {
     while (robot->step(TIME_STEP) != -1) {
-    double dsVals[2];
-    for (int i = 0; i < 2; i++) {
-      dsVals[i] = ds[i]->getValue();
-    }
-    
-    double leftVels = DEFAULT_VEL;
-    double rightVels = DEFAULT_VEL;
+      double dsVals[2];
+      for (int i = 0; i < 2; i++) dsVals[i] = ds[i]->getValue();
 
-    if (state == State::FORWARD) {
-      if (dsVals[0] > THRESH && dsVals[1] > THRESH) {
-        state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
-        turnCounter = 40;
-      } else if (dsVals[0] > THRESH) {
-        state = State::TURN_LEFT;
-        turnCounter = 30;
-      } else if (dsVals[1] > THRESH) {
-        state = State::TURN_RIGHT;
-        turnCounter = 30;
+      double leftVels = DEFAULT_VEL, rightVels = DEFAULT_VEL;
+
+      if (state == State::FORWARD) {
+        if (dsVals[0] > THRESH && dsVals[1] > THRESH) {
+          state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
+          turnCounter = 40;
+        } else if (dsVals[0] > THRESH) {
+          state = State::TURN_LEFT; turnCounter = 30;
+        } else if (dsVals[1] > THRESH) {
+          state = State::TURN_RIGHT; turnCounter = 30;
+        }
       }
-    }
 
-    switch (state) {
-      case State::FORWARD:
-        leftVels = DEFAULT_VEL;
-        rightVels = DEFAULT_VEL;
-        break;
-      case State::TURN_LEFT:
-        leftVels = DEFAULT_VEL / 4;
-        rightVels = DEFAULT_VEL;
-        turnCounter--;
-        break;
-      case State::TURN_RIGHT:
-        leftVels = DEFAULT_VEL;
-        rightVels = DEFAULT_VEL / 4;
-        turnCounter--;
-        break;
-    }
+      switch (state) {
+        case State::FORWARD: leftVels = rightVels = DEFAULT_VEL; break;
+        case State::TURN_LEFT: leftVels = DEFAULT_VEL / 4; rightVels = DEFAULT_VEL; turnCounter--; break;
+        case State::TURN_RIGHT: leftVels = DEFAULT_VEL; rightVels = DEFAULT_VEL / 4; turnCounter--; break;
+      }
 
-    if (turnCounter <= 0) {
-      state = State::FORWARD;
-    }
+      if (turnCounter <= 0) state = State::FORWARD;
 
-    wheels[0]->setVelocity(leftVels);
-    wheels[1]->setVelocity(rightVels);
-    wheels[2]->setVelocity(leftVels);
-    wheels[3]->setVelocity(rightVels);
-    logData(ds, wheels, gps, imu);
-    };
+      wheels[0]->setVelocity(leftVels);
+      wheels[1]->setVelocity(rightVels);
+      wheels[2]->setVelocity(leftVels);
+      wheels[3]->setVelocity(rightVels);
+      logData(ds, wheels, gps, imu);
+    }
   } else {
-    navToPoint(robot, wheels, gps, imu, ds, 50.0, -120.0, 0.5, 5);
+    std::string path = "/Users/irislitiu/Webots-sims/adjacency_map.json";
+    const auto path_nodes = getPathNodes(path);
+    const auto edges = getEdges(path);
+    const Coord start = {51.27, -105.17};
+    const Coord end = {79.66, -105.08};
+    std::vector<Coord> fullPath = generateAStarPath(path_nodes, edges, start, end);
+    printf("end coord is: x=%.2f, y=%.2f", fullPath.back().x, fullPath.back().y);
+    for (const Coord &c : fullPath) {
+      navToPoint(robot, wheels, gps, imu, ds, c.x, c.y, 0.5, 3);
+    }
   }
 
   delete robot;
