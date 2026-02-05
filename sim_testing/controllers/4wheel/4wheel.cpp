@@ -27,6 +27,7 @@ using json = nlohmann::json;
 #define DEFAULT_VEL 5
 #define SCALE_FACTOR 500.0
 #define THRESH 400
+#define TRANSLATION_ERR_THRESH 5
 
 using namespace webots;
 
@@ -55,13 +56,13 @@ double heuristic(const Coord &a, const Coord &b) {
 }
 
 void logData(DistanceSensor *ds[2], Motor *wheels[4], GPS *gps, InertialUnit *imu) {
-  printf("dist sensor vals: %.2f and %.2f\n", ds[0]->getValue(), ds[1]->getValue());
+  /*printf("dist sensor vals: %.2f and %.2f\n", ds[0]->getValue(), ds[1]->getValue());
   printf("left wheel velocities: %.2f, %.2f\n", wheels[0]->getVelocity(), wheels[2]->getVelocity());
-  printf("right wheel velocities: %.2f, %.2f\n", wheels[1]->getVelocity(), wheels[3]->getVelocity());
+  printf("right wheel velocities: %.2f, %.2f\n", wheels[1]->getVelocity(), wheels[3]->getVelocity());*/
 
   const double *gps_coords = gps->getValues();
   printf("gps: (%.2f m, %.2f m, %.2f)\n", gps_coords[0], gps_coords[1], gps_coords[2]);
-  printf("imu yaw (deg): %.2f\n", imu->getRollPitchYaw()[2] * 180 / 3.14159);
+  //printf("imu yaw (deg): %.2f\n", imu->getRollPitchYaw()[2] * 180 / 3.14159);
 }
 
 void navToPoint(Robot* robot, Motor *wheels[4], GPS *gps, InertialUnit *imu,
@@ -216,7 +217,7 @@ int main(int argc, char **argv) {
   camera->enable(TIME_STEP);
   GPS *gps = robot->getGPS("gps_main");
   gps->enable(TIME_STEP);
-  InertialUnit *imu = robot->getInertialUnit("inertial unit");
+  InertialUnit *imu = robot->getInertialUnit("inertial-unit");
   imu->enable(TIME_STEP);
 
   for (int i = 0; i < 4; i++) {
@@ -264,15 +265,20 @@ int main(int argc, char **argv) {
       logData(ds, wheels, gps, imu);
     }
   } else {
-    std::string path = "/Users/irislitiu/Webots-sims/adjacency_map.json";
+    std::string path = "/Users/irislitiu/Webots-sims/adjacency_map_manual.json";
     const auto path_nodes = getPathNodes(path);
     const auto edges = getEdges(path);
-    const Coord start = {51.27, -105.17};
-    const Coord end = {79.66, -105.08};
+    const Coord start = {57.7, -125.83};
+    const Coord end = {54.7, -117};
     std::vector<Coord> fullPath = generateAStarPath(path_nodes, edges, start, end);
-    printf("end coord is: x=%.2f, y=%.2f", fullPath.back().x, fullPath.back().y);
-    for (const Coord &c : fullPath) {
-      navToPoint(robot, wheels, gps, imu, ds, c.x, c.y, 0.5, 3);
+    for (Coord &c : fullPath) {
+      printf("coord (%.2f, %.2f)\n", c.x, c.y);
+    }
+    printf("end coord is: x=%.2f, y=%.2f\n", fullPath.back().x, fullPath.back().y);
+    for (int i = 0; i < fullPath.size(); i++) {
+      Coord c = fullPath.at(i);
+      printf("currently at iteration %.2d\n", i);
+      navToPoint(robot, wheels, gps, imu, ds, c.x, c.y, 0.05, 1);
     }
   }
 

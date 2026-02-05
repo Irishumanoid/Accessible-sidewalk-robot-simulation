@@ -13,6 +13,8 @@ IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R20
 IMPORTABLE EXTERNPROTO "../protos/SurfaceProblemMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoCurbRampMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoSidewalkMarker.proto"
+IMPORTABLE EXTERNPROTO "../protos/PoleMarker.proto"
+EXTERNPROTO "../protos/FourWheelsRobot.proto"
 
 WorldInfo {
   info [
@@ -23,8 +25,8 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation 0.24554239390474855 -0.7121723825242499 -0.6576620943655327 5.31745641125061
-  position -14.997941542787872 0.18412049973190747 24.984738330649375
+  orientation 0.4033125939906577 -0.3486061788107436 -0.846057139691817 4.4044309186831265
+  position 1.5112145959177248 -21.019581662235456 34.20116482920881
   near 3
 }
 TexturedBackground {
@@ -3817,196 +3819,6 @@ PedestrianCrossing {
   rotation 0 0 1 1.583349
   name "pedestrian crossing(97)"
   size 4 1.6
-}
-Robot {
-  translation 2.703105658883773 20.68075175912229 0.145122412341878
-  rotation -2.7722561690399365e-08 1.157870551846939e-08 0.9999999999999996 1.8889563741355608
-  children [
-    InertialUnit {
-    }
-    DEF BODY Shape {
-      appearance PBRAppearance {
-        baseColor 0.917647 0.145098 0.145098
-        roughness 1
-        metalness 0
-      }
-      geometry Box {
-        size 1 0.5 0.25
-      }
-    }
-    DEF WHEEL1 HingeJoint {
-      jointParameters HingeJointParameters {
-        position 369.25222362084764
-        axis 0 1 0
-        anchor 0.25 0.3 0
-      }
-      device [
-        RotationalMotor {
-          name "wheel1"
-          maxTorque 100
-        }
-      ]
-      endPoint Solid {
-        translation 0.25 0.3 0
-        rotation -0.6216127340023371 0.553893200471119 -0.5538952350381796 4.253908998894463
-        children [
-          DEF WHEEL Shape {
-            appearance PBRAppearance {
-              baseColor 0.305882 0.898039 0.25098
-              roughness 1
-              metalness 0
-            }
-            geometry Cylinder {
-              height 0.1
-              radius 0.2
-              subdivision 24
-            }
-          }
-        ]
-        boundingObject USE WHEEL
-        physics Physics {
-        }
-        linearVelocity -2.172496718327708e-06 1.6888538796248538e-05 7.664816062108537e-07
-        angularVelocity -2.7387154143237474e-06 -1.7779657749518583e-06 6.201489594839412e-07
-      }
-    }
-    DEF WHEEL2 HingeJoint {
-      jointParameters HingeJointParameters {
-        position 335.23568337223514
-        axis 0 1 0
-        anchor 0.25 -0.3 0
-      }
-      device [
-        RotationalMotor {
-          name "wheel2"
-          maxTorque 100
-        }
-      ]
-      endPoint Solid {
-        translation 0.25 -0.3 0
-        rotation -0.32868272933012604 -0.6678189826067888 0.6678214356473836 3.7767088495553685
-        children [
-          USE WHEEL
-        ]
-        name "solid(1)"
-        boundingObject USE WHEEL
-        physics Physics {
-        }
-        linearVelocity -4.076727743662864e-06 2.0866069807850957e-05 8.29689726757492e-07
-        angularVelocity -4.310072570607851e-06 -2.185106828513186e-06 6.203698720222917e-07
-      }
-    }
-    DEF WHEEL3 HingeJoint {
-      jointParameters HingeJointParameters {
-        position 361.89201732996696
-        axis 0 1 0
-        anchor -0.25 0.3 0
-      }
-      device [
-        RotationalMotor {
-          name "wheel3"
-          maxTorque 100
-        }
-      ]
-      endPoint Solid {
-        translation -0.25 0.3 0
-        rotation 0.21688370901847018 -0.6902745672337647 0.6902771027584723 2.7144422890775264
-        children [
-          USE WHEEL
-        ]
-        name "solid(2)"
-        boundingObject USE WHEEL
-        physics Physics {
-        }
-        linearVelocity 1.2060463026600624e-05 -2.0868553998031078e-05 -8.297007908502919e-07
-        angularVelocity 1.1524624055682078e-05 2.6459340168591613e-06 6.19206451963453e-07
-      }
-    }
-    DEF WHEEL4 HingeJoint {
-      jointParameters HingeJointParameters {
-        position 326.1003208063351
-        axis 0 1 0
-        anchor -0.25 -0.3 0
-      }
-      device [
-        RotationalMotor {
-          name "wheel4"
-          maxTorque 100
-        }
-      ]
-      endPoint Solid {
-        translation -0.25 -0.3 0
-        rotation 0.9094691851207412 -0.29399418901083496 0.29399526891376365 1.6655520472474115
-        children [
-          USE WHEEL
-        ]
-        name "solid(3)"
-        boundingObject USE WHEEL
-        physics Physics {
-        }
-        linearVelocity -5.097260695181959e-06 -1.9422488832683053e-05 -7.664926753862162e-07
-        angularVelocity 8.162388737757756e-06 4.873744328384547e-06 6.197169685629385e-07
-      }
-    }
-    DEF DS_RIGHT DistanceSensor {
-      translation 0.5 -0.15 0
-      rotation 0 0 1 -0.3
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.184314 0.596078 0.847059
-            roughness 1
-            metalness 0
-          }
-          geometry Box {
-            size 0.05 0.05 0.05
-          }
-        }
-      ]
-      name "ds_right"
-      lookupTable [
-        0 1000 0
-        5 0 0
-      ]
-    }
-    Camera {
-      translation 0.5 0 0.1375
-      fieldOfView 2.287
-      width 752
-      height 480
-      near 0.06
-    }
-    DEF DS_LEFT DistanceSensor {
-      translation 0.5 0.15 0
-      rotation 0 0 1 0.3
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.184314 0.596078 0.847059
-            roughness 1
-            metalness 0
-          }
-          geometry Box {
-            size 0.05 0.05 0.05
-          }
-        }
-      ]
-      name "ds_left"
-      lookupTable [
-        0 1000 0
-        5 0 0
-      ]
-    }
-    DEF GPS_MAIN GPS {
-      name "gps_main"
-    }
-  ]
-  boundingObject USE BODY
-  physics Physics {
-    density -1
-    mass 125
-  }
-  controller "4wheel"
 }
 Road {
   translation 37.379316 -18.425634 0.01
@@ -9412,7 +9224,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation -3.73 -5 0
+  translation -7.27267 25.8995 -2.97059e-14
   name "building(215)"
   floorNumber 2
   corners [
@@ -16726,4 +16538,35 @@ DEF NoCurbRamp_MARKER_109 NoCurbRampMarker {
 DEF NoCurbRamp_MARKER_110 NoCurbRampMarker {
   translation 48.997937 -142.025113 0
   name "NoCurbRamp_MARKER_110"
+}
+FourWheelsRobot {
+  hidden position_0_0 327.0896804768455
+  hidden position_0_1 294.87784200377666
+  hidden position_0_2 328.05940610754004
+  hidden position_0_3 292.271077526805
+  hidden rotation_1 0.9677520030944178 0.17812331040548376 -0.17812396469013844 1.6035735490881187
+  hidden rotation_2 -0.9550999487786181 0.20950389661545962 -0.20950466616765334 4.666462175477169
+  hidden rotation_3 0.6682497218423107 0.5260419547671844 -0.5260438870307248 1.9634005188930905
+  hidden rotation_4 -0.03641022017925456 0.7066366207362099 -0.7066392163622167 3.214380672937634
+  translation 4.83031 -1.66427 0.145128
+  rotation -1.1523487066448618e-07 -1.0783932068533614e-07 -0.9999999999999877 -0.10315393496525083
+}
+DEF POLE_MARKER_1 PoleMarker {
+  translation 10.46580000000134 -0.6346429999987862 20.552511895912655
+}
+DEF POLE_MARKER_2 PoleMarker {
+  hidden rotation_0 -0.24884878499173466 -0.707099071963959 0.6618800379493593 0.0010510457818123234
+  baseColor 0.664134 0.055283 0
+  translation 7.494303844021611 6.512823108677917 18.819202534383606
+}
+DEF POLE_MARKER_3 PoleMarker {
+  hidden rotation_0 -0.15651648337692753 -0.3666701750643767 -0.9170908205568189 0.0008100849495514307
+  translation 4.56037 7.69077 17.7339
+}
+DEF POLE_MARKER_4 PoleMarker {
+  hidden rotation_0 -0.17236949007222555 -0.235030783183145 -0.9565820873550573 0.00010253282317985398
+  translation -2.59568 -2.4926 17.5948
+}
+DEF POLE_MARKER_5 PoleMarker {
+  translation -1.67057 0.100465 17.4561
 }

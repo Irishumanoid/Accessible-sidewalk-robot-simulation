@@ -1,0 +1,23 @@
+#VRML_SIM R2025a utf8
+PROTO PoleMarker [
+  field SFColor baseColor 0 0.576852 0.607004
+  field SFVec3f translation 0 0 25
+]
+{
+  DEF POLE Solid {
+    translation IS translation
+    rotation -0.7575287157116651 0.6454682548075726 -0.09757549337770113 7.608850401229975e-15
+    children [
+      Shape {
+        appearance PBRAppearance {
+          baseColor IS baseColor
+          metalness 0
+        }
+        geometry DEF BOX Box {
+          size 0.3 0.3 50
+        }
+      }
+    ]
+    boundingObject USE BOX
+  }
+}
