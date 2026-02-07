@@ -93,7 +93,7 @@ int main(int argc, char **argv) {
   // read new markers from file
   std::ifstream csvFile("/Users/irislitiu/Webots-sims/translations.csv");
   if (!csvFile.is_open()) {
-    std::cerr << "Failed to open csv\n";
+    std::cerr << "Failed to open markers csv\n";
     delete robot;
     return 1;
   }
@@ -136,7 +136,7 @@ int main(int argc, char **argv) {
   csvFile.close();
 
 
-  csvFile.open("/Users/irislitiu/Webots-sims/adjacency_map_nodes_manual.csv");
+  csvFile.open("/Users/irislitiu/Webots-sims/adjacency_map_nodes_correct.csv");
   if (!csvFile.is_open()) {
     std::cerr << "Failed to open csv\n";
     delete robot;
@@ -165,14 +165,8 @@ int main(int argc, char **argv) {
       entries[4] == "True",
       entries[1],                          
       std::stod(entries[2]),  
-      std::stod(entries[3])                  
+      std::stod(entries[3])                 
     );
-
-    if (pole) {
-      std::cout << entries[1] << " pole created successfully at (" 
-          << (std::stod(entries[2]) + 47.7) << ", " 
-          << (std::stod(entries[3]) - 122) << ")\n";
-    }
   }
   csvFile.close();
 

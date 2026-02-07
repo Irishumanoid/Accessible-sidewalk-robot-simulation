@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <string>
 #include <fstream>
+#include <iostream>
 
 #include "json.hpp"
 using json = nlohmann::json;
@@ -28,6 +29,11 @@ using json = nlohmann::json;
 #define SCALE_FACTOR 500.0
 #define THRESH 400
 #define TRANSLATION_ERR_THRESH 5
+#define RAD_CONV 3.14159/180
+#define EARTH_RAD 6378137
+#define LAT_CENTER 47.686
+#define OFFSET_X 44.7
+#define OFFSET_Y -122
 
 using namespace webots;
 
@@ -51,8 +57,12 @@ struct Edge {
   double cost;
 };
 
+
 double heuristic(const Coord &a, const Coord &b) {
-  return std::sqrt(std::pow(a.x - b.x, 2) + std::pow(a.y - b.y, 2));
+  double dx = (b.x - a.x) * RAD_CONV * EARTH_RAD * std::cos(RAD_CONV * LAT_CENTER);
+  double dy = (b.y - a.y) * RAD_CONV * EARTH_RAD;
+  return std::sqrt(std::pow(dx, 2) + std::pow(dy, 2));
+  //return std::sqrt(std::pow(a.x - b.x, 2) + std::pow(a.y - b.y, 2));  
 }
 
 void logData(DistanceSensor *ds[2], Motor *wheels[4], GPS *gps, InertialUnit *imu) {
@@ -61,7 +71,7 @@ void logData(DistanceSensor *ds[2], Motor *wheels[4], GPS *gps, InertialUnit *im
   printf("right wheel velocities: %.2f, %.2f\n", wheels[1]->getVelocity(), wheels[3]->getVelocity());*/
 
   const double *gps_coords = gps->getValues();
-  printf("gps: (%.2f m, %.2f m, %.2f)\n", gps_coords[0], gps_coords[1], gps_coords[2]);
+  //printf("gps: (%.2f m, %.2f m, %.2f)\n", gps_coords[0], gps_coords[1], gps_coords[2]);
   //printf("imu yaw (deg): %.2f\n", imu->getRollPitchYaw()[2] * 180 / 3.14159);
 }
 
@@ -90,16 +100,59 @@ void navToPoint(Robot* robot, Motor *wheels[4], GPS *gps, InertialUnit *imu,
     }
   }
 
-  // drive straight
+  bool close_to_thresh = false;
+  bool interrupt = false;
+  int moveCounter = 0;
+  double dsVals[2];
   while (robot->step(TIME_STEP) != -1) {
     logData(ds, wheels, gps, imu);
-    cur_pos = gps->getValues();
-    cur_x = cur_pos[0]; cur_y = cur_pos[1];
-    double error = std::sqrt(std::pow(target_x - cur_x, 2) + std::pow(target_y - cur_y, 2));
-    if (error < pos_thresh) break;
+    for (int i = 0; i < 2; i++) dsVals[i] = ds[i]->getValue();
+    // manual path override for obstacle avoidance
+    if (state == State::FORWARD && (dsVals[0] > THRESH || dsVals[1] > THRESH)) {
+      interrupt = true;
+      if (dsVals[0] > THRESH && dsVals[1] > THRESH) {
+        state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
+        turnCounter = 40;
+      } else if (dsVals[0] > THRESH) {
+        state = State::TURN_LEFT; turnCounter = 30;
+      } else if (dsVals[1] > THRESH) {
+        state = State::TURN_RIGHT; turnCounter = 30;
+      }
+    }
+    // if interrupt ever becomes true, call navToPoint again after diverting robot so it reaches the correct endpoint
+    if (interrupt && (turnCounter > 0 || moveCounter > 0)) {
+      double leftVels = DEFAULT_VEL, rightVels = DEFAULT_VEL;
+      switch (state) {
+        case State::FORWARD: leftVels = rightVels = DEFAULT_VEL; break;
+        case State::TURN_LEFT: leftVels = DEFAULT_VEL / 4; rightVels = DEFAULT_VEL; turnCounter--; break;
+        case State::TURN_RIGHT: leftVels = DEFAULT_VEL; rightVels = DEFAULT_VEL / 4; turnCounter--; break;
+      }
+      if (turnCounter <= 0) {
+        state = State::FORWARD;
+        moveCounter = 20;
+      }
+      if (moveCounter > 0) moveCounter--;
+      wheels[0]->setVelocity(leftVels);
+      wheels[1]->setVelocity(rightVels);
+      wheels[2]->setVelocity(leftVels);
+      wheels[3]->setVelocity(rightVels);
+    } else if (!interrupt) {
+      cur_pos = gps->getValues();
+      cur_x = cur_pos[0]; cur_y = cur_pos[1];
+      double error = std::sqrt(std::pow(target_x - cur_x, 2) + std::pow(target_y - cur_y, 2));
+      if (error < pos_thresh) break;
+      if (error < pos_thresh * 2) close_to_thresh = true;
+      if (close_to_thresh && error > pos_thresh * 2) {
+        printf("overshot end location, stopped at (%.2f, %.2f)", cur_x, cur_y);
+        break;
+      }
 
-    for (int i = 0; i < 4; i++) {
-      wheels[i]->setVelocity(DEFAULT_VEL);
+      for (int i = 0; i < 4; i++) {
+        wheels[i]->setVelocity(DEFAULT_VEL);
+      }
+    } else {
+      // reschedule navToPoint
+      return navToPoint(robot, wheels, gps, imu, ds, target_x, target_y, rot_thresh, pos_thresh);
     }
   }
 
@@ -119,8 +172,8 @@ const std::unordered_map<long long, PathNode> getPathNodes(const std::string &fi
     const json &n = it.value();
 
     PathNode node;
-    node.loc.x = n.at("x").get<double>();
-    node.loc.y = n.at("y").get<double>();
+    node.loc.x = n.at("x").get<double>()+OFFSET_X;
+    node.loc.y = n.at("y").get<double>()+OFFSET_Y;
     node.issue = n.at("issue").get<bool>();
 
     nodes.emplace(id, node);
@@ -265,11 +318,11 @@ int main(int argc, char **argv) {
       logData(ds, wheels, gps, imu);
     }
   } else {
-    std::string path = "/Users/irislitiu/Webots-sims/adjacency_map_manual.json";
+    std::string path = "/Users/irislitiu/Webots-sims/adjacency_map.json";
     const auto path_nodes = getPathNodes(path);
     const auto edges = getEdges(path);
-    const Coord start = {57.7, -125.83};
-    const Coord end = {54.7, -117};
+    const Coord start = {38.6+OFFSET_X, -66.1+OFFSET_Y};
+    const Coord end = {15.8+OFFSET_X, -53.4+OFFSET_Y};
     std::vector<Coord> fullPath = generateAStarPath(path_nodes, edges, start, end);
     for (Coord &c : fullPath) {
       printf("coord (%.2f, %.2f)\n", c.x, c.y);

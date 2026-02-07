@@ -169,7 +169,7 @@ PROTO FourWheelsRobot [
         ]
         name "ds_left"
         lookupTable [
-          0 1000 0
+          0 1000 0 
           5 0 0
         ]
       }
