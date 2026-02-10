@@ -90,12 +90,13 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
                 DistanceSensor *ds[2], double target_x, double target_y,
                 double rot_thresh, double pos_thresh) {
 
-  enum class NavMode { TURN_TO_TARGET, MOVE_TO_TARGET, AVOID_OBSTACLE, CROSS_STREET };
+  enum class NavMode { TURN_TO_TARGET, MOVE_TO_TARGET, AVOID_OBSTACLE };
   NavMode mode = NavMode::TURN_TO_TARGET;
 
   int turn_counter = 0;
   int move_counter = 0;
   State avoid_state = State::FORWARD;
+  double crosswalk_target_angle = 0;
 
   while (robot->step(TIME_STEP) != -1) {
     logData(ds, wheels, gps, imu);
@@ -113,7 +114,6 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
     double dist_err = std::sqrt(dx * dx + dy * dy);
 
     bool crosswalk_detected = false;
-    double crosswalk_target_angle = 0;
     const CameraRecognitionObject *detected_objs = camera->getRecognitionObjects();
     
     for (int i = 0; i < camera->getRecognitionNumberOfObjects(); i++) {
@@ -123,18 +123,14 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
 
       printf("obj name: %s at distance %.2f \n", obj.model, distance);
       if (std::string(obj.model).compare("pedestrian crossing") == 0 && distance < 4.0) {
-        double rel_yaw = std::atan2(position[0], position[2]);
-        if (crosswalk_target_angle == 0) {
-          crosswalk_target_angle = cur_yaw + rel_yaw;
-        }
+        double rel_yaw = std::atan2(position[0], position[1]);
+        double cur_detection = cur_yaw + rel_yaw + M_PI / 2; // +90 degrees so parallel to crosswalk, not stripes
+        crosswalk_target_angle = 0.9 * crosswalk_target_angle + 0.1 * cur_detection; // smoothing
+        printf("crosswalk detected at angle: %.2f\n", crosswalk_target_angle);
         crosswalk_detected = true;
-        if (mode != NavMode::CROSS_STREET) {
-          mode = NavMode::TURN_TO_TARGET;
-        }
       }
     }
     printf("**************************\n");
-
     bool obstacle = dsVals[0] > THRESH || dsVals[1] > THRESH;
     if (obstacle && mode != NavMode::AVOID_OBSTACLE) {
       mode = NavMode::AVOID_OBSTACLE;
@@ -155,15 +151,14 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
     switch (mode) {
       case NavMode::TURN_TO_TARGET: {
         printf("MODE: TURN_TO_TARGET\n");
-        double target_angle = crosswalk_detected ? crosswalk_target_angle : std::atan2(dy, dx);
+        double target_angle = std::atan2(dy, dx);
         double err = target_angle - cur_yaw;
-
         while (err > M_PI) err -= 2 * M_PI;
         while (err < -M_PI) err += 2 * M_PI;
 
         if (std::abs(err) < rot_thresh) {
           stopWheels(wheels);
-          mode = crosswalk_detected ? NavMode::CROSS_STREET : NavMode::MOVE_TO_TARGET;
+          mode = NavMode::MOVE_TO_TARGET;
           break;
         }
 
@@ -209,21 +204,12 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
           wheels[i]->setVelocity(i % 2 == 0 ? leftVels : rightVels);
         }
         break;
-      } case NavMode::CROSS_STREET: {
-        printf("MODE: CROSS_STREET\n");
-        if (crosswalk_detected) {
-          for (int i = 0; i < 4; i++) wheels[i]->setVelocity(DEFAULT_VEL);
-        } else {
-          mode = NavMode::TURN_TO_TARGET;
-        }
-        break;
       }
     }
   }
 
   stopWheels(wheels);
 }
-
 
 const std::unordered_map<long long, PathNode> getPathNodes(const std::string &filepath) {
   std::ifstream file(filepath);
@@ -306,10 +292,29 @@ std::vector<Coord> generateAStarPath(
     for (const auto &e : edges.at(current)) {
       if (closed.count(e.to)) continue;
 
-      double tentative = g[current] + e.cost;
+      PathNode nodeFrom = nodes.at(current);
+      PathNode nodeTo = nodes.at(e.to);
+      double cur_yaw = std::atan2(nodeTo.loc.y - nodeFrom.loc.y, nodeTo.loc.x - nodeFrom.loc.x);
+
+      double prev_yaw = cur_yaw;
+      if (came_from.count(current)) {
+        PathNode prev = nodes.at(came_from[current]);
+        prev_yaw = std::atan2(nodeFrom.loc.y - prev.loc.y, nodeFrom.loc.x - prev.loc.x);
+      }
+
+      double d_theta = cur_yaw - prev_yaw;
+      while (d_theta > M_PI) d_theta -= 2 * M_PI;
+      while (d_theta < -M_PI) d_theta += 2 * M_PI;
+      d_theta = fabs(d_theta);
+
+      double cost = heuristic(nodeFrom.loc, nodeTo.loc);
+      if (d_theta > M_PI / 4) cost *= 5.0;
+
+      double tentative = g[current] + cost;
       if (!g.count(e.to) || tentative < g[e.to]) {
         came_from[e.to] = current;
         g[e.to] = tentative;
+
         double fscore = tentative + heuristic(nodes.at(e.to).loc, nodes.at(goal).loc);
         open.push({fscore, e.to});
       }

@@ -24,8 +24,8 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation 0.42941853913624695 0.44412322008622357 -0.7863550620593318 1.7760110762962387
-  position 26.116691500953763 -28.437894703348753 44.154750289336484
+  orientation 0.2159012353069768 0.249379176080749 -0.9440321409412967 1.4843333520895994
+  position 21.15088454306986 -9.230446068809613 27.49713423491096
   near 3
 }
 TexturedBackground {
@@ -1320,13 +1320,13 @@ PedestrianCrossing {
   size 8 3.2
 }
 PedestrianCrossing {
-  translation 426.023759 25.470432 -0.07
+  translation 426.023759 28.470432 -0.07
   rotation 0 0 1 1.575635
   name "pedestrian crossing(2)"
   size 8 3.2
 }
 PedestrianCrossing {
-  translation 444.207283 25.64586 -0.07
+  translation 444.207283 28.64586 -0.07
   rotation 0 0 1 1.584756
   name "pedestrian crossing(3)"
   size 8 3.2
@@ -2304,7 +2304,7 @@ PedestrianCrossing {
   size 4 1.6
 }
 PedestrianCrossing {
-  translation -214.391804 253.997326 -0.07
+  translation -214.391804 283.997326 -0.07
   rotation 0 0 1 0.007623
   name "pedestrian crossing(49)"
   size 4 1.6
@@ -4211,7 +4211,7 @@ Road {
   wayPoints [
     0 0 0
     -0.08799 4.146524 0
-    -0.60094 25.204578 0
+    -0.60094 28.204578 0
     -0.80666 40.907912 0
     -0.807333 45.49827 0
     -1.138791 60.077975 0
@@ -4240,7 +4240,7 @@ PedestrianCrossing {
   size 8 3.2
 }
 PedestrianCrossing {
-  translation -172.558053 254.689838 -0.07
+  translation -172.558053 284.689838 -0.07
   rotation 0 0 1 0.028745
   name "pedestrian crossing(113)"
   size 8 3.2
@@ -4594,7 +4594,7 @@ PedestrianCrossing {
   size 4 1.6
 }
 PedestrianCrossing {
-  translation 231.083715 257.273499 -0.07
+  translation 231.083715 287.273499 -0.07
   rotation 0 0 1 0.00337
   name "pedestrian crossing(120)"
   size 4 1.6
@@ -4984,7 +4984,7 @@ Road {
   splineSubdivision 0
 }
 Road {
-  translation 29.440838 258.474901 0.01
+  translation 29.440838 288.474901 0.01
   name "Dayton Avenue North(7)"
   id "965644803_1"
   endJunction "53142717"
@@ -5011,7 +5011,7 @@ Road {
   splineSubdivision 0
 }
 PedestrianCrossing {
-  translation 29.483039 256.118939 -0.07
+  translation 29.483039 286.118939 -0.07
   rotation 0 0 1 3.140976
   name "pedestrian crossing(131)"
   size 8 3.2
@@ -11509,7 +11509,7 @@ SimpleBuilding {
   wallType "transparent highrise"
 }
 SimpleBuilding {
-  translation 256.93 -42.23 0
+  translation 286.93 -42.23 0
   name "building(333)"
   floorNumber 2
   corners [
@@ -11528,7 +11528,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 254.71 132.53 0
+  translation 284.71 132.53 0
   name "building(334)"
   floorNumber 2
   corners [
@@ -11599,7 +11599,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 256.23 10.95 0
+  translation 286.23 10.95 0
   name "building(337)"
   floorNumber 2
   corners [
@@ -11657,7 +11657,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 258.72 129.59 0
+  translation 288.72 129.59 0
   name "building(340)"
   floorNumber 2
   corners [
@@ -11945,7 +11945,7 @@ SimpleBuilding {
     -6.1 15.94
     -8.64 15.92
     -8.7 24.95
-    0.01 25
+    0.01 28
     0.06 16.24
     -4.83 16.21
     -4.83 15.16
@@ -12718,7 +12718,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 259.48 -180.33 0
+  translation 289.48 -180.33 0
   name "building(394)"
   floorNumber 2
   corners [
@@ -12874,7 +12874,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 251.69 -83.62 0
+  translation 281.69 -83.62 0
   name "building(404)"
   floorNumber 2
   corners [
@@ -13178,7 +13178,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 25.8587 9.68622 5.84706e-16
+  translation 28.8587 9.68622 5.84706e-16
   name "building(415)"
   floorNumber 2
   corners [
@@ -13245,7 +13245,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 256.95 59.57 0
+  translation 286.95 59.57 0
   name "building(418)"
   floorNumber 2
   corners [
@@ -13260,7 +13260,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 257.96 76.1 0
+  translation 287.96 76.1 0
   name "building(419)"
   floorNumber 2
   corners [
@@ -13555,8 +13555,8 @@ SimpleBuilding {
     0.74 21.87
     0.78 19.57
     27.42 19.97
-    27.34 25.23
-    33.55 25.33
+    27.34 28.23
+    33.55 28.33
     33.58 23.16
     39.66 23.26
     40.02 -1.55
@@ -13583,7 +13583,7 @@ SimpleBuilding {
     -19.5 26.24
     -15.7 27.22
     -12.12 27.16
-    -7.67 25.7
+    -7.67 28.7
     -7.77 23.45
     0.05 23.59
   ]
@@ -13615,7 +13615,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 255.85 -4.7 0
+  translation 285.85 -4.7 0
   name "building(434)"
   corners [
     0 0
@@ -13688,7 +13688,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 251.56 -150.19 0
+  translation 281.56 -150.19 0
   name "building(436)"
   corners [
     0 0
@@ -14517,7 +14517,7 @@ SimpleBuilding {
   wallType "glass highrise"
 }
 SimpleBuilding {
-  translation 25.58 -28.01 0
+  translation 28.58 -28.01 0
   name "building(504)"
   corners [
     0 0
@@ -14871,7 +14871,7 @@ SimpleBuilding {
   wallType "orange building"
 }
 SimpleBuilding {
-  translation 251.85 -104.55 0
+  translation 281.85 -104.55 0
   name "building(536)"
   corners [
     0 0
@@ -15469,7 +15469,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 257.14 218.5 0
+  translation 287.14 218.5 0
   name "building(577)"
   corners [
     0 0
@@ -15725,7 +15725,7 @@ SimpleBuilding {
   wallType "old building"
 }
 SimpleBuilding {
-  translation 250.88 -195.31 0
+  translation 280.88 -195.31 0
   name "building(598)"
   corners [
     0 0
@@ -16039,7 +16039,7 @@ DEF parking Pose {
             0 0 -0.01
             22.79 -0.06 -0.01
             23.39 -3.3 -0.01
-            25.02 -3.25 -0.01
+            28.02 -3.25 -0.01
             27.16 -3.2 -0.01
             27.61 -0.39 -0.01
             50.87 -0.12 -0.01
@@ -16099,8 +16099,8 @@ DEF parking Pose {
   ]
 }
 Robot {
-  translation 34.8072 -62.9136 0.145122
-  rotation 3.311133187131918e-08 -2.7649469334454085e-08 -0.9999999999999992 1.3908972159512474
+  translation 34.807200010050764 -62.91360000010223 0.14512259472585623
+  rotation 9.951755243595029e-09 -8.319863085354829e-09 -1 1.3779269462899866
   children [
     DEF BODY Shape {
       appearance PBRAppearance {
@@ -16114,7 +16114,7 @@ Robot {
     }
     DEF WHEEL1 HingeJoint {
       jointParameters HingeJointParameters {
-        position 2318.089520626836
+        position 2318.0575402224013
         axis 0 1 0
         anchor 0.25 0.3 0
       }
@@ -16126,7 +16126,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 0.3 0
-        rotation -0.9601745712750207 0.1975658193221136 -0.19756654502322069 4.671756326659682
+        rotation -0.9538969171587898 0.2122266954817129 -0.21222747503532383 4.665203160151936
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
@@ -16144,11 +16144,13 @@ Robot {
         boundingObject USE WHEEL
         physics Physics {
         }
+        linearVelocity 0.00290799552066722 0.0053683006370130095 4.598438629195696e-06
+        angularVelocity -0.036013385228760145 -0.007022440267821736 0.015605463922264839
       }
     }
     DEF WHEEL2 HingeJoint {
       jointParameters HingeJointParameters {
-        position 2371.5381308445285
+        position 2371.5701839666867
         axis 0 1 0
         anchor 0.25 -0.3 0
       }
@@ -16160,7 +16162,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 -0.3 0
-        rotation -0.12916060363042478 -0.7011825463254329 0.7011851219174623 3.3984906589393886
+        rotation -0.11774333811792774 -0.70218689963827 0.7021894789195019 3.3759992172421094
         children [
           USE WHEEL
         ]
@@ -16168,11 +16170,13 @@ Robot {
         boundingObject USE WHEEL
         physics Physics {
         }
+        linearVelocity 0.00467887384338185 -0.0038791613345350155 4.60002229228528e-06
+        angularVelocity 0.036125221821333174 0.007058502145428826 0.015595775117311486
       }
     }
     DEF WHEEL3 HingeJoint {
       jointParameters HingeJointParameters {
-        position 1941.943544664305
+        position 1941.9114915421258
         axis 0 1 0
         anchor -0.25 0.3 0
       }
@@ -16184,7 +16188,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 0.3 0
-        rotation -0.953603321869 -0.2128853818120369 0.21288616378513617 4.664895672511496
+        rotation -0.9599133458572783 -0.19819949527521832 0.1982002233039452 4.671484455400255
         children [
           USE WHEEL
         ]
@@ -16192,11 +16196,13 @@ Robot {
         boundingObject USE WHEEL
         physics Physics {
         }
+        linearVelocity -0.004678859529460681 0.003879157797637283 4.598573665634258e-06
+        angularVelocity -0.03612522246703435 -0.007058496782646805 0.015595773901580056
       }
     }
     DEF WHEEL4 HingeJoint {
       jointParameters HingeJointParameters {
-        position 1924.7747875838882
+        position 1924.8067679884093
         axis 0 1 0
         anchor -0.25 -0.3 0
       }
@@ -16208,7 +16214,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 -0.3 0
-        rotation 0.3683655082219168 0.6573825665379629 -0.6573849812433881 2.4357120748760264
+        rotation 0.356443304479369 0.6606606406371439 -0.6606630673836298 2.4567882064698923
         children [
           USE WHEEL
         ]
@@ -16216,6 +16222,8 @@ Robot {
         boundingObject USE WHEEL
         physics Physics {
         }
+        linearVelocity -0.0029079812345949876 -0.0053683040569772085 4.6001721733292605e-06
+        angularVelocity 0.03601338501580032 0.0070224457257186765 0.015605465141673982
       }
     }
     DEF DS_RIGHT DistanceSensor {
@@ -16286,6 +16294,8 @@ Robot {
     mass 125
   }
   controller "4wheel"
+  linearVelocity 7.1500946253573125e-09 -1.7397376596903155e-09 -1.3298014507745211e-06
+  angularVelocity -2.3127131941120447e-10 2.699008749743061e-09 0.015600836368680458
 }
 DEF SurfaceProblem_MARKER_1 SurfaceProblemMarker {
   translation 305.790606 114.380777 0
@@ -16420,7 +16430,7 @@ DEF SurfaceProblem_MARKER_33 SurfaceProblemMarker {
   name "SurfaceProblem_MARKER_33"
 }
 DEF SurfaceProblem_MARKER_34 SurfaceProblemMarker {
-  translation 257.529571 98.796048 0
+  translation 287.529571 98.796048 0
   name "SurfaceProblem_MARKER_34"
 }
 DEF SurfaceProblem_MARKER_35 SurfaceProblemMarker {
@@ -16692,7 +16702,7 @@ DEF NoCurbRamp_MARKER_101 NoCurbRampMarker {
   name "NoCurbRamp_MARKER_101"
 }
 DEF NoCurbRamp_MARKER_102 NoCurbRampMarker {
-  translation 25.516898 192.081781 0
+  translation 28.516898 192.081781 0
   name "NoCurbRamp_MARKER_102"
 }
 DEF NoCurbRamp_MARKER_103 NoCurbRampMarker {
@@ -16728,1378 +16738,1378 @@ DEF NoCurbRamp_MARKER_110 NoCurbRampMarker {
   name "NoCurbRamp_MARKER_110"
 }
 DEF POLE_MARKER_12234207233 PoleMarker {
-  translation -276.024638 54.101273 25
+  translation -276.024638 54.101273 28
 }
 DEF POLE_MARKER_12289740803 PoleMarker {
-  translation -365.674755 -52.899022 25
+  translation -365.674755 -52.899022 28
 }
 DEF POLE_MARKER_12234207236 PoleMarker {
-  translation -160.168181 95.801554 25
+  translation -160.168181 95.801554 28
 }
 DEF POLE_MARKER_12289740806 PoleMarker {
-  translation -276.279433 28.38647 25
+  translation -276.279433 28.38647 28
 }
 DEF POLE_MARKER_12289740810 PoleMarker {
-  translation -181.803213 95.055713 25
+  translation -181.803213 95.055713 28
 }
 DEF POLE_MARKER_12289740811 PoleMarker {
-  translation -363.284185 28.664769 25
+  translation -363.284185 28.664769 28
 }
 DEF POLE_MARKER_12289740813 PoleMarker {
-  translation -365.847116 12.389859 25
+  translation -365.847116 12.389859 28
 }
 DEF POLE_MARKER_12234207240 PoleMarker {
-  translation -160.392999 111.419678 25
+  translation -160.392999 111.419678 28
 }
 DEF POLE_MARKER_12234207255 PoleMarker {
-  translation -181.630852 257.849337 25
+  translation -181.630852 287.849337 28
 }
 DEF POLE_MARKER_12234207254 PoleMarker {
-  translation -159.875917 258.127635 25
+  translation -159.875917 288.127635 28
 }
 DEF POLE_MARKER_12289740826 PoleMarker {
-  translation -303.12276 13.157964 25
+  translation -303.12276 13.157964 28
 }
 DEF POLE_MARKER_12289740827 PoleMarker {
-  translation -303.65483 28.341942 25
+  translation -303.65483 28.341942 28
 }
 DEF POLE_MARKER_12291287068 PoleMarker {
-  translation 426.360758 -146.307207 25
+  translation 426.360758 -146.307207 28
 }
 DEF POLE_MARKER_12291287074 PoleMarker {
-  translation 242.166975 -99.219062 25
+  translation 242.166975 -99.219062 28
 }
 DEF POLE_MARKER_12291287075 PoleMarker {
-  translation 242.429263 -133.204903 25
+  translation 242.429263 -133.204903 28
 }
 DEF POLE_MARKER_12291287076 PoleMarker {
-  translation 225.702768 -133.449806 25
+  translation 225.702768 -133.449806 28
 }
 DEF POLE_MARKER_12291287077 PoleMarker {
-  translation 226.759415 -133.449806 25
+  translation 226.759415 -133.449806 28
 }
 DEF POLE_MARKER_12291287078 PoleMarker {
-  translation 242.391794 -147.576249 25
+  translation 242.391794 -147.576249 28
 }
 DEF POLE_MARKER_12291287081 PoleMarker {
-  translation 226.384718 -148.544729 25
+  translation 226.384718 -148.544729 28
 }
 DEF POLE_MARKER_12291287084 PoleMarker {
-  translation 224.428797 -52.142049 25
+  translation 224.428797 -52.142049 28
 }
 DEF POLE_MARKER_12291287085 PoleMarker {
-  translation 225.980044 -51.57432 25
+  translation 225.980044 -51.57432 28
 }
 DEF POLE_MARKER_12291287086 PoleMarker {
-  translation 242.189457 -52.197709 25
+  translation 242.189457 -52.197709 28
 }
 DEF POLE_MARKER_12291287087 PoleMarker {
-  translation 241.747314 -51.963938 25
+  translation 241.747314 -51.963938 28
 }
 DEF POLE_MARKER_12291287088 PoleMarker {
-  translation 242.863912 -65.600576 25
+  translation 242.863912 -65.600576 28
 }
 DEF POLE_MARKER_12291287089 PoleMarker {
-  translation 241.912181 -65.745291 25
+  translation 241.912181 -65.745291 28
 }
 DEF POLE_MARKER_12291287090 PoleMarker {
-  translation 224.945879 -65.500388 25
+  translation 224.945879 -65.500388 28
 }
 DEF POLE_MARKER_12291287092 PoleMarker {
-  translation 226.384718 -65.834347 25
+  translation 226.384718 -65.834347 28
 }
 DEF POLE_MARKER_8069007411 PoleMarker {
-  translation 227.343943 17.265653 25
+  translation 227.343943 17.265653 28
 }
 DEF POLE_MARKER_12291287094 PoleMarker {
-  translation 241.447556 13.469658 25
+  translation 241.447556 13.469658 28
 }
 DEF POLE_MARKER_8069007414 PoleMarker {
-  translation 233.054333 16.297173 25
+  translation 233.054333 16.297173 28
 }
 DEF POLE_MARKER_12291287093 PoleMarker {
-  translation 242.699045 15.751708 25
+  translation 242.699045 15.751708 28
 }
 DEF POLE_MARKER_12234207294 PoleMarker {
-  translation -160.363023 118.989404 25
+  translation -160.363023 118.989404 28
 }
 DEF POLE_MARKER_8069007421 PoleMarker {
-  translation 428.189281 -50.539049 25
+  translation 428.189281 -50.539049 28
 }
 DEF POLE_MARKER_12291287100 PoleMarker {
-  translation 241.649893 29.64438 25
+  translation 241.649893 29.64438 28
 }
 DEF POLE_MARKER_12229036168 PoleMarker {
-  translation -363.479028 95.111373 25
+  translation -363.479028 95.111373 28
 }
 DEF POLE_MARKER_12289738891 PoleMarker {
-  translation -365.809646 -133.149243 25
+  translation -365.809646 -133.149243 28
 }
 DEF POLE_MARKER_12229036177 PoleMarker {
-  translation -365.427455 111.130248 25
+  translation -365.427455 111.130248 28
 }
 DEF POLE_MARKER_53090483 PoleMarker {
-  translation -168.981065 -59.411212 25
+  translation -168.981065 -59.411212 28
 }
 DEF POLE_MARKER_53178606 PoleMarker {
-  translation 632.369427 23.098794 25
+  translation 632.369427 23.098794 28
 }
 DEF POLE_MARKER_8022282556 PoleMarker {
-  translation -159.298883 -141.620656 25
+  translation -159.298883 -141.620656 28
 }
 DEF POLE_MARKER_8022282557 PoleMarker {
-  translation -160.505408 -59.132914 25
+  translation -160.505408 -59.132914 28
 }
 DEF POLE_MARKER_8022282558 PoleMarker {
-  translation -160.010808 21.840884 25
+  translation -160.010808 21.840884 28
 }
 DEF POLE_MARKER_8190837055 PoleMarker {
-  translation 225.005831 103.794293 25
+  translation 225.005831 103.794293 28
 }
 DEF POLE_MARKER_8190837056 PoleMarker {
-  translation 233.848691 110.9744 25
+  translation 233.848691 110.9744 28
 }
 DEF POLE_MARKER_8190837057 PoleMarker {
-  translation 241.252713 103.772029 25
+  translation 241.252713 103.772029 28
 }
 DEF POLE_MARKER_8190837065 PoleMarker {
-  translation 225.088264 183.231882 25
+  translation 225.088264 183.231882 28
 }
 DEF POLE_MARKER_12243636559 PoleMarker {
-  translation 427.597259 112.555137 25
+  translation 427.597259 112.555137 28
 }
 DEF POLE_MARKER_12243636567 PoleMarker {
-  translation 426.413215 96.881353 25
+  translation 426.413215 96.881353 28
 }
 DEF POLE_MARKER_8192408347 PoleMarker {
-  translation 240.915486 192.426872 25
+  translation 240.915486 192.426872 28
 }
 DEF POLE_MARKER_8022360497 PoleMarker {
-  translation 225.635323 15.317562 25
+  translation 225.635323 15.317562 28
 }
 DEF POLE_MARKER_12234207243 PoleMarker {
-  translation -160.265602 190.901795 25
+  translation -160.265602 190.901795 28
 }
 DEF POLE_MARKER_8022360518 PoleMarker {
-  translation 226.699463 -214.468131 25
+  translation 226.699463 -214.468131 28
 }
 DEF POLE_MARKER_8180427222 PoleMarker {
-  translation -169.580581 97.103992 25
+  translation -169.580581 97.103992 28
 }
 DEF POLE_MARKER_8180427223 PoleMarker {
-  translation -181.765743 103.438071 25
+  translation -181.765743 103.438071 28
 }
 DEF POLE_MARKER_8180427225 PoleMarker {
-  translation -169.588075 110.929873 25
+  translation -169.588075 110.929873 28
 }
 DEF POLE_MARKER_8180427227 PoleMarker {
-  translation -180.814011 97.426818 25
+  translation -180.814011 97.426818 28
 }
 DEF POLE_MARKER_8180427232 PoleMarker {
-  translation -364.153483 175.651025 25
+  translation -364.153483 175.651025 28
 }
 DEF POLE_MARKER_8180427233 PoleMarker {
-  translation -181.803213 175.706684 25
+  translation -181.803213 175.706684 28
 }
 DEF POLE_MARKER_8180427235 PoleMarker {
-  translation -183.35446 110.451199 25
+  translation -183.35446 110.451199 28
 }
 DEF POLE_MARKER_8180427236 PoleMarker {
-  translation -181.653334 112.510609 25
+  translation -181.653334 112.510609 28
 }
 DEF POLE_MARKER_60002789 PoleMarker {
-  translation 633.238725 182.686416 25
+  translation 633.238725 182.686416 28
 }
 DEF POLE_MARKER_8190794224 PoleMarker {
-  translation 39.620511 183.10943 25
+  translation 39.620511 183.10943 28
 }
 DEF POLE_MARKER_8190794225 PoleMarker {
-  translation 26.543569 111.664581 25
+  translation 26.543569 111.664581 28
 }
 DEF POLE_MARKER_8190794226 PoleMarker {
-  translation 35.588766 111.83156 25
+  translation 35.588766 111.83156 28
 }
 DEF POLE_MARKER_8190794227 PoleMarker {
-  translation 44.334205 -51.318285 25
+  translation 44.334205 -51.318285 28
 }
 DEF POLE_MARKER_8190794242 PoleMarker {
-  translation 226.961752 -140.062183 25
+  translation 226.961752 -140.062183 28
 }
 DEF POLE_MARKER_8190794244 PoleMarker {
-  translation 234.628062 -147.286818 25
+  translation 234.628062 -147.286818 28
 }
 DEF POLE_MARKER_8190794250 PoleMarker {
-  translation 234.058522 -50.828479 25
+  translation 234.058522 -50.828479 28
 }
 DEF POLE_MARKER_8190794251 PoleMarker {
-  translation 224.698579 -58.821219 25
+  translation 224.698579 -58.821219 28
 }
 DEF POLE_MARKER_8190794252 PoleMarker {
-  translation 242.504203 -58.798955 25
+  translation 242.504203 -58.798955 28
 }
 DEF POLE_MARKER_8190794253 PoleMarker {
-  translation 234.155943 -66.146041 25
+  translation 234.155943 -66.146041 28
 }
 DEF POLE_MARKER_8184427036 PoleMarker {
-  translation -160.183169 182.797736 25
+  translation -160.183169 182.797736 28
 }
 DEF POLE_MARKER_8184427037 PoleMarker {
-  translation -158.894209 190.901795 25
+  translation -158.894209 190.901795 28
 }
 DEF POLE_MARKER_5443848814 PoleMarker {
-  translation -181.848176 182.630757 25
+  translation -181.848176 182.630757 28
 }
 DEF POLE_MARKER_4414012023 PoleMarker {
-  translation -113.458394 173.090676 25
+  translation -113.458394 173.090676 28
 }
 DEF POLE_MARKER_4414012024 PoleMarker {
-  translation -113.405936 182.82 25
+  translation -113.405936 182.82 28
 }
 DEF POLE_MARKER_53142147 PoleMarker {
-  translation -370.463389 102.848078 25
+  translation -370.463389 102.848078 28
 }
 DEF POLE_MARKER_53230213 PoleMarker {
-  translation -169.026029 -141.620656 25
+  translation -169.026029 -141.620656 28
 }
 DEF POLE_MARKER_10312180365 PoleMarker {
-  translation -265.907807 90.0686 25
+  translation -265.907807 90.0686 28
 }
 DEF POLE_MARKER_10312180366 PoleMarker {
-  translation -268.103534 93.285733 25
+  translation -268.103534 93.285733 28
 }
 DEF POLE_MARKER_10312180367 PoleMarker {
-  translation -267.533994 90.035204 25
+  translation -267.533994 90.035204 28
 }
 DEF POLE_MARKER_10312180368 PoleMarker {
-  translation -263.299912 92.907247 25
+  translation -263.299912 92.907247 28
 }
 DEF POLE_MARKER_10312180369 PoleMarker {
-  translation -263.764537 90.101996 25
+  translation -263.764537 90.101996 28
 }
 DEF POLE_MARKER_8211036820 PoleMarker {
-  translation -181.900634 191.04651 25
+  translation -181.900634 191.04651 28
 }
 DEF POLE_MARKER_8211036821 PoleMarker {
-  translation -367.458315 190.768211 25
+  translation -367.458315 190.768211 28
 }
 DEF POLE_MARKER_8211036827 PoleMarker {
-  translation -169.505642 190.957455 25
+  translation -169.505642 190.957455 28
 }
 DEF POLE_MARKER_8211036828 PoleMarker {
-  translation -169.415714 175.840268 25
+  translation -169.415714 175.840268 28
 }
 DEF POLE_MARKER_9146790557 PoleMarker {
-  translation 45.668128 -148.745104 25
+  translation 45.668128 -148.745104 28
 }
 DEF POLE_MARKER_9146790558 PoleMarker {
-  translation 45.743067 -133.616785 25
+  translation 45.743067 -133.616785 28
 }
 DEF POLE_MARKER_9146790559 PoleMarker {
-  translation 39.275789 -141.553864 25
+  translation 39.275789 -141.553864 28
 }
 DEF POLE_MARKER_9146790560 PoleMarker {
-  translation 51.723239 -58.865747 25
+  translation 51.723239 -58.865747 28
 }
 DEF POLE_MARKER_9146790561 PoleMarker {
-  translation 37.297386 -58.821219 25
+  translation 37.297386 -58.821219 28
 }
 DEF POLE_MARKER_9146790563 PoleMarker {
-  translation 38.496418 15.506805 25
+  translation 38.496418 15.506805 28
 }
 DEF POLE_MARKER_9146790564 PoleMarker {
-  translation 37.214953 28.865144 25
+  translation 37.214953 28.865144 28
 }
 DEF POLE_MARKER_9146790565 PoleMarker {
-  translation 29.983292 21.952204 25
+  translation 29.983292 21.952204 28
 }
 DEF POLE_MARKER_9146790566 PoleMarker {
-  translation 26.970724 103.694106 25
+  translation 26.970724 103.694106 28
 }
 DEF POLE_MARKER_9146790567 PoleMarker {
-  translation 36.308185 103.705238 25
+  translation 36.308185 103.705238 28
 }
 DEF POLE_MARKER_9146790568 PoleMarker {
-  translation 30.972493 175.68442 25
+  translation 30.972493 175.68442 28
 }
 DEF POLE_MARKER_9146790569 PoleMarker {
-  translation 30.979987 190.935191 25
+  translation 30.979987 190.935191 28
 }
 DEF POLE_MARKER_9146790570 PoleMarker {
-  translation 23.441074 183.153958 25
+  translation 23.441074 183.153958 28
 }
 DEF POLE_MARKER_9146790582 PoleMarker {
-  translation 242.414275 -140.229163 25
+  translation 242.414275 -140.229163 28
 }
 DEF POLE_MARKER_9146790583 PoleMarker {
-  translation 234.598086 -133.327354 25
+  translation 234.598086 -133.327354 28
 }
 DEF POLE_MARKER_9038269143 PoleMarker {
-  translation -366.169356 -61.504019 25
+  translation -366.169356 -61.504019 28
 }
 DEF POLE_MARKER_12229108441 PoleMarker {
-  translation -211.966359 110.417803 25
+  translation -211.966359 110.417803 28
 }
 DEF POLE_MARKER_12229108442 PoleMarker {
-  translation -212.281105 175.695552 25
+  translation -212.281105 175.695552 28
 }
 DEF POLE_MARKER_12229108443 PoleMarker {
-  translation -212.116238 191.001982 25
+  translation -212.116238 191.001982 28
 }
 DEF POLE_MARKER_9038269164 PoleMarker {
-  translation -366.311741 -143.045546 25
+  translation -366.311741 -143.045546 28
 }
 DEF POLE_MARKER_8180128492 PoleMarker {
-  translation -160.145699 175.940455 25
+  translation -160.145699 175.940455 28
 }
 DEF POLE_MARKER_8180128493 PoleMarker {
-  translation -113.398442 175.940455 25
+  translation -113.398442 175.940455 28
 }
 DEF POLE_MARKER_8180128496 PoleMarker {
-  translation -161.202346 103.426939 25
+  translation -161.202346 103.426939 28
 }
 DEF POLE_MARKER_8180128498 PoleMarker {
-  translation -161.179864 96.859089 25
+  translation -161.179864 96.859089 28
 }
 DEF POLE_MARKER_8180128499 PoleMarker {
-  translation -161.232321 110.428935 25
+  translation -161.232321 110.428935 28
 }
 DEF POLE_MARKER_5443848976 PoleMarker {
-  translation -108.235111 -44.594588 25
+  translation -108.235111 -44.594588 28
 }
 DEF POLE_MARKER_5443848977 PoleMarker {
-  translation -108.13769 -18.746202 25
+  translation -108.13769 -18.746202 28
 }
 DEF POLE_MARKER_5443848975 PoleMarker {
-  translation 233.324115 158.808386 25
+  translation 233.324115 158.808386 28
 }
 DEF POLE_MARKER_8192408346 PoleMarker {
-  translation 426.383239 190.846135 25
+  translation 426.383239 190.846135 28
 }
 DEF POLE_MARKER_5443848984 PoleMarker {
-  translation -196.274029 0.823764 25
+  translation -196.274029 0.823764 28
 }
 DEF POLE_MARKER_5443848985 PoleMarker {
-  translation -196.004247 21.395606 25
+  translation -196.004247 21.395606 28
 }
 DEF POLE_MARKER_8192408351 PoleMarker {
-  translation 233.623873 191.068774 25
+  translation 233.623873 191.068774 28
 }
 DEF POLE_MARKER_8192408352 PoleMarker {
-  translation 241.297677 183.243014 25
+  translation 241.297677 183.243014 28
 }
 DEF POLE_MARKER_8069007406 PoleMarker {
-  translation 233.548933 29.254762 25
+  translation 233.548933 29.254762 28
 }
 DEF POLE_MARKER_12234373974 PoleMarker {
-  translation 23.276207 110.9744 25
+  translation 23.276207 110.9744 28
 }
 DEF POLE_MARKER_67507034 PoleMarker {
-  translation -211.846456 468.198646 25
+  translation -211.846456 468.198646 28
 }
 DEF POLE_MARKER_8069007415 PoleMarker {
-  translation 241.657387 22.597857 25
+  translation 241.657387 22.597857 28
 }
 DEF POLE_MARKER_12234373979 PoleMarker {
-  translation 39.185861 111.007796 25
+  translation 39.185861 111.007796 28
 }
 DEF POLE_MARKER_12234373981 PoleMarker {
-  translation 39.613017 96.52513 25
+  translation 39.613017 96.52513 28
 }
 DEF POLE_MARKER_12234373983 PoleMarker {
-  translation 23.943168 96.257964 25
+  translation 23.943168 96.257964 28
 }
 DEF POLE_MARKER_12234373986 PoleMarker {
-  translation 23.411098 175.628761 25
+  translation 23.411098 175.628761 28
 }
 DEF POLE_MARKER_12234373990 PoleMarker {
-  translation 39.388198 175.773476 25
+  translation 39.388198 175.773476 28
 }
 DEF POLE_MARKER_12234373987 PoleMarker {
-  translation 23.463556 190.857267 25
+  translation 23.463556 190.857267 28
 }
 DEF POLE_MARKER_12234373993 PoleMarker {
-  translation 39.238319 191.024246 25
+  translation 39.238319 191.024246 28
 }
 DEF POLE_MARKER_12234373994 PoleMarker {
-  translation 23.343652 259.630448 25
+  translation 23.343652 289.630448 28
 }
 DEF POLE_MARKER_67507057 PoleMarker {
-  translation -212.903103 142.856303 25
+  translation -212.903103 142.856303 28
 }
 DEF POLE_MARKER_8210553720 PoleMarker {
-  translation -367.39087 -149.602264 25
+  translation -367.39087 -149.602264 28
 }
 DEF POLE_MARKER_8210553721 PoleMarker {
-  translation -169.033523 -148.21077 25
+  translation -169.033523 -148.21077 28
 }
 DEF POLE_MARKER_8210553725 PoleMarker {
-  translation -181.773237 -141.69858 25
+  translation -181.773237 -141.69858 28
 }
 DEF POLE_MARKER_8210553727 PoleMarker {
-  translation -180.828999 -146.685693 25
+  translation -180.828999 -146.685693 28
 }
 DEF POLE_MARKER_67507074 PoleMarker {
-  translation -370.568304 141.876691 25
+  translation -370.568304 141.876691 28
 }
 DEF POLE_MARKER_67507083 PoleMarker {
-  translation -169.348269 61.181192 25
+  translation -169.348269 61.181192 28
 }
 DEF POLE_MARKER_67507090 PoleMarker {
-  translation 632.174584 62.873248 25
+  translation 632.174584 62.873248 28
 }
 DEF POLE_MARKER_7960101788 PoleMarker {
-  translation -160.475433 -18.779598 25
+  translation -160.475433 -18.779598 28
 }
 DEF POLE_MARKER_5443848974 PoleMarker {
-  translation 199.533897 158.507823 25
+  translation 199.533897 158.507823 28
 }
 DEF POLE_MARKER_67507117 PoleMarker {
-  translation -212.535899 510.277414 25
+  translation -212.535899 510.277414 28
 }
 DEF POLE_MARKER_67507126 PoleMarker {
-  translation -211.764022 103.515994 25
+  translation -211.764022 103.515994 28
 }
 DEF POLE_MARKER_12289930201 PoleMarker {
-  translation -160.213144 -68.906765 25
+  translation -160.213144 -68.906765 28
 }
 DEF POLE_MARKER_12289930203 PoleMarker {
-  translation -160.437963 -51.785827 25
+  translation -160.437963 -51.785827 28
 }
 DEF POLE_MARKER_12289930206 PoleMarker {
-  translation -181.968079 -52.732043 25
+  translation -181.968079 -52.732043 28
 }
 DEF POLE_MARKER_8184378338 PoleMarker {
-  translation 225.200674 111.074588 25
+  translation 225.200674 111.074588 28
 }
 DEF POLE_MARKER_12289930208 PoleMarker {
-  translation -181.64584 -68.261112 25
+  translation -181.64584 -68.261112 28
 }
 DEF POLE_MARKER_12289930211 PoleMarker {
-  translation -181.833188 -67.782438 25
+  translation -181.833188 -67.782438 28
 }
 DEF POLE_MARKER_12289930212 PoleMarker {
-  translation -160.512902 14.204367 25
+  translation -160.512902 14.204367 28
 }
 DEF POLE_MARKER_12289930215 PoleMarker {
-  translation -181.915622 13.313811 25
+  translation -181.915622 13.313811 28
 }
 DEF POLE_MARKER_8184378349 PoleMarker {
-  translation 426.323288 175.68442 25
+  translation 426.323288 175.68442 28
 }
 DEF POLE_MARKER_12289930216 PoleMarker {
-  translation -160.378011 28.553449 25
+  translation -160.378011 28.553449 28
 }
 DEF POLE_MARKER_12289930219 PoleMarker {
-  translation -181.900634 28.553449 25
+  translation -181.900634 28.553449 28
 }
 DEF POLE_MARKER_12289930220 PoleMarker {
-  translation -160.550372 61.214588 25
+  translation -160.550372 61.214588 28
 }
 DEF POLE_MARKER_12289930221 PoleMarker {
-  translation -160.198156 -99.564153 25
+  translation -160.198156 -99.564153 28
 }
 DEF POLE_MARKER_12289930222 PoleMarker {
-  translation 33.295617 -18.757334 25
+  translation 33.295617 -18.757334 28
 }
 DEF POLE_MARKER_8184378353 PoleMarker {
-  translation 233.623873 175.550837 25
+  translation 233.623873 175.550837 28
 }
 DEF POLE_MARKER_8184378357 PoleMarker {
-  translation 31.489575 111.753637 25
+  translation 31.489575 111.753637 28
 }
 DEF POLE_MARKER_4840623137 PoleMarker {
-  translation -169.595569 118.91148 25
+  translation -169.595569 118.91148 28
 }
 DEF POLE_MARKER_4840623139 PoleMarker {
-  translation -146.027098 103.326751 25
+  translation -146.027098 103.326751 28
 }
 DEF POLE_MARKER_8211022340 PoleMarker {
-  translation -212.498429 417.347903 25
+  translation -212.498429 417.347903 28
 }
 DEF POLE_MARKER_67507176 PoleMarker {
-  translation -212.146214 182.920187 25
+  translation -212.146214 182.920187 28
 }
 DEF POLE_MARKER_67507242 PoleMarker {
-  translation 34.569589 61.893637 25
+  translation 34.569589 61.893637 28
 }
 DEF POLE_MARKER_67507244 PoleMarker {
-  translation 233.578909 62.717401 25
+  translation 233.578909 62.717401 28
 }
 DEF POLE_MARKER_67507251 PoleMarker {
-  translation -169.063499 -18.779598 25
+  translation -169.063499 -18.779598 28
 }
 DEF POLE_MARKER_8152519735 PoleMarker {
-  translation 32.194007 95.72363 25
+  translation 32.194007 95.72363 28
 }
 DEF POLE_MARKER_8152519736 PoleMarker {
-  translation 27.420361 95.434199 25
+  translation 27.420361 95.434199 28
 }
 DEF POLE_MARKER_8152519737 PoleMarker {
-  translation 36.997628 96.013061 25
+  translation 36.997628 96.013061 28
 }
 DEF POLE_MARKER_67507255 PoleMarker {
-  translation 632.968943 -17.4215 25
+  translation 632.968943 -17.4215 28
 }
 DEF POLE_MARKER_67507259 PoleMarker {
-  translation 41.261685 -18.757334 25
+  translation 41.261685 -18.757334 28
 }
 DEF POLE_MARKER_8152519741 PoleMarker {
-  translation 233.773752 96.770033 25
+  translation 233.773752 96.770033 28
 }
 DEF POLE_MARKER_67507263 PoleMarker {
-  translation 233.668836 -17.955834 25
+  translation 233.668836 -17.955834 28
 }
 DEF POLE_MARKER_12138667076 PoleMarker {
-  translation -182.342777 -59.544796 25
+  translation -182.342777 -59.544796 28
 }
 DEF POLE_MARKER_12138667077 PoleMarker {
-  translation -168.981065 -68.483751 25
+  translation -168.981065 -68.483751 28
 }
 DEF POLE_MARKER_67507275 PoleMarker {
-  translation -168.988559 -99.597548 25
+  translation -168.988559 -99.597548 28
 }
 DEF POLE_MARKER_67507285 PoleMarker {
-  translation 633.358628 -98.851708 25
+  translation 633.358628 -98.851708 28
 }
 DEF POLE_MARKER_67507290 PoleMarker {
-  translation 45.585694 -98.873972 25
+  translation 45.585694 -98.873972 28
 }
 DEF POLE_MARKER_67507300 PoleMarker {
-  translation 234.463195 -99.230194 25
+  translation 234.463195 -99.230194 28
 }
 DEF POLE_MARKER_67507314 PoleMarker {
-  translation 633.530989 -180.64927 25
+  translation 633.530989 -180.64927 28
 }
 DEF POLE_MARKER_67507322 PoleMarker {
-  translation 234.85288 -180.771721 25
+  translation 234.85288 -180.771721 28
 }
 DEF POLE_MARKER_12291196042 PoleMarker {
-  translation 39.523089 -217.37357 25
+  translation 39.523089 -217.37357 28
 }
 DEF POLE_MARKER_6610599052 PoleMarker {
-  translation 226.25732 22.508801 25
+  translation 226.25732 22.508801 28
 }
 DEF POLE_MARKER_12291196047 PoleMarker {
-  translation 51.363529 -148.767367 25
+  translation 51.363529 -148.767367 28
 }
 DEF POLE_MARKER_12291196049 PoleMarker {
-  translation 39.343234 -148.72284 25
+  translation 39.343234 -148.72284 28
 }
 DEF POLE_MARKER_12291196051 PoleMarker {
-  translation 51.445963 -133.538861 25
+  translation 51.445963 -133.538861 28
 }
 DEF POLE_MARKER_12291196053 PoleMarker {
-  translation 39.200849 -133.694708 25
+  translation 39.200849 -133.694708 28
 }
 DEF POLE_MARKER_12291196054 PoleMarker {
-  translation 51.378517 -143.780254 25
+  translation 51.378517 -143.780254 28
 }
 DEF POLE_MARKER_12291196055 PoleMarker {
-  translation 51.925575 -140.774628 25
+  translation 51.925575 -140.774628 28
 }
 DEF POLE_MARKER_12291196056 PoleMarker {
-  translation 45.016154 -64.966055 25
+  translation 45.016154 -64.966055 28
 }
 DEF POLE_MARKER_12291196058 PoleMarker {
-  translation 51.378517 -65.834347 25
+  translation 51.378517 -65.834347 28
 }
 DEF POLE_MARKER_12291196062 PoleMarker {
-  translation 38.578852 -66.134909 25
+  translation 38.578852 -66.134909 28
 }
 DEF POLE_MARKER_12291196067 PoleMarker {
-  translation 35.9284 -52.0576 25
+  translation 35.9284 -52.0576 28
 }
 DEF POLE_MARKER_12291196070 PoleMarker {
-  translation 51.985527 -52.052994 25
+  translation 51.985527 -52.052994 28
 }
 DEF POLE_MARKER_12291196071 PoleMarker {
-  translation 45.031142 -66.001326 25
+  translation 45.031142 -66.001326 28
 }
 DEF POLE_MARKER_12291196076 PoleMarker {
-  translation 30.49288 15.495673 25
+  translation 30.49288 15.495673 28
 }
 DEF POLE_MARKER_12291196077 PoleMarker {
-  translation 29.436233 28.831748 25
+  translation 29.436233 28.831748 28
 }
 DEF POLE_MARKER_12291196078 PoleMarker {
-  translation 45.278442 28.89854 25
+  translation 45.278442 28.89854 28
 }
 DEF POLE_MARKER_12291196079 PoleMarker {
-  translation 46.327595 15.517937 25
+  translation 46.327595 15.517937 28
 }
 DEF POLE_MARKER_12291196080 PoleMarker {
-  translation 49.197778 -18.723938 25
+  translation 49.197778 -18.723938 28
 }
 DEF POLE_MARKER_12291196081 PoleMarker {
-  translation 225.80019 -17.98923 25
+  translation 225.80019 -17.98923 28
 }
 DEF POLE_MARKER_12291196083 PoleMarker {
-  translation 51.408493 -98.885104 25
+  translation 51.408493 -98.885104 28
 }
 DEF POLE_MARKER_12291196082 PoleMarker {
-  translation 226.57956 -99.219062 25
+  translation 226.57956 -99.219062 28
 }
 DEF POLE_MARKER_8211131573 PoleMarker {
-  translation -196.109162 13.291547 25
+  translation -196.109162 13.291547 28
 }
 DEF POLE_MARKER_8211131575 PoleMarker {
-  translation -182.305307 21.351078 25
+  translation -182.305307 21.351078 28
 }
 DEF POLE_MARKER_53142714 PoleMarker {
-  translation -366.99369 183.009243 25
+  translation -366.99369 183.009243 28
 }
 DEF POLE_MARKER_8211131579 PoleMarker {
-  translation -168.966077 13.870409 25
+  translation -168.966077 13.870409 28
 }
 DEF POLE_MARKER_8211131582 PoleMarker {
-  translation -169.026029 -52.142049 25
+  translation -169.026029 -52.142049 28
 }
 DEF POLE_MARKER_9146790562 PoleMarker {
-  translation 45.818007 22.007863 25
+  translation 45.818007 22.007863 28
 }
 DEF POLE_MARKER_53142717 PoleMarker {
-  translation 30.867578 183.176222 25
+  translation 30.867578 183.176222 28
 }
 DEF POLE_MARKER_53142718 PoleMarker {
-  translation 233.646355 183.254146 25
+  translation 233.646355 183.254146 28
 }
 DEF POLE_MARKER_8211131591 PoleMarker {
-  translation -303.385048 21.76296 25
+  translation -303.385048 21.76296 28
 }
 DEF POLE_MARKER_12291636436 PoleMarker {
-  translation 424.869462 16.007743 25
+  translation 424.869462 16.007743 28
 }
 DEF POLE_MARKER_12291636438 PoleMarker {
-  translation 426.255842 30.445881 25
+  translation 426.255842 30.445881 28
 }
 DEF POLE_MARKER_12291196044 PoleMarker {
-  translation 51.618324 -217.273382 25
+  translation 51.618324 -217.273382 28
 }
 DEF POLE_MARKER_8933213435 PoleMarker {
-  translation 45.285936 -216.950556 25
+  translation 45.285936 -216.950556 28
 }
 DEF POLE_MARKER_8190788913 PoleMarker {
-  translation 225.260625 190.957455 25
+  translation 225.260625 190.957455 28
 }
 DEF POLE_MARKER_7960032575 PoleMarker {
-  translation -159.328858 -66.02359 25
+  translation -159.328858 -66.02359 28
 }
 DEF POLE_MARKER_7960032580 PoleMarker {
-  translation -160.437963 -52.609591 25
+  translation -160.437963 -52.609591 28
 }
 DEF POLE_MARKER_7960032581 PoleMarker {
-  translation -159.651098 15.284166 25
+  translation -159.651098 15.284166 28
 }
 DEF POLE_MARKER_8151412051 PoleMarker {
-  translation 428.706364 -65.010583 25
+  translation 428.706364 -65.010583 28
 }
 DEF POLE_MARKER_8151412052 PoleMarker {
-  translation 426.3083 -133.01566 25
+  translation 426.3083 -133.01566 28
 }
 DEF POLE_MARKER_8151412059 PoleMarker {
-  translation 242.871406 -213.989457 25
+  translation 242.871406 -213.989457 28
 }
 DEF POLE_MARKER_12234374502 PoleMarker {
-  translation 39.680462 258.060844 25
+  translation 39.680462 288.060844 28
 }
 DEF POLE_MARKER_12234374524 PoleMarker {
-  translation 42.498187 61.927033 25
+  translation 42.498187 61.927033 28
 }
 DEF POLE_MARKER_12234374525 PoleMarker {
-  translation 26.745905 61.871373 25
+  translation 26.745905 61.871373 28
 }
 DEF POLE_MARKER_12234374527 PoleMarker {
-  translation -146.027098 110.417803 25
+  translation -146.027098 110.417803 28
 }
 DEF POLE_MARKER_1424516502 PoleMarker {
-  translation 633.598434 -139.405398 25
+  translation 633.598434 -139.405398 28
 }
 DEF POLE_MARKER_8933228017 PoleMarker {
-  translation 40.377399 -141.553864 25
+  translation 40.377399 -141.553864 28
 }
 DEF POLE_MARKER_8933228018 PoleMarker {
-  translation 45.65314 -147.275686 25
+  translation 45.65314 -147.275686 28
 }
 DEF POLE_MARKER_8933228029 PoleMarker {
-  translation 51.423481 -139.449926 25
+  translation 51.423481 -139.449926 28
 }
 DEF POLE_MARKER_8933228037 PoleMarker {
-  translation 44.551529 -53.834106 25
+  translation 44.551529 -53.834106 28
 }
 DEF POLE_MARKER_8933228038 PoleMarker {
-  translation 50.404304 -58.865747 25
+  translation 50.404304 -58.865747 28
 }
 DEF POLE_MARKER_8933228040 PoleMarker {
-  translation 39.155886 -58.821219 25
+  translation 39.155886 -58.821219 28
 }
 DEF POLE_MARKER_60412698 PoleMarker {
-  translation 633.583446 -57.841607 25
+  translation 633.583446 -57.841607 28
 }
 DEF POLE_MARKER_8933228058 PoleMarker {
-  translation 37.30488 27.050636 25
+  translation 37.30488 27.050636 28
 }
 DEF POLE_MARKER_8933228059 PoleMarker {
-  translation 43.022764 21.996731 25
+  translation 43.022764 21.996731 28
 }
 DEF POLE_MARKER_8933228060 PoleMarker {
-  translation 38.361527 16.67566 25
+  translation 38.361527 16.67566 28
 }
 DEF POLE_MARKER_8933228061 PoleMarker {
-  translation 32.52374 21.952204 25
+  translation 32.52374 21.952204 28
 }
 DEF POLE_MARKER_12243195447 PoleMarker {
-  translation 224.893422 110.907609 25
+  translation 224.893422 110.907609 28
 }
 DEF POLE_MARKER_12243195448 PoleMarker {
-  translation 223.881739 97.003804 25
+  translation 223.881739 97.003804 28
 }
 DEF POLE_MARKER_12243195450 PoleMarker {
-  translation 225.268119 96.591922 25
+  translation 225.268119 96.591922 28
 }
 DEF POLE_MARKER_12243195452 PoleMarker {
-  translation 241.70235 110.406671 25
+  translation 241.70235 110.406671 28
 }
 DEF POLE_MARKER_12243195453 PoleMarker {
-  translation 240.795582 111.018928 25
+  translation 240.795582 111.018928 28
 }
 DEF POLE_MARKER_12243195454 PoleMarker {
-  translation 241.77729 96.970408 25
+  translation 241.77729 96.970408 28
 }
 DEF POLE_MARKER_12243195456 PoleMarker {
-  translation 241.057871 96.469471 25
+  translation 241.057871 96.469471 28
 }
 DEF POLE_MARKER_12243195457 PoleMarker {
-  translation 242.279384 190.979718 25
+  translation 242.279384 190.979718 28
 }
 DEF POLE_MARKER_12243195460 PoleMarker {
-  translation 240.997919 174.237267 25
+  translation 240.997919 174.237267 28
 }
 DEF POLE_MARKER_12243195461 PoleMarker {
-  translation 241.462544 175.673288 25
+  translation 241.462544 175.673288 28
 }
 DEF POLE_MARKER_8933228102 PoleMarker {
-  translation 31.542033 258.639705 25
+  translation 31.542033 288.639705 28
 }
 DEF POLE_MARKER_12243195462 PoleMarker {
-  translation 225.238143 174.114816 25
+  translation 225.238143 174.114816 28
 }
 DEF POLE_MARKER_12243195464 PoleMarker {
-  translation 224.825976 175.751212 25
+  translation 224.825976 175.751212 28
 }
 DEF POLE_MARKER_12243195468 PoleMarker {
-  translation 224.458773 257.749149 25
+  translation 224.458773 287.749149 28
 }
 DEF POLE_MARKER_12243195470 PoleMarker {
-  translation 241.035389 258.138767 25
+  translation 241.035389 288.138767 28
 }
 DEF POLE_MARKER_8880418383 PoleMarker {
-  translation -367.473303 -68.24998 25
+  translation -367.473303 -68.24998 28
 }
 DEF POLE_MARKER_12243195488 PoleMarker {
-  translation 225.230649 158.697066 25
+  translation 225.230649 158.697066 28
 }
 DEF POLE_MARKER_12243195489 PoleMarker {
-  translation 241.215243 62.706269 25
+  translation 241.215243 62.706269 28
 }
 DEF POLE_MARKER_12243195490 PoleMarker {
-  translation 225.36554 62.684005 25
+  translation 225.36554 62.684005 28
 }
 DEF POLE_MARKER_53147253 PoleMarker {
-  translation 31.601985 103.705238 25
+  translation 31.601985 103.705238 28
 }
 DEF POLE_MARKER_8210534014 PoleMarker {
-  translation -169.011041 -133.483201 25
+  translation -169.011041 -133.483201 28
 }
 DEF POLE_MARKER_53233319 PoleMarker {
-  translation -169.640533 103.482599 25
+  translation -169.640533 103.482599 28
 }
 DEF POLE_MARKER_53233320 PoleMarker {
-  translation 233.736282 103.760897 25
+  translation 233.736282 103.760897 28
 }
 DEF POLE_MARKER_53142715 PoleMarker {
-  translation -169.400726 182.797736 25
+  translation -169.400726 182.797736 28
 }
 DEF POLE_MARKER_8211109600 PoleMarker {
-  translation -169.08598 28.553449 25
+  translation -169.08598 28.553449 28
 }
 DEF POLE_MARKER_8211109606 PoleMarker {
-  translation -265.78041 95.111373 25
+  translation -265.78041 95.111373 28
 }
 DEF POLE_MARKER_53184242 PoleMarker {
-  translation -371.100375 21.996731 25
+  translation -371.100375 21.996731 28
 }
 DEF POLE_MARKER_53184243 PoleMarker {
-  translation -168.951089 21.306551 25
+  translation -168.951089 21.306551 28
 }
 DEF POLE_MARKER_7396583189 PoleMarker {
-  translation 45.705597 -135.965626 25
+  translation 45.705597 -135.965626 28
 }
 DEF POLE_MARKER_3877240624 PoleMarker {
-  translation -290.862658 93.530636 25
+  translation -290.862658 93.530636 28
 }
 DEF POLE_MARKER_3877240625 PoleMarker {
-  translation -240.068669 92.985171 25
+  translation -240.068669 92.985171 28
 }
 DEF POLE_MARKER_3877240626 PoleMarker {
-  translation -240.728137 30.111922 25
+  translation -240.728137 30.111922 28
 }
 DEF POLE_MARKER_3877240627 PoleMarker {
-  translation -275.020449 30.479277 25
+  translation -275.020449 30.479277 28
 }
 DEF POLE_MARKER_3877240630 PoleMarker {
-  translation -214.926469 93.786671 25
+  translation -214.926469 93.786671 28
 }
 DEF POLE_MARKER_3877240631 PoleMarker {
-  translation -265.585567 103.182036 25
+  translation -265.585567 103.182036 28
 }
 DEF POLE_MARKER_3877240632 PoleMarker {
-  translation -266.080168 84.836584 25
+  translation -266.080168 84.836584 28
 }
 DEF POLE_MARKER_3877240635 PoleMarker {
-  translation -265.78041 66.346417 25
+  translation -265.78041 66.346417 28
 }
 DEF POLE_MARKER_3877240638 PoleMarker {
-  translation -250.005646 66.146041 25
+  translation -250.005646 66.146041 28
 }
 DEF POLE_MARKER_3877240641 PoleMarker {
-  translation -240.375921 63.429846 25
+  translation -240.375921 63.429846 28
 }
 DEF POLE_MARKER_3877240642 PoleMarker {
-  translation -223.169813 63.630221 25
+  translation -223.169813 63.630221 28
 }
 DEF POLE_MARKER_3877240643 PoleMarker {
-  translation -221.963287 61.826845 25
+  translation -221.963287 61.826845 28
 }
 DEF POLE_MARKER_3877240644 PoleMarker {
-  translation -215.226227 61.826845 25
+  translation -215.226227 61.826845 28
 }
 DEF POLE_MARKER_670081548 PoleMarker {
-  translation 632.002223 103.783161 25
+  translation 632.002223 103.783161 28
 }
 DEF POLE_MARKER_53210973 PoleMarker {
-  translation -170.270024 345.157213 25
+  translation -170.270024 345.157213 28
 }
 DEF POLE_MARKER_8939138935 PoleMarker {
-  translation 234.583098 -134.67432 25
+  translation 234.583098 -134.67432 28
 }
 DEF POLE_MARKER_8939138936 PoleMarker {
-  translation 234.575604 -146.017776 25
+  translation 234.575604 -146.017776 28
 }
 DEF POLE_MARKER_8939138937 PoleMarker {
-  translation 228.535481 -140.062183 25
+  translation 228.535481 -140.062183 28
 }
 DEF POLE_MARKER_8939138938 PoleMarker {
-  translation 239.971248 -140.162371 25
+  translation 239.971248 -140.162371 28
 }
 DEF POLE_MARKER_12291350401 PoleMarker {
-  translation 224.691085 29.121179 25
+  translation 224.691085 29.121179 28
 }
 DEF POLE_MARKER_12291350403 PoleMarker {
-  translation 225.455468 29.544193 25
+  translation 225.455468 29.544193 28
 }
 DEF POLE_MARKER_12291350405 PoleMarker {
-  translation 241.589941 -17.944702 25
+  translation 241.589941 -17.944702 28
 }
 DEF POLE_MARKER_12291350409 PoleMarker {
-  translation 242.6316 -180.816249 25
+  translation 242.6316 -180.816249 28
 }
 DEF POLE_MARKER_53098386 PoleMarker {
-  translation -169.115956 -303.401272 25
+  translation -169.115956 -303.401272 28
 }
 DEF POLE_MARKER_8939138960 PoleMarker {
-  translation 235.137651 -216.705653 25
+  translation 235.137651 -216.705653 28
 }
 DEF POLE_MARKER_8939087769 PoleMarker {
-  translation 232.89696 258.739892 25
+  translation 232.89696 288.739892 28
 }
 DEF POLE_MARKER_8939087790 PoleMarker {
-  translation 237.715569 22.564461 25
+  translation 237.715569 22.564461 28
 }
 DEF POLE_MARKER_8939087791 PoleMarker {
-  translation 232.986887 17.610743 25
+  translation 232.986887 17.610743 28
 }
 DEF POLE_MARKER_8939087792 PoleMarker {
-  translation 228.370614 22.531065 25
+  translation 228.370614 22.531065 28
 }
 DEF POLE_MARKER_8939087793 PoleMarker {
-  translation 233.496476 26.950449 25
+  translation 233.496476 26.950449 28
 }
 DEF POLE_MARKER_8939087813 PoleMarker {
-  translation 234.07351 -63.474374 25
+  translation 234.07351 -63.474374 28
 }
 DEF POLE_MARKER_8939087814 PoleMarker {
-  translation 238.479952 -58.743295 25
+  translation 238.479952 -58.743295 28
 }
 DEF POLE_MARKER_8939087815 PoleMarker {
-  translation 229.262394 -58.776691 25
+  translation 229.262394 -58.776691 28
 }
 DEF POLE_MARKER_8939087816 PoleMarker {
-  translation 234.088498 -54.301648 25
+  translation 234.088498 -54.301648 28
 }
 DEF POLE_MARKER_12289920982 PoleMarker {
-  translation -181.788225 -216.683389 25
+  translation -181.788225 -216.683389 28
 }
 DEF POLE_MARKER_12289920988 PoleMarker {
-  translation -160.160687 -216.338298 25
+  translation -160.160687 -216.338298 28
 }
 DEF POLE_MARKER_12289920989 PoleMarker {
-  translation -159.471243 -149.01227 25
+  translation -159.471243 -149.01227 28
 }
 DEF POLE_MARKER_12289920990 PoleMarker {
-  translation -160.910082 -149.01227 25
+  translation -160.910082 -149.01227 28
 }
 DEF POLE_MARKER_12289920993 PoleMarker {
-  translation -159.785989 -133.739236 25
+  translation -159.785989 -133.739236 28
 }
 DEF POLE_MARKER_12289920994 PoleMarker {
-  translation -182.769932 -149.234909 25
+  translation -182.769932 -149.234909 28
 }
 DEF POLE_MARKER_12289920996 PoleMarker {
-  translation -181.683309 -133.082451 25
+  translation -181.683309 -133.082451 28
 }
 DEF POLE_MARKER_12289920998 PoleMarker {
-  translation -181.975573 -133.895084 25
+  translation -181.975573 -133.895084 28
 }
 DEF POLE_MARKER_12289920999 PoleMarker {
-  translation 39.095934 -98.896236 25
+  translation 39.095934 -98.896236 28
 }
 DEF POLE_MARKER_12291636439 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 305.790606 114.380777 25
+  translation 305.790606 114.380777 28
 }
 DEF POLE_MARKER_12291636440 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 317.780925 100.799799 25
+  translation 317.780925 100.799799 28
 }
 DEF POLE_MARKER_12291636441 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -258.204027 190.857267 25
+  translation -258.204027 190.857267 28
 }
 DEF POLE_MARKER_12291636442 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -21.694984 98.963027 25
+  translation -21.694984 98.963027 28
 }
 DEF POLE_MARKER_12291636443 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -59.164731 112.710984 25
+  translation -59.164731 112.710984 28
 }
 DEF POLE_MARKER_12291636444 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -16.449219 194.53081 25
+  translation -16.449219 194.53081 28
 }
 DEF POLE_MARKER_12291636445 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -161.831837 87.664099 25
+  translation -161.831837 87.664099 28
 }
 DEF POLE_MARKER_12291636446 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -161.082442 71.522773 25
+  translation -161.082442 71.522773 28
 }
 DEF POLE_MARKER_12291636447 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -148.342728 98.796048 25
+  translation -148.342728 98.796048 28
 }
 DEF POLE_MARKER_12291636448 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -108.624797 99.463965 25
+  translation -108.624797 99.463965 28
 }
 DEF POLE_MARKER_12291636449 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -212.415996 94.343268 25
+  translation -212.415996 94.343268 28
 }
 DEF POLE_MARKER_12291636450 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -271.243499 -52.208841 25
+  translation -271.243499 -52.208841 28
 }
 DEF POLE_MARKER_12291636451 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -247.262861 -72.07937 25
+  translation -247.262861 -72.07937 28
 }
 DEF POLE_MARKER_12291636452 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -24.317866 -54.268252 25
+  translation -24.317866 -54.268252 28
 }
 DEF POLE_MARKER_12291636453 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -50.171991 -55.492766 25
+  translation -50.171991 -55.492766 28
 }
 DEF POLE_MARKER_12291636454 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 38.256612 -104.195043 25
+  translation 38.256612 -104.195043 28
 }
 DEF POLE_MARKER_12291636455 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 41.254191 -71.188814 25
+  translation 41.254191 -71.188814 28
 }
 DEF POLE_MARKER_12291636456 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 37.507217 -83.1 25
+  translation 37.507217 -83.1 28
 }
 DEF POLE_MARKER_12291636457 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 15.532 -53.8433 25
+  translation 15.532 -53.8433 28
 }
 DEF POLE_MARKER_12291636458 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 38.256612 -103.248828 25
+  translation 38.256612 -103.248828 28
 }
 DEF POLE_MARKER_12291636459 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 50.546689 -100.911118 25
+  translation 50.546689 -100.911118 28
 }
 DEF POLE_MARKER_12291636460 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 50.546689 -85.660348 25
+  translation 50.546689 -85.660348 28
 }
 DEF POLE_MARKER_12291636461 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 47.998746 -20.315807 25
+  translation 47.998746 -20.315807 28
 }
 DEF POLE_MARKER_12291636462 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 125.93582 -49.926792 25
+  translation 125.93582 -49.926792 28
 }
 DEF POLE_MARKER_12291636463 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 299.046051 -144.659678 25
+  translation 299.046051 -144.659678 28
 }
 DEF POLE_MARKER_12291636464 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -25.441958 195.087408 25
+  translation -25.441958 195.087408 28
 }
 DEF POLE_MARKER_12291636465 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -56.167151 192.081781 25
+  translation -56.167151 192.081781 28
 }
 DEF POLE_MARKER_12291636466 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -96.934236 171.153717 25
+  translation -96.934236 171.153717 28
 }
 DEF POLE_MARKER_12291636467 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -1.46132 113.267582 25
+  translation -1.46132 113.267582 28
 }
 DEF POLE_MARKER_12291636468 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 21.395226 101.022438 25
+  translation 21.395226 101.022438 28
 }
 DEF POLE_MARKER_12291636469 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -58.115578 99.909243 25
+  translation -58.115578 99.909243 28
 }
 DEF POLE_MARKER_12291636470 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -44.926227 96.903617 25
+  translation -44.926227 96.903617 28
 }
 DEF POLE_MARKER_12291636471 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -28.439538 100.354521 25
+  translation -28.439538 100.354521 28
 }
 DEF POLE_MARKER_12291636472 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 257.529571 98.796048 25
+  translation 287.529571 98.796048 28
 }
 DEF POLE_MARKER_12291636473 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 315.832498 99.130007 25
+  translation 315.832498 99.130007 28
 }
 DEF POLE_MARKER_12291636474 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 161.906777 114.380777 25
+  translation 161.906777 114.380777 28
 }
 DEF POLE_MARKER_12291636475 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 130.432189 100.799799 25
+  translation 130.432189 100.799799 28
 }
 DEF POLE_MARKER_12291636476 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 143.359252 194.53081 25
+  translation 143.359252 194.53081 28
 }
 DEF POLE_MARKER_12291636477 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 183.189593 173.825385 25
+  translation 183.189593 173.825385 28
 }
 DEF POLE_MARKER_12291636478 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 27.015688 95.456463 25
+  translation 27.015688 95.456463 28
 }
 DEF POLE_MARKER_12291636479 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 68.232409 101.022438 25
+  translation 68.232409 101.022438 28
 }
 DEF POLE_MARKER_12291636480 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 45.750561 173.825385 25
+  translation 45.750561 173.825385 28
 }
 DEF POLE_MARKER_12291636481 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -7.756238 192.972337 25
+  translation -7.756238 192.972337 28
 }
 DEF POLE_MARKER_12291636482 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -265.623037 94.343268 25
+  translation -265.623037 94.343268 28
 }
 DEF POLE_MARKER_12291636483 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -212.790693 96.569658 25
+  translation -212.790693 96.569658 28
 }
 DEF POLE_MARKER_12291636484 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -241.642399 -71.522773 25
+  translation -241.642399 -71.522773 28
 }
 DEF POLE_MARKER_12291636485 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -237.520726 -52.041862 25
+  translation -237.520726 -52.041862 28
 }
 DEF POLE_MARKER_12291636486 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -159.283895 1.391494 25
+  translation -159.283895 1.391494 28
 }
 DEF POLE_MARKER_12291636487 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 38.55637 -115.382652 25
+  translation 38.55637 -115.382652 28
 }
 DEF POLE_MARKER_12291636488 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 21.395226 -131.0787 25
+  translation 21.395226 -131.0787 28
 }
 DEF POLE_MARKER_12291636489 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -50.921386 -53.711654 25
+  translation -50.921386 -53.711654 28
 }
 DEF POLE_MARKER_12291636490 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -125.561122 -153.899196 25
+  translation -125.561122 -153.899196 28
 }
 DEF POLE_MARKER_12291636491 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 317.780925 100.799799 25
+  translation 317.780925 100.799799 28
 }
 DEF POLE_MARKER_12291636492 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 52.869813 -198.426992 25
+  translation 52.869813 -198.426992 28
 }
 DEF POLE_MARKER_12291636493 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -51.221144 -63.730408 25
+  translation -51.221144 -63.730408 28
 }
 DEF POLE_MARKER_12291636494 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -34.434698 -65.734159 25
+  translation -34.434698 -65.734159 28
 }
 DEF POLE_MARKER_12291636495 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -51.670781 -151.895445 25
+  translation -51.670781 -151.895445 28
 }
 DEF POLE_MARKER_12291636496 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 38.256612 -109.3714 25
+  translation 38.256612 -109.3714 28
 }
 DEF POLE_MARKER_12291636497 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -280.610936 -135.865439 25
+  translation -280.610936 -135.865439 28
 }
 DEF POLE_MARKER_12291636498 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -263.749549 -151.895445 25
+  translation -263.749549 -151.895445 28
 }
 DEF POLE_MARKER_12291636499 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -251.309593 -138.314467 25
+  translation -251.309593 -138.314467 28
 }
 DEF POLE_MARKER_12291636500 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -217.586821 -133.861688 25
+  translation -217.586821 -133.861688 28
 }
 DEF POLE_MARKER_12291636501 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -240.518306 -72.07937 25
+  translation -240.518306 -72.07937 28
 }
 DEF POLE_MARKER_12291636502 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 35.48385 177.10931 25
+  translation 35.48385 177.10931 28
 }
 DEF POLE_MARKER_12291636503 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 39.505606 109.482719 25
+  translation 39.505606 109.482719 28
 }
 DEF POLE_MARKER_12291636504 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 30.950011 16.057837 25
+  translation 30.950011 16.057837 28
 }
 DEF POLE_MARKER_12291636505 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 37.557179 -53.711654 25
+  translation 37.557179 -53.711654 28
 }
 DEF POLE_MARKER_12291636506 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 37.844445 -146.49645 25
+  translation 37.844445 -146.49645 28
 }
 DEF POLE_MARKER_12291636507 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 51.246122 -134.455388 25
+  translation 51.246122 -134.455388 28
 }
 DEF POLE_MARKER_12291636508 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -179.067921 -134.974883 25
+  translation -179.067921 -134.974883 28
 }
 DEF POLE_MARKER_12291636509 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 23.143811 189.59565 25
+  translation 23.143811 189.59565 28
 }
 DEF POLE_MARKER_12291636510 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 49.122838 -67.181313 25
+  translation 49.122838 -67.181313 28
 }
 DEF POLE_MARKER_12291636511 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 38.456453 -135.939655 25
+  translation 38.456453 -135.939655 28
 }
 DEF POLE_MARKER_12291636512 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 47.998746 -137.423911 25
+  translation 47.998746 -137.423911 28
 }
 DEF POLE_MARKER_12291636513 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 240.967943 -142.544608 25
+  translation 240.967943 -142.544608 28
 }
 DEF POLE_MARKER_12291636514 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 21.645021 109.779575 25
+  translation 21.645021 109.779575 28
 }
 DEF POLE_MARKER_12291636515 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 27.765083 177.16497 25
+  translation 27.765083 177.16497 28
 }
 DEF POLE_MARKER_12291636516 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -157.335468 109.26008 25
+  translation -157.335468 109.26008 28
 }
 DEF POLE_MARKER_12291636517 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 23.768312 177.907103 25
+  translation 23.768312 177.907103 28
 }
 DEF POLE_MARKER_12291636518 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 39.905281 97.460214 25
+  translation 39.905281 97.460214 28
 }
 DEF POLE_MARKER_12291636519 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 31.13736 30.167582 25
+  translation 31.13736 30.167582 28
 }
 DEF POLE_MARKER_12291636520 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 42.503186 29.740861 25
+  translation 42.503186 29.740861 28
 }
 DEF POLE_MARKER_12291636521 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 39.755402 -67.84923 25
+  translation 39.755402 -67.84923 28
 }
 DEF POLE_MARKER_12291636522 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 32.261452 -71.188814 25
+  translation 32.261452 -71.188814 28
 }
 DEF POLE_MARKER_12291636523 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 43.127679 -57.051239 25
+  translation 43.127679 -57.051239 28
 }
 DEF POLE_MARKER_12291636524 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 50.32187 -132.358875 25
+  translation 50.32187 -132.358875 28
 }
 DEF POLE_MARKER_12291636525 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 40.005197 -149.965911 25
+  translation 40.005197 -149.965911 28
 }
 DEF POLE_MARKER_12291636526 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -164.080022 -132.303215 25
+  translation -164.080022 -132.303215 28
 }
 DEF POLE_MARKER_12291636527 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -304.066997 14.749833 25
+  translation -304.066997 14.749833 28
 }
 DEF POLE_MARKER_12291636528 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 230.851111 -130.522103 25
+  translation 230.851111 -130.522103 28
 }
 DEF POLE_MARKER_12291636529 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 238.644819 -130.188144 25
+  translation 238.644819 -130.188144 28
 }
 DEF POLE_MARKER_12291636530 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 227.853532 16.419625 25
+  translation 227.853532 16.419625 28
 }
 DEF POLE_MARKER_12291636531 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 44.43912 28.163831 25
+  translation 44.43912 28.163831 28
 }
 DEF POLE_MARKER_12291636532 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 46.150236 16.234089 25
+  translation 46.150236 16.234089 28
 }
 DEF POLE_MARKER_12291636533 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 39.155886 -66.513396 25
+  translation 39.155886 -66.513396 28
 }
 DEF POLE_MARKER_12291636534 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 40.354918 -132.414534 25
+  translation 40.354918 -132.414534 28
 }
 DEF POLE_MARKER_12291636535 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 52.307767 -64.175686 25
+  translation 52.307767 -64.175686 28
 }
 DEF POLE_MARKER_12291636536 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 39.605523 -134.640924 25
+  translation 39.605523 -134.640924 28
 }
 DEF POLE_MARKER_12291636537 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 48.997937 -147.702407 25
+  translation 48.997937 -147.702407 28
 }
 DEF POLE_MARKER_12291636538 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -303.842179 28.108171 25
+  translation -303.842179 28.108171 28
 }
 DEF POLE_MARKER_12291636539 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation -183.564291 92.673476 25
+  translation -183.564291 92.673476 28
 }
 DEF POLE_MARKER_12291636540 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 25.516898 192.081781 25
+  translation 28.516898 192.081781 28
 }
 DEF POLE_MARKER_12291636541 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 22.894015 96.569658 25
+  translation 22.894015 96.569658 28
 }
 DEF POLE_MARKER_12291636542 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 29.113993 28.145274 25
+  translation 29.113993 28.145274 28
 }
 DEF POLE_MARKER_12291636543 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 35.259032 192.30442 25
+  translation 35.259032 192.30442 28
 }
 DEF POLE_MARKER_12291636544 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 243.216128 -133.639049 25
+  translation 243.216128 -133.639049 28
 }
 DEF POLE_MARKER_12291636545 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 50.097052 -54.861952 25
+  translation 50.097052 -54.861952 28
 }
 DEF POLE_MARKER_12291636546 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 29.263872 18.200737 25
+  translation 29.263872 18.200737 28
 }
 DEF POLE_MARKER_12291636547 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 43.315028 15.139451 25
+  translation 43.315028 15.139451 28
 }
 DEF POLE_MARKER_12291636548 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 48.997937 -142.025113 25
+  translation 48.997937 -142.025113 28
 }
