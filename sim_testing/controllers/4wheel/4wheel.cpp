@@ -26,6 +26,7 @@ using json = nlohmann::json;
 
 #define TIME_STEP 64
 #define DEFAULT_VEL 5
+#define MAX_VEL 10
 #define SCALE_FACTOR 500.0
 #define THRESH 400
 #define TRANSLATION_ERR_THRESH 5
@@ -41,8 +42,9 @@ enum class State { FORWARD, TURN_LEFT, TURN_RIGHT };
 enum class NavState { OBST_AVOID, NAV_TO_POINT };
 
 State state = State::FORWARD;
-NavState navState = NavState::NAV_TO_POINT;
-int turnCounter = 0;
+NavState nav_state = NavState::NAV_TO_POINT;
+const double kP_turn = 5.0;
+int turn_counter = 0;
 
 struct Coord { double x, y; };
 
@@ -62,7 +64,6 @@ double heuristic(const Coord &a, const Coord &b) {
   double dx = (b.x - a.x) * RAD_CONV * EARTH_RAD * std::cos(RAD_CONV * LAT_CENTER);
   double dy = (b.y - a.y) * RAD_CONV * EARTH_RAD;
   return std::sqrt(std::pow(dx, 2) + std::pow(dy, 2));
-  //return std::sqrt(std::pow(a.x - b.x, 2) + std::pow(a.y - b.y, 2));  
 }
 
 void logData(DistanceSensor *ds[2], Motor *wheels[4], GPS *gps, InertialUnit *imu) {
@@ -75,89 +76,154 @@ void logData(DistanceSensor *ds[2], Motor *wheels[4], GPS *gps, InertialUnit *im
   //printf("imu yaw (deg): %.2f\n", imu->getRollPitchYaw()[2] * 180 / 3.14159);
 }
 
-void navToPoint(Robot* robot, Motor *wheels[4], GPS *gps, InertialUnit *imu,
+double clamp(double v, double lo, double hi) {
+  return std::max(lo, std::min(v, hi));
+}
+
+void stopWheels(Motor *wheels[4]) {
+  for (int i = 0; i < 4; i++) {
+    wheels[i]->setVelocity(0.0);
+  }
+}
+
+void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, InertialUnit *imu,
                 DistanceSensor *ds[2], double target_x, double target_y,
                 double rot_thresh, double pos_thresh) {
 
-  const double *cur_pos = gps->getValues();
-  double cur_x = cur_pos[0], cur_y = cur_pos[1];
-  double kP_turn = 5.0;
-  double target_angle = std::atan2(target_y - cur_y, target_x - cur_x);
+  enum class NavMode { TURN_TO_TARGET, MOVE_TO_TARGET, AVOID_OBSTACLE, CROSS_STREET };
+  NavMode mode = NavMode::TURN_TO_TARGET;
 
-  // turn towards target
+  int turn_counter = 0;
+  int move_counter = 0;
+  State avoid_state = State::FORWARD;
+
   while (robot->step(TIME_STEP) != -1) {
     logData(ds, wheels, gps, imu);
-    double cur_yaw = imu->getRollPitchYaw()[2];
-    double error = target_angle - cur_yaw;
 
-    while (error > M_PI) error -= 2 * M_PI;
-    while (error < -M_PI) error += 2 * M_PI;
-    if (std::abs(error) < rot_thresh) break;
-
-    double turn_speed = kP_turn * error;
-    for (int i = 0; i < 4; i++) {
-      wheels[i]->setVelocity(turn_speed * (i % 2 == 0 ? -1 : 1));
-    }
-  }
-
-  bool close_to_thresh = false;
-  bool interrupt = false;
-  int moveCounter = 0;
-  double dsVals[2];
-  while (robot->step(TIME_STEP) != -1) {
-    logData(ds, wheels, gps, imu);
+    double dsVals[2];
     for (int i = 0; i < 2; i++) dsVals[i] = ds[i]->getValue();
-    // manual path override for obstacle avoidance
-    if (state == State::FORWARD && (dsVals[0] > THRESH || dsVals[1] > THRESH)) {
-      interrupt = true;
-      if (dsVals[0] > THRESH && dsVals[1] > THRESH) {
-        state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
-        turnCounter = 40;
-      } else if (dsVals[0] > THRESH) {
-        state = State::TURN_LEFT; turnCounter = 30;
-      } else if (dsVals[1] > THRESH) {
-        state = State::TURN_RIGHT; turnCounter = 30;
+
+    const double *cur_pos = gps->getValues();
+    double cur_x = cur_pos[0];
+    double cur_y = cur_pos[1];
+    double cur_yaw = imu->getRollPitchYaw()[2];
+
+    double dx = target_x - cur_x;
+    double dy = target_y - cur_y;
+    double dist_err = std::sqrt(dx * dx + dy * dy);
+
+    bool crosswalk_detected = false;
+    double crosswalk_target_angle = 0;
+    const CameraRecognitionObject *detected_objs = camera->getRecognitionObjects();
+    
+    for (int i = 0; i < camera->getRecognitionNumberOfObjects(); i++) {
+      const CameraRecognitionObject &obj = detected_objs[i];
+      const double *position = obj.position;
+      double distance = std::sqrt(std::pow(position[0], 2) + std::pow(position[1], 2));
+
+      printf("obj name: %s at distance %.2f \n", obj.model, distance);
+      if (std::string(obj.model).compare("pedestrian crossing") == 0 && distance < 4.0) {
+        double rel_yaw = std::atan2(position[0], position[2]);
+        if (crosswalk_target_angle == 0) {
+          crosswalk_target_angle = cur_yaw + rel_yaw;
+        }
+        crosswalk_detected = true;
+        if (mode != NavMode::CROSS_STREET) {
+          mode = NavMode::TURN_TO_TARGET;
+        }
       }
     }
-    // if interrupt ever becomes true, call navToPoint again after diverting robot so it reaches the correct endpoint
-    if (interrupt && (turnCounter > 0 || moveCounter > 0)) {
-      double leftVels = DEFAULT_VEL, rightVels = DEFAULT_VEL;
-      switch (state) {
-        case State::FORWARD: leftVels = rightVels = DEFAULT_VEL; break;
-        case State::TURN_LEFT: leftVels = DEFAULT_VEL / 4; rightVels = DEFAULT_VEL; turnCounter--; break;
-        case State::TURN_RIGHT: leftVels = DEFAULT_VEL; rightVels = DEFAULT_VEL / 4; turnCounter--; break;
+    printf("**************************\n");
+
+    bool obstacle = dsVals[0] > THRESH || dsVals[1] > THRESH;
+    if (obstacle && mode != NavMode::AVOID_OBSTACLE) {
+      mode = NavMode::AVOID_OBSTACLE;
+
+      if (dsVals[0] > THRESH && dsVals[1] > THRESH) {
+        avoid_state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
+        turn_counter = 40;
+      } else if (dsVals[0] > THRESH) {
+        avoid_state = State::TURN_LEFT;
+        turn_counter = 30;
+      } else {
+        avoid_state = State::TURN_RIGHT;
+        turn_counter = 30;
       }
-      if (turnCounter <= 0) {
-        state = State::FORWARD;
-        moveCounter = 20;
-      }
-      if (moveCounter > 0) moveCounter--;
-      wheels[0]->setVelocity(leftVels);
-      wheels[1]->setVelocity(rightVels);
-      wheels[2]->setVelocity(leftVels);
-      wheels[3]->setVelocity(rightVels);
-    } else if (!interrupt) {
-      cur_pos = gps->getValues();
-      cur_x = cur_pos[0]; cur_y = cur_pos[1];
-      double error = std::sqrt(std::pow(target_x - cur_x, 2) + std::pow(target_y - cur_y, 2));
-      if (error < pos_thresh) break;
-      if (error < pos_thresh * 2) close_to_thresh = true;
-      if (close_to_thresh && error > pos_thresh * 2) {
-        printf("overshot end location, stopped at (%.2f, %.2f)", cur_x, cur_y);
+      move_counter = 5;
+    }
+
+    switch (mode) {
+      case NavMode::TURN_TO_TARGET: {
+        printf("MODE: TURN_TO_TARGET\n");
+        double target_angle = crosswalk_detected ? crosswalk_target_angle : std::atan2(dy, dx);
+        double err = target_angle - cur_yaw;
+
+        while (err > M_PI) err -= 2 * M_PI;
+        while (err < -M_PI) err += 2 * M_PI;
+
+        if (std::abs(err) < rot_thresh) {
+          stopWheels(wheels);
+          mode = crosswalk_detected ? NavMode::CROSS_STREET : NavMode::MOVE_TO_TARGET;
+          break;
+        }
+
+        double turn_speed = clamp(kP_turn * err, -MAX_VEL, MAX_VEL);
+        for (int i = 0; i < 4; i++) {
+          wheels[i]->setVelocity(turn_speed * (i % 2 == 0 ? -1 : 1));
+        }
         break;
       }
+      case NavMode::MOVE_TO_TARGET: {
+        printf("MODE: MOVE_TO_TARGET\n");
+        if (dist_err < pos_thresh) {
+          stopWheels(wheels);
+          return;
+        }
 
-      for (int i = 0; i < 4; i++) {
-        wheels[i]->setVelocity(DEFAULT_VEL);
+        for (int i = 0; i < 4; i++)
+          wheels[i]->setVelocity(DEFAULT_VEL);
+        break;
       }
-    } else {
-      // reschedule navToPoint
-      return navToPoint(robot, wheels, gps, imu, ds, target_x, target_y, rot_thresh, pos_thresh);
+      case NavMode::AVOID_OBSTACLE: {
+        printf("MODE: AVOID_OBSTACLE\n");
+        double leftVels = DEFAULT_VEL;
+        double rightVels = DEFAULT_VEL;
+
+        if (turn_counter > 0) {
+          if (avoid_state == State::TURN_LEFT) {
+            leftVels = DEFAULT_VEL / 4;
+            rightVels = DEFAULT_VEL;
+          } else {
+            leftVels = DEFAULT_VEL;
+            rightVels = DEFAULT_VEL / 4;
+          }
+          turn_counter--;
+        } else if (move_counter > 0) {
+          move_counter--;
+        } else {
+          mode = NavMode::TURN_TO_TARGET;
+          break;
+        }
+
+        for (int i = 0; i < 4; i++) {
+          wheels[i]->setVelocity(i % 2 == 0 ? leftVels : rightVels);
+        }
+        break;
+      } case NavMode::CROSS_STREET: {
+        printf("MODE: CROSS_STREET\n");
+        if (crosswalk_detected) {
+          for (int i = 0; i < 4; i++) wheels[i]->setVelocity(DEFAULT_VEL);
+        } else {
+          mode = NavMode::TURN_TO_TARGET;
+        }
+        break;
+      }
     }
   }
 
-  for (int i = 0; i < 4; i++) wheels[i]->setVelocity(0.0);
+  stopWheels(wheels);
 }
+
 
 const std::unordered_map<long long, PathNode> getPathNodes(const std::string &filepath) {
   std::ifstream file(filepath);
@@ -268,6 +334,8 @@ int main(int argc, char **argv) {
 
   Camera *camera = robot->getCamera("camera");
   camera->enable(TIME_STEP);
+  camera->recognitionEnable(TIME_STEP);
+
   GPS *gps = robot->getGPS("gps_main");
   gps->enable(TIME_STEP);
   InertialUnit *imu = robot->getInertialUnit("inertial-unit");
@@ -285,7 +353,7 @@ int main(int argc, char **argv) {
   }
   robot->step(TIME_STEP);
 
-  if (navState == NavState::OBST_AVOID) {
+  if (nav_state == NavState::OBST_AVOID) {
     while (robot->step(TIME_STEP) != -1) {
       double dsVals[2];
       for (int i = 0; i < 2; i++) dsVals[i] = ds[i]->getValue();
@@ -295,21 +363,21 @@ int main(int argc, char **argv) {
       if (state == State::FORWARD) {
         if (dsVals[0] > THRESH && dsVals[1] > THRESH) {
           state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
-          turnCounter = 40;
+          turn_counter = 40;
         } else if (dsVals[0] > THRESH) {
-          state = State::TURN_LEFT; turnCounter = 30;
+          state = State::TURN_LEFT; turn_counter = 30;
         } else if (dsVals[1] > THRESH) {
-          state = State::TURN_RIGHT; turnCounter = 30;
+          state = State::TURN_RIGHT; turn_counter = 30;
         }
       }
 
       switch (state) {
         case State::FORWARD: leftVels = rightVels = DEFAULT_VEL; break;
-        case State::TURN_LEFT: leftVels = DEFAULT_VEL / 4; rightVels = DEFAULT_VEL; turnCounter--; break;
-        case State::TURN_RIGHT: leftVels = DEFAULT_VEL; rightVels = DEFAULT_VEL / 4; turnCounter--; break;
+        case State::TURN_LEFT: leftVels = DEFAULT_VEL / 4; rightVels = DEFAULT_VEL; turn_counter--; break;
+        case State::TURN_RIGHT: leftVels = DEFAULT_VEL; rightVels = DEFAULT_VEL / 4; turn_counter--; break;
       }
 
-      if (turnCounter <= 0) state = State::FORWARD;
+      if (turn_counter <= 0) state = State::FORWARD;
 
       wheels[0]->setVelocity(leftVels);
       wheels[1]->setVelocity(rightVels);
@@ -331,7 +399,7 @@ int main(int argc, char **argv) {
     for (int i = 0; i < fullPath.size(); i++) {
       Coord c = fullPath.at(i);
       printf("currently at iteration %.2d\n", i);
-      navToPoint(robot, wheels, gps, imu, ds, c.x, c.y, 0.05, 1);
+      navToPoint(robot, wheels, camera, gps, imu, ds, c.x, c.y, 0.01, 0.5);
     }
   }
 

@@ -14,7 +14,6 @@ IMPORTABLE EXTERNPROTO "../protos/SurfaceProblemMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoCurbRampMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoSidewalkMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/PoleMarker.proto"
-EXTERNPROTO "../protos/FourWheelsRobot.proto"
 
 WorldInfo {
   info [
@@ -25,8 +24,8 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation 0.3813490837664878 0.8346706757544659 -0.3973634851694903 1.7099200021749186
-  position 24.38952839916409 -44.143886976869766 84.09901166914089
+  orientation 0.42941853913624695 0.44412322008622357 -0.7863550620593318 1.7760110762962387
+  position 26.116691500953763 -28.437894703348753 44.154750289336484
   near 3
 }
 TexturedBackground {
@@ -16099,17 +16098,194 @@ DEF parking Pose {
     }
   ]
 }
-FourWheelsRobot {
-  hidden position_0_0 646.8344360752097
-  hidden position_0_1 665.4532116320755
-  hidden position_0_2 643.6884625338189
-  hidden position_0_3 614.5564464744489
-  hidden rotation_1 -0.9727965236091015 0.16380892302379166 -0.1638095247286685 4.684808463156104
-  hidden rotation_2 0.9252334406308212 -0.2682746275796469 0.26827561300918584 1.6484311011670845
-  hidden rotation_3 0.11979461567507019 0.7020134007137645 -0.7020159793577051 2.903140616543432
-  hidden rotation_4 0.7202814151612512 -0.4905063279135862 0.49050812964724116 1.8931794077830657
-  translation 38.6011 -64.4703 0.145173
-  rotation 0.00021648057070513648 9.19845089681785e-05 0.9999999723375058 -3.0578198675343584
+Robot {
+  translation 34.8072 -62.9136 0.145122
+  rotation 3.311133187131918e-08 -2.7649469334454085e-08 -0.9999999999999992 1.3908972159512474
+  children [
+    DEF BODY Shape {
+      appearance PBRAppearance {
+        baseColor 0.917647 0.145098 0.145098
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.5 0.25
+      }
+    }
+    DEF WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2318.089520626836
+        axis 0 1 0
+        anchor 0.25 0.3 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.25 0.3 0
+        rotation -0.9601745712750207 0.1975658193221136 -0.19756654502322069 4.671756326659682
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.305882 0.898039 0.25098
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.1
+              radius 0.2
+              subdivision 24
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2371.5381308445285
+        axis 0 1 0
+        anchor 0.25 -0.3 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.25 -0.3 0
+        rotation -0.12916060363042478 -0.7011825463254329 0.7011851219174623 3.3984906589393886
+        children [
+          USE WHEEL
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1941.943544664305
+        axis 0 1 0
+        anchor -0.25 0.3 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation -0.25 0.3 0
+        rotation -0.953603321869 -0.2128853818120369 0.21288616378513617 4.664895672511496
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1924.7747875838882
+        axis 0 1 0
+        anchor -0.25 -0.3 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation -0.25 -0.3 0
+        rotation 0.3683655082219168 0.6573825665379629 -0.6573849812433881 2.4357120748760264
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF DS_RIGHT DistanceSensor {
+      translation 0.5 -0.15 0
+      rotation 0 0 1 -0.3
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.184314 0.596078 0.847059
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 0.05 0.05
+          }
+        }
+      ]
+      name "ds_right"
+      lookupTable [
+        0 1000 0
+        5 0 0
+      ]
+    }
+    Camera {
+      translation 0.5 0 0.1375
+      recognitionColors [
+        0 0 0
+      ]
+      fieldOfView 2.287
+      width 752
+      height 800
+      near 0.06
+      recognition Recognition {
+        maxRange 5
+      }
+    }
+    DEF DS_LEFT DistanceSensor {
+      translation 0.5 0.15 0
+      rotation 0 0 1 0.3
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.184314 0.596078 0.847059
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 0.05 0.05
+          }
+        }
+      ]
+      name "ds_left"
+      lookupTable [
+        0 1000 0
+        5 0 0
+      ]
+    }
+    DEF GPS_MAIN GPS {
+      name "gps_main"
+    }
+    InertialUnit {
+      name "inertial-unit"
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+    density -1
+    mass 125
+  }
+  controller "4wheel"
 }
 DEF SurfaceProblem_MARKER_1 SurfaceProblemMarker {
   translation 305.790606 114.380777 0
@@ -16184,7 +16360,7 @@ DEF SurfaceProblem_MARKER_18 SurfaceProblemMarker {
   name "SurfaceProblem_MARKER_18"
 }
 DEF SurfaceProblem_MARKER_19 SurfaceProblemMarker {
-  translation 15.774764 -53.377696 0
+  translation 14.8693 -54.0157 -3.80199e-14
   name "SurfaceProblem_MARKER_19"
 }
 DEF SurfaceProblem_MARKER_20 SurfaceProblemMarker {
@@ -17561,7 +17737,7 @@ DEF POLE_MARKER_12291636456 PoleMarker {
 }
 DEF POLE_MARKER_12291636457 PoleMarker {
   baseColor 0.664134 0.055283 0
-  translation 15.774764 -53.377696 25
+  translation 15.532 -53.8433 25
 }
 DEF POLE_MARKER_12291636458 PoleMarker {
   baseColor 0.664134 0.055283 0
