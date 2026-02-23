@@ -173,6 +173,48 @@ PROTO FourWheelsRobot [
           5 0 0
         ]
       }
+      DEF DS_FAR_LEFT DistanceSensor {
+        translation 0.5 0.20 0
+        rotation 0 0 1 0.5
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.184314 0.596078 0.847059
+              roughness 1
+              metalness 0
+            }
+            geometry Box {
+              size 0.05 0.05 0.05
+            }
+          }
+        ]
+        name "ds_far_left"
+        lookupTable [
+          0 1000 0 
+          5 0 0
+        ]
+      }
+      DEF DS_FAR_RIGHT DistanceSensor {
+        translation 0.5 -0.20 0
+        rotation 0 0 1 -0.5
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.184314 0.596078 0.847059
+              roughness 1
+              metalness 0
+            }
+            geometry Box {
+              size 0.05 0.05 0.05
+            }
+          }
+        ]
+        name "ds_far_right"
+        lookupTable [
+          0 1000 0 
+          5 0 0
+        ]
+      }
       DEF GPS_MAIN GPS {
         name "gps_main"
       }

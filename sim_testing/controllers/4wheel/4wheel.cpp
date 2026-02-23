@@ -4,6 +4,7 @@
 #include <webots/Camera.hpp>
 #include <webots/GPS.hpp>
 #include <webots/InertialUnit.hpp>
+#include "webots/Emitter.hpp"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,6 +36,8 @@ using json = nlohmann::json;
 #define LAT_CENTER 47.686
 #define OFFSET_X 44.7
 #define OFFSET_Y -122
+#define TURN_PENALTY 5
+#define DEBUG 0
 
 using namespace webots;
 
@@ -44,6 +47,7 @@ enum class NavState { OBST_AVOID, NAV_TO_POINT };
 State state = State::FORWARD;
 NavState nav_state = NavState::NAV_TO_POINT;
 const double kP_turn = 5.0;
+const double kD_turn = 2.1;
 int turn_counter = 0;
 
 struct Coord { double x, y; };
@@ -66,14 +70,11 @@ double heuristic(const Coord &a, const Coord &b) {
   return std::sqrt(std::pow(dx, 2) + std::pow(dy, 2));
 }
 
-void logData(DistanceSensor *ds[2], Motor *wheels[4], GPS *gps, InertialUnit *imu) {
-  /*printf("dist sensor vals: %.2f and %.2f\n", ds[0]->getValue(), ds[1]->getValue());
-  printf("left wheel velocities: %.2f, %.2f\n", wheels[0]->getVelocity(), wheels[2]->getVelocity());
-  printf("right wheel velocities: %.2f, %.2f\n", wheels[1]->getVelocity(), wheels[3]->getVelocity());*/
-
+void logData(DistanceSensor *ds[4], Motor *wheels[4], GPS *gps, InertialUnit *imu) {
+  printf("dist sensor vals: (%.2f, %.2f, %.2f, %.2f) \n", ds[0]->getValue(), ds[1]->getValue(), ds[2]->getValue(), ds[3]->getValue());
   const double *gps_coords = gps->getValues();
-  //printf("gps: (%.2f m, %.2f m, %.2f)\n", gps_coords[0], gps_coords[1], gps_coords[2]);
-  //printf("imu yaw (deg): %.2f\n", imu->getRollPitchYaw()[2] * 180 / 3.14159);
+  printf("gps: (%.2f m, %.2f m, %.2f)\n", gps_coords[0], gps_coords[1], gps_coords[2]);
+  printf("imu yaw (deg): %.2f\n", imu->getRollPitchYaw()[2] * 180 / 3.14159);
 }
 
 double clamp(double v, double lo, double hi) {
@@ -85,9 +86,10 @@ void stopWheels(Motor *wheels[4]) {
     wheels[i]->setVelocity(0.0);
   }
 }
+// TODO last mile navigation to go on grass (bottom 20% of camera should be grass or sidewalk)
 
 void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, InertialUnit *imu,
-                DistanceSensor *ds[2], double target_x, double target_y,
+                DistanceSensor *ds[4], double target_x, double target_y,
                 double rot_thresh, double pos_thresh) {
 
   enum class NavMode { TURN_TO_TARGET, MOVE_TO_TARGET, AVOID_OBSTACLE };
@@ -98,11 +100,14 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
   State avoid_state = State::FORWARD;
   double crosswalk_target_angle = 0;
 
+  double last_err = 0;
   while (robot->step(TIME_STEP) != -1) {
-    logData(ds, wheels, gps, imu);
+    #if DEBUG
+      logData(ds, wheels, gps, imu);
+    #endif
 
-    double dsVals[2];
-    for (int i = 0; i < 2; i++) dsVals[i] = ds[i]->getValue();
+    double dsVals[4];
+    for (int i = 0; i < 4; i++) dsVals[i] = ds[i]->getValue();
 
     const double *cur_pos = gps->getValues();
     double cur_x = cur_pos[0];
@@ -113,36 +118,62 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
     double dy = target_y - cur_y;
     double dist_err = std::sqrt(dx * dx + dy * dy);
 
-    bool crosswalk_detected = false;
+
     const CameraRecognitionObject *detected_objs = camera->getRecognitionObjects();
-    
     for (int i = 0; i < camera->getRecognitionNumberOfObjects(); i++) {
       const CameraRecognitionObject &obj = detected_objs[i];
       const double *position = obj.position;
       double distance = std::sqrt(std::pow(position[0], 2) + std::pow(position[1], 2));
+      //printf("obj name: %s at distance %.2f \n", obj.model, distance);
+    }
 
-      printf("obj name: %s at distance %.2f \n", obj.model, distance);
-      if (std::string(obj.model).compare("pedestrian crossing") == 0 && distance < 4.0) {
-        double rel_yaw = std::atan2(position[0], position[1]);
-        double cur_detection = cur_yaw + rel_yaw + M_PI / 2; // +90 degrees so parallel to crosswalk, not stripes
-        crosswalk_target_angle = 0.9 * crosswalk_target_angle + 0.1 * cur_detection; // smoothing
-        printf("crosswalk detected at angle: %.2f\n", crosswalk_target_angle);
-        crosswalk_detected = true;
+    // look at bottom 20% of screen to find orientation of robot relative to grass
+    int scan_y = 0.8 * camera->getHeight();
+    int width = camera->getWidth();
+    int grass_loc_x = -1;
+    for (int i = 0; i < width; i++) {
+      const auto image = camera->getImage();
+      int r = Camera::imageGetRed(image, width, i, scan_y);
+      int g = Camera::imageGetGreen(image, width, i, scan_y);
+      int b = Camera::imageGetBlue(image, width, i, scan_y);
+
+      bool isGrass = g > r + 20 && g > b + 20;
+      if (isGrass) {
+        grass_loc_x = i;
       }
     }
+    if (grass_loc_x != -1 && (grass_loc_x - width / 2) != 0) {
+
+    }
+
+
+    #if DEBUG
     printf("**************************\n");
-    bool obstacle = dsVals[0] > THRESH || dsVals[1] > THRESH;
+    #endif
+
+    bool obstacle = false;
+    for (double val : dsVals) {
+      if (val > THRESH) obstacle = true;
+    }
     if (obstacle && mode != NavMode::AVOID_OBSTACLE) {
       mode = NavMode::AVOID_OBSTACLE;
 
-      if (dsVals[0] > THRESH && dsVals[1] > THRESH) {
-        avoid_state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
-        turn_counter = 40;
-      } else if (dsVals[0] > THRESH) {
-        avoid_state = State::TURN_LEFT;
+      if (dsVals[1] > THRESH && dsVals[2] > THRESH) {
+        if (dsVals[0] > THRESH && dsVals[3] < THRESH) {
+          avoid_state = State::TURN_RIGHT;
+          turn_counter = 20;
+        } else if (dsVals[0] < THRESH && dsVals[3] > THRESH) {
+          avoid_state = State::TURN_LEFT;
+          turn_counter = 20;
+        } else {
+          avoid_state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
+          turn_counter = 40;
+        }
+      } else if (dsVals[0] > THRESH || dsVals[1] > THRESH) {
+        avoid_state = State::TURN_RIGHT;
         turn_counter = 30;
       } else {
-        avoid_state = State::TURN_RIGHT;
+        avoid_state = State::TURN_LEFT;
         turn_counter = 30;
       }
       move_counter = 5;
@@ -150,7 +181,9 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
 
     switch (mode) {
       case NavMode::TURN_TO_TARGET: {
-        printf("MODE: TURN_TO_TARGET\n");
+        #if DEBUG
+          printf("MODE: TURN_TO_TARGET\n");
+        #endif
         double target_angle = std::atan2(dy, dx);
         double err = target_angle - cur_yaw;
         while (err > M_PI) err -= 2 * M_PI;
@@ -162,14 +195,17 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
           break;
         }
 
-        double turn_speed = clamp(kP_turn * err, -MAX_VEL, MAX_VEL);
+        double turn_speed = clamp(kP_turn * err + kD_turn * (err - last_err) / (TIME_STEP / 1000.0), -MAX_VEL, MAX_VEL);
+        last_err = err;
         for (int i = 0; i < 4; i++) {
           wheels[i]->setVelocity(turn_speed * (i % 2 == 0 ? -1 : 1));
         }
         break;
       }
       case NavMode::MOVE_TO_TARGET: {
-        printf("MODE: MOVE_TO_TARGET\n");
+        #if DEBUG
+          printf("MODE: MOVE_TO_TARGET\n");
+        #endif
         if (dist_err < pos_thresh) {
           stopWheels(wheels);
           return;
@@ -180,7 +216,9 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
         break;
       }
       case NavMode::AVOID_OBSTACLE: {
-        printf("MODE: AVOID_OBSTACLE\n");
+        #if DEBUG
+          printf("MODE: AVOID_OBSTACLE\n");
+        #endif
         double leftVels = DEFAULT_VEL;
         double rightVels = DEFAULT_VEL;
 
@@ -224,8 +262,8 @@ const std::unordered_map<long long, PathNode> getPathNodes(const std::string &fi
     const json &n = it.value();
 
     PathNode node;
-    node.loc.x = n.at("x").get<double>()+OFFSET_X;
-    node.loc.y = n.at("y").get<double>()+OFFSET_Y;
+    node.loc.x = n.at("x").get<double>() + OFFSET_X;
+    node.loc.y = n.at("y").get<double>() + OFFSET_Y;
     node.issue = n.at("issue").get<bool>();
 
     nodes.emplace(id, node);
@@ -308,7 +346,7 @@ std::vector<Coord> generateAStarPath(
       d_theta = fabs(d_theta);
 
       double cost = heuristic(nodeFrom.loc, nodeTo.loc);
-      if (d_theta > M_PI / 4) cost *= 5.0;
+      if (d_theta > M_PI / 4) cost *= TURN_PENALTY;
 
       double tentative = g[current] + cost;
       if (!g.count(e.to) || tentative < g[e.to]) {
@@ -334,8 +372,8 @@ int main(int argc, char **argv) {
   Robot *robot = new Robot();
   Motor *wheels[4];
   char wheelNames[4][8] = {"wheel1", "wheel2", "wheel3", "wheel4"};
-  DistanceSensor *ds[2];
-  char dsNames[2][10] = {"ds_right", "ds_left"};
+  DistanceSensor *ds[4];
+  char dsNames[4][13] = {"ds_far_left", "ds_left", "ds_right", "ds_far_right"};
 
   Camera *camera = robot->getCamera("camera");
   camera->enable(TIME_STEP);
@@ -352,7 +390,7 @@ int main(int argc, char **argv) {
     wheels[i]->setVelocity(0.0);
   }
 
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 4; i++) {
     ds[i] = robot->getDistanceSensor(dsNames[i]);
     ds[i]->enable(TIME_STEP);
   }
@@ -360,18 +398,18 @@ int main(int argc, char **argv) {
 
   if (nav_state == NavState::OBST_AVOID) {
     while (robot->step(TIME_STEP) != -1) {
-      double dsVals[2];
+      double dsVals[4];
       for (int i = 0; i < 2; i++) dsVals[i] = ds[i]->getValue();
 
       double leftVels = DEFAULT_VEL, rightVels = DEFAULT_VEL;
 
       if (state == State::FORWARD) {
-        if (dsVals[0] > THRESH && dsVals[1] > THRESH) {
+        if (dsVals[1] > THRESH && dsVals[2] > THRESH) {
           state = (rand() % 2 == 0) ? State::TURN_LEFT : State::TURN_RIGHT;
           turn_counter = 40;
-        } else if (dsVals[0] > THRESH) {
-          state = State::TURN_LEFT; turn_counter = 30;
         } else if (dsVals[1] > THRESH) {
+          state = State::TURN_LEFT; turn_counter = 30;
+        } else if (dsVals[2] > THRESH) {
           state = State::TURN_RIGHT; turn_counter = 30;
         }
       }
@@ -388,23 +426,33 @@ int main(int argc, char **argv) {
       wheels[1]->setVelocity(rightVels);
       wheels[2]->setVelocity(leftVels);
       wheels[3]->setVelocity(rightVels);
-      logData(ds, wheels, gps, imu);
+      #if DEBUG
+        logData(ds, wheels, gps, imu);
+      #endif
     }
   } else {
     std::string path = "/Users/irislitiu/Webots-sims/adjacency_map.json";
     const auto path_nodes = getPathNodes(path);
     const auto edges = getEdges(path);
     const Coord start = {38.6+OFFSET_X, -66.1+OFFSET_Y};
-    const Coord end = {15.8+OFFSET_X, -53.4+OFFSET_Y};
+    const Coord end = {48.0+OFFSET_X, -20.3+OFFSET_Y};
     std::vector<Coord> fullPath = generateAStarPath(path_nodes, edges, start, end);
+
+    Emitter *emitter = robot->getEmitter("emitter");
     for (Coord &c : fullPath) {
       printf("coord (%.2f, %.2f)\n", c.x, c.y);
+      emitter->send(&c, sizeof(Coord));
     }
+
+    const char* test_data = "test msg";
+    emitter->send(test_data, strlen(test_data) + 1);
+
     printf("end coord is: x=%.2f, y=%.2f\n", fullPath.back().x, fullPath.back().y);
     for (int i = 0; i < fullPath.size(); i++) {
       Coord c = fullPath.at(i);
       printf("currently at iteration %.2d\n", i);
-      navToPoint(robot, wheels, camera, gps, imu, ds, c.x, c.y, 0.01, 0.5);
+      double distTolerance = i == fullPath.size() - 1 ? 2.0 : 2.0;
+      navToPoint(robot, wheels, camera, gps, imu, ds, c.x, c.y, 0.01, distTolerance);
     }
   }
 

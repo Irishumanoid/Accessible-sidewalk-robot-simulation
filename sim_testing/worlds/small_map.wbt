@@ -24,8 +24,8 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation 0.2159012353069768 0.249379176080749 -0.9440321409412967 1.4843333520895994
-  position 21.15088454306986 -9.230446068809613 27.49713423491096
+  orientation 0.43996586876333343 0.4642330930944496 -0.7687116947199941 1.778627217044366
+  position 26.34035405000339 -19.34416904876926 58.290431336457786
   near 3
 }
 TexturedBackground {
@@ -65,6 +65,10 @@ DEF MARKER SignPole {
   ]
 }
 Robot {
+  children [
+    Receiver {
+    }
+  ]
   name "map_supervisor"
   controller "map_controller"
   supervisor TRUE
@@ -12982,7 +12986,7 @@ SimpleBuilding {
   roofShape "flat roof"
 }
 SimpleBuilding {
-  translation 19.91 -32.18 0
+  translation 17.8329 -32.2169 -9.48468e-15
   name "building(408)"
   floorNumber 2
   corners [
@@ -14517,7 +14521,7 @@ SimpleBuilding {
   wallType "glass highrise"
 }
 SimpleBuilding {
-  translation 28.58 -28.01 0
+  translation 26.5266 -28.4889 -1.30674e-13
   name "building(504)"
   corners [
     0 0
@@ -16099,9 +16103,27 @@ DEF parking Pose {
   ]
 }
 Robot {
-  translation 34.807200010050764 -62.91360000010223 0.14512259472585623
-  rotation 9.951755243595029e-09 -8.319863085354829e-09 -1 1.3779269462899866
+  translation 34.42099958761528 -63.438800648908625 0.14512061577001825
+  rotation -6.776352132051485e-08 -3.697409942546862e-10 -0.9999999999999977 0.5860629019805025
   children [
+    Emitter {
+    }
+    DEF DS_FAR_RIGHT DistanceSensor {
+      rotation 0 0 1 -0.8
+      name "ds_far_right"
+      lookupTable [
+        0 1000 0
+        2 0 0
+      ]
+    }
+    DEF DS_FAR_LEFT DistanceSensor {
+      rotation 0 0 1 0.8
+      name "ds_far_left"
+      lookupTable [
+        0 1000 0
+        2 0 0
+      ]
+    }
     DEF BODY Shape {
       appearance PBRAppearance {
         baseColor 0.917647 0.145098 0.145098
@@ -16114,7 +16136,7 @@ Robot {
     }
     DEF WHEEL1 HingeJoint {
       jointParameters HingeJointParameters {
-        position 2318.0575402224013
+        position 3608.9144835765264
         axis 0 1 0
         anchor 0.25 0.3 0
       }
@@ -16126,7 +16148,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 0.3 0
-        rotation -0.9538969171587898 0.2122266954817129 -0.21222747503532383 4.665203160151936
+        rotation 0.27745373783154464 0.6793438131475373 -0.6793463085212641 2.600302551599616
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
@@ -16144,13 +16166,13 @@ Robot {
         boundingObject USE WHEEL
         physics Physics {
         }
-        linearVelocity 0.00290799552066722 0.0053683006370130095 4.598438629195696e-06
-        angularVelocity -0.036013385228760145 -0.007022440267821736 0.015605463922264839
+        linearVelocity 0.057984637053720325 -0.18674312072410656 0.0002619256502557747
+        angularVelocity 0.855393227745015 1.3067208509503587 -0.5055026878552084
       }
     }
     DEF WHEEL2 HingeJoint {
       jointParameters HingeJointParameters {
-        position 2371.5701839666867
+        position 3577.0175650270135
         axis 0 1 0
         anchor 0.25 -0.3 0
       }
@@ -16162,7 +16184,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 -0.3 0
-        rotation -0.11774333811792774 -0.70218689963827 0.7021894789195019 3.3759992172421094
+        rotation -0.4569024838089427 -0.6289821992322184 0.6289845096170656 3.998748248818797
         children [
           USE WHEEL
         ]
@@ -16170,13 +16192,13 @@ Robot {
         boundingObject USE WHEEL
         physics Physics {
         }
-        linearVelocity 0.00467887384338185 -0.0038791613345350155 4.60002229228528e-06
-        angularVelocity 0.036125221821333174 0.007058502145428826 0.015595775117311486
+        linearVelocity -0.1957220221892739 -0.021738152907602108 0.0002619891201050477
+        angularVelocity -0.7123051542158886 -1.0886909242924043 -0.5045510086796435
       }
     }
     DEF WHEEL3 HingeJoint {
       jointParameters HingeJointParameters {
-        position 1941.9114915421258
+        position 3221.353337280464
         axis 0 1 0
         anchor -0.25 0.3 0
       }
@@ -16188,7 +16210,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 0.3 0
-        rotation -0.9599133458572783 -0.19819949527521832 0.1982002233039452 4.671484455400255
+        rotation -0.44338595266828956 0.6338004204364325 -0.633802748519628 3.976270105942239
         children [
           USE WHEEL
         ]
@@ -16196,13 +16218,13 @@ Robot {
         boundingObject USE WHEEL
         physics Physics {
         }
-        linearVelocity -0.004678859529460681 0.003879157797637283 4.598573665634258e-06
-        angularVelocity -0.03612522246703435 -0.007058496782646805 0.015595773901580056
+        linearVelocity 0.195722882856506 0.021738098412633224 0.0002619017381260792
+        angularVelocity 0.7123067625912464 1.088693798278785 -0.5045510993432369
       }
     }
     DEF WHEEL4 HingeJoint {
       jointParameters HingeJointParameters {
-        position 1924.8067679884093
+        position 3134.4697369367964
         axis 0 1 0
         anchor -0.25 -0.3 0
       }
@@ -16214,7 +16236,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 -0.3 0
-        rotation 0.356443304479369 0.6606606406371439 -0.6606630673836298 2.4567882064698923
+        rotation -0.8455877645430981 0.37747866539721553 -0.3774800519563155 4.545442932397661
         children [
           USE WHEEL
         ]
@@ -16222,8 +16244,8 @@ Robot {
         boundingObject USE WHEEL
         physics Physics {
         }
-        linearVelocity -0.0029079812345949876 -0.0053683040569772085 4.6001721733292605e-06
-        angularVelocity 0.03601338501580032 0.0070224457257186765 0.015605465141673982
+        linearVelocity -0.057983774923214194 0.18674305999530563 0.00026195519191311086
+        angularVelocity -0.8553934605208707 -1.3067208441893867 -0.5055025808584823
       }
     }
     DEF DS_RIGHT DistanceSensor {
@@ -16242,9 +16264,12 @@ Robot {
         }
       ]
       name "ds_right"
+      recognitionColors [
+        0 0 0
+      ]
       lookupTable [
         0 1000 0
-        5 0 0
+        2 0 0
       ]
     }
     Camera {
@@ -16278,7 +16303,7 @@ Robot {
       name "ds_left"
       lookupTable [
         0 1000 0
-        5 0 0
+        2 0 0
       ]
     }
     DEF GPS_MAIN GPS {
@@ -16294,8 +16319,8 @@ Robot {
     mass 125
   }
   controller "4wheel"
-  linearVelocity 7.1500946253573125e-09 -1.7397376596903155e-09 -1.3298014507745211e-06
-  angularVelocity -2.3127131941120447e-10 2.699008749743061e-09 0.015600836368680458
+  linearVelocity 4.307417675723419e-07 -2.7633384638179765e-08 5.138906180212528e-05
+  angularVelocity -1.1632285759380099e-07 3.965658150529677e-09 -0.5022842074233835
 }
 DEF SurfaceProblem_MARKER_1 SurfaceProblemMarker {
   translation 305.790606 114.380777 0
@@ -16560,10 +16585,6 @@ DEF NoCurbRamp_MARKER_65 NoCurbRampMarker {
 DEF NoCurbRamp_MARKER_66 NoCurbRampMarker {
   translation 30.950011 16.057837 0
   name "NoCurbRamp_MARKER_66"
-}
-DEF NoCurbRamp_MARKER_67 NoCurbRampMarker {
-  translation 37.557179 -53.711654 0
-  name "NoCurbRamp_MARKER_67"
 }
 DEF NoCurbRamp_MARKER_68 NoCurbRampMarker {
   translation 37.844445 -146.49645 0
@@ -18112,4 +18133,8 @@ DEF POLE_MARKER_12291636547 PoleMarker {
 DEF POLE_MARKER_12291636548 PoleMarker {
   baseColor 0.664134 0.055283 0
   translation 48.997937 -142.025113 28
+}
+DEF NoCurbRamp_MARKER_67 NoCurbRampMarker {
+  translation 37.557179 -53.711654 0
+  name "NoCurbRamp_MARKER_67"
 }
