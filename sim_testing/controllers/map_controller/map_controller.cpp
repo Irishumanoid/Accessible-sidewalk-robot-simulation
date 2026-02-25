@@ -6,6 +6,7 @@
 #include <string>
 #include <cstring>
 #include <map>
+#include <tuple>
 #include <unordered_map>
 #include <webots/Receiver.hpp>
 
@@ -22,6 +23,9 @@ const std::unordered_map<std::string, std::string> MARKER_TEMPLATES = {
   { "NoCurbRamp", "NoCurbRampMarker" },
   { "NoSidewalk", "NoSidewalkMarker" }
 };
+
+const double red[3] = {0.664134, 0.0552834, 0.0};
+const double blue[3] = {0.0, 0.576852, 0.607004};
 
 Node *createMarker(
   Supervisor *robot,
@@ -66,7 +70,7 @@ Node *createPole(
   }
 
   std::string nodeString = "DEF " + defName + " PoleMarker {\n"
-  "  baseColor " + std::to_string(isIssue ? 0.664134 : 0.0) + " " + std::to_string(isIssue ? 0.0552834 : 0.576852) + " " + std::to_string(isIssue ? 0.0 : 0.607004) + "\n"
+  "  baseColor " + std::to_string(isIssue ? red[0] : blue[0]) + " " + std::to_string(isIssue ? red[1] : blue[1]) + " " + std::to_string(isIssue ? red[2] : blue[2]) + "\n"
   "  translation " + std::to_string(x) + " " + std::to_string(y) + " 25\n}";
 
   children->importMFNodeFromString(-1, nodeString);
@@ -184,6 +188,7 @@ int main(int argc, char **argv) {
   csvFile.close();
 
   std::vector<Coord> pathCoords;
+  std::vector<std::tuple<std::string, bool>> pathCoordData;
   while (robot->step(TIME_STEP) != -1) {
     if (receiver->getQueueLength() > 0) {
       const void *data = receiver->getData();
@@ -195,7 +200,19 @@ int main(int argc, char **argv) {
         printf("received coord: (%.2f, %.2f)\n", coord.x, coord.y);
         pathCoords.push_back(coord);
       } else {
-        std::cerr << "Ignoring packet that is not of size " << sizeof(Coord);
+        const char *data = static_cast<const char*>(receiver->getData());
+        int size = receiver->getDataSize();
+        std::string message(data, size);
+        message.erase(std::find(message.begin(), message.end(), '\0'), message.end());
+        printf("received message: %s\n", message.c_str());
+        if (message == "finished path") {
+          // reset pole colors after path is finished
+          for (auto [coordName, isIssue] : pathCoordData) {
+            Node *pole = robot->getFromDef(coordName);
+            Field *colorField = pole->getField("baseColor");
+            colorField->setSFColor(isIssue ? red : blue);
+          }
+        }
       }
       receiver->nextPacket();
     } else if (receiver->getQueueLength() == 0 && pathCoords.size() > 0) {
@@ -211,6 +228,8 @@ int main(int argc, char **argv) {
               std::cerr << "No baseColor field on " << name << '\n';
               break;
             }
+            const double *color = colorField->getSFColor();
+            pathCoordData.push_back({name, abs(color[0] - red[0]) < 1e-5 ? true : false});
             colorField->setSFColor(yellow);
           }
         }
@@ -218,6 +237,7 @@ int main(int argc, char **argv) {
       pathCoords.clear();
     }
   };
+
 
   delete robot;
   return 0;

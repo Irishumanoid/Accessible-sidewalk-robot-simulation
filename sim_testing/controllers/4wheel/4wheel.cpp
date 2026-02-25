@@ -444,9 +444,6 @@ int main(int argc, char **argv) {
       emitter->send(&c, sizeof(Coord));
     }
 
-    const char* test_data = "test msg";
-    emitter->send(test_data, strlen(test_data) + 1);
-
     printf("end coord is: x=%.2f, y=%.2f\n", fullPath.back().x, fullPath.back().y);
     for (int i = 0; i < fullPath.size(); i++) {
       Coord c = fullPath.at(i);
@@ -454,6 +451,8 @@ int main(int argc, char **argv) {
       double distTolerance = i == fullPath.size() - 1 ? 2.0 : 2.0;
       navToPoint(robot, wheels, camera, gps, imu, ds, c.x, c.y, 0.01, distTolerance);
     }
+    std::string message = "finished path";
+    emitter->send(message.c_str(), message.length()+1);
   }
 
   delete robot;
