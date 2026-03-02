@@ -71,7 +71,7 @@ Node *createPole(
 
   std::string nodeString = "DEF " + defName + " PoleMarker {\n"
   "  baseColor " + std::to_string(isIssue ? red[0] : blue[0]) + " " + std::to_string(isIssue ? red[1] : blue[1]) + " " + std::to_string(isIssue ? red[2] : blue[2]) + "\n"
-  "  translation " + std::to_string(x) + " " + std::to_string(y) + " 25\n}";
+  "  translation " + std::to_string(x) + " " + std::to_string(y) + " 50\n}";
 
   children->importMFNodeFromString(-1, nodeString);
   Node *node = robot->getFromDef(defName);

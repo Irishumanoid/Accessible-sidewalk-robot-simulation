@@ -31,6 +31,7 @@ using json = nlohmann::json;
 #define SCALE_FACTOR 500.0
 #define THRESH 400
 #define TRANSLATION_ERR_THRESH 5
+#define PI 3.14159
 #define RAD_CONV 3.14159/180
 #define EARTH_RAD 6378137
 #define LAT_CENTER 47.686
@@ -38,6 +39,8 @@ using json = nlohmann::json;
 #define OFFSET_Y -122
 #define TURN_PENALTY 5
 #define DEBUG 0
+#define NONE -1
+#define NUM_CONSEQ_DETECTIONS 5
 
 using namespace webots;
 
@@ -81,33 +84,62 @@ double clamp(double v, double lo, double hi) {
   return std::max(lo, std::min(v, hi));
 }
 
+double least_squares_slope(std::vector<double> xs, std::vector<double> ys) {
+  if (xs.size() != ys.size()) {
+    std::cerr << "sample points must be of same size to calculate slope";
+    return 0.0;
+  } else {
+    int n = xs.size();
+    double x_mean = 0.0, y_mean = 0.0;
+    for (int i = 0; i < n; i++) {
+      x_mean += xs[i];
+      y_mean += ys[i];
+    }
+    x_mean /= n; y_mean /= n;
+    double num = 0, den = 0;
+    for (int i = 0; i < n; i++) {
+      num += (xs[i] - x_mean) * (ys[i] - y_mean);
+      den += std::pow(xs[i] - x_mean, 2);
+    }
+    return num / den;
+  }
+}
+
+double angle_diff(double a1, double a2) {
+  return atan2(sin(a1 - a2), cos(a1 - a2));
+}
+
 void stopWheels(Motor *wheels[4]) {
   for (int i = 0; i < 4; i++) {
     wheels[i]->setVelocity(0.0);
   }
 }
-// TODO last mile navigation to go on grass (bottom 20% of camera should be grass or sidewalk)
 
 void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, InertialUnit *imu,
                 DistanceSensor *ds[4], double target_x, double target_y,
                 double rot_thresh, double pos_thresh) {
 
-  enum class NavMode { TURN_TO_TARGET, MOVE_TO_TARGET, AVOID_OBSTACLE };
+  enum class NavMode { TURN_TO_TARGET, MOVE_TO_TARGET, AVOID_OBSTACLE, ALIGN_TO_SIDEWALK, NAV_ON_SIDEWALK };
   NavMode mode = NavMode::TURN_TO_TARGET;
 
   int turn_counter = 0;
   int move_counter = 0;
   State avoid_state = State::FORWARD;
-  double crosswalk_target_angle = 0;
+  double last_err = 0.0;
 
-  double last_err = 0;
-  while (robot->step(TIME_STEP) != -1) {
-    #if DEBUG
-      logData(ds, wheels, gps, imu);
-    #endif
+  const int MAX_STEPS = 5000;
+  int step_counter = 0;
+
+  double sidewalk_heading = 0.0;
+  bool have_sidewalk_heading = false;
+  bool is_bottom_sidewalk = false;
+  while (robot->step(TIME_STEP) != -1 && step_counter < MAX_STEPS) {
+    step_counter++;
 
     double dsVals[4];
-    for (int i = 0; i < 4; i++) dsVals[i] = ds[i]->getValue();
+    for (int i = 0; i < 4; i++) {
+      dsVals[i] = ds[i]->getValue();
+    }
 
     const double *cur_pos = gps->getValues();
     double cur_x = cur_pos[0];
@@ -116,45 +148,90 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
 
     double dx = target_x - cur_x;
     double dy = target_y - cur_y;
+    double target_angle = atan2(dy, dx);
     double dist_err = std::sqrt(dx * dx + dy * dy);
 
+    if (camera) {
+      const unsigned char *image = camera->getImage();
+      if (image) {
+        int width = camera->getWidth();
+        int height = camera->getHeight();
+        double bottom_row[3] = {0.0, 0.0, 0.0};
 
-    const CameraRecognitionObject *detected_objs = camera->getRecognitionObjects();
-    for (int i = 0; i < camera->getRecognitionNumberOfObjects(); i++) {
-      const CameraRecognitionObject &obj = detected_objs[i];
-      const double *position = obj.position;
-      double distance = std::sqrt(std::pow(position[0], 2) + std::pow(position[1], 2));
-      //printf("obj name: %s at distance %.2f \n", obj.model, distance);
-    }
+        for (int i = 0; i < width; i++) {
+          bottom_row[0] += Camera::imageGetRed(image, width, i, height - 1);
+          bottom_row[1] += Camera::imageGetGreen(image, width, i, height - 1);
+          bottom_row[2] += Camera::imageGetBlue(image, width, i, height - 1);
+        }
+        for (int i = 0; i < 3; i++) bottom_row[i] /= width;        
+        int r_bounds[2] = {135, 165}, g_bounds[2] = {125, 145}, b_bounds[2] = {115, 130};
+        is_bottom_sidewalk = 
+          bottom_row[0] >= r_bounds[0] && bottom_row[0] <= r_bounds[1] &&
+          bottom_row[1] >= g_bounds[0] && bottom_row[1] <= g_bounds[1] &&
+          bottom_row[2] >= b_bounds[0] && bottom_row[2] <= b_bounds[1];
 
-    // look at bottom 20% of screen to find orientation of robot relative to grass
-    int scan_y = 0.8 * camera->getHeight();
-    int width = camera->getWidth();
-    int grass_loc_x = -1;
-    for (int i = 0; i < width; i++) {
-      const auto image = camera->getImage();
-      int r = Camera::imageGetRed(image, width, i, scan_y);
-      int g = Camera::imageGetGreen(image, width, i, scan_y);
-      int b = Camera::imageGetBlue(image, width, i, scan_y);
+        if (is_bottom_sidewalk) {
+          std::cout << "paved surface detected" << std::endl;
+          // detect boundary between grass and sidewalk
+          std::vector<double> xs, ys;
+          for (int y = 0.8 * height; y < height; y++) {
+            for (int x = 1; x < width; x++) {
+              int r = Camera::imageGetRed(image, width, x, y);
+              int g = Camera::imageGetGreen(image, width, x, y);
+              int b = Camera::imageGetBlue(image, width, x, y);
+              bool isGrass = g > r + 20 && g > b + 20;
 
-      bool isGrass = g > r + 20 && g > b + 20;
-      if (isGrass) {
-        grass_loc_x = i;
+              int rPrev = Camera::imageGetRed(image, width, x-1, y);
+              int gPrev = Camera::imageGetGreen(image, width, x-1, y);
+              int bPrev = Camera::imageGetBlue(image, width, x-1, y);
+              bool wasGrass = gPrev > rPrev + 20 && gPrev > bPrev + 20;
+
+              if (isGrass && !wasGrass) {
+                xs.push_back(x);
+                ys.push_back(y);
+                break;
+              }
+            }
+          }
+
+          if (!xs.empty()) {
+            double dx_edge = xs.back() - xs.front();
+            double dy_edge = ys.back() - ys.front();
+
+            double edge_angle = atan2(dy_edge, dx_edge);
+            double sidewalk_rel = edge_angle + M_PI_2;
+            double a1 = sidewalk_rel + cur_yaw;
+            double a2 = a1 + M_PI;
+            a1 = atan2(sin(a1), cos(a1));
+            a2 = atan2(sin(a2), cos(a2));
+
+            if (!have_sidewalk_heading) {
+              sidewalk_heading =
+                fabs(angle_diff(a1, target_angle)) <
+                fabs(angle_diff(a2, target_angle)) ? a1 : a2;
+              have_sidewalk_heading = true;
+            } else {
+              if (fabs(angle_diff(a2, sidewalk_heading)) <
+                  fabs(angle_diff(a1, sidewalk_heading))) {
+                sidewalk_heading = a2;
+              } else {
+                sidewalk_heading = a1;
+              }
+            }
+            
+            if (mode != NavMode::ALIGN_TO_SIDEWALK && mode != NavMode::NAV_ON_SIDEWALK) {
+              mode = NavMode::ALIGN_TO_SIDEWALK;
+            }
+          }
+        } else {
+          have_sidewalk_heading = false;
+        }
       }
     }
-    if (grass_loc_x != -1 && (grass_loc_x - width / 2) != 0) {
-
-    }
-
-
-    #if DEBUG
-    printf("**************************\n");
-    #endif
 
     bool obstacle = false;
-    for (double val : dsVals) {
-      if (val > THRESH) obstacle = true;
-    }
+    for (double val : dsVals) if (val > THRESH) obstacle = true;
+
     if (obstacle && mode != NavMode::AVOID_OBSTACLE) {
       mode = NavMode::AVOID_OBSTACLE;
 
@@ -179,12 +256,10 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
       move_counter = 5;
     }
 
+    double leftVels = 0.0, rightVels = 0.0;
     switch (mode) {
       case NavMode::TURN_TO_TARGET: {
-        #if DEBUG
-          printf("MODE: TURN_TO_TARGET\n");
-        #endif
-        double target_angle = std::atan2(dy, dx);
+        std::cout << "nav mode: TURN_TO_TARGET" << std::endl;
         double err = target_angle - cur_yaw;
         while (err > M_PI) err -= 2 * M_PI;
         while (err < -M_PI) err += 2 * M_PI;
@@ -197,52 +272,66 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
 
         double turn_speed = clamp(kP_turn * err + kD_turn * (err - last_err) / (TIME_STEP / 1000.0), -MAX_VEL, MAX_VEL);
         last_err = err;
-        for (int i = 0; i < 4; i++) {
-          wheels[i]->setVelocity(turn_speed * (i % 2 == 0 ? -1 : 1));
-        }
+        leftVels = -turn_speed;
+        rightVels = turn_speed;
         break;
       }
+
       case NavMode::MOVE_TO_TARGET: {
-        #if DEBUG
-          printf("MODE: MOVE_TO_TARGET\n");
-        #endif
+        std::cout << "nav mode: MOVE_TO_TARGET" << std::endl;
         if (dist_err < pos_thresh) {
           stopWheels(wheels);
           return;
         }
-
-        for (int i = 0; i < 4; i++)
-          wheels[i]->setVelocity(DEFAULT_VEL);
+        leftVels = rightVels = DEFAULT_VEL;
         break;
       }
-      case NavMode::AVOID_OBSTACLE: {
-        #if DEBUG
-          printf("MODE: AVOID_OBSTACLE\n");
-        #endif
-        double leftVels = DEFAULT_VEL;
-        double rightVels = DEFAULT_VEL;
 
+      case NavMode::AVOID_OBSTACLE: {
+        std::cout << "nav mode: AVOID_OBSTACLE" << std::endl;
         if (turn_counter > 0) {
-          if (avoid_state == State::TURN_LEFT) {
-            leftVels = DEFAULT_VEL / 4;
-            rightVels = DEFAULT_VEL;
-          } else {
-            leftVels = DEFAULT_VEL;
-            rightVels = DEFAULT_VEL / 4;
-          }
+          if (avoid_state == State::TURN_LEFT) { leftVels = DEFAULT_VEL / 4; rightVels = DEFAULT_VEL; }
+          else { leftVels = DEFAULT_VEL; rightVels = DEFAULT_VEL / 4; }
           turn_counter--;
         } else if (move_counter > 0) {
+          leftVels = rightVels = DEFAULT_VEL;
           move_counter--;
         } else {
           mode = NavMode::TURN_TO_TARGET;
-          break;
-        }
-
-        for (int i = 0; i < 4; i++) {
-          wheels[i]->setVelocity(i % 2 == 0 ? leftVels : rightVels);
         }
         break;
       }
+
+      case NavMode::ALIGN_TO_SIDEWALK: {
+        std::cout << "nav mode: ALIGN_TO_SIDEWALK" << std::endl;
+        double heading_error = sidewalk_heading - cur_yaw;
+        printf("heading error: %.2f for thresh: %.2f\n", std::abs(heading_error), rot_thresh);
+
+        if (std::abs(heading_error) >= rot_thresh) {
+          double turn_speed = clamp(kP_turn * heading_error, -MAX_VEL, MAX_VEL);
+          leftVels = -turn_speed;
+          rightVels = turn_speed;
+        } else {
+          mode = NavMode::NAV_ON_SIDEWALK;
+        }
+        break;
+      }
+
+      case NavMode::NAV_ON_SIDEWALK: {
+        std::cout << "nav mode: NAV_ON_SIDEWALK" << std::endl;
+        double progress = cos(sidewalk_heading - target_angle);
+        if (progress < 0.1) {
+          stopWheels(wheels);
+          mode = NavMode::TURN_TO_TARGET;
+        } else {
+          leftVels = rightVels = DEFAULT_VEL * clamp(progress, 0.3, 1.0);
+        }
+        break;
+      }
+    }
+
+    for (int i = 0; i < 4; i++) {
+      wheels[i]->setVelocity(i % 2 == 0 ? leftVels : rightVels);
     }
   }
 
@@ -399,7 +488,7 @@ int main(int argc, char **argv) {
   if (nav_state == NavState::OBST_AVOID) {
     while (robot->step(TIME_STEP) != -1) {
       double dsVals[4];
-      for (int i = 0; i < 2; i++) dsVals[i] = ds[i]->getValue();
+      for (int i = 0; i < 4; i++) dsVals[i] = ds[i]->getValue();
 
       double leftVels = DEFAULT_VEL, rightVels = DEFAULT_VEL;
 
@@ -435,7 +524,7 @@ int main(int argc, char **argv) {
     const auto path_nodes = getPathNodes(path);
     const auto edges = getEdges(path);
     const Coord start = {38.6+OFFSET_X, -66.1+OFFSET_Y};
-    const Coord end = {48.0+OFFSET_X, -20.3+OFFSET_Y};
+    const Coord end = {15.8+OFFSET_X, -54.3+OFFSET_Y}; // 48, -20.3
     std::vector<Coord> fullPath = generateAStarPath(path_nodes, edges, start, end);
 
     Emitter *emitter = robot->getEmitter("emitter");
