@@ -52,6 +52,7 @@ NavState nav_state = NavState::NAV_TO_POINT;
 const double kP_turn = 5.0;
 const double kD_turn = 2.1;
 int turn_counter = 0;
+int r_bounds[2] = {135, 165}, g_bounds[2] = {125, 145}, b_bounds[2] = {115, 130};
 
 struct Coord { double x, y; };
 
@@ -84,35 +85,24 @@ double clamp(double v, double lo, double hi) {
   return std::max(lo, std::min(v, hi));
 }
 
-double least_squares_slope(std::vector<double> xs, std::vector<double> ys) {
-  if (xs.size() != ys.size()) {
-    std::cerr << "sample points must be of same size to calculate slope";
-    return 0.0;
-  } else {
-    int n = xs.size();
-    double x_mean = 0.0, y_mean = 0.0;
-    for (int i = 0; i < n; i++) {
-      x_mean += xs[i];
-      y_mean += ys[i];
-    }
-    x_mean /= n; y_mean /= n;
-    double num = 0, den = 0;
-    for (int i = 0; i < n; i++) {
-      num += (xs[i] - x_mean) * (ys[i] - y_mean);
-      den += std::pow(xs[i] - x_mean, 2);
-    }
-    return num / den;
-  }
-}
-
 double angle_diff(double a1, double a2) {
   return atan2(sin(a1 - a2), cos(a1 - a2));
 }
 
-void stopWheels(Motor *wheels[4]) {
+void stop_wheels(Motor *wheels[4]) {
   for (int i = 0; i < 4; i++) {
     wheels[i]->setVelocity(0.0);
   }
+}
+
+bool grass_pixel(int r, int g, int b) {
+  return (g > r + 20) && (g > b + 20);
+}
+
+bool sidewalk_pixel(int r, int g, int b) {
+  return r >= r_bounds[0] && r <= r_bounds[1] &&
+          g >= g_bounds[0] && g <= g_bounds[1] &&
+          b >= b_bounds[0] && b <= b_bounds[1];
 }
 
 void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, InertialUnit *imu,
@@ -164,11 +154,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
           bottom_row[2] += Camera::imageGetBlue(image, width, i, height - 1);
         }
         for (int i = 0; i < 3; i++) bottom_row[i] /= width;        
-        int r_bounds[2] = {135, 165}, g_bounds[2] = {125, 145}, b_bounds[2] = {115, 130};
-        is_bottom_sidewalk = 
-          bottom_row[0] >= r_bounds[0] && bottom_row[0] <= r_bounds[1] &&
-          bottom_row[1] >= g_bounds[0] && bottom_row[1] <= g_bounds[1] &&
-          bottom_row[2] >= b_bounds[0] && bottom_row[2] <= b_bounds[1];
+        is_bottom_sidewalk = sidewalk_pixel(bottom_row[0], bottom_row[1], bottom_row[2]);
 
         if (is_bottom_sidewalk) {
           std::cout << "paved surface detected" << std::endl;
@@ -179,14 +165,17 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
               int r = Camera::imageGetRed(image, width, x, y);
               int g = Camera::imageGetGreen(image, width, x, y);
               int b = Camera::imageGetBlue(image, width, x, y);
-              bool isGrass = g > r + 20 && g > b + 20;
 
-              int rPrev = Camera::imageGetRed(image, width, x-1, y);
-              int gPrev = Camera::imageGetGreen(image, width, x-1, y);
-              int bPrev = Camera::imageGetBlue(image, width, x-1, y);
-              bool wasGrass = gPrev > rPrev + 20 && gPrev > bPrev + 20;
+              int r_prev = Camera::imageGetRed(image, width, x-1, y);
+              int g_prev = Camera::imageGetGreen(image, width, x-1, y);
+              int b_prev = Camera::imageGetBlue(image, width, x-1, y);
 
-              if (isGrass && !wasGrass) {
+              bool is_grass = grass_pixel(r, g, b);
+              bool was_grass = grass_pixel(r_prev, g_prev, b_prev);
+              bool is_sidewalk = sidewalk_pixel(r, g, b);
+              bool was_sidewalk = sidewalk_pixel(r_prev, g_prev, b_prev);
+
+              if ((is_grass && was_sidewalk) || (was_grass && is_sidewalk)) {
                 xs.push_back(x);
                 ys.push_back(y);
                 break;
@@ -194,13 +183,12 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
             }
           }
 
-          if (!xs.empty()) {
+          if (xs.size() > 10) {
             double dx_edge = xs.back() - xs.front();
             double dy_edge = ys.back() - ys.front();
-
             double edge_angle = atan2(dy_edge, dx_edge);
-            double sidewalk_rel = edge_angle + M_PI_2;
-            double a1 = sidewalk_rel + cur_yaw;
+
+            double a1 = edge_angle;
             double a2 = a1 + M_PI;
             a1 = atan2(sin(a1), cos(a1));
             a2 = atan2(sin(a2), cos(a2));
@@ -265,7 +253,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
         while (err < -M_PI) err += 2 * M_PI;
 
         if (std::abs(err) < rot_thresh) {
-          stopWheels(wheels);
+          stop_wheels(wheels);
           mode = NavMode::MOVE_TO_TARGET;
           break;
         }
@@ -280,7 +268,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
       case NavMode::MOVE_TO_TARGET: {
         std::cout << "nav mode: MOVE_TO_TARGET" << std::endl;
         if (dist_err < pos_thresh) {
-          stopWheels(wheels);
+          stop_wheels(wheels);
           return;
         }
         leftVels = rightVels = DEFAULT_VEL;
@@ -304,8 +292,8 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
 
       case NavMode::ALIGN_TO_SIDEWALK: {
         std::cout << "nav mode: ALIGN_TO_SIDEWALK" << std::endl;
-        double heading_error = sidewalk_heading - cur_yaw;
-        printf("heading error: %.2f for thresh: %.2f\n", std::abs(heading_error), rot_thresh);
+        double heading_error = angle_diff(sidewalk_heading, cur_yaw);
+        printf("sidewalk heading: %.6f, cur_yaw: %.2f, error: %.2f\n", sidewalk_heading, cur_yaw, std::abs(heading_error));
 
         if (std::abs(heading_error) >= rot_thresh) {
           double turn_speed = clamp(kP_turn * heading_error, -MAX_VEL, MAX_VEL);
@@ -321,7 +309,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
         std::cout << "nav mode: NAV_ON_SIDEWALK" << std::endl;
         double progress = cos(sidewalk_heading - target_angle);
         if (progress < 0.1) {
-          stopWheels(wheels);
+          stop_wheels(wheels);
           mode = NavMode::TURN_TO_TARGET;
         } else {
           leftVels = rightVels = DEFAULT_VEL * clamp(progress, 0.3, 1.0);
@@ -335,7 +323,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
     }
   }
 
-  stopWheels(wheels);
+  stop_wheels(wheels);
 }
 
 const std::unordered_map<long long, PathNode> getPathNodes(const std::string &filepath) {
@@ -524,7 +512,7 @@ int main(int argc, char **argv) {
     const auto path_nodes = getPathNodes(path);
     const auto edges = getEdges(path);
     const Coord start = {38.6+OFFSET_X, -66.1+OFFSET_Y};
-    const Coord end = {15.8+OFFSET_X, -54.3+OFFSET_Y}; // 48, -20.3
+    const Coord end = {15.8+OFFSET_X, -54.3+OFFSET_Y}; // far: (48.0, -20.3), close: (15.8, -54.3)
     std::vector<Coord> fullPath = generateAStarPath(path_nodes, edges, start, end);
 
     Emitter *emitter = robot->getEmitter("emitter");
