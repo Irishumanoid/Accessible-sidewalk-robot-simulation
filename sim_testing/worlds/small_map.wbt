@@ -14,6 +14,14 @@ IMPORTABLE EXTERNPROTO "../protos/SurfaceProblemMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoCurbRampMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoSidewalkMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/PoleMarker.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/protos/SumoInterface.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/lincoln/LincolnMKZSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/bmw/BmwX5Simple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/tesla/TeslaModel3Simple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/mercedes_benz/MercedesBenzSprinterSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/range_rover/RangeRoverSportSVRSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/citroen/CitroenCZeroSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/toyota/ToyotaPriusSimple.proto"
 
 WorldInfo {
   info [
@@ -24,9 +32,12 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation 0.4626196146889082 0.5030387645010815 -0.7300240362579247 1.7996810392564895
-  position 30.33207094584731 -26.148171511406307 50.995912827419474
+  orientation 0.5177114099731602 0.5354403056814213 -0.6672919713554095 1.9334274717083
+  position 31.74035318171329 -42.202915437608155 34.63970129908208
   near 3
+}
+SumoInterface {
+  networkFiles "/Users/irislitiu/Webots-sims/sim_testing/worlds/small_map_net/"
 }
 TexturedBackground {
 }
@@ -16103,8 +16114,8 @@ DEF parking Pose {
   ]
 }
 Robot {
-  translation 34.8659 -62.9871 0.145122
-  rotation -9.695595033281073e-08 -3.5542397427297236e-07 0.999999999999932 -0.6210797968463968
+  translation 34.8186 -62.9464 0.145128
+  rotation -0.0016854034951796328 0.006526196690501586 0.9999772838278954 0.6640336039083392
   children [
     Emitter {
     }
@@ -16136,7 +16147,7 @@ Robot {
     }
     DEF WHEEL1 HingeJoint {
       jointParameters HingeJointParameters {
-        position 4908.424780463498
+        position 4975.095391412163
         axis 0 1 0
         anchor 0.25 0.3 0
       }
@@ -16148,7 +16159,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 0.3 0
-        rotation -0.6972996038049125 -0.5068389168853159 0.5068407786120133 4.359411842446229
+        rotation 0.7233859791288456 -0.48821663948302774 0.48821843280615757 1.8890972626042875
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
@@ -16170,7 +16181,7 @@ Robot {
     }
     DEF WHEEL2 HingeJoint {
       jointParameters HingeJointParameters {
-        position 4962.6291332395
+        position 5063.8329597977
         axis 0 1 0
         anchor 0.25 -0.3 0
       }
@@ -16182,7 +16193,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 -0.3 0
-        rotation 0.7601686120726062 -0.4594247112418488 0.45942639880611075 1.8416415537303372
+        rotation 0.9585383912768884 -0.20149919871902064 0.2014999388682473 1.6131330107891548
         children [
           USE WHEEL
         ]
@@ -16194,7 +16205,7 @@ Robot {
     }
     DEF WHEEL3 HingeJoint {
       jointParameters HingeJointParameters {
-        position 4447.3659121901355
+        position 4506.078274169412
         axis 0 1 0
         anchor -0.25 0.3 0
       }
@@ -16206,7 +16217,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 0.3 0
-        rotation 0.7448431960749001 -0.47180874192747807 0.47181047498093787 1.8612110193275244
+        rotation -0.779162370690533 -0.4432293745204691 0.44323100259582743 4.465399687942949
         children [
           USE WHEEL
         ]
@@ -16218,7 +16229,7 @@ Robot {
     }
     DEF WHEEL4 HingeJoint {
       jointParameters HingeJointParameters {
-        position 4483.540355684434
+        position 4583.357267251334
         axis 0 1 0
         anchor -0.25 -0.3 0
       }
@@ -16230,7 +16241,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 -0.3 0
-        rotation 0.17324642720155295 -0.6964129925933299 0.6964155506657643 2.7985064974345484
+        rotation -0.08013489111453125 -0.704831451344521 0.7048340403397374 3.3015201037946937
         children [
           USE WHEEL
         ]

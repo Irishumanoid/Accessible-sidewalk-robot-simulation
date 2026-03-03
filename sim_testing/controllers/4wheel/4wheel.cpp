@@ -293,7 +293,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
       case NavMode::ALIGN_TO_SIDEWALK: {
         std::cout << "nav mode: ALIGN_TO_SIDEWALK" << std::endl;
         double heading_error = angle_diff(sidewalk_heading, cur_yaw);
-        printf("sidewalk heading: %.6f, cur_yaw: %.2f, error: %.2f\n", sidewalk_heading, cur_yaw, std::abs(heading_error));
+        printf("sidewalk heading: %.6f, cur_yaw: %.6f, error: %.6f\n", sidewalk_heading, cur_yaw, std::abs(heading_error));
 
         if (std::abs(heading_error) >= rot_thresh) {
           double turn_speed = clamp(kP_turn * heading_error, -MAX_VEL, MAX_VEL);
