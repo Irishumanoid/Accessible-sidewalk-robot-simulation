@@ -1,4 +1,3 @@
-#include <webots/Supervisor.hpp>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -8,15 +7,27 @@
 #include <map>
 #include <tuple>
 #include <unordered_map>
+
+#include <webots/Supervisor.hpp>
 #include <webots/Receiver.hpp>
 
 #define TIME_STEP 64
 #define COORD_THRESH 0.05
 #define OFFSET_X 44.7
 #define OFFSET_Y -122
+#define N_LIGHTS 12
+
+#define SOUTH_CROSSROAD_ID "67507259"
+#define NORTH_CROSSROAD_ID "67507290"
+
 using namespace webots;
 
 struct Coord { double x, y; };
+
+struct TrafficLightMessage {
+  char id[32];
+  char states[N_LIGHTS];
+};
 
 const std::unordered_map<std::string, std::string> MARKER_TEMPLATES = {
   { "SurfaceProblem", "SurfaceProblemMarker" },
@@ -86,7 +97,9 @@ int main(int argc, char **argv) {
   Node *rootNode = robot->getRoot();
   Field *childrenField = rootNode->getField("children");
   Receiver *receiver = robot->getReceiver("receiver");
+  Receiver *trafficReceiver = robot->getReceiver("traffic_receiver");
   receiver->enable(TIME_STEP);
+  trafficReceiver->enable(TIME_STEP);
 
   Node *marker = robot->getFromDef("MARKER");
   if (!marker) {
@@ -235,6 +248,24 @@ int main(int argc, char **argv) {
         }
       }
       pathCoords.clear();
+    }
+
+    while (trafficReceiver->getQueueLength() > 0) {
+      const void* data = trafficReceiver->getData();
+      int size = trafficReceiver->getDataSize();
+      if (size == sizeof(TrafficLightMessage)) {
+        TrafficLightMessage msg; 
+        memcpy(&msg, data, sizeof(TrafficLightMessage));
+        printf("data from traffic light %s:\n", msg.id);
+        for (int i = 0; i < N_LIGHTS; i++) printf("%c, ", msg.states[i]);
+
+        if (msg.id == NORTH_CROSSROAD_ID) {
+          
+        } else if (msg.id == SOUTH_CROSSROAD_ID) {
+
+        }
+      }
+      trafficReceiver->nextPacket();
     }
   };
 

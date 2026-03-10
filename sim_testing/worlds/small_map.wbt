@@ -10,6 +10,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/buildings/protos/SimpleBuilding.proto"
 IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/SignPole.proto"
 IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/DirectionPanel.proto"
+EXTERNPROTO "../protos/CrossRoadsTrafficLight.proto"
 IMPORTABLE EXTERNPROTO "../protos/SurfaceProblemMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoCurbRampMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoSidewalkMarker.proto"
@@ -32,8 +33,8 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation 0.5177114099731602 0.5354403056814213 -0.6672919713554095 1.9334274717083
-  position 31.74035318171329 -42.202915437608155 34.63970129908208
+  orientation -0.3978455182241909 -0.38103780838720586 0.8345832086786793 4.490257509595921
+  position 31.823393304661522 -2.3234647375791484 65.01933917883795
   near 3
 }
 SumoInterface {
@@ -77,6 +78,10 @@ DEF MARKER SignPole {
 }
 Robot {
   children [
+    Receiver {
+      name "traffic_receiver"
+      channel 1
+    }
     Receiver {
     }
   ]
@@ -16114,8 +16119,8 @@ DEF parking Pose {
   ]
 }
 Robot {
-  translation 34.8186 -62.9464 0.145128
-  rotation -0.0016854034951796328 0.006526196690501586 0.9999772838278954 0.6640336039083392
+  translation 35.18574866591678 -64.01927871255087 0.14512241360325173
+  rotation 8.227052503289497e-08 -4.6428093163826585e-08 -0.9999999999999956 1.2427651172799563
   children [
     Emitter {
     }
@@ -16147,7 +16152,7 @@ Robot {
     }
     DEF WHEEL1 HingeJoint {
       jointParameters HingeJointParameters {
-        position 4975.095391412163
+        position 5183.365757245016
         axis 0 1 0
         anchor 0.25 0.3 0
       }
@@ -16159,7 +16164,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 0.3 0
-        rotation 0.7233859791288456 -0.48821663948302774 0.48821843280615757 1.8890972626042875
+        rotation -0.9830646885391108 0.12958336078997548 -0.12958383677710827 4.695305784416728
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
@@ -16181,7 +16186,7 @@ Robot {
     }
     DEF WHEEL2 HingeJoint {
       jointParameters HingeJointParameters {
-        position 5063.8329597977
+        position 5258.980092019538
         axis 0 1 0
         anchor 0.25 -0.3 0
       }
@@ -16193,7 +16198,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 -0.3 0
-        rotation 0.9585383912768884 -0.20149919871902064 0.2014999388682473 1.6131330107891548
+        rotation -0.9994710031267334 0.022996847867063866 -0.02299693233935081 4.711856170363379
         children [
           USE WHEEL
         ]
@@ -16205,7 +16210,7 @@ Robot {
     }
     DEF WHEEL3 HingeJoint {
       jointParameters HingeJointParameters {
-        position 4506.078274169412
+        position 4706.032409074337
         axis 0 1 0
         anchor -0.25 0.3 0
       }
@@ -16217,7 +16222,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 0.3 0
-        rotation -0.779162370690533 -0.4432293745204691 0.44323100259582743 4.465399687942949
+        rotation -0.9986551370332162 0.03665997411275263 -0.03666010877262259 4.711039539482576
         children [
           USE WHEEL
         ]
@@ -16229,7 +16234,7 @@ Robot {
     }
     DEF WHEEL4 HingeJoint {
       jointParameters HingeJointParameters {
-        position 4583.357267251334
+        position 4771.365909580965
         axis 0 1 0
         anchor -0.25 -0.3 0
       }
@@ -16241,7 +16246,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 -0.3 0
-        rotation -0.08013489111453125 -0.704831451344521 0.7048340403397374 3.3015201037946937
+        rotation -0.25477468036612844 -0.6837713168404745 0.683773828477356 3.6405257097235406
         children [
           USE WHEEL
         ]
@@ -17911,4 +17916,76 @@ DEF POLE_MARKER_12291636597 PoleMarker {
 DEF POLE_MARKER_12291636598 PoleMarker {
   baseColor 0.664134 0.055283 0
   translation 48.997937 -142.025113 27
+}
+DEF TL_53090483 CrossRoadsTrafficLight {
+  translation -168.72000000000003 -60.72999999999999 0
+  name "53090483"
+}
+DEF TL_53142715 CrossRoadsTrafficLight {
+  translation -171.15000000000003 181.08000000000004 0
+  name "53142715"
+}
+DEF TL_53142717 CrossRoadsTrafficLight {
+  translation 29.399999999999977 183.13 0
+  name "53142717"
+}
+DEF TL_53147253 CrossRoadsTrafficLight {
+  translation 30.789999999999964 103.79000000000002 0
+  name "53147253"
+}
+DEF TL_53230213 CrossRoadsTrafficLight {
+  translation -168.08 -142.80999999999997 0
+  name "53230213"
+}
+DEF TL_53233320 CrossRoadsTrafficLight {
+  translation 233.20999999999998 105.54000000000002 0
+  name "53233320"
+}
+DEF TL_67507057 CrossRoadsTrafficLight {
+  translation -214.38000000000002 140.84000000000003 0
+  name "67507057"
+}
+DEF TL_67507126 CrossRoadsTrafficLight {
+  translation -212.91000000000003 101.57 0
+  name "67507126"
+}
+DEF TL_67507176 CrossRoadsTrafficLight {
+  translation -213.96 180.84000000000003 0
+  name "67507176"
+}
+DEF TL_67507242 CrossRoadsTrafficLight {
+  translation 34.10999999999996 62.06999999999999 0
+  name "67507242"
+}
+DEF TL_67507244 CrossRoadsTrafficLight {
+  translation 233.40000000000003 64.56 0
+  name "67507244"
+}
+DEF TL_67507251 CrossRoadsTrafficLight {
+  translation -169.14000000000001 -20.16999999999996 0
+  name "67507251"
+}
+DEF TL_67507259 CrossRoadsTrafficLight {
+  translation 41.48999999999995 -18.389999999999986 0
+  name "67507259"
+}
+DEF TL_67507263 CrossRoadsTrafficLight {
+  translation 234.16000000000003 -15.979999999999961 0
+  name "67507263"
+}
+DEF TL_67507275 CrossRoadsTrafficLight {
+  translation -168.39000000000001 -100.85999999999999 0
+  name "67507275"
+}
+DEF TL_67507290 CrossRoadsTrafficLight {
+  translation 46.48999999999995 -98.33999999999997 0
+  name "67507290"
+}
+DEF TL_67507300 CrossRoadsTrafficLight {
+  translation 235.63999999999993 -97.10999999999999 0
+  name "67507300"
+}
+DEF TL_67507322 CrossRoadsTrafficLight {
+  translation 236.70999999999998 -178.51999999999998 0
+  name "67507322"
 }

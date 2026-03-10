@@ -308,7 +308,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
       case NavMode::NAV_ON_SIDEWALK: {
         std::cout << "nav mode: NAV_ON_SIDEWALK" << std::endl;
         double progress = cos(sidewalk_heading - target_angle);
-        if (progress < 0.1) {
+        if (progress < 0.01) {
           stop_wheels(wheels);
           mode = NavMode::TURN_TO_TARGET;
         } else {

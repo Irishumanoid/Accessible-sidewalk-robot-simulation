@@ -1,0 +1,731 @@
+, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+paved surface detected
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+paved surface detected
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.820514, error: 1.445597
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.796445, error: 1.421528
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.747576, error: 1.372659
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.674673, error: 1.299756
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.587090, error: 1.212172
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.496366, error: 1.121448
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.402774, error: 1.027856
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.307339, error: 0.932422
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.212563, error: 0.837646
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.124158, error: 0.749241
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 1.045219, error: 0.670302
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.975296, error: 0.600379
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.910990, error: 0.536072
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.849553, error: 0.474636
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.792604, error: 0.417687
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.740312, error: 0.365395
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.696910, error: 0.321993
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.659772, error: 0.284854
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.627357, error: 0.252440
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.599551, error: 0.224634
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.575673, error: 0.200756
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.554962, error: 0.180045
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.536826, error: 0.161908
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.520813, error: 0.145896
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.506538, error: 0.131621
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.493512, error: 0.118595
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.481156, error: 0.106239
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.468915, error: 0.093997
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.456515, error: 0.081597
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.445612, error: 0.070695
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.436129, error: 0.061211
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.427897, error: 0.052979
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.420764, error: 0.045847
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.414592, error: 0.039675
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.409260, error: 0.034343
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.404657, error: 0.029740
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.400689, error: 0.025771
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.397269, error: 0.022352
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.394325, error: 0.019408
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.391792, error: 0.016875
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.389613, error: 0.014696
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.387741, error: 0.012823
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.386130, error: 0.011212
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: ALIGN_TO_SIDEWALK
+sidewalk heading: 0.374917, cur_yaw: 0.384746, error: 0.009828
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: NAV_ON_SIDEWALK
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: MOVE_TO_TARGET
+currently at iteration 03
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: TURN_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507057:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507126:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507176:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507242:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507244:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507251:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507259:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507263:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507275:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507290:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507300:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 67507322:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53090483:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142715:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53142717:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53147253:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53230213:
+nav mode: MOVE_TO_TARGET
+g, g, r, r, r, r, g, g, r, r, r, r, data from traffic light 53233320:
+nav mode: MOVE_TO_TARGET
