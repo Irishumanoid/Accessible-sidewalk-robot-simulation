@@ -14,8 +14,6 @@ EXTERNPROTO "../protos/CrossRoadsTrafficLight.proto"
 IMPORTABLE EXTERNPROTO "../protos/SurfaceProblemMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoCurbRampMarker.proto"
 IMPORTABLE EXTERNPROTO "../protos/NoSidewalkMarker.proto"
-IMPORTABLE EXTERNPROTO "../protos/PoleMarker.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/protos/SumoInterface.proto"
 IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/lincoln/LincolnMKZSimple.proto"
 IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/bmw/BmwX5Simple.proto"
 IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/tesla/TeslaModel3Simple.proto"
@@ -33,12 +31,9 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation -0.3978455182241909 -0.38103780838720586 0.8345832086786793 4.490257509595921
-  position 31.823393304661522 -2.3234647375791484 65.01933917883795
+  orientation -0.48573610232885184 -0.557211439607275 0.6734804009510323 4.457193502933743
+  position 42.838760477137 -44.23525263893613 33.2784200262885
   near 3
-}
-SumoInterface {
-  networkFiles "/Users/irislitiu/Webots-sims/sim_testing/worlds/small_map_net/"
 }
 TexturedBackground {
 }
@@ -78,10 +73,6 @@ DEF MARKER SignPole {
 }
 Robot {
   children [
-    Receiver {
-      name "traffic_receiver"
-      channel 1
-    }
     Receiver {
     }
   ]
@@ -16118,10 +16109,14 @@ DEF parking Pose {
     }
   ]
 }
-Robot {
-  translation 35.18574866591678 -64.01927871255087 0.14512241360325173
-  rotation 8.227052503289497e-08 -4.6428093163826585e-08 -0.9999999999999956 1.2427651172799563
+DEF robot Robot {
+  translation 51.1314 -63.9501 0.169317
+  rotation -0.045286506913699065 0.04196650640684866 -0.9980921523744986 -1.627905307179586
   children [
+    Receiver {
+      name "traffic_receiver"
+      channel 1
+    }
     Emitter {
     }
     DEF DS_FAR_RIGHT DistanceSensor {
@@ -16152,7 +16147,7 @@ Robot {
     }
     DEF WHEEL1 HingeJoint {
       jointParameters HingeJointParameters {
-        position 5183.365757245016
+        position 8139.747634247148
         axis 0 1 0
         anchor 0.25 0.3 0
       }
@@ -16164,7 +16159,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 0.3 0
-        rotation -0.9830646885391108 0.12958336078997548 -0.12958383677710827 4.695305784416728
+        rotation -0.04206098631738305 -0.7064797260797053 0.7064823211293779 3.2256647628919515
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
@@ -16186,7 +16181,7 @@ Robot {
     }
     DEF WHEEL2 HingeJoint {
       jointParameters HingeJointParameters {
-        position 5258.980092019538
+        position 7891.095814718616
         axis 0 1 0
         anchor 0.25 -0.3 0
       }
@@ -16198,7 +16193,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.25 -0.3 0
-        rotation -0.9994710031267334 0.022996847867063866 -0.02299693233935081 4.711856170363379
+        rotation 0.9200595268673346 -0.27702879202233033 0.2770298096077482 1.6540206685541585
         children [
           USE WHEEL
         ]
@@ -16210,7 +16205,7 @@ Robot {
     }
     DEF WHEEL3 HingeJoint {
       jointParameters HingeJointParameters {
-        position 4706.032409074337
+        position 7575.677054445397
         axis 0 1 0
         anchor -0.25 0.3 0
       }
@@ -16222,7 +16217,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 0.3 0
-        rotation -0.9986551370332162 0.03665997411275263 -0.03666010877262259 4.711039539482576
+        rotation 0.472394957407192 -0.6232335640482571 0.6232358533171564 2.258954069608967
         children [
           USE WHEEL
         ]
@@ -16234,7 +16229,7 @@ Robot {
     }
     DEF WHEEL4 HingeJoint {
       jointParameters HingeJointParameters {
-        position 4771.365909580965
+        position 7413.238974123184
         axis 0 1 0
         anchor -0.25 -0.3 0
       }
@@ -16246,7 +16241,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.25 -0.3 0
-        rotation -0.25477468036612844 -0.6837713168404745 0.683773828477356 3.6405257097235406
+        rotation 0.8190800338061082 -0.4056517529478858 0.4056532429926972 1.769061626521606
         children [
           USE WHEEL
         ]
@@ -16416,10 +16411,6 @@ DEF SurfaceProblem_MARKER_22 SurfaceProblemMarker {
   translation 50.546689 -85.660348 0
   name "SurfaceProblem_MARKER_22"
 }
-DEF SurfaceProblem_MARKER_23 SurfaceProblemMarker {
-  translation 50.3126 -20.3367 -1.62923e-14
-  name "SurfaceProblem_MARKER_23"
-}
 DEF SurfaceProblem_MARKER_24 SurfaceProblemMarker {
   translation 125.93582 -49.926792 0
   name "SurfaceProblem_MARKER_24"
@@ -16483,10 +16474,6 @@ DEF SurfaceProblem_MARKER_38 SurfaceProblemMarker {
 DEF SurfaceProblem_MARKER_39 SurfaceProblemMarker {
   translation 183.189593 173.825385 0
   name "SurfaceProblem_MARKER_39"
-}
-DEF SurfaceProblem_MARKER_40 SurfaceProblemMarker {
-  translation 27.015688 95.456463 0
-  name "SurfaceProblem_MARKER_40"
 }
 DEF SurfaceProblem_MARKER_41 SurfaceProblemMarker {
   translation 68.232409 101.022438 0
@@ -16640,10 +16627,6 @@ DEF NoCurbRamp_MARKER_79 NoCurbRampMarker {
   translation 23.768312 177.907103 0
   name "NoCurbRamp_MARKER_79"
 }
-DEF NoCurbRamp_MARKER_80 NoCurbRampMarker {
-  translation 39.905281 97.460214 0
-  name "NoCurbRamp_MARKER_80"
-}
 DEF NoCurbRamp_MARKER_81 NoCurbRampMarker {
   translation 31.13736 30.167582 0
   name "NoCurbRamp_MARKER_81"
@@ -16708,10 +16691,6 @@ DEF NoCurbRamp_MARKER_96 NoCurbRampMarker {
   translation 40.354918 -132.414534 0
   name "NoCurbRamp_MARKER_96"
 }
-DEF NoCurbRamp_MARKER_97 NoCurbRampMarker {
-  translation 52.307767 -64.175686 0
-  name "NoCurbRamp_MARKER_97"
-}
 DEF NoCurbRamp_MARKER_98 NoCurbRampMarker {
   translation 39.605523 -134.640924 0
   name "NoCurbRamp_MARKER_98"
@@ -16748,10 +16727,6 @@ DEF NoCurbRamp_MARKER_106 NoCurbRampMarker {
   translation 243.216128 -133.639049 0
   name "NoCurbRamp_MARKER_106"
 }
-DEF NoCurbRamp_MARKER_107 NoCurbRampMarker {
-  translation 50.097052 -54.861952 0
-  name "NoCurbRamp_MARKER_107"
-}
 DEF NoCurbRamp_MARKER_108 NoCurbRampMarker {
   translation 29.263872 18.200737 0
   name "NoCurbRamp_MARKER_108"
@@ -16767,1155 +16742,6 @@ DEF NoCurbRamp_MARKER_110 NoCurbRampMarker {
 DEF NoCurbRamp_MARKER_67 NoCurbRampMarker {
   translation 37.557179 -53.711654 0
   name "NoCurbRamp_MARKER_67"
-}
-DEF POLE_MARKER_12234207233 PoleMarker {
-  translation -276.024638 54.101273 27
-}
-DEF POLE_MARKER_12289740827 PoleMarker {
-  translation -303.65483 28.341942 27
-}
-DEF POLE_MARKER_12289930219 PoleMarker {
-  translation -181.900634 28.553449 27
-}
-DEF POLE_MARKER_12289740803 PoleMarker {
-  translation -365.674755 -52.899022 27
-}
-DEF POLE_MARKER_12289930206 PoleMarker {
-  translation -181.968079 -52.732043 27
-}
-DEF POLE_MARKER_8211131582 PoleMarker {
-  translation -169.026029 -52.142049 27
-}
-DEF POLE_MARKER_12138667076 PoleMarker {
-  translation -182.342777 -59.544796 27
-}
-DEF POLE_MARKER_12289930215 PoleMarker {
-  translation -181.915622 13.313811 27
-}
-DEF POLE_MARKER_12234373983 PoleMarker {
-  translation 23.943168 96.257964 27
-}
-DEF POLE_MARKER_12289930220 PoleMarker {
-  translation -160.550372 61.214588 27
-}
-DEF POLE_MARKER_8180128496 PoleMarker {
-  translation -161.202346 103.426939 27
-}
-DEF POLE_MARKER_8180427222 PoleMarker {
-  translation -169.580581 97.103992 27
-}
-DEF POLE_MARKER_12234374525 PoleMarker {
-  translation 26.745905 61.871373 27
-}
-DEF POLE_MARKER_8152519736 PoleMarker {
-  translation 27.420361 95.434199 27
-}
-DEF POLE_MARKER_67507083 PoleMarker {
-  translation -169.348269 61.181192 27
-}
-DEF POLE_MARKER_12289930216 PoleMarker {
-  translation -160.378011 28.553449 27
-}
-DEF POLE_MARKER_12289740811 PoleMarker {
-  translation -363.284185 28.664769 27
-}
-DEF POLE_MARKER_8211131575 PoleMarker {
-  translation -182.305307 21.351078 27
-}
-DEF POLE_MARKER_8211109600 PoleMarker {
-  translation -169.08598 28.553449 27
-}
-DEF POLE_MARKER_3877240631 PoleMarker {
-  translation -265.585567 103.182036 27
-}
-DEF POLE_MARKER_12229036168 PoleMarker {
-  translation -363.479028 95.111373 27
-}
-DEF POLE_MARKER_8180427223 PoleMarker {
-  translation -181.765743 103.438071 27
-}
-DEF POLE_MARKER_12289740813 PoleMarker {
-  translation -365.847116 12.389859 27
-}
-DEF POLE_MARKER_12289740826 PoleMarker {
-  translation -303.12276 13.157964 27
-}
-DEF POLE_MARKER_8211131573 PoleMarker {
-  translation -196.109162 13.291547 27
-}
-DEF POLE_MARKER_12234207294 PoleMarker {
-  translation -160.363023 118.989404 27
-}
-DEF POLE_MARKER_12234374527 PoleMarker {
-  translation -146.027098 110.417803 27
-}
-DEF POLE_MARKER_8180427225 PoleMarker {
-  translation -169.588075 110.929873 27
-}
-DEF POLE_MARKER_4840623137 PoleMarker {
-  translation -169.595569 118.91148 27
-}
-DEF POLE_MARKER_8180128492 PoleMarker {
-  translation -160.145699 175.940455 27
-}
-DEF POLE_MARKER_4840623139 PoleMarker {
-  translation -146.027098 103.326751 27
-}
-DEF POLE_MARKER_12234373974 PoleMarker {
-  translation 23.276207 110.9744 27
-}
-DEF POLE_MARKER_12234207255 PoleMarker {
-  translation -181.630852 257.849337 27
-}
-DEF POLE_MARKER_8211036820 PoleMarker {
-  translation -181.900634 191.04651 27
-}
-DEF POLE_MARKER_12229108443 PoleMarker {
-  translation -212.116238 191.001982 27
-}
-DEF POLE_MARKER_8211036827 PoleMarker {
-  translation -169.505642 190.957455 27
-}
-DEF POLE_MARKER_5443848814 PoleMarker {
-  translation -181.848176 182.630757 27
-}
-DEF POLE_MARKER_12234207254 PoleMarker {
-  translation -159.875917 258.127635 27
-}
-DEF POLE_MARKER_12234373987 PoleMarker {
-  translation 23.463556 190.857267 27
-}
-DEF POLE_MARKER_5443848984 PoleMarker {
-  translation -196.274029 0.823764 27
-}
-DEF POLE_MARKER_5443848985 PoleMarker {
-  translation -196.004247 21.395606 27
-}
-DEF POLE_MARKER_12291287068 PoleMarker {
-  translation 426.360758 -146.307207 27
-}
-DEF POLE_MARKER_12291287078 PoleMarker {
-  translation 242.391794 -147.576249 27
-}
-DEF POLE_MARKER_12291350409 PoleMarker {
-  translation 242.6316 -180.816249 27
-}
-DEF POLE_MARKER_12291287074 PoleMarker {
-  translation 242.166975 -99.219062 27
-}
-DEF POLE_MARKER_12291287075 PoleMarker {
-  translation 242.429263 -133.204903 27
-}
-DEF POLE_MARKER_67507285 PoleMarker {
-  translation 633.358628 -98.851708 27
-}
-DEF POLE_MARKER_8151412052 PoleMarker {
-  translation 426.3083 -133.01566 27
-}
-DEF POLE_MARKER_1424516502 PoleMarker {
-  translation 633.598434 -139.405398 27
-}
-DEF POLE_MARKER_12291196051 PoleMarker {
-  translation 51.445963 -133.538861 27
-}
-DEF POLE_MARKER_12291196082 PoleMarker {
-  translation 226.57956 -99.219062 27
-}
-DEF POLE_MARKER_12291196083 PoleMarker {
-  translation 51.408493 -98.885104 27
-}
-DEF POLE_MARKER_12291287081 PoleMarker {
-  translation 226.384718 -148.544729 27
-}
-DEF POLE_MARKER_67507322 PoleMarker {
-  translation 234.85288 -180.771721 27
-}
-DEF POLE_MARKER_8151412059 PoleMarker {
-  translation 242.871406 -213.989457 27
-}
-DEF POLE_MARKER_67507314 PoleMarker {
-  translation 633.530989 -180.64927 27
-}
-DEF POLE_MARKER_12291196047 PoleMarker {
-  translation 51.363529 -148.767367 27
-}
-DEF POLE_MARKER_8022360518 PoleMarker {
-  translation 226.699463 -214.468131 27
-}
-DEF POLE_MARKER_12291196054 PoleMarker {
-  translation 51.378517 -143.780254 27
-}
-DEF POLE_MARKER_12291196044 PoleMarker {
-  translation 51.618324 -217.273382 27
-}
-DEF POLE_MARKER_12291196070 PoleMarker {
-  translation 51.985527 -52.052994 27
-}
-DEF POLE_MARKER_8190794251 PoleMarker {
-  translation 224.698579 -58.821219 27
-}
-DEF POLE_MARKER_12291196081 PoleMarker {
-  translation 225.80019 -17.98923 27
-}
-DEF POLE_MARKER_8190794250 PoleMarker {
-  translation 234.058522 -50.828479 27
-}
-DEF POLE_MARKER_12291196080 PoleMarker {
-  translation 49.197778 -18.723938 27
-}
-DEF POLE_MARKER_8939087815 PoleMarker {
-  translation 229.262394 -58.776691 27
-}
-DEF POLE_MARKER_8939087816 PoleMarker {
-  translation 234.088498 -54.301648 27
-}
-DEF POLE_MARKER_8069007421 PoleMarker {
-  translation 428.189281 -50.539049 27
-}
-DEF POLE_MARKER_8190794252 PoleMarker {
-  translation 242.504203 -58.798955 27
-}
-DEF POLE_MARKER_12291350405 PoleMarker {
-  translation 241.589941 -17.944702 27
-}
-DEF POLE_MARKER_8939087814 PoleMarker {
-  translation 238.479952 -58.743295 27
-}
-DEF POLE_MARKER_60412698 PoleMarker {
-  translation 633.583446 -57.841607 27
-}
-DEF POLE_MARKER_67507255 PoleMarker {
-  translation 632.968943 -17.4215 27
-}
-DEF POLE_MARKER_8151412051 PoleMarker {
-  translation 428.706364 -65.010583 27
-}
-DEF POLE_MARKER_12291196058 PoleMarker {
-  translation 51.378517 -65.834347 27
-}
-DEF POLE_MARKER_12291196079 PoleMarker {
-  translation 46.327595 15.517937 27
-}
-DEF POLE_MARKER_12291636436 PoleMarker {
-  translation 424.869462 16.007743 27
-}
-DEF POLE_MARKER_8069007415 PoleMarker {
-  translation 241.657387 22.597857 27
-}
-DEF POLE_MARKER_8939087790 PoleMarker {
-  translation 237.715569 22.564461 27
-}
-DEF POLE_MARKER_53178606 PoleMarker {
-  translation 632.369427 23.098794 27
-}
-DEF POLE_MARKER_12291287100 PoleMarker {
-  translation 241.649893 29.64438 27
-}
-DEF POLE_MARKER_8211036828 PoleMarker {
-  translation -169.415714 175.840268 27
-}
-DEF POLE_MARKER_8184427036 PoleMarker {
-  translation -160.183169 182.797736 27
-}
-DEF POLE_MARKER_12291636438 PoleMarker {
-  translation 426.255842 30.445881 27
-}
-DEF POLE_MARKER_12243195489 PoleMarker {
-  translation 241.215243 62.706269 27
-}
-DEF POLE_MARKER_67507090 PoleMarker {
-  translation 632.174584 62.873248 27
-}
-DEF POLE_MARKER_12289738891 PoleMarker {
-  translation -365.809646 -133.149243 27
-}
-DEF POLE_MARKER_8210553725 PoleMarker {
-  translation -181.773237 -141.69858 27
-}
-DEF POLE_MARKER_12229036177 PoleMarker {
-  translation -365.427455 111.130248 27
-}
-DEF POLE_MARKER_12229108441 PoleMarker {
-  translation -211.966359 110.417803 27
-}
-DEF POLE_MARKER_67507057 PoleMarker {
-  translation -212.903103 142.856303 27
-}
-DEF POLE_MARKER_8022282557 PoleMarker {
-  translation -160.505408 -59.132914 27
-}
-DEF POLE_MARKER_7960032575 PoleMarker {
-  translation -159.328858 -66.02359 27
-}
-DEF POLE_MARKER_8022282556 PoleMarker {
-  translation -159.298883 -141.620656 27
-}
-DEF POLE_MARKER_12289920993 PoleMarker {
-  translation -159.785989 -133.739236 27
-}
-DEF POLE_MARKER_12291196049 PoleMarker {
-  translation 39.343234 -148.72284 27
-}
-DEF POLE_MARKER_12291196053 PoleMarker {
-  translation 39.200849 -133.694708 27
-}
-DEF POLE_MARKER_8210534014 PoleMarker {
-  translation -169.011041 -133.483201 27
-}
-DEF POLE_MARKER_12289930221 PoleMarker {
-  translation -160.198156 -99.564153 27
-}
-DEF POLE_MARKER_12291196062 PoleMarker {
-  baseColor 1 1 0
-  translation 38.578852 -66.134909 27
-}
-DEF POLE_MARKER_12291196067 PoleMarker {
-  baseColor 1 1 0
-  translation 36.015921 -51.852619 27
-}
-DEF POLE_MARKER_12289930201 PoleMarker {
-  translation -160.213144 -68.906765 27
-}
-DEF POLE_MARKER_8022282558 PoleMarker {
-  translation -160.010808 21.840884 27
-}
-DEF POLE_MARKER_53184243 PoleMarker {
-  translation -168.951089 21.306551 27
-}
-DEF POLE_MARKER_12291196076 PoleMarker {
-  translation 30.49288 15.495673 27
-}
-DEF POLE_MARKER_12291196077 PoleMarker {
-  translation 29.436233 28.831748 27
-}
-DEF POLE_MARKER_8190837055 PoleMarker {
-  translation 225.005831 103.794293 27
-}
-DEF POLE_MARKER_12234373979 PoleMarker {
-  translation 39.185861 111.007796 27
-}
-DEF POLE_MARKER_8190837056 PoleMarker {
-  translation 233.848691 110.9744 27
-}
-DEF POLE_MARKER_5443848975 PoleMarker {
-  translation 233.324115 158.808386 27
-}
-DEF POLE_MARKER_12243195488 PoleMarker {
-  translation 225.230649 158.697066 27
-}
-DEF POLE_MARKER_8190837057 PoleMarker {
-  translation 241.252713 103.772029 27
-}
-DEF POLE_MARKER_12243636567 PoleMarker {
-  translation 426.413215 96.881353 27
-}
-DEF POLE_MARKER_12243636559 PoleMarker {
-  translation 427.597259 112.555137 27
-}
-DEF POLE_MARKER_8190837065 PoleMarker {
-  translation 225.088264 183.231882 27
-}
-DEF POLE_MARKER_53142718 PoleMarker {
-  translation 233.646355 183.254146 27
-}
-DEF POLE_MARKER_8190794224 PoleMarker {
-  translation 39.620511 183.10943 27
-}
-DEF POLE_MARKER_8190788913 PoleMarker {
-  translation 225.260625 190.957455 27
-}
-DEF POLE_MARKER_8192408352 PoleMarker {
-  translation 241.297677 183.243014 27
-}
-DEF POLE_MARKER_8192408351 PoleMarker {
-  translation 233.623873 191.068774 27
-}
-DEF POLE_MARKER_12234373990 PoleMarker {
-  translation 39.388198 175.773476 27
-}
-DEF POLE_MARKER_12234373993 PoleMarker {
-  translation 39.238319 191.024246 27
-}
-DEF POLE_MARKER_12243195468 PoleMarker {
-  translation 224.458773 257.749149 27
-}
-DEF POLE_MARKER_12243195470 PoleMarker {
-  translation 241.035389 258.138767 27
-}
-DEF POLE_MARKER_8192408346 PoleMarker {
-  translation 426.383239 190.846135 27
-}
-DEF POLE_MARKER_4414012024 PoleMarker {
-  translation -113.405936 182.82 27
-}
-DEF POLE_MARKER_8180427233 PoleMarker {
-  translation -181.803213 175.706684 27
-}
-DEF POLE_MARKER_8180427232 PoleMarker {
-  translation -364.153483 175.651025 27
-}
-DEF POLE_MARKER_12229108442 PoleMarker {
-  translation -212.281105 175.695552 27
-}
-DEF POLE_MARKER_60002789 PoleMarker {
-  translation 633.238725 182.686416 27
-}
-DEF POLE_MARKER_9146790568 PoleMarker {
-  translation 30.972493 175.68442 27
-}
-DEF POLE_MARKER_9146790569 PoleMarker {
-  translation 30.979987 190.935191 27
-}
-DEF POLE_MARKER_12234374502 PoleMarker {
-  translation 39.680462 258.060844 27
-}
-DEF POLE_MARKER_8190794225 PoleMarker {
-  translation 26.543569 111.664581 27
-}
-DEF POLE_MARKER_8184378357 PoleMarker {
-  translation 31.489575 111.753637 27
-}
-DEF POLE_MARKER_9146790566 PoleMarker {
-  translation 26.970724 103.694106 27
-}
-DEF POLE_MARKER_8190794226 PoleMarker {
-  translation 35.588766 111.83156 27
-}
-DEF POLE_MARKER_12234373986 PoleMarker {
-  translation 23.411098 175.628761 27
-}
-DEF POLE_MARKER_9146790567 PoleMarker {
-  translation 36.308185 103.705238 27
-}
-DEF POLE_MARKER_12289930222 PoleMarker {
-  translation 33.295617 -18.757334 27
-}
-DEF POLE_MARKER_9146790570 PoleMarker {
-  translation 23.441074 183.153958 27
-}
-DEF POLE_MARKER_12234373994 PoleMarker {
-  translation 23.343652 259.630448 27
-}
-DEF POLE_MARKER_8210553727 PoleMarker {
-  translation -180.828999 -146.685693 27
-}
-DEF POLE_MARKER_3877240632 PoleMarker {
-  translation -266.080168 84.836584 27
-}
-DEF POLE_MARKER_3877240635 PoleMarker {
-  translation -265.78041 66.346417 27
-}
-DEF POLE_MARKER_3877240638 PoleMarker {
-  translation -250.005646 66.146041 27
-}
-DEF POLE_MARKER_8211022340 PoleMarker {
-  translation -212.498429 417.347903 27
-}
-DEF POLE_MARKER_8211036821 PoleMarker {
-  translation -367.458315 190.768211 27
-}
-DEF POLE_MARKER_12291196042 PoleMarker {
-  translation 39.523089 -217.37357 27
-}
-DEF POLE_MARKER_12289920999 PoleMarker {
-  translation 39.095934 -98.896236 27
-}
-DEF POLE_MARKER_12291196078 PoleMarker {
-  translation 45.278442 28.89854 27
-}
-DEF POLE_MARKER_12234374524 PoleMarker {
-  translation 42.498187 61.927033 27
-}
-DEF POLE_MARKER_8152519735 PoleMarker {
-  translation 32.194007 95.72363 27
-}
-DEF POLE_MARKER_67507074 PoleMarker {
-  translation -370.568304 141.876691 27
-}
-DEF POLE_MARKER_67507034 PoleMarker {
-  translation -211.846456 468.198646 27
-}
-DEF POLE_MARKER_5443848976 PoleMarker {
-  translation -108.235111 -44.594588 27
-}
-DEF POLE_MARKER_5443848977 PoleMarker {
-  translation -108.13769 -18.746202 27
-}
-DEF POLE_MARKER_7960101788 PoleMarker {
-  translation -160.475433 -18.779598 27
-}
-DEF POLE_MARKER_67507251 PoleMarker {
-  translation -169.063499 -18.779598 27
-}
-DEF POLE_MARKER_5443848974 PoleMarker {
-  translation 199.533897 158.507823 27
-}
-DEF POLE_MARKER_8184378349 PoleMarker {
-  translation 426.323288 175.68442 27
-}
-DEF POLE_MARKER_12243195490 PoleMarker {
-  translation 225.36554 62.684005 27
-}
-DEF POLE_MARKER_67507117 PoleMarker {
-  translation -212.535899 510.277414 27
-}
-DEF POLE_MARKER_8210553720 PoleMarker {
-  translation -367.39087 -149.602264 27
-}
-DEF POLE_MARKER_12289920994 PoleMarker {
-  translation -182.769932 -149.234909 27
-}
-DEF POLE_MARKER_12289920982 PoleMarker {
-  translation -181.788225 -216.683389 27
-}
-DEF POLE_MARKER_8210553721 PoleMarker {
-  translation -169.033523 -148.21077 27
-}
-DEF POLE_MARKER_12289920988 PoleMarker {
-  translation -160.160687 -216.338298 27
-}
-DEF POLE_MARKER_8211131579 PoleMarker {
-  translation -168.966077 13.870409 27
-}
-DEF POLE_MARKER_12138667077 PoleMarker {
-  translation -168.981065 -68.483751 27
-}
-DEF POLE_MARKER_67507275 PoleMarker {
-  translation -168.988559 -99.597548 27
-}
-DEF POLE_MARKER_8880418383 PoleMarker {
-  translation -367.473303 -68.24998 27
-}
-DEF POLE_MARKER_8152519741 PoleMarker {
-  translation 233.773752 96.770033 27
-}
-DEF POLE_MARKER_53142147 PoleMarker {
-  translation -370.463389 102.848078 27
-}
-DEF POLE_MARKER_670081548 PoleMarker {
-  translation 632.002223 103.783161 27
-}
-DEF POLE_MARKER_10312180368 PoleMarker {
-  translation -263.299912 92.907247 27
-}
-DEF POLE_MARKER_53098386 PoleMarker {
-  translation -169.115956 -303.401272 27
-}
-DEF POLE_MARKER_3877240624 PoleMarker {
-  translation -290.862658 93.530636 27
-}
-DEF POLE_MARKER_3877240625 PoleMarker {
-  translation -240.068669 92.985171 27
-}
-DEF POLE_MARKER_3877240626 PoleMarker {
-  translation -240.728137 30.111922 27
-}
-DEF POLE_MARKER_3877240630 PoleMarker {
-  translation -214.926469 93.786671 27
-}
-DEF POLE_MARKER_3877240641 PoleMarker {
-  translation -240.375921 63.429846 27
-}
-DEF POLE_MARKER_3877240644 PoleMarker {
-  translation -215.226227 61.826845 27
-}
-DEF POLE_MARKER_53210973 PoleMarker {
-  translation -170.270024 345.157213 27
-}
-DEF POLE_MARKER_53184242 PoleMarker {
-  translation -371.100375 21.996731 27
-}
-DEF POLE_MARKER_4414012023 PoleMarker {
-  translation -113.458394 173.090676 27
-}
-DEF POLE_MARKER_12291636439 PoleMarker {
-  translation -275.649941 29.432873 27
-}
-DEF POLE_MARKER_12291636440 PoleMarker {
-  translation -160.674022 96.330321 27
-}
-DEF POLE_MARKER_12291636441 PoleMarker {
-  translation -181.308612 96.241266 27
-}
-DEF POLE_MARKER_12291636442 PoleMarker {
-  translation -266.941972 94.198553 27
-}
-DEF POLE_MARKER_12291636443 PoleMarker {
-  translation -265.735446 90.0686 27
-}
-DEF POLE_MARKER_12291636444 PoleMarker {
-  translation -160.81266 110.924307 27
-}
-DEF POLE_MARKER_12291636445 PoleMarker {
-  translation -159.579906 190.901795 27
-}
-DEF POLE_MARKER_12291636446 PoleMarker {
-  translation 234.601833 -146.652297 27
-}
-DEF POLE_MARKER_12291636447 PoleMarker {
-  translation 241.192762 -140.195767 27
-}
-DEF POLE_MARKER_12291636448 PoleMarker {
-  translation 242.388047 -65.672934 27
-}
-DEF POLE_MARKER_12291636449 PoleMarker {
-  translation 234.114726 -64.810208 27
-}
-DEF POLE_MARKER_12291636450 PoleMarker {
-  translation 234.590592 -134.000837 27
-}
-DEF POLE_MARKER_12291636451 PoleMarker {
-  translation 226.231092 -133.449806 27
-}
-DEF POLE_MARKER_12291636452 PoleMarker {
-  translation 227.748616 -140.062183 27
-}
-DEF POLE_MARKER_12291636453 PoleMarker {
-  translation 45.724332 -134.791205 27
-}
-DEF POLE_MARKER_12291636454 PoleMarker {
-  translation 51.674528 -140.112277 27
-}
-DEF POLE_MARKER_12291636455 PoleMarker {
-  translation 225.665298 -65.667368 27
-}
-DEF POLE_MARKER_12291636456 PoleMarker {
-  translation 45.660634 -148.010395 27
-}
-DEF POLE_MARKER_12291636457 PoleMarker {
-  translation 225.204421 -51.858185 27
-}
-DEF POLE_MARKER_12291636458 PoleMarker {
-  translation 44.442867 -52.576196 27
-}
-DEF POLE_MARKER_12291636459 PoleMarker {
-  translation 51.063771 -58.865747 27
-}
-DEF POLE_MARKER_12291636460 PoleMarker {
-  translation 226.489633 16.291607 27
-}
-DEF POLE_MARKER_12291636461 PoleMarker {
-  translation 241.968385 -52.080824 27
-}
-DEF POLE_MARKER_12291636462 PoleMarker {
-  translation 242.073301 14.610683 27
-}
-DEF POLE_MARKER_12291636463 PoleMarker {
-  translation 45.023648 -65.48369 27
-}
-DEF POLE_MARKER_12291636464 PoleMarker {
-  translation 227.313967 22.519933 27
-}
-DEF POLE_MARKER_12291636465 PoleMarker {
-  translation 233.02061 16.953958 27
-}
-DEF POLE_MARKER_12291636466 PoleMarker {
-  translation 225.073276 29.332686 27
-}
-DEF POLE_MARKER_12291636467 PoleMarker {
-  translation 44.420385 22.002297 27
-}
-DEF POLE_MARKER_12291636468 PoleMarker {
-  translation 233.522704 28.102605 27
-}
-DEF POLE_MARKER_12291636469 PoleMarker {
-  translation 241.41758 96.71994 27
-}
-DEF POLE_MARKER_12291636470 PoleMarker {
-  translation -181.829441 -133.488767 27
-}
-DEF POLE_MARKER_12291636471 PoleMarker {
-  translation -182.503897 111.480904 27
-}
-DEF POLE_MARKER_12291636472 PoleMarker {
-  baseColor 1 1 0
-  translation 38.226636 -58.821219 27
-}
-DEF POLE_MARKER_12291636473 PoleMarker {
-  translation -160.437963 -52.197709 27
-}
-DEF POLE_MARKER_12291636474 PoleMarker {
-  translation -181.739514 -68.021775 27
-}
-DEF POLE_MARKER_12291636475 PoleMarker {
-  translation 39.826594 -141.553864 27
-}
-DEF POLE_MARKER_12291636476 PoleMarker {
-  translation -160.190663 -149.01227 27
-}
-DEF POLE_MARKER_12291636477 PoleMarker {
-  translation 31.253516 21.952204 27
-}
-DEF POLE_MARKER_12291636478 PoleMarker {
-  translation -160.082 14.744267 27
-}
-DEF POLE_MARKER_12291636479 PoleMarker {
-  translation 224.574929 96.797863 27
-}
-DEF POLE_MARKER_12291636480 PoleMarker {
-  translation 225.047048 110.991098 27
-}
-DEF POLE_MARKER_12291636481 PoleMarker {
-  translation 38.305322 96.269096 27
-}
-DEF POLE_MARKER_12291636482 PoleMarker {
-  translation 241.248966 110.7128 27
-}
-DEF POLE_MARKER_12291636483 PoleMarker {
-  translation 241.230231 174.955278 27
-}
-DEF POLE_MARKER_12291636484 PoleMarker {
-  translation 225.03206 174.933014 27
-}
-DEF POLE_MARKER_12291636485 PoleMarker {
-  translation 241.597435 191.703295 27
-}
-DEF POLE_MARKER_12291636486 PoleMarker {
-  translation 38.428973 16.091232 27
-}
-DEF POLE_MARKER_12291636487 PoleMarker {
-  translation 37.259916 27.95789 27
-}
-DEF POLE_MARKER_12291636488 PoleMarker {
-  translation -222.56655 62.728533 27
-}
-DEF POLE_MARKER_12291636489 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 305.790606 114.380777 27
-}
-DEF POLE_MARKER_12291636490 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 317.780925 100.799799 27
-}
-DEF POLE_MARKER_12291636491 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -258.204027 190.857267 27
-}
-DEF POLE_MARKER_12291636492 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -21.694984 98.963027 27
-}
-DEF POLE_MARKER_12291636493 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -59.164731 112.710984 27
-}
-DEF POLE_MARKER_12291636494 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -16.449219 194.53081 27
-}
-DEF POLE_MARKER_12291636495 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -161.831837 87.664099 27
-}
-DEF POLE_MARKER_12291636496 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -161.082442 71.522773 27
-}
-DEF POLE_MARKER_12291636497 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -148.342728 98.796048 27
-}
-DEF POLE_MARKER_12291636498 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -108.624797 99.463965 27
-}
-DEF POLE_MARKER_12291636499 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -212.415996 94.343268 27
-}
-DEF POLE_MARKER_12291636500 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -271.243499 -52.208841 27
-}
-DEF POLE_MARKER_12291636501 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -247.262861 -72.07937 27
-}
-DEF POLE_MARKER_12291636502 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -24.317866 -54.268252 27
-}
-DEF POLE_MARKER_12291636503 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -50.171991 -55.492766 27
-}
-DEF POLE_MARKER_12291636504 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 38.256612 -104.195043 27
-}
-DEF POLE_MARKER_12291636505 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 41.254191 -71.188814 27
-}
-DEF POLE_MARKER_12291636506 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 37.507217 -83.1 27
-}
-DEF POLE_MARKER_12291636507 PoleMarker {
-  baseColor 1 1 0
-  translation 15.774764 -53.377696 27
-}
-DEF POLE_MARKER_12291636508 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 38.256612 -103.248828 27
-}
-DEF POLE_MARKER_12291636509 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 50.546689 -100.911118 27
-}
-DEF POLE_MARKER_12291636510 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 50.546689 -85.660348 27
-}
-DEF POLE_MARKER_12291636511 PoleMarker {
-  translation 47.998746 -20.315807 27
-}
-DEF POLE_MARKER_12291636512 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 125.93582 -49.926792 27
-}
-DEF POLE_MARKER_12291636513 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 299.046051 -144.659678 27
-}
-DEF POLE_MARKER_12291636514 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -25.441958 195.087408 27
-}
-DEF POLE_MARKER_12291636515 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -56.167151 192.081781 27
-}
-DEF POLE_MARKER_12291636516 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -96.934236 171.153717 27
-}
-DEF POLE_MARKER_12291636517 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -1.46132 113.267582 27
-}
-DEF POLE_MARKER_12291636518 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 21.395226 101.022438 27
-}
-DEF POLE_MARKER_12291636519 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -58.115578 99.909243 27
-}
-DEF POLE_MARKER_12291636520 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -44.926227 96.903617 27
-}
-DEF POLE_MARKER_12291636521 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -28.439538 100.354521 27
-}
-DEF POLE_MARKER_12291636522 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 257.529571 98.796048 27
-}
-DEF POLE_MARKER_12291636523 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 315.832498 99.130007 27
-}
-DEF POLE_MARKER_12291636524 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 161.906777 114.380777 27
-}
-DEF POLE_MARKER_12291636525 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 130.432189 100.799799 27
-}
-DEF POLE_MARKER_12291636526 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 143.359252 194.53081 27
-}
-DEF POLE_MARKER_12291636527 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 183.189593 173.825385 27
-}
-DEF POLE_MARKER_12291636528 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 27.015688 95.456463 27
-}
-DEF POLE_MARKER_12291636529 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 68.232409 101.022438 27
-}
-DEF POLE_MARKER_12291636530 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 45.750561 173.825385 27
-}
-DEF POLE_MARKER_12291636531 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -7.756238 192.972337 27
-}
-DEF POLE_MARKER_12291636532 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -265.623037 94.343268 27
-}
-DEF POLE_MARKER_12291636533 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -212.790693 96.569658 27
-}
-DEF POLE_MARKER_12291636534 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -241.642399 -71.522773 27
-}
-DEF POLE_MARKER_12291636535 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -237.520726 -52.041862 27
-}
-DEF POLE_MARKER_12291636536 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -159.283895 1.391494 27
-}
-DEF POLE_MARKER_12291636537 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 38.55637 -115.382652 27
-}
-DEF POLE_MARKER_12291636538 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 21.395226 -131.0787 27
-}
-DEF POLE_MARKER_12291636539 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -50.921386 -53.711654 27
-}
-DEF POLE_MARKER_12291636540 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -125.561122 -153.899196 27
-}
-DEF POLE_MARKER_12291636541 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 317.780925 100.799799 27
-}
-DEF POLE_MARKER_12291636542 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 52.869813 -198.426992 27
-}
-DEF POLE_MARKER_12291636543 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -51.221144 -63.730408 27
-}
-DEF POLE_MARKER_12291636544 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -34.434698 -65.734159 27
-}
-DEF POLE_MARKER_12291636545 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -51.670781 -151.895445 27
-}
-DEF POLE_MARKER_12291636546 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 38.256612 -109.3714 27
-}
-DEF POLE_MARKER_12291636547 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -280.610936 -135.865439 27
-}
-DEF POLE_MARKER_12291636548 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -263.749549 -151.895445 27
-}
-DEF POLE_MARKER_12291636549 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -251.309593 -138.314467 27
-}
-DEF POLE_MARKER_12291636550 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -217.586821 -133.861688 27
-}
-DEF POLE_MARKER_12291636551 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -240.518306 -72.07937 27
-}
-DEF POLE_MARKER_12291636552 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 35.48385 177.10931 27
-}
-DEF POLE_MARKER_12291636553 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 39.505606 109.482719 27
-}
-DEF POLE_MARKER_12291636554 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 30.950011 16.057837 27
-}
-DEF POLE_MARKER_12291636555 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 37.557179 -53.711654 27
-}
-DEF POLE_MARKER_12291636556 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 37.844445 -146.49645 27
-}
-DEF POLE_MARKER_12291636557 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 51.246122 -134.455388 27
-}
-DEF POLE_MARKER_12291636558 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -179.067921 -134.974883 27
-}
-DEF POLE_MARKER_12291636559 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 23.143811 189.59565 27
-}
-DEF POLE_MARKER_12291636560 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 49.122838 -67.181313 27
-}
-DEF POLE_MARKER_12291636561 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 38.456453 -135.939655 27
-}
-DEF POLE_MARKER_12291636562 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 47.998746 -137.423911 27
-}
-DEF POLE_MARKER_12291636563 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 240.967943 -142.544608 27
-}
-DEF POLE_MARKER_12291636564 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 21.645021 109.779575 27
-}
-DEF POLE_MARKER_12291636565 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 27.765083 177.16497 27
-}
-DEF POLE_MARKER_12291636566 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -157.335468 109.26008 27
-}
-DEF POLE_MARKER_12291636567 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 23.768312 177.907103 27
-}
-DEF POLE_MARKER_12291636568 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 39.905281 97.460214 27
-}
-DEF POLE_MARKER_12291636569 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 31.13736 30.167582 27
-}
-DEF POLE_MARKER_12291636570 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 42.503186 29.740861 27
-}
-DEF POLE_MARKER_12291636571 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 39.755402 -67.84923 27
-}
-DEF POLE_MARKER_12291636572 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 32.261452 -71.188814 27
-}
-DEF POLE_MARKER_12291636573 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 43.127679 -57.051239 27
-}
-DEF POLE_MARKER_12291636574 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 50.32187 -132.358875 27
-}
-DEF POLE_MARKER_12291636575 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 40.005197 -149.965911 27
-}
-DEF POLE_MARKER_12291636576 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -164.080022 -132.303215 27
-}
-DEF POLE_MARKER_12291636577 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -304.066997 14.749833 27
-}
-DEF POLE_MARKER_12291636578 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 230.851111 -130.522103 27
-}
-DEF POLE_MARKER_12291636579 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 238.644819 -130.188144 27
-}
-DEF POLE_MARKER_12291636580 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 227.853532 16.419625 27
-}
-DEF POLE_MARKER_12291636581 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 44.43912 28.163831 27
-}
-DEF POLE_MARKER_12291636582 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 46.150236 16.234089 27
-}
-DEF POLE_MARKER_12291636583 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 39.155886 -66.513396 27
-}
-DEF POLE_MARKER_12291636584 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 40.354918 -132.414534 27
-}
-DEF POLE_MARKER_12291636585 PoleMarker {
-  translation 52.307767 -64.175686 27
-}
-DEF POLE_MARKER_12291636586 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 39.605523 -134.640924 27
-}
-DEF POLE_MARKER_12291636587 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 48.997937 -147.702407 27
-}
-DEF POLE_MARKER_12291636588 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -303.842179 28.108171 27
-}
-DEF POLE_MARKER_12291636589 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation -183.564291 92.673476 27
-}
-DEF POLE_MARKER_12291636590 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 25.516898 192.081781 27
-}
-DEF POLE_MARKER_12291636591 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 22.894015 96.569658 27
-}
-DEF POLE_MARKER_12291636592 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 29.113993 28.145274 27
-}
-DEF POLE_MARKER_12291636593 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 35.259032 192.30442 27
-}
-DEF POLE_MARKER_12291636594 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 243.216128 -133.639049 27
-}
-DEF POLE_MARKER_12291636595 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 50.097052 -54.861952 27
-}
-DEF POLE_MARKER_12291636596 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 29.263872 18.200737 27
-}
-DEF POLE_MARKER_12291636597 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 43.315028 15.139451 27
-}
-DEF POLE_MARKER_12291636598 PoleMarker {
-  baseColor 0.664134 0.055283 0
-  translation 48.997937 -142.025113 27
 }
 DEF TL_53090483 CrossRoadsTrafficLight {
   translation -168.72000000000003 -60.72999999999999 0
@@ -17988,4 +16814,774 @@ DEF TL_67507300 CrossRoadsTrafficLight {
 DEF TL_67507322 CrossRoadsTrafficLight {
   translation 236.70999999999998 -178.51999999999998 0
   name "67507322"
+}
+DEF SurfaceProblem_MARKER_12205 SurfaceProblemMarker {
+  translation 38.256612 -103.248828 0
+  texturePath [
+    "../../assets/12205.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12205"
+}
+DEF SurfaceProblem_MARKER_12202 SurfaceProblemMarker {
+  translation 50.546689 -100.911118 0
+  texturePath [
+    "../../assets/12202.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12202"
+}
+DEF SurfaceProblem_MARKER_12200 SurfaceProblemMarker {
+  translation 50.546689 -85.660348 0
+  texturePath [
+    "../../assets/12200.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12200"
+}
+DEF SurfaceProblem_MARKER_198604 SurfaceProblemMarker {
+  translation 47.998746 -20.315807 0
+  texturePath [
+    "../../assets/198604.jpg"
+  ]
+  name "SurfaceProblem_MARKER_198604"
+}
+DEF SurfaceProblem_MARKER_198613 SurfaceProblemMarker {
+  translation 125.93582 -49.926792 0
+  texturePath [
+    "../../assets/198613.jpg"
+  ]
+  name "SurfaceProblem_MARKER_198613"
+}
+DEF SurfaceProblem_MARKER_201269 SurfaceProblemMarker {
+  translation 299.046051 -144.659678 0
+  texturePath [
+    "../../assets/201269.jpg"
+  ]
+  name "SurfaceProblem_MARKER_201269"
+}
+DEF SurfaceProblem_MARKER_213235 SurfaceProblemMarker {
+  translation -25.441958 195.087408 0
+  texturePath [
+    "../../assets/213235.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213235"
+}
+DEF SurfaceProblem_MARKER_213239 SurfaceProblemMarker {
+  translation -56.167151 192.081781 0
+  texturePath [
+    "../../assets/213239.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213239"
+}
+DEF SurfaceProblem_MARKER_213240 SurfaceProblemMarker {
+  translation -96.934236 171.153717 0
+  texturePath [
+    "../../assets/213240.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213240"
+}
+DEF SurfaceProblem_MARKER_219280 SurfaceProblemMarker {
+  translation -1.46132 113.267582 0
+  texturePath [
+    "../../assets/219280.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219280"
+}
+DEF SurfaceProblem_MARKER_219279 SurfaceProblemMarker {
+  translation 21.395226 101.022438 0
+  texturePath [
+    "../../assets/219279.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219279"
+}
+DEF SurfaceProblem_MARKER_219285 SurfaceProblemMarker {
+  translation -58.115578 99.909243 0
+  texturePath [
+    "../../assets/219285.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219285"
+}
+DEF SurfaceProblem_MARKER_219284 SurfaceProblemMarker {
+  translation -44.926227 96.903617 0
+  texturePath [
+    "../../assets/219284.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219284"
+}
+DEF SurfaceProblem_MARKER_219283 SurfaceProblemMarker {
+  translation -28.439538 100.354521 0
+  texturePath [
+    "../../assets/219283.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219283"
+}
+DEF SurfaceProblem_MARKER_213187 SurfaceProblemMarker {
+  translation 257.529571 98.796048 0
+  texturePath [
+    "../../assets/213187.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213187"
+}
+DEF SurfaceProblem_MARKER_213189 SurfaceProblemMarker {
+  translation 315.832498 99.130007 0
+  texturePath [
+    "../../assets/213189.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213189"
+}
+DEF SurfaceProblem_MARKER_216204 SurfaceProblemMarker {
+  translation 161.906777 114.380777 0
+  texturePath [
+    "../../assets/216204.jpg"
+  ]
+  name "SurfaceProblem_MARKER_216204"
+}
+DEF SurfaceProblem_MARKER_216203 SurfaceProblemMarker {
+  translation 130.432189 100.799799 0
+  texturePath [
+    "../../assets/216203.jpg"
+  ]
+  name "SurfaceProblem_MARKER_216203"
+}
+DEF SurfaceProblem_MARKER_213223 SurfaceProblemMarker {
+  translation 143.359252 194.53081 0
+  texturePath [
+    "../../assets/213223.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213223"
+}
+DEF SurfaceProblem_MARKER_213222 SurfaceProblemMarker {
+  translation 183.189593 173.825385 0
+  texturePath [
+    "../../assets/213222.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213222"
+}
+DEF SurfaceProblem_MARKER_219278 SurfaceProblemMarker {
+  translation 26.9456 94.1858 -1.74767e-14
+  texturePath [
+    "../../assets/219278.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219278"
+}
+DEF SurfaceProblem_MARKER_216202 SurfaceProblemMarker {
+  translation 68.232409 101.022438 0
+  texturePath [
+    "../../assets/216202.jpg"
+  ]
+  name "SurfaceProblem_MARKER_216202"
+}
+DEF SurfaceProblem_MARKER_213225 SurfaceProblemMarker {
+  translation 45.750561 173.825385 0
+  texturePath [
+    "../../assets/213225.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213225"
+}
+DEF SurfaceProblem_MARKER_213237 SurfaceProblemMarker {
+  translation -7.756238 192.972337 0
+  texturePath [
+    "../../assets/213237.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213237"
+}
+DEF SurfaceProblem_MARKER_192419 SurfaceProblemMarker {
+  translation -212.790693 96.569658 0
+  texturePath [
+    "../../assets/192419.jpg"
+  ]
+  name "SurfaceProblem_MARKER_192419"
+}
+DEF SurfaceProblem_MARKER_192420 SurfaceProblemMarker {
+  translation -265.623037 94.343268 0
+  texturePath [
+    "../../assets/192420.jpg"
+  ]
+  name "SurfaceProblem_MARKER_192420"
+}
+DEF SurfaceProblem_MARKER_212992 SurfaceProblemMarker {
+  translation -241.642399 -71.522773 0
+  texturePath [
+    "../../assets/212992.jpg"
+  ]
+  name "SurfaceProblem_MARKER_212992"
+}
+DEF SurfaceProblem_MARKER_212989 SurfaceProblemMarker {
+  translation -237.520726 -52.041862 0
+  texturePath [
+    "../../assets/212989.jpg"
+  ]
+  name "SurfaceProblem_MARKER_212989"
+}
+DEF SurfaceProblem_MARKER_213002 SurfaceProblemMarker {
+  translation -159.283895 1.391494 0
+  texturePath [
+    "../../assets/213002.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213002"
+}
+DEF SurfaceProblem_MARKER_12208 SurfaceProblemMarker {
+  translation 38.55637 -115.382652 0
+  texturePath [
+    "../../assets/12208.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12208"
+}
+DEF SurfaceProblem_MARKER_201286 SurfaceProblemMarker {
+  translation 21.395226 -131.0787 0
+  texturePath [
+    "../../assets/201286.jpg"
+  ]
+  name "SurfaceProblem_MARKER_201286"
+}
+DEF SurfaceProblem_MARKER_12182 SurfaceProblemMarker {
+  translation -50.921386 -53.711654 0
+  texturePath [
+    "../../assets/12182.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12182"
+}
+DEF SurfaceProblem_MARKER_201288 SurfaceProblemMarker {
+  translation -125.561122 -153.899196 0
+  texturePath [
+    "../../assets/201288.jpg"
+  ]
+  name "SurfaceProblem_MARKER_201288"
+}
+DEF SurfaceProblem_MARKER_213191 SurfaceProblemMarker {
+  translation 317.780925 100.799799 0
+  texturePath [
+    "../../assets/213191.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213191"
+}
+DEF SurfaceProblem_MARKER_215730 SurfaceProblemMarker {
+  translation 52.869813 -198.426992 0
+  texturePath [
+    "../../assets/215730.jpg"
+  ]
+  name "SurfaceProblem_MARKER_215730"
+}
+DEF SurfaceProblem_MARKER_12180 SurfaceProblemMarker {
+  translation -51.221144 -63.730408 0
+  texturePath [
+    "../../assets/12180.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12180"
+}
+DEF SurfaceProblem_MARKER_12185 SurfaceProblemMarker {
+  translation -34.434698 -65.734159 0
+  texturePath [
+    "../../assets/12185.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12185"
+}
+DEF SurfaceProblem_MARKER_201287 SurfaceProblemMarker {
+  translation -51.670781 -151.895445 0
+  texturePath [
+    "../../assets/201287.jpg"
+  ]
+  name "SurfaceProblem_MARKER_201287"
+}
+DEF SurfaceProblem_MARKER_12206 SurfaceProblemMarker {
+  translation 38.256612 -109.3714 0
+  texturePath [
+    "../../assets/12206.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12206"
+}
+DEF SurfaceProblem_MARKER_201301 SurfaceProblemMarker {
+  translation -280.610936 -135.865439 0
+  texturePath [
+    "../../assets/201301.jpg"
+  ]
+  name "SurfaceProblem_MARKER_201301"
+}
+DEF SurfaceProblem_MARKER_215694 SurfaceProblemMarker {
+  translation -263.749549 -151.895445 0
+  texturePath [
+    "../../assets/215694.jpg"
+  ]
+  name "SurfaceProblem_MARKER_215694"
+}
+DEF SurfaceProblem_MARKER_215693 SurfaceProblemMarker {
+  translation -251.309593 -138.314467 0
+  texturePath [
+    "../../assets/215693.jpg"
+  ]
+  name "SurfaceProblem_MARKER_215693"
+}
+DEF SurfaceProblem_MARKER_201298 SurfaceProblemMarker {
+  translation -217.586821 -133.861688 0
+  texturePath [
+    "../../assets/201298.jpg"
+  ]
+  name "SurfaceProblem_MARKER_201298"
+}
+DEF SurfaceProblem_MARKER_212991 SurfaceProblemMarker {
+  translation -240.518306 -72.07937 0
+  texturePath [
+    "../../assets/212991.jpg"
+  ]
+  name "SurfaceProblem_MARKER_212991"
+}
+DEF SurfaceProblem_MARKER_213188 SurfaceProblemMarker {
+  translation 305.790606 114.380777 0
+  texturePath [
+    "../../assets/213188.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213188"
+}
+DEF SurfaceProblem_MARKER_213190 SurfaceProblemMarker {
+  translation 317.780925 100.799799 0
+  texturePath [
+    "../../assets/213190.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213190"
+}
+DEF SurfaceProblem_MARKER_5620 SurfaceProblemMarker {
+  translation -258.204027 190.857267 0
+  texturePath [
+    "../../assets/5620.jpg"
+  ]
+  name "SurfaceProblem_MARKER_5620"
+}
+DEF SurfaceProblem_MARKER_219281 SurfaceProblemMarker {
+  translation -21.694984 98.963027 0
+  texturePath [
+    "../../assets/219281.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219281"
+}
+DEF SurfaceProblem_MARKER_219286 SurfaceProblemMarker {
+  translation -59.164731 112.710984 0
+  texturePath [
+    "../../assets/219286.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219286"
+}
+DEF SurfaceProblem_MARKER_213236 SurfaceProblemMarker {
+  translation -16.449219 194.53081 0
+  texturePath [
+    "../../assets/213236.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213236"
+}
+DEF SurfaceProblem_MARKER_213012 SurfaceProblemMarker {
+  translation -161.082442 71.522773 0
+  texturePath [
+    "../../assets/213012.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213012"
+}
+DEF SurfaceProblem_MARKER_213014 SurfaceProblemMarker {
+  translation -161.831837 87.664099 0
+  texturePath [
+    "../../assets/213014.jpg"
+  ]
+  name "SurfaceProblem_MARKER_213014"
+}
+DEF SurfaceProblem_MARKER_219288 SurfaceProblemMarker {
+  translation -148.342728 98.796048 0
+  texturePath [
+    "../../assets/219288.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219288"
+}
+DEF SurfaceProblem_MARKER_219287 SurfaceProblemMarker {
+  translation -108.624797 99.463965 0
+  texturePath [
+    "../../assets/219287.jpg"
+  ]
+  name "SurfaceProblem_MARKER_219287"
+}
+DEF SurfaceProblem_MARKER_192418 SurfaceProblemMarker {
+  translation -212.415996 94.343268 0
+  texturePath [
+    "../../assets/192418.jpg"
+  ]
+  name "SurfaceProblem_MARKER_192418"
+}
+DEF SurfaceProblem_MARKER_212987 SurfaceProblemMarker {
+  translation -271.243499 -52.208841 0
+  texturePath [
+    "../../assets/212987.jpg"
+  ]
+  name "SurfaceProblem_MARKER_212987"
+}
+DEF SurfaceProblem_MARKER_212990 SurfaceProblemMarker {
+  translation -247.262861 -72.07937 0
+  texturePath [
+    "../../assets/212990.jpg"
+  ]
+  name "SurfaceProblem_MARKER_212990"
+}
+DEF SurfaceProblem_MARKER_12184 SurfaceProblemMarker {
+  translation -24.317866 -54.268252 0
+  texturePath [
+    "../../assets/12184.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12184"
+}
+DEF SurfaceProblem_MARKER_12181 SurfaceProblemMarker {
+  translation -50.171991 -55.492766 0
+  texturePath [
+    "../../assets/12181.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12181"
+}
+DEF SurfaceProblem_MARKER_12207 SurfaceProblemMarker {
+  translation 38.256612 -104.195043 0
+  texturePath [
+    "../../assets/12207.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12207"
+}
+DEF SurfaceProblem_MARKER_12199 SurfaceProblemMarker {
+  translation 41.254191 -71.188814 0
+  texturePath [
+    "../../assets/12199.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12199"
+}
+DEF SurfaceProblem_MARKER_12201 SurfaceProblemMarker {
+  translation 37.507217 -83.1 0
+  texturePath [
+    "../../assets/12201.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12201"
+}
+DEF SurfaceProblem_MARKER_12188 SurfaceProblemMarker {
+  translation 15.774764 -53.377696 0
+  texturePath [
+    "../../assets/12188.jpg"
+  ]
+  name "SurfaceProblem_MARKER_12188"
+}
+DEF NoCurbRamp_MARKER_83848 NoCurbRampMarker {
+  translation 35.48385 177.10931 0
+  texturePath [
+    "../../assets/83848.jpg"
+  ]
+  name "NoCurbRamp_MARKER_83848"
+}
+DEF NoCurbRamp_MARKER_219277 NoCurbRampMarker {
+  translation 39.505606 109.482719 0
+  texturePath [
+    "../../assets/219277.jpg"
+  ]
+  name "NoCurbRamp_MARKER_219277"
+}
+DEF NoCurbRamp_MARKER_198598 NoCurbRampMarker {
+  translation 30.950011 16.057837 0
+  texturePath [
+    "../../assets/198598.jpg"
+  ]
+  name "NoCurbRamp_MARKER_198598"
+}
+DEF NoCurbRamp_MARKER_12193 NoCurbRampMarker {
+  translation 37.557179 -53.711654 0
+  texturePath [
+    "../../assets/12193.jpg"
+  ]
+  name "NoCurbRamp_MARKER_12193"
+}
+DEF NoCurbRamp_MARKER_215734 NoCurbRampMarker {
+  translation 37.844445 -146.49645 0
+  texturePath [
+    "../../assets/215734.jpg"
+  ]
+  name "NoCurbRamp_MARKER_215734"
+}
+DEF NoCurbRamp_MARKER_215738 NoCurbRampMarker {
+  translation 51.246122 -134.455388 0
+  texturePath [
+    "../../assets/215738.jpg"
+  ]
+  name "NoCurbRamp_MARKER_215738"
+}
+DEF NoCurbRamp_MARKER_201296 NoCurbRampMarker {
+  translation -179.067921 -134.974883 0
+  texturePath [
+    "../../assets/201296.jpg"
+  ]
+  name "NoCurbRamp_MARKER_201296"
+}
+DEF NoCurbRamp_MARKER_87968 NoCurbRampMarker {
+  translation 23.143811 189.59565 0
+  texturePath [
+    "../../assets/87968.jpg"
+  ]
+  name "NoCurbRamp_MARKER_87968"
+}
+DEF NoCurbRamp_MARKER_12197 NoCurbRampMarker {
+  translation 49.122838 -67.181313 0
+  texturePath [
+    "../../assets/12197.jpg"
+  ]
+  name "NoCurbRamp_MARKER_12197"
+}
+DEF NoCurbRamp_MARKER_12211 NoCurbRampMarker {
+  translation 38.456453 -135.939655 0
+  texturePath [
+    "../../assets/12211.jpg"
+  ]
+  name "NoCurbRamp_MARKER_12211"
+}
+DEF NoCurbRamp_MARKER_12215 NoCurbRampMarker {
+  translation 47.998746 -137.423911 0
+  texturePath [
+    "../../assets/12215.jpg"
+  ]
+  name "NoCurbRamp_MARKER_12215"
+}
+DEF NoCurbRamp_MARKER_201271 NoCurbRampMarker {
+  translation 240.967943 -142.544608 0
+  texturePath [
+    "../../assets/201271.jpg"
+  ]
+  name "NoCurbRamp_MARKER_201271"
+}
+DEF NoCurbRamp_MARKER_219275 NoCurbRampMarker {
+  translation 21.645021 109.779575 0
+  texturePath [
+    "../../assets/219275.jpg"
+  ]
+  name "NoCurbRamp_MARKER_219275"
+}
+DEF NoCurbRamp_MARKER_213231 NoCurbRampMarker {
+  translation 27.765083 177.16497 0
+  texturePath [
+    "../../assets/213231.jpg"
+  ]
+  name "NoCurbRamp_MARKER_213231"
+}
+DEF NoCurbRamp_MARKER_192413 NoCurbRampMarker {
+  translation -157.335468 109.26008 0
+  texturePath [
+    "../../assets/192413.jpg"
+  ]
+  name "NoCurbRamp_MARKER_192413"
+}
+DEF NoCurbRamp_MARKER_201276 NoCurbRampMarker {
+  translation 230.851111 -130.522103 0
+  texturePath [
+    "../../assets/201276.jpg"
+  ]
+  name "NoCurbRamp_MARKER_201276"
+}
+DEF NoCurbRamp_MARKER_201272 NoCurbRampMarker {
+  translation 238.644819 -130.188144 0
+  texturePath [
+    "../../assets/201272.jpg"
+  ]
+  name "NoCurbRamp_MARKER_201272"
+}
+DEF NoCurbRamp_MARKER_6090 NoCurbRampMarker {
+  translation 227.853532 16.419625 0
+  texturePath [
+    "../../assets/6090.jpg"
+  ]
+  name "NoCurbRamp_MARKER_6090"
+}
+DEF NoCurbRamp_MARKER_6085 NoCurbRampMarker {
+  translation 44.43912 28.163831 0
+  texturePath [
+    "../../assets/6085.jpg"
+  ]
+  name "NoCurbRamp_MARKER_6085"
+}
+DEF NoCurbRamp_MARKER_6086 NoCurbRampMarker {
+  translation 46.150236 16.234089 0
+  texturePath [
+    "../../assets/6086.jpg"
+  ]
+  name "NoCurbRamp_MARKER_6086"
+}
+DEF NoCurbRamp_MARKER_198608 NoCurbRampMarker {
+  translation 39.155886 -66.513396 0
+  texturePath [
+    "../../assets/198608.jpg"
+  ]
+  name "NoCurbRamp_MARKER_198608"
+}
+DEF NoCurbRamp_MARKER_12209 NoCurbRampMarker {
+  translation 40.354918 -132.414534 0
+  texturePath [
+    "../../assets/12209.jpg"
+  ]
+  name "NoCurbRamp_MARKER_12209"
+}
+DEF NoCurbRamp_MARKER_198611 NoCurbRampMarker {
+  translation 52.5776 -62.5647 3.96157e-14
+  texturePath [
+    "../../assets/198611.jpg"
+  ]
+  name "NoCurbRamp_MARKER_198611"
+}
+DEF NoCurbRamp_MARKER_12210 NoCurbRampMarker {
+  translation 39.605523 -134.640924 0
+  texturePath [
+    "../../assets/12210.jpg"
+  ]
+  name "NoCurbRamp_MARKER_12210"
+}
+DEF NoCurbRamp_MARKER_201281 NoCurbRampMarker {
+  translation 48.997937 -147.702407 0
+  texturePath [
+    "../../assets/201281.jpg"
+  ]
+  name "NoCurbRamp_MARKER_201281"
+}
+DEF NoCurbRamp_MARKER_195401 NoCurbRampMarker {
+  translation -303.842179 28.108171 0
+  texturePath [
+    "../../assets/195401.jpg"
+  ]
+  name "NoCurbRamp_MARKER_195401"
+}
+DEF NoCurbRamp_MARKER_192415 NoCurbRampMarker {
+  translation -183.564291 92.673476 0
+  texturePath [
+    "../../assets/192415.jpg"
+  ]
+  name "NoCurbRamp_MARKER_192415"
+}
+DEF NoCurbRamp_MARKER_213233 NoCurbRampMarker {
+  translation 25.516898 192.081781 0
+  texturePath [
+    "../../assets/213233.jpg"
+  ]
+  name "NoCurbRamp_MARKER_213233"
+}
+DEF NoCurbRamp_MARKER_87987 NoCurbRampMarker {
+  translation 22.894015 96.569658 0
+  texturePath [
+    "../../assets/87987.jpg"
+  ]
+  name "NoCurbRamp_MARKER_87987"
+}
+DEF NoCurbRamp_MARKER_6082 NoCurbRampMarker {
+  translation 29.113993 28.145274 0
+  texturePath [
+    "../../assets/6082.jpg"
+  ]
+  name "NoCurbRamp_MARKER_6082"
+}
+DEF NoCurbRamp_MARKER_213232 NoCurbRampMarker {
+  translation 23.768312 177.907103 0
+  texturePath [
+    "../../assets/213232.jpg"
+  ]
+  name "NoCurbRamp_MARKER_213232"
+}
+DEF NoCurbRamp_MARKER_216199 NoCurbRampMarker {
+  translation 39.9169 96.7951 1.55879e-14
+  texturePath [
+    "../../assets/216199.jpg"
+  ]
+  name "NoCurbRamp_MARKER_216199"
+}
+DEF NoCurbRamp_MARKER_6083 NoCurbRampMarker {
+  translation 31.13736 30.167582 0
+  texturePath [
+    "../../assets/6083.jpg"
+  ]
+  name "NoCurbRamp_MARKER_6083"
+}
+DEF NoCurbRamp_MARKER_198602 NoCurbRampMarker {
+  translation 42.503186 29.740861 0
+  texturePath [
+    "../../assets/198602.jpg"
+  ]
+  name "NoCurbRamp_MARKER_198602"
+}
+DEF NoCurbRamp_MARKER_198609 NoCurbRampMarker {
+  translation 39.755402 -67.84923 0
+  texturePath [
+    "../../assets/198609.jpg"
+  ]
+  name "NoCurbRamp_MARKER_198609"
+}
+DEF NoCurbRamp_MARKER_87589 NoCurbRampMarker {
+  translation 32.261452 -71.188814 0
+  texturePath [
+    "../../assets/87589.jpg"
+  ]
+  name "NoCurbRamp_MARKER_87589"
+}
+DEF NoCurbRamp_MARKER_12194 NoCurbRampMarker {
+  translation 43.127679 -57.051239 0
+  texturePath [
+    "../../assets/12194.jpg"
+  ]
+  name "NoCurbRamp_MARKER_12194"
+}
+DEF NoCurbRamp_MARKER_12213 NoCurbRampMarker {
+  translation 50.32187 -132.358875 0
+  texturePath [
+    "../../assets/12213.jpg"
+  ]
+  name "NoCurbRamp_MARKER_12213"
+}
+DEF NoCurbRamp_MARKER_12217 NoCurbRampMarker {
+  translation 40.005197 -149.965911 0
+  texturePath [
+    "../../assets/12217.jpg"
+  ]
+  name "NoCurbRamp_MARKER_12217"
+}
+DEF NoCurbRamp_MARKER_201297 NoCurbRampMarker {
+  translation -164.080022 -132.303215 0
+  texturePath [
+    "../../assets/201297.jpg"
+  ]
+  name "NoCurbRamp_MARKER_201297"
+}
+DEF NoCurbRamp_MARKER_198585 NoCurbRampMarker {
+  translation -304.066997 14.749833 0
+  texturePath [
+    "../../assets/198585.jpg"
+  ]
+  name "NoCurbRamp_MARKER_198585"
+}
+DEF NoCurbRamp_MARKER_213228 NoCurbRampMarker {
+  translation 35.259032 192.30442 0
+  texturePath [
+    "../../assets/213228.jpg"
+  ]
+  name "NoCurbRamp_MARKER_213228"
+}
+DEF NoCurbRamp_MARKER_201270 NoCurbRampMarker {
+  translation 243.216128 -133.639049 0
+  texturePath [
+    "../../assets/201270.jpg"
+  ]
+  name "NoCurbRamp_MARKER_201270"
+}
+DEF NoCurbRamp_MARKER_198612 NoCurbRampMarker {
+  translation 51.3345 -53.7555 3.23693e-14
+  texturePath [
+    "../../assets/198612.jpg"
+  ]
+  name "NoCurbRamp_MARKER_198612"
+}
+DEF NoCurbRamp_MARKER_6080 NoCurbRampMarker {
+  translation 29.263872 18.200737 0
+  texturePath [
+    "../../assets/6080.jpg"
+  ]
+  name "NoCurbRamp_MARKER_6080"
+}
+DEF NoCurbRamp_MARKER_6087 NoCurbRampMarker {
+  translation 43.315028 15.139451 0
+  texturePath [
+    "../../assets/6087.jpg"
+  ]
+  name "NoCurbRamp_MARKER_6087"
+}
+DEF NoCurbRamp_MARKER_201280 NoCurbRampMarker {
+  translation 48.997937 -142.025113 0
+  texturePath [
+    "../../assets/201280.jpg"
+  ]
+  name "NoCurbRamp_MARKER_201280"
 }

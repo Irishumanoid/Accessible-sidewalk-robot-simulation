@@ -5,12 +5,14 @@
 #include <webots/GPS.hpp>
 #include <webots/InertialUnit.hpp>
 #include "webots/Emitter.hpp"
+#include <webots/Receiver.hpp>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <cmath>
 #include <map>
 #include <vector>
+#include <array>
 #include <tuple>
 #include <limits>
 #include <queue>
@@ -26,7 +28,7 @@
 using json = nlohmann::json;
 
 #define TIME_STEP 64
-#define DEFAULT_VEL 5
+#define DEFAULT_VEL 9
 #define MAX_VEL 10
 #define SCALE_FACTOR 500.0
 #define THRESH 400
@@ -41,11 +43,21 @@ using json = nlohmann::json;
 #define DEBUG 0
 #define NONE -1
 #define NUM_CONSEQ_DETECTIONS 5
+#define NUM_IM_ROWS 10
+
+#define N_LIGHTS 12
+#define N_CROSSROADS 19
+#define SOUTH_CROSSROAD_ID "67507259"
+#define NORTH_CROSSROAD_ID "67507290"
+#define CROSSROAD_THRESH 8
+#define RAD_THRESH 0.2
+#define GREEN 'g'
 
 using namespace webots;
 
 enum class State { FORWARD, TURN_LEFT, TURN_RIGHT };
 enum class NavState { OBST_AVOID, NAV_TO_POINT };
+  enum class NavMode { TURN_TO_TARGET, MOVE_TO_TARGET, AVOID_OBSTACLE, ALIGN_TO_SIDEWALK, NAV_ON_SIDEWALK, WAIT };
 
 State state = State::FORWARD;
 NavState nav_state = NavState::NAV_TO_POINT;
@@ -67,6 +79,13 @@ struct Edge {
   double cost;
 };
 
+struct TrafficLightMessage {
+  char id[32];
+  char states[N_LIGHTS];
+};
+const std::map<std::string, std::tuple<double, double>> crossroad_lights
+  = {{"67507259", {41.5, -18.4}}, {"67507290", {46.5, -98.3}}};
+std::vector<TrafficLightMessage> traffic_data;
 
 double heuristic(const Coord &a, const Coord &b) {
   double dx = (b.x - a.x) * RAD_CONV * EARTH_RAD * std::cos(RAD_CONV * LAT_CENTER);
@@ -106,26 +125,21 @@ bool sidewalk_pixel(int r, int g, int b) {
 }
 
 void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, InertialUnit *imu,
-                DistanceSensor *ds[4], double target_x, double target_y,
+                DistanceSensor *ds[4], Receiver *trafficReceiver, double target_x, double target_y,
                 double rot_thresh, double pos_thresh) {
-
-  enum class NavMode { TURN_TO_TARGET, MOVE_TO_TARGET, AVOID_OBSTACLE, ALIGN_TO_SIDEWALK, NAV_ON_SIDEWALK };
   NavMode mode = NavMode::TURN_TO_TARGET;
-
+  NavMode last_move_mode = mode;
+  
   int turn_counter = 0;
   int move_counter = 0;
   State avoid_state = State::FORWARD;
   double last_err = 0.0;
 
-  const int MAX_STEPS = 5000;
-  int step_counter = 0;
-
   double sidewalk_heading = 0.0;
   bool have_sidewalk_heading = false;
   bool is_bottom_sidewalk = false;
-  while (robot->step(TIME_STEP) != -1 && step_counter < MAX_STEPS) {
-    step_counter++;
 
+  while (robot->step(TIME_STEP) != -1) {
     double dsVals[4];
     for (int i = 0; i < 4; i++) {
       dsVals[i] = ds[i]->getValue();
@@ -148,12 +162,15 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
         int height = camera->getHeight();
         double bottom_row[3] = {0.0, 0.0, 0.0};
 
-        for (int i = 0; i < width; i++) {
-          bottom_row[0] += Camera::imageGetRed(image, width, i, height - 1);
-          bottom_row[1] += Camera::imageGetGreen(image, width, i, height - 1);
-          bottom_row[2] += Camera::imageGetBlue(image, width, i, height - 1);
+        for (int j = 0; j < NUM_IM_ROWS; j++) {
+          for (int i = 0; i < width; i++) {
+            bottom_row[0] += Camera::imageGetRed(image, width, i, height - 1 - j);
+            bottom_row[1] += Camera::imageGetGreen(image, width, i, height - 1 - j);
+            bottom_row[2] += Camera::imageGetBlue(image, width, i, height - 1 - j);
+          }
         }
-        for (int i = 0; i < 3; i++) bottom_row[i] /= width;        
+
+        for (int i = 0; i < 3; i++) bottom_row[i] /= (width * NUM_IM_ROWS);        
         is_bottom_sidewalk = sidewalk_pixel(bottom_row[0], bottom_row[1], bottom_row[2]);
 
         if (is_bottom_sidewalk) {
@@ -208,7 +225,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
             }
             
             if (mode != NavMode::ALIGN_TO_SIDEWALK && mode != NavMode::NAV_ON_SIDEWALK) {
-              mode = NavMode::ALIGN_TO_SIDEWALK;
+              //mode = NavMode::ALIGN_TO_SIDEWALK;
             }
           }
         } else {
@@ -242,6 +259,37 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
         turn_counter = 30;
       }
       move_counter = 5;
+    }
+
+
+    std::string best = ""; double best_dist = std::numeric_limits<double>::max();
+    for (const auto &[id, loc] : crossroad_lights) {
+      Coord light_loc = {std::get<0>(loc), std::get<1>(loc)};
+      Coord robot_loc = {cur_x-OFFSET_X, cur_y-OFFSET_Y};
+      double d = std::sqrt(std::pow(light_loc.x - robot_loc.x, 2) + std::pow(light_loc.y - robot_loc.y, 2));
+      if (d < best_dist) { best_dist = d; best = id; }
+    }
+    printf("current closest crosswalk light has id %s and at distance %.2f\n", best.c_str(), best_dist);
+    for (int i = 0; i < traffic_data.size(); i++) {
+      if (traffic_data[i].id == best) {
+        TrafficLightMessage msg = traffic_data[i];
+        if (best_dist < CROSSROAD_THRESH) {
+
+          double wrapped = fmod(cur_yaw, M_PI_2);
+          bool hor = wrapped < RAD_THRESH;
+          bool vert = M_PI_2 - wrapped < RAD_THRESH;
+          printf("hor: %s, vert: %s\n", hor ? "t" : "f", vert ? "t" : "f");
+          for (int i = 0; i < N_LIGHTS; i++) printf("%c, ", msg.states[i]);
+          printf("\n");
+          
+          if (((hor && msg.states[4] != GREEN) || (vert && msg.states[1] != GREEN)) && !is_bottom_sidewalk) {
+            if (mode != NavMode::WAIT) last_move_mode = mode;
+            mode = NavMode::WAIT;
+          } else {
+            mode = last_move_mode;
+          }
+        }
+      }
     }
 
     double leftVels = 0.0, rightVels = 0.0;
@@ -290,7 +338,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
         break;
       }
 
-      case NavMode::ALIGN_TO_SIDEWALK: {
+      /*case NavMode::ALIGN_TO_SIDEWALK: {
         std::cout << "nav mode: ALIGN_TO_SIDEWALK" << std::endl;
         double heading_error = angle_diff(sidewalk_heading, cur_yaw);
         printf("sidewalk heading: %.6f, cur_yaw: %.6f, error: %.6f\n", sidewalk_heading, cur_yaw, std::abs(heading_error));
@@ -315,11 +363,35 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
           leftVels = rightVels = DEFAULT_VEL * clamp(progress, 0.3, 1.0);
         }
         break;
+      }*/
+      case NavMode::WAIT: {
+        std::cout << "nav mode: WAIT" << std::endl;
+        stop_wheels(wheels);
+        break;
       }
     }
 
     for (int i = 0; i < 4; i++) {
       wheels[i]->setVelocity(i % 2 == 0 ? leftVels : rightVels);
+    }
+
+    while (trafficReceiver->getQueueLength() > 0) {
+      const void* data = trafficReceiver->getData();
+      int size = trafficReceiver->getDataSize();
+      if (size == sizeof(TrafficLightMessage)) {
+        TrafficLightMessage msg; 
+        memcpy(&msg, data, sizeof(TrafficLightMessage));
+
+       bool updated = false;
+       for (int i = 0; i < traffic_data.size(); i++) {
+        if (traffic_data[i].id == msg.id) {
+          traffic_data[i] = msg;
+          updated = true;
+        }
+       }
+       if (!updated) traffic_data.push_back(msg);
+      }
+      trafficReceiver->nextPacket();
     }
   }
 
@@ -452,6 +524,9 @@ int main(int argc, char **argv) {
   DistanceSensor *ds[4];
   char dsNames[4][13] = {"ds_far_left", "ds_left", "ds_right", "ds_far_right"};
 
+  Receiver *trafficReceiver = robot->getReceiver("traffic_receiver");
+  trafficReceiver->enable(TIME_STEP);
+
   Camera *camera = robot->getCamera("camera");
   camera->enable(TIME_STEP);
   camera->recognitionEnable(TIME_STEP);
@@ -511,8 +586,8 @@ int main(int argc, char **argv) {
     std::string path = "/Users/irislitiu/Webots-sims/adjacency_map.json";
     const auto path_nodes = getPathNodes(path);
     const auto edges = getEdges(path);
-    const Coord start = {38.6+OFFSET_X, -66.1+OFFSET_Y};
-    const Coord end = {15.8+OFFSET_X, -54.3+OFFSET_Y}; // far: (48.0, -20.3), close: (15.8, -54.3)
+    const Coord start = {52.6+OFFSET_X, -62.6+OFFSET_Y};
+    const Coord end = {68.2+OFFSET_X, 101+OFFSET_Y}; // far: (48.0, -20.3), close: (15.8, -54.3)
     std::vector<Coord> fullPath = generateAStarPath(path_nodes, edges, start, end);
 
     Emitter *emitter = robot->getEmitter("emitter");
@@ -526,7 +601,7 @@ int main(int argc, char **argv) {
       Coord c = fullPath.at(i);
       printf("currently at iteration %.2d\n", i);
       double distTolerance = i == fullPath.size() - 1 ? 2.0 : 2.0;
-      navToPoint(robot, wheels, camera, gps, imu, ds, c.x, c.y, 0.01, distTolerance);
+      navToPoint(robot, wheels, camera, gps, imu, ds, trafficReceiver, c.x, c.y, 0.01, distTolerance);
     }
     std::string message = "finished path";
     emitter->send(message.c_str(), message.length()+1);

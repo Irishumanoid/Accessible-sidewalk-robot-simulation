@@ -5,26 +5,24 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 
 PROTO NoSidewalkMarker [
   field SFVec3f translation -0.831559 -16.2464 2.22474e-14
+  field MFString texturePath ["../../assets/missingsidewalk.png"]
   field SFString name "no_sidewalk_marker"
 ]
 {
   DEF NO_SIDEWALK_MARKER SignPole {
     translation IS translation
     name IS name
-    height 5
+    height 4
     radius 0.05
     color  0 0.576852 0.607004
     signBoards [
       DirectionPanel {
         translation 0 0 3
-        height 1
+        width 3
+        height 3
         thickness 0.1
-        frontTextTexture [
-          "../../assets/missingsidewalk.png"
-        ]
-        backTextTexture [
-          "../../assets/missingsidewalk.png"
-        ]
+        frontTextTexture IS texturePath
+        backTextTexture IS texturePath
       }
     ]
   }

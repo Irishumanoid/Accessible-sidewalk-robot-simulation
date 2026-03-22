@@ -15,19 +15,10 @@
 #define COORD_THRESH 0.05
 #define OFFSET_X 44.7
 #define OFFSET_Y -122
-#define N_LIGHTS 12
-
-#define SOUTH_CROSSROAD_ID "67507259"
-#define NORTH_CROSSROAD_ID "67507290"
 
 using namespace webots;
 
 struct Coord { double x, y; };
-
-struct TrafficLightMessage {
-  char id[32];
-  char states[N_LIGHTS];
-};
 
 const std::unordered_map<std::string, std::string> MARKER_TEMPLATES = {
   { "SurfaceProblem", "SurfaceProblemMarker" },
@@ -53,10 +44,12 @@ Node *createMarker(
     return nullptr;
   }
 
-  std::string nodeString =
-    "DEF " + defName + " " + MARKER_TEMPLATES.at(type) + " {\n"
-    "  translation " + std::to_string(x) + " " + std::to_string(y) + " " + std::to_string(z) + "\n"
-    "  name \"" + defName + "\"\n}";
+std::string nodeString =
+  "DEF " + defName + " " + MARKER_TEMPLATES.at(type) + " {\n"
+  "  translation " + std::to_string(x) + " " + std::to_string(y) + " " + std::to_string(z) + "\n"
+  "  texturePath [\"../../assets/" + std::to_string(id) + ".jpg\"]\n"
+  "  name \"" + defName + "\"\n"
+  "}";
 
   children->importMFNodeFromString(-1, nodeString);
   Node *node = robot->getFromDef(defName);
@@ -97,9 +90,7 @@ int main(int argc, char **argv) {
   Node *rootNode = robot->getRoot();
   Field *childrenField = rootNode->getField("children");
   Receiver *receiver = robot->getReceiver("receiver");
-  Receiver *trafficReceiver = robot->getReceiver("traffic_receiver");
   receiver->enable(TIME_STEP);
-  trafficReceiver->enable(TIME_STEP);
 
   Node *marker = robot->getFromDef("MARKER");
   if (!marker) {
@@ -124,7 +115,6 @@ int main(int argc, char **argv) {
   }
   
   std::string line;
-  int counter = 1;
   bool firstLine = true;
 
   while (std::getline(csvFile, line)) {
@@ -145,17 +135,16 @@ int main(int argc, char **argv) {
     Node *marker = createMarker(
       robot,
       childrenField,
-      entries[1],             
-      counter,                 
-      std::stod(entries[2]),  
-      std::stod(entries[3]),   
+      entries[2],
+      std::stoi(entries[1]),                            
+      std::stod(entries[3]),  
+      std::stod(entries[4]),   
       0.0                     
     );
 
     if (marker) {
       std::cout << entries[1] << " marker created successfully\n";
     }
-    counter++;
   }
 
   csvFile.close();
@@ -184,7 +173,7 @@ int main(int argc, char **argv) {
       std::cout << entry << ", ";
     }
 
-    std::cout << '\n';
+    /*std::cout << '\n';
     Node *pole = createPole(
       robot,
       childrenField,
@@ -196,7 +185,7 @@ int main(int argc, char **argv) {
 
     std::string defName = "POLE_MARKER_" + entries[1];
     Coord coord = {std::stod(entries[2]), std::stod(entries[3])};
-    poleNames[defName] = coord;
+    poleNames[defName] = coord;*/
   }
   csvFile.close();
 
@@ -248,24 +237,6 @@ int main(int argc, char **argv) {
         }
       }
       pathCoords.clear();
-    }
-
-    while (trafficReceiver->getQueueLength() > 0) {
-      const void* data = trafficReceiver->getData();
-      int size = trafficReceiver->getDataSize();
-      if (size == sizeof(TrafficLightMessage)) {
-        TrafficLightMessage msg; 
-        memcpy(&msg, data, sizeof(TrafficLightMessage));
-        printf("data from traffic light %s:\n", msg.id);
-        for (int i = 0; i < N_LIGHTS; i++) printf("%c, ", msg.states[i]);
-
-        if (msg.id == NORTH_CROSSROAD_ID) {
-          
-        } else if (msg.id == SOUTH_CROSSROAD_ID) {
-
-        }
-      }
-      trafficReceiver->nextPacket();
     }
   };
 
