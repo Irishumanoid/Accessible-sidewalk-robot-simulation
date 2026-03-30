@@ -6,7 +6,7 @@ minimizedPerspectives: 000000ff00000000fd0000000200000001000002c9000002c6fc02000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 1 "controllers/map_controller/map_controller.cpp" "controllers/4wheel/4wheel.cpp" "../../../../Applications/Webots.app/Contents/Resources/projects/controllers/generic/generic.c" "controllers/crossroads_traffic_lights/crossroads_traffic_lights.c" "protos/CrossRoadsTrafficLight.proto"
+textFiles: 1 "controllers/map_controller/map_controller.cpp" "controllers/4wheel/4wheel.cpp"
 consoles: Console:All:All
 consoles: Console:map_supervisor:All Controller(s)
 renderingDevicePerspectives: robot:camera;1;0.283245;0.702216;0

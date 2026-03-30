@@ -31,8 +31,8 @@ WorldInfo {
   lineScale 3
 }
 Viewpoint {
-  orientation -0.48573610232885184 -0.557211439607275 0.6734804009510323 4.457193502933743
-  position 42.838760477137 -44.23525263893613 33.2784200262885
+  orientation 0.027925379804416537 -0.9961918784268687 -0.08259488191846898 5.628700339642239
+  position -0.924827001958402 -61.939755928076586 35.39334285826176
   near 3
 }
 TexturedBackground {
@@ -16110,8 +16110,8 @@ DEF parking Pose {
   ]
 }
 DEF robot Robot {
-  translation 51.1314 -63.9501 0.169317
-  rotation -0.045286506913699065 0.04196650640684866 -0.9980921523744986 -1.627905307179586
+  translation 51.18655957269941 -63.89741064182466 0.14512564361706973
+  rotation 0.00034752284058057944 0.00011769417758634846 0.9999999326879758 2.4926698586403053
   children [
     Receiver {
       name "traffic_receiver"
@@ -16147,7 +16147,7 @@ DEF robot Robot {
     }
     DEF WHEEL1 HingeJoint {
       jointParameters HingeJointParameters {
-        position 8139.747634247148
+        position 8137.870666166794
         axis 0 1 0
         anchor 0.25 0.3 0
       }
@@ -16159,7 +16159,7 @@ DEF robot Robot {
       ]
       endPoint Solid {
         translation 0.25 0.3 0
-        rotation -0.04206098631738305 -0.7064797260797053 0.7064823211293779 3.2256647628919515
+        rotation -0.7388122880001055 -0.4765263554570966 0.4765281058393366 4.414194020901387
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
@@ -16181,7 +16181,7 @@ DEF robot Robot {
     }
     DEF WHEEL2 HingeJoint {
       jointParameters HingeJointParameters {
-        position 7891.095814718616
+        position 7894.2378033481145
         axis 0 1 0
         anchor 0.25 -0.3 0
       }
@@ -16193,7 +16193,7 @@ DEF robot Robot {
       ]
       endPoint Solid {
         translation 0.25 -0.3 0
-        rotation 0.9200595268673346 -0.27702879202233033 0.2770298096077482 1.6540206685541585
+        rotation 0.20809970520360405 0.6916252592839097 -0.6916277997699615 2.7312511810631026
         children [
           USE WHEEL
         ]
@@ -16205,7 +16205,7 @@ DEF robot Robot {
     }
     DEF WHEEL3 HingeJoint {
       jointParameters HingeJointParameters {
-        position 7575.677054445397
+        position 7572.276667417242
         axis 0 1 0
         anchor -0.25 0.3 0
       }
@@ -16217,7 +16217,7 @@ DEF robot Robot {
       ]
       endPoint Solid {
         translation -0.25 0.3 0
-        rotation 0.472394957407192 -0.6232335640482571 0.6232358533171564 2.258954069608967
+        rotation -0.7777497961892819 -0.444468110906126 0.4444697435316267 4.463640561303956
         children [
           USE WHEEL
         ]
@@ -16229,7 +16229,7 @@ DEF robot Robot {
     }
     DEF WHEEL4 HingeJoint {
       jointParameters HingeJointParameters {
-        position 7413.238974123184
+        position 7416.423291875167
         axis 0 1 0
         anchor -0.25 -0.3 0
       }
@@ -16241,7 +16241,7 @@ DEF robot Robot {
       ]
       endPoint Solid {
         translation -0.25 -0.3 0
-        rotation 0.8190800338061082 -0.4056517529478858 0.4056532429926972 1.769061626521606
+        rotation 0.3147313053259551 0.6711709529229477 -0.671173418276024 2.5317620259565197
         children [
           USE WHEEL
         ]
@@ -16394,10 +16394,6 @@ DEF SurfaceProblem_MARKER_17 SurfaceProblemMarker {
 DEF SurfaceProblem_MARKER_18 SurfaceProblemMarker {
   translation 37.507217 -83.1 0
   name "SurfaceProblem_MARKER_18"
-}
-DEF SurfaceProblem_MARKER_19 SurfaceProblemMarker {
-  translation 14.8693 -54.0157 -3.80199e-14
-  name "SurfaceProblem_MARKER_19"
 }
 DEF SurfaceProblem_MARKER_20 SurfaceProblemMarker {
   translation 38.256612 -103.248828 0
@@ -16631,10 +16627,6 @@ DEF NoCurbRamp_MARKER_81 NoCurbRampMarker {
   translation 31.13736 30.167582 0
   name "NoCurbRamp_MARKER_81"
 }
-DEF NoCurbRamp_MARKER_82 NoCurbRampMarker {
-  translation 42.503186 29.740861 0
-  name "NoCurbRamp_MARKER_82"
-}
 DEF NoCurbRamp_MARKER_83 NoCurbRampMarker {
   translation 39.755402 -67.84923 0
   name "NoCurbRamp_MARKER_83"
@@ -16674,10 +16666,6 @@ DEF NoCurbRamp_MARKER_91 NoCurbRampMarker {
 DEF NoCurbRamp_MARKER_92 NoCurbRampMarker {
   translation 227.853532 16.419625 0
   name "NoCurbRamp_MARKER_92"
-}
-DEF NoCurbRamp_MARKER_93 NoCurbRampMarker {
-  translation 44.43912 28.163831 0
-  name "NoCurbRamp_MARKER_93"
 }
 DEF NoCurbRamp_MARKER_94 NoCurbRampMarker {
   translation 46.150236 16.234089 0
@@ -16730,10 +16718,6 @@ DEF NoCurbRamp_MARKER_106 NoCurbRampMarker {
 DEF NoCurbRamp_MARKER_108 NoCurbRampMarker {
   translation 29.263872 18.200737 0
   name "NoCurbRamp_MARKER_108"
-}
-DEF NoCurbRamp_MARKER_109 NoCurbRampMarker {
-  translation 43.315028 15.139451 0
-  name "NoCurbRamp_MARKER_109"
 }
 DEF NoCurbRamp_MARKER_110 NoCurbRampMarker {
   translation 48.997937 -142.025113 0
@@ -17383,7 +17367,7 @@ DEF NoCurbRamp_MARKER_6090 NoCurbRampMarker {
   name "NoCurbRamp_MARKER_6090"
 }
 DEF NoCurbRamp_MARKER_6085 NoCurbRampMarker {
-  translation 44.43912 28.163831 0
+  translation 47.0102 27.5944 -1.15586e-13
   texturePath [
     "../../assets/6085.jpg"
   ]
@@ -17488,7 +17472,7 @@ DEF NoCurbRamp_MARKER_6083 NoCurbRampMarker {
   name "NoCurbRamp_MARKER_6083"
 }
 DEF NoCurbRamp_MARKER_198602 NoCurbRampMarker {
-  translation 42.503186 29.740861 0
+  translation 44.926 28.3981 3.17756e-13
   texturePath [
     "../../assets/198602.jpg"
   ]
@@ -17572,7 +17556,7 @@ DEF NoCurbRamp_MARKER_6080 NoCurbRampMarker {
   name "NoCurbRamp_MARKER_6080"
 }
 DEF NoCurbRamp_MARKER_6087 NoCurbRampMarker {
-  translation 43.315028 15.139451 0
+  translation 43.9953 13.8825 1.44211e-14
   texturePath [
     "../../assets/6087.jpg"
   ]

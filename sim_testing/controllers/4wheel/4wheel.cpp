@@ -44,14 +44,13 @@ using json = nlohmann::json;
 #define NONE -1
 #define NUM_CONSEQ_DETECTIONS 5
 #define NUM_IM_ROWS 10
+#define CAMERA_YAW_OFFSET M_PI_4
 
 #define N_LIGHTS 12
 #define N_CROSSROADS 19
-#define SOUTH_CROSSROAD_ID "67507259"
-#define NORTH_CROSSROAD_ID "67507290"
-#define CROSSROAD_THRESH 8
-#define RAD_THRESH 0.2
+#define CROSSROAD_THRESH 10
 #define GREEN 'g'
+#define YELLOW 'o'
 
 using namespace webots;
 
@@ -195,15 +194,15 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
               if ((is_grass && was_sidewalk) || (was_grass && is_sidewalk)) {
                 xs.push_back(x);
                 ys.push_back(y);
-                break;
               }
             }
           }
-
           if (xs.size() > 10) {
             double dx_edge = xs.back() - xs.front();
             double dy_edge = ys.back() - ys.front();
             double edge_angle = atan2(dy_edge, dx_edge);
+
+            edge_angle = atan2(sin(edge_angle), cos(edge_angle)) + CAMERA_YAW_OFFSET;
 
             double a1 = edge_angle;
             double a2 = a1 + M_PI;
@@ -223,9 +222,8 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
                 sidewalk_heading = a1;
               }
             }
-            
             if (mode != NavMode::ALIGN_TO_SIDEWALK && mode != NavMode::NAV_ON_SIDEWALK) {
-              //mode = NavMode::ALIGN_TO_SIDEWALK;
+              mode = NavMode::ALIGN_TO_SIDEWALK;
             }
           }
         } else {
@@ -276,16 +274,17 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
         if (best_dist < CROSSROAD_THRESH) {
 
           double wrapped = fmod(cur_yaw, M_PI_2);
-          bool hor = wrapped < RAD_THRESH;
-          bool vert = M_PI_2 - wrapped < RAD_THRESH;
-          printf("hor: %s, vert: %s\n", hor ? "t" : "f", vert ? "t" : "f");
+          bool hor = wrapped < M_PI_4;
           for (int i = 0; i < N_LIGHTS; i++) printf("%c, ", msg.states[i]);
           printf("\n");
+
+          bool is_not_red = hor && (msg.states[4] == GREEN || msg.states[4] == YELLOW) || 
+                            !hor && (msg.states[1] == GREEN || msg.states[1] == YELLOW);
           
-          if (((hor && msg.states[4] != GREEN) || (vert && msg.states[1] != GREEN)) && !is_bottom_sidewalk) {
+          if (!is_not_red) {
             if (mode != NavMode::WAIT) last_move_mode = mode;
             mode = NavMode::WAIT;
-          } else {
+          } else if (mode == NavMode::WAIT && is_not_red) {
             mode = last_move_mode;
           }
         }
@@ -338,7 +337,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
         break;
       }
 
-      /*case NavMode::ALIGN_TO_SIDEWALK: {
+      case NavMode::ALIGN_TO_SIDEWALK: {
         std::cout << "nav mode: ALIGN_TO_SIDEWALK" << std::endl;
         double heading_error = angle_diff(sidewalk_heading, cur_yaw);
         printf("sidewalk heading: %.6f, cur_yaw: %.6f, error: %.6f\n", sidewalk_heading, cur_yaw, std::abs(heading_error));
@@ -356,6 +355,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
       case NavMode::NAV_ON_SIDEWALK: {
         std::cout << "nav mode: NAV_ON_SIDEWALK" << std::endl;
         double progress = cos(sidewalk_heading - target_angle);
+        printf("progress: %.2f\n", progress);
         if (progress < 0.01) {
           stop_wheels(wheels);
           mode = NavMode::TURN_TO_TARGET;
@@ -363,7 +363,7 @@ void navToPoint(Robot* robot, Motor *wheels[4], Camera *camera, GPS *gps, Inerti
           leftVels = rightVels = DEFAULT_VEL * clamp(progress, 0.3, 1.0);
         }
         break;
-      }*/
+      }
       case NavMode::WAIT: {
         std::cout << "nav mode: WAIT" << std::endl;
         stop_wheels(wheels);
