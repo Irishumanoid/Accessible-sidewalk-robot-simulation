@@ -9,4 +9,4 @@ orthographicViewHeight: 1
 textFiles: 1 "controllers/map_controller/map_controller.cpp" "controllers/4wheel/4wheel.cpp"
 consoles: Console:All:All
 consoles: Console:map_supervisor:All Controller(s)
-renderingDevicePerspectives: robot:camera;1;0.283245;0.702216;0
+renderingDevicePerspectives: robot:camera;0;0.12;0;0.821494

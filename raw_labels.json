@@ -54,6 +54,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.22906494140625,
                 "camera_pitch": 1.4571609497070312,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68773651123047,-122.35647583007812,3a,75y,71.24107360839844h,61.0t/data=!3m4!1e1!3m2!1suWeUW5_6iPK6byT3j0P3Bw!2e0"
             }
         },
@@ -80,11 +81,16 @@
                 "street_edge_id": 5044,
                 "osm_way_id": 6428527,
                 "neighborhood": "Greenwood",
-                "correct": null,
-                "agree_count": 0,
+                "correct": true,
+                "agree_count": 1,
                 "disagree_count": 0,
                 "unsure_count": 0,
-                "validations": [],
+                "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    }
+                ],
                 "audit_task_id": 2072,
                 "mission_id": 1665,
                 "image_capture_date": "2018-06",
@@ -101,6 +107,7 @@
                 "pano_height": 8192,
                 "camera_heading": 176.13320922851562,
                 "camera_pitch": 0.26589202880859375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68618392944336,-122.3526382446289,3a,75y,199.25h,55.0t/data=!3m4!1e1!3m2!1swWJ3xJKb6Q1bExGhuuIYzw!2e0"
             }
         },
@@ -153,6 +160,7 @@
                 "pano_height": 8192,
                 "camera_heading": 176.13320922851562,
                 "camera_pitch": 0.26589202880859375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68617248535156,-122.35260772705078,3a,75y,199.25h,55.0t/data=!3m4!1e1!3m2!1swWJ3xJKb6Q1bExGhuuIYzw!2e0"
             }
         },
@@ -185,16 +193,16 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "68792edc-d74f-4228-8d31-9a7895327818",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "18b26a38-24ab-402d-a64e-158fc0bb8a8a",
                         "validation": "agree"
                     },
                     {
                         "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "68792edc-d74f-4228-8d31-9a7895327818",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 2072,
@@ -213,6 +221,7 @@
                 "pano_height": 8192,
                 "camera_heading": 176.13320922851562,
                 "camera_pitch": 0.26589202880859375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686275482177734,-122.35264587402344,3a,75y,342.875h,68.5t/data=!3m4!1e1!3m2!1swWJ3xJKb6Q1bExGhuuIYzw!2e0"
             }
         },
@@ -265,6 +274,7 @@
                 "pano_height": 8192,
                 "camera_heading": 176.13320922851562,
                 "camera_pitch": 0.26589202880859375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68628692626953,-122.35261535644531,3a,75y,342.875h,68.5t/data=!3m4!1e1!3m2!1swWJ3xJKb6Q1bExGhuuIYzw!2e0"
             }
         },
@@ -317,6 +327,7 @@
                 "pano_height": 8192,
                 "camera_heading": 262.93145751953125,
                 "camera_pitch": 0.6184463500976562,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686279296875,-122.35247039794922,3a,75y,89.75h,64.75t/data=!3m4!1e1!3m2!1sEJofx-fxoO-3Vq53kXIMIA!2e0"
             }
         },
@@ -369,6 +380,7 @@
                 "pano_height": 8192,
                 "camera_heading": 262.93145751953125,
                 "camera_pitch": 0.6184463500976562,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6862678527832,-122.35244750976562,3a,75y,89.75h,64.75t/data=!3m4!1e1!3m2!1sEJofx-fxoO-3Vq53kXIMIA!2e0"
             }
         },
@@ -421,6 +433,7 @@
                 "pano_height": 8192,
                 "camera_heading": 282.5312805175781,
                 "camera_pitch": 1.1152114868164062,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68617248535156,-122.35242462158203,3a,75y,195.3125h,71.125t/data=!3m4!1e1!3m2!1sJemMgE9sarqZ13BWm61dLQ!2e0"
             }
         },
@@ -473,6 +486,7 @@
                 "pano_height": 8192,
                 "camera_heading": 282.5312805175781,
                 "camera_pitch": 1.1152114868164062,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6861572265625,-122.35245513916016,3a,75y,195.3125h,71.125t/data=!3m4!1e1!3m2!1sJemMgE9sarqZ13BWm61dLQ!2e0"
             }
         },
@@ -529,6 +543,7 @@
                 "pano_height": 8192,
                 "camera_heading": 160.6722869873047,
                 "camera_pitch": 2.5881881713867188,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6861686706543,-122.34999084472656,3a,75y,164.4642791748047h,68.125t/data=!3m4!1e1!3m2!1sB8PFDxPTiRP7jFxpiS1loA!2e0"
             }
         },
@@ -586,6 +601,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.27716064453125,
                 "camera_pitch": -2.57464599609375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685550689697266,-122.35511016845703,3a,75y,61.22321319580078h,70.08035659790039t/data=!3m4!1e1!3m2!1srj9D3uUTXVe2PlNQMXwhEg!2e0"
             }
         },
@@ -634,6 +650,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.2579345703125,
                 "camera_pitch": -5.765129089355469,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68545150756836,-122.35371398925781,3a,75y,140.1986541748047h,70.6316967010498t/data=!3m4!1e1!3m2!1sAd-DXqlASvmab1k2MugBZA!2e0"
             }
         },
@@ -687,6 +704,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.2579345703125,
                 "camera_pitch": -5.765129089355469,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685523986816406,-122.35369873046875,3a,75y,72.83928680419922h,71.0535717010498t/data=!3m4!1e1!3m2!1sAd-DXqlASvmab1k2MugBZA!2e0"
             }
         },
@@ -740,6 +758,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.2579345703125,
                 "camera_pitch": -5.765129089355469,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68553924560547,-122.35370635986328,3a,75y,52.91741180419922h,64.9598217010498t/data=!3m4!1e1!3m2!1sAd-DXqlASvmab1k2MugBZA!2e0"
             }
         },
@@ -794,6 +813,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.40643310546875,
                 "camera_pitch": -6.658119201660156,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685543060302734,-122.35342407226562,3a,75y,61.12053680419922h,69.1785717010498t/data=!3m4!1e1!3m2!1sIKD6Hn3HW9fvxzDn74E3Zw!2e0"
             }
         },
@@ -848,6 +868,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.40643310546875,
                 "camera_pitch": -6.658119201660156,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6855354309082,-122.35340881347656,3a,75y,61.12053680419922h,69.1785717010498t/data=!3m4!1e1!3m2!1sIKD6Hn3HW9fvxzDn74E3Zw!2e0"
             }
         },
@@ -905,6 +926,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.40643310546875,
                 "camera_pitch": -6.658119201660156,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68543243408203,-122.3534927368164,3a,75y,174.2767791748047h,74.2410717010498t/data=!3m4!1e1!3m2!1sIKD6Hn3HW9fvxzDn74E3Zw!2e0"
             }
         },
@@ -962,6 +984,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.600341796875,
                 "camera_pitch": -7.1432952880859375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6855354309082,-122.35330200195312,3a,75y,67.63616180419922h,72.5535717010498t/data=!3m4!1e1!3m2!1s3Rge-ZazX_ldBJWQUOSCBw!2e0"
             }
         },
@@ -1020,6 +1043,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.600341796875,
                 "camera_pitch": -7.1432952880859375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685447692871094,-122.35330200195312,3a,75y,136.6361541748047h,73.2566967010498t/data=!3m4!1e1!3m2!1s3Rge-ZazX_ldBJWQUOSCBw!2e0"
             }
         },
@@ -1074,6 +1098,7 @@
                 "pano_height": 8192,
                 "camera_heading": 268.7655944824219,
                 "camera_pitch": -7.0160980224609375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685543060302734,-122.35282135009766,3a,75y,37.63616180419922h,64.0223217010498t/data=!3m4!1e1!3m2!1s9KMvPhs_YtenamDqjCimOQ!2e0"
             }
         },
@@ -1131,6 +1156,7 @@
                 "pano_height": 8192,
                 "camera_heading": 268.7655944824219,
                 "camera_pitch": -7.0160980224609375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685546875,-122.35279846191406,3a,75y,46.02678680419922h,67.0691967010498t/data=!3m4!1e1!3m2!1s9KMvPhs_YtenamDqjCimOQ!2e0"
             }
         },
@@ -1164,7 +1190,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "e9452557-9812-4b76-a4e5-a38d6115abf0",
+                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
                         "validation": "agree"
                     },
                     {
@@ -1172,7 +1198,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
+                        "user_id": "e9452557-9812-4b76-a4e5-a38d6115abf0",
                         "validation": "agree"
                     }
                 ],
@@ -1192,6 +1218,7 @@
                 "pano_height": 8192,
                 "camera_heading": 281.273681640625,
                 "camera_pitch": -0.5555038452148438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68553161621094,-122.35235595703125,3a,75y,85.33705139160156h,65.8526782989502t/data=!3m4!1e1!3m2!1sGryWV58FQaRWSnCGyCPXNg!2e0"
             }
         },
@@ -1245,6 +1272,7 @@
                 "pano_height": 8192,
                 "camera_heading": 281.273681640625,
                 "camera_pitch": -0.5555038452148438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68553161621094,-122.35247802734375,3a,75y,281.3191833496094h,71.38839340209961t/data=!3m4!1e1!3m2!1sGryWV58FQaRWSnCGyCPXNg!2e0"
             }
         },
@@ -1297,6 +1325,7 @@
                 "pano_height": 8192,
                 "camera_heading": 281.273681640625,
                 "camera_pitch": -0.5555038452148438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685508728027344,-122.35245513916016,3a,75y,226.765625h,72.81696510314941t/data=!3m4!1e1!3m2!1sGryWV58FQaRWSnCGyCPXNg!2e0"
             }
         },
@@ -1349,6 +1378,7 @@
                 "pano_height": 8192,
                 "camera_heading": 281.273681640625,
                 "camera_pitch": -0.5555038452148438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6854248046875,-122.35250091552734,3a,75y,226.765625h,72.81696510314941t/data=!3m4!1e1!3m2!1sGryWV58FQaRWSnCGyCPXNg!2e0"
             }
         },
@@ -1401,6 +1431,7 @@
                 "pano_height": 8192,
                 "camera_heading": 281.273681640625,
                 "camera_pitch": -0.5555038452148438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68544387817383,-122.35232543945312,3a,75y,146.71205139160156h,80.1383924484253t/data=!3m4!1e1!3m2!1sGryWV58FQaRWSnCGyCPXNg!2e0"
             }
         },
@@ -1453,6 +1484,7 @@
                 "pano_height": 8192,
                 "camera_heading": 281.273681640625,
                 "camera_pitch": -0.5555038452148438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6854133605957,-122.35238647460938,3a,75y,157.11830139160156h,79.8102674484253t/data=!3m4!1e1!3m2!1sGryWV58FQaRWSnCGyCPXNg!2e0"
             }
         },
@@ -1506,6 +1538,7 @@
                 "pano_height": 8192,
                 "camera_heading": 13.940905570983887,
                 "camera_pitch": 0.662200927734375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68536376953125,-122.35235595703125,3a,75y,109.02678680419922h,70.66964340209961t/data=!3m4!1e1!3m2!1s6t3xsD9g08O97jCsDAqMEg!2e0"
             }
         },
@@ -1563,6 +1596,7 @@
                 "pano_height": 8192,
                 "camera_heading": 13.940905570983887,
                 "camera_pitch": 0.662200927734375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68538284301758,-122.35247802734375,3a,75y,259.5625h,68.6160717010498t/data=!3m4!1e1!3m2!1s6t3xsD9g08O97jCsDAqMEg!2e0"
             }
         },
@@ -1621,6 +1655,7 @@
                 "pano_height": 8192,
                 "camera_heading": 352.556640625,
                 "camera_pitch": 0.74566650390625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68525314331055,-122.35235595703125,3a,75y,95.09821319580078h,66.3839282989502t/data=!3m4!1e1!3m2!1sP4iuLHSGR9E2Ktj5C65yjw!2e0"
             }
         },
@@ -1680,6 +1715,7 @@
                 "pano_height": 8192,
                 "camera_heading": 352.556640625,
                 "camera_pitch": 0.74566650390625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68527603149414,-122.35253143310547,3a,75y,283.5803527832031h,63.883928298950195t/data=!3m4!1e1!3m2!1sP4iuLHSGR9E2Ktj5C65yjw!2e0"
             }
         },
@@ -1737,6 +1773,7 @@
                 "pano_height": 8192,
                 "camera_heading": 337.58721923828125,
                 "camera_pitch": -0.0798187255859375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685115814208984,-122.35235595703125,3a,75y,132.0625h,69.2410717010498t/data=!3m4!1e1!3m2!1sJRTCM9hNQDEyYaDIaKGrcg!2e0"
             }
         },
@@ -1791,6 +1828,7 @@
                 "pano_height": 8192,
                 "camera_heading": 42.38124084472656,
                 "camera_pitch": 1.6927947998046875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685123443603516,-122.35252380371094,3a,75y,265.8125h,69.77678489685059t/data=!3m4!1e1!3m2!1sVpVveW6x1zHfsK9s7YHrhA!2e0"
             }
         },
@@ -1818,11 +1856,15 @@
                 "street_edge_id": 25979,
                 "osm_way_id": 519402253,
                 "neighborhood": "Greenwood",
-                "correct": null,
-                "agree_count": 1,
+                "correct": true,
+                "agree_count": 2,
                 "disagree_count": 1,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "14916b64-edfc-4877-bd62-a3ee88caae26",
                         "validation": "disagree"
@@ -1848,6 +1890,7 @@
                 "pano_height": 8192,
                 "camera_heading": 42.38124084472656,
                 "camera_pitch": 1.6927947998046875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685115814208984,-122.35252380371094,3a,75y,265.8125h,69.77678489685059t/data=!3m4!1e1!3m2!1sVpVveW6x1zHfsK9s7YHrhA!2e0"
             }
         },
@@ -1876,11 +1919,15 @@
                 "street_edge_id": 25979,
                 "osm_way_id": 519402253,
                 "neighborhood": "Greenwood",
-                "correct": null,
-                "agree_count": 1,
+                "correct": true,
+                "agree_count": 2,
                 "disagree_count": 1,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "d8ca6ac6-7dcf-441f-80f1-083c141162f6",
                         "validation": "agree"
@@ -1906,6 +1953,7 @@
                 "pano_height": 8192,
                 "camera_heading": 350.2149658203125,
                 "camera_pitch": 0.9333877563476562,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68507385253906,-122.35252380371094,3a,75y,301.2589416503906h,66.47321510314941t/data=!3m4!1e1!3m2!1sYEQ1qFo2ML5QrNcTrdqTZA!2e0"
             }
         },
@@ -1964,6 +2012,7 @@
                 "pano_height": 8192,
                 "camera_heading": 350.2149658203125,
                 "camera_pitch": 0.9333877563476562,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68503952026367,-122.35252380371094,3a,75y,301.2589416503906h,66.47321510314941t/data=!3m4!1e1!3m2!1sYEQ1qFo2ML5QrNcTrdqTZA!2e0"
             }
         },
@@ -1998,11 +2047,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "9005a64a-fa73-4c84-b08b-b61eece1b9b7",
+                        "user_id": "4f2a3a9a-a5d5-4d57-b2d1-6be61a6c2184",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "4f2a3a9a-a5d5-4d57-b2d1-6be61a6c2184",
+                        "user_id": "9005a64a-fa73-4c84-b08b-b61eece1b9b7",
                         "validation": "agree"
                     }
                 ],
@@ -2022,6 +2071,7 @@
                 "pano_height": 8192,
                 "camera_heading": 350.2149658203125,
                 "camera_pitch": 0.9333877563476562,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68505096435547,-122.35252380371094,3a,75y,301.2589416503906h,66.47321510314941t/data=!3m4!1e1!3m2!1sYEQ1qFo2ML5QrNcTrdqTZA!2e0"
             }
         },
@@ -2075,6 +2125,7 @@
                 "pano_height": 8192,
                 "camera_heading": 350.2149658203125,
                 "camera_pitch": 0.9333877563476562,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68498611450195,-122.3525161743164,3a,75y,253.04464721679688h,65.1339282989502t/data=!3m4!1e1!3m2!1sYEQ1qFo2ML5QrNcTrdqTZA!2e0"
             }
         },
@@ -2127,6 +2178,7 @@
                 "pano_height": 8192,
                 "camera_heading": 329.817138671875,
                 "camera_pitch": -0.2571868896484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68482208251953,-122.35247802734375,3a,75y,259.4285583496094h,70.66964340209961t/data=!3m4!1e1!3m2!1sszW2V2WygfVsNmWqUorNuA!2e0"
             }
         },
@@ -2179,6 +2231,7 @@
                 "pano_height": 8192,
                 "camera_heading": 329.817138671875,
                 "camera_pitch": -0.2571868896484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68480682373047,-122.35248565673828,3a,75y,259.4285583496094h,70.66964340209961t/data=!3m4!1e1!3m2!1sszW2V2WygfVsNmWqUorNuA!2e0"
             }
         },
@@ -2205,11 +2258,16 @@
                 "street_edge_id": 13949,
                 "osm_way_id": 42005973,
                 "neighborhood": "Greenwood",
-                "correct": null,
-                "agree_count": 0,
+                "correct": true,
+                "agree_count": 1,
                 "disagree_count": 0,
                 "unsure_count": 0,
-                "validations": [],
+                "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    }
+                ],
                 "audit_task_id": 3749,
                 "mission_id": 2988,
                 "image_capture_date": "2018-06",
@@ -2226,6 +2284,7 @@
                 "pano_height": 8192,
                 "camera_heading": 153.088134765625,
                 "camera_pitch": -0.74066162109375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684791564941406,-122.3525161743164,3a,75y,357.6428527832031h,72.85714340209961t/data=!3m4!1e1!3m2!1smqSbDTvHgFrZyeV6Ie9VsQ!2e0"
             }
         },
@@ -2278,6 +2337,7 @@
                 "pano_height": 8192,
                 "camera_heading": 153.088134765625,
                 "camera_pitch": -0.74066162109375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684810638427734,-122.35249328613281,3a,75y,357.6428527832031h,72.85714340209961t/data=!3m4!1e1!3m2!1smqSbDTvHgFrZyeV6Ie9VsQ!2e0"
             }
         },
@@ -2330,6 +2390,7 @@
                 "pano_height": 8192,
                 "camera_heading": 329.817138671875,
                 "camera_pitch": -0.2571868896484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68482971191406,-122.35237884521484,3a,75y,94.64286041259766h,56.5t/data=!3m4!1e1!3m2!1sszW2V2WygfVsNmWqUorNuA!2e0"
             }
         },
@@ -2356,18 +2417,22 @@
                 "street_edge_id": 25979,
                 "osm_way_id": 519402253,
                 "neighborhood": "Greenwood",
-                "correct": null,
-                "agree_count": 1,
+                "correct": true,
+                "agree_count": 2,
                 "disagree_count": 1,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "a7118d60-68a8-4c78-b5a0-c7f6a01fabbc",
+                        "validation": "disagree"
+                    },
                     {
                         "user_id": "f3933029-8209-4be7-9bb9-246e6c76ad22",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "a7118d60-68a8-4c78-b5a0-c7f6a01fabbc",
-                        "validation": "disagree"
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 3749,
@@ -2386,6 +2451,7 @@
                 "pano_height": 8192,
                 "camera_heading": 329.817138671875,
                 "camera_pitch": -0.2571868896484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684810638427734,-122.35237121582031,3a,75y,94.64286041259766h,56.5t/data=!3m4!1e1!3m2!1sszW2V2WygfVsNmWqUorNuA!2e0"
             }
         },
@@ -2438,6 +2504,7 @@
                 "pano_height": 8192,
                 "camera_heading": 329.817138671875,
                 "camera_pitch": -0.2571868896484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68478775024414,-122.35238647460938,3a,75y,165.84597778320312h,80.078125t/data=!3m4!1e1!3m2!1sszW2V2WygfVsNmWqUorNuA!2e0"
             }
         },
@@ -2490,6 +2557,7 @@
                 "pano_height": 8192,
                 "camera_heading": 329.817138671875,
                 "camera_pitch": -0.2571868896484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68477249145508,-122.35238647460938,3a,75y,165.84597778320312h,80.078125t/data=!3m4!1e1!3m2!1sszW2V2WygfVsNmWqUorNuA!2e0"
             }
         },
@@ -2516,11 +2584,16 @@
                 "street_edge_id": 13949,
                 "osm_way_id": 42005973,
                 "neighborhood": "Greenwood",
-                "correct": null,
-                "agree_count": 0,
+                "correct": true,
+                "agree_count": 1,
                 "disagree_count": 0,
                 "unsure_count": 0,
-                "validations": [],
+                "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    }
+                ],
                 "audit_task_id": 3749,
                 "mission_id": 2988,
                 "image_capture_date": "2018-06",
@@ -2537,6 +2610,7 @@
                 "pano_height": 8192,
                 "camera_heading": 153.088134765625,
                 "camera_pitch": -0.74066162109375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6846809387207,-122.35249328613281,3a,75y,234.93972778320312h,55.0t/data=!3m4!1e1!3m2!1smqSbDTvHgFrZyeV6Ie9VsQ!2e0"
             }
         },
@@ -2563,11 +2637,16 @@
                 "street_edge_id": 13949,
                 "osm_way_id": 42005973,
                 "neighborhood": "Greenwood",
-                "correct": null,
-                "agree_count": 0,
+                "correct": true,
+                "agree_count": 1,
                 "disagree_count": 0,
                 "unsure_count": 0,
-                "validations": [],
+                "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    }
+                ],
                 "audit_task_id": 3749,
                 "mission_id": 2988,
                 "image_capture_date": "2018-06",
@@ -2584,6 +2663,7 @@
                 "pano_height": 8192,
                 "camera_heading": 153.088134765625,
                 "camera_pitch": -0.74066162109375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68470764160156,-122.3525161743164,3a,75y,234.93972778320312h,55.0t/data=!3m4!1e1!3m2!1smqSbDTvHgFrZyeV6Ie9VsQ!2e0"
             }
         },
@@ -2629,6 +2709,7 @@
                 "pano_height": 8192,
                 "camera_heading": 218.44378662109375,
                 "camera_pitch": -0.8870697021484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686641693115234,-122.35525512695312,3a,75y,14.026785850524902h,75.8928575515747t/data=!3m4!1e1!3m2!1sDg-Gqabxh7BQndY012oahQ!2e0"
             }
         },
@@ -2681,6 +2762,7 @@
                 "pano_height": 8192,
                 "camera_heading": 105.22041320800781,
                 "camera_pitch": 0.36968994140625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687713623046875,-122.34980010986328,3a,75y,23.3125h,58.9375t/data=!3m4!1e1!3m2!1sxk721avgVWvD677XvG_wrQ!2e0"
             }
         },
@@ -2733,6 +2815,7 @@
                 "pano_height": 8192,
                 "camera_heading": 268.707763671875,
                 "camera_pitch": -0.1303253173828125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68760681152344,-122.35255432128906,3a,75y,212.5h,71.6875t/data=!3m4!1e1!3m2!1snY3ldTTE929YgkYdRFCPtg!2e0"
             }
         },
@@ -2785,6 +2868,7 @@
                 "pano_height": 8192,
                 "camera_heading": 268.707763671875,
                 "camera_pitch": -0.1303253173828125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6876106262207,-122.35271453857422,3a,75y,212.5h,71.6875t/data=!3m4!1e1!3m2!1snY3ldTTE929YgkYdRFCPtg!2e0"
             }
         },
@@ -2837,6 +2921,7 @@
                 "pano_height": 8192,
                 "camera_heading": 268.707763671875,
                 "camera_pitch": -0.1303253173828125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68773651123047,-122.35272979736328,3a,75y,285.8125h,72.625t/data=!3m4!1e1!3m2!1snY3ldTTE929YgkYdRFCPtg!2e0"
             }
         },
@@ -2887,6 +2972,7 @@
                 "pano_height": 8192,
                 "camera_heading": 287.343994140625,
                 "camera_pitch": 0.7629165649414062,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68538284301758,-122.35260009765625,3a,75y,250.73660278320312h,83.25t/data=!3m4!1e1!3m2!1s55NB72LO6mvTg9wyefNYRQ!2e0"
             }
         },
@@ -2947,6 +3033,7 @@
                 "pano_height": 8192,
                 "camera_heading": 332.31756591796875,
                 "camera_pitch": 0.6385650634765625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685546875,-122.35255432128906,3a,75y,294.0625h,75.6875t/data=!3m4!1e1!3m2!1sQaw56S2-proXV28Ri6AGYA!2e0"
             }
         },
@@ -2999,6 +3086,7 @@
                 "pano_height": 8192,
                 "camera_heading": 332.31756591796875,
                 "camera_pitch": 0.6385650634765625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6855354309082,-122.35234069824219,3a,75y,38.5h,55.0t/data=!3m4!1e1!3m2!1sQaw56S2-proXV28Ri6AGYA!2e0"
             }
         },
@@ -3051,6 +3139,7 @@
                 "pano_height": 8192,
                 "camera_heading": 134.68118286132812,
                 "camera_pitch": 0.6593704223632812,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68616485595703,-122.35262298583984,3a,75y,239.3638458251953h,55.9375t/data=!3m4!1e1!3m2!1sa3vuUe1Zq3dC-CCnBpn1Kw!2e0"
             }
         },
@@ -3083,11 +3172,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
                         "validation": "agree"
                     }
                 ],
@@ -3107,6 +3196,7 @@
                 "pano_height": 8192,
                 "camera_heading": 134.68118286132812,
                 "camera_pitch": 0.6593704223632812,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686283111572266,-122.3526382446289,3a,75y,328.05133056640625h,58.9375t/data=!3m4!1e1!3m2!1sa3vuUe1Zq3dC-CCnBpn1Kw!2e0"
             }
         },
@@ -3163,6 +3253,7 @@
                 "pano_height": 8192,
                 "camera_heading": 134.68118286132812,
                 "camera_pitch": 0.6593704223632812,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686309814453125,-122.35237884521484,3a,75y,24.113840103149414h,60.25t/data=!3m4!1e1!3m2!1sa3vuUe1Zq3dC-CCnBpn1Kw!2e0"
             }
         },
@@ -3217,6 +3308,7 @@
                 "pano_height": 8192,
                 "camera_heading": 358.8109130859375,
                 "camera_pitch": 1.2146682739257812,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68486785888672,-122.35537719726562,3a,75y,224.2700958251953h,86.671875t/data=!3m4!1e1!3m2!1sF5tgBuEYxFoLOBdEKTZ0rg!2e0"
             }
         },
@@ -3244,10 +3336,18 @@
                 "osm_way_id": 42005973,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 5,
+                "agree_count": 6,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "894855b1-1cee-4ec5-9ab5-43dc10a4d13f",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "c74affdb-42a2-400d-a674-153cf7c54eb9",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
@@ -3257,7 +3357,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "7b30e4e5-e189-461e-ab28-ad61c366a026",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
@@ -3265,11 +3365,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "c74affdb-42a2-400d-a674-153cf7c54eb9",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "894855b1-1cee-4ec5-9ab5-43dc10a4d13f",
+                        "user_id": "7b30e4e5-e189-461e-ab28-ad61c366a026",
                         "validation": "agree"
                     }
                 ],
@@ -3289,6 +3385,7 @@
                 "pano_height": 8192,
                 "camera_heading": 107.62940979003906,
                 "camera_pitch": 4.416435241699219,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68470764160156,-122.3525161743164,3a,75y,156.0h,80.0t/data=!3m4!1e1!3m2!1sEOuQDopS1oYnQHh_RLWTPQ!2e0"
             }
         },
@@ -3321,15 +3418,15 @@
                 "unsure_count": 0,
                 "validations": [
                     {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "396c637c-c367-4e96-8814-ac6551fa7aeb",
                         "validation": "disagree"
                     },
                     {
                         "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
@@ -3353,6 +3450,7 @@
                 "pano_height": 8192,
                 "camera_heading": 107.62940979003906,
                 "camera_pitch": 4.416435241699219,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68471145629883,-122.35238647460938,3a,75y,126.0h,79.4375t/data=!3m4!1e1!3m2!1sEOuQDopS1oYnQHh_RLWTPQ!2e0"
             }
         },
@@ -3380,16 +3478,20 @@
                 "osm_way_id": 519402253,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 3,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
                         "user_id": "af812204-1521-4c42-bf88-4baaaffe3f06",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
                         "validation": "agree"
                     }
                 ],
@@ -3409,6 +3511,7 @@
                 "pano_height": 8192,
                 "camera_heading": 107.62940979003906,
                 "camera_pitch": 4.416435241699219,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68482971191406,-122.35234069824219,3a,75y,63.1875h,74.375t/data=!3m4!1e1!3m2!1sEOuQDopS1oYnQHh_RLWTPQ!2e0"
             }
         },
@@ -3436,7 +3539,7 @@
                 "osm_way_id": 42005973,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 3,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
@@ -3445,12 +3548,16 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "disagree"
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
                     },
                     {
                         "user_id": "2b80fb60-17f2-4b92-a49a-871ae98f7bba",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 19856,
@@ -3469,6 +3576,7 @@
                 "pano_height": 8192,
                 "camera_heading": 107.62940979003906,
                 "camera_pitch": 4.416435241699219,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68480682373047,-122.35252380371094,3a,75y,63.1875h,74.375t/data=!3m4!1e1!3m2!1sEOuQDopS1oYnQHh_RLWTPQ!2e0"
             }
         },
@@ -3514,6 +3622,7 @@
                 "pano_height": 8192,
                 "camera_heading": 87.39493560791016,
                 "camera_pitch": 0.0097198486328125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684326171875,-122.35548400878906,3a,75y,333.7410583496094h,83.75892877578735t/data=!3m4!1e1!3m2!1sZHxdQsNPNr2o1765pqytHQ!2e0"
             }
         },
@@ -3541,7 +3650,7 @@
                 "osm_way_id": 6394741,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 1,
+                "agree_count": 2,
                 "disagree_count": 0,
                 "unsure_count": 1,
                 "validations": [
@@ -3552,6 +3661,10 @@
                     {
                         "user_id": "a57ff659-a9bb-4836-8b0b-e41894142a5b",
                         "validation": "unsure"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 19973,
@@ -3570,6 +3683,7 @@
                 "pano_height": 8192,
                 "camera_heading": 268.12213134765625,
                 "camera_pitch": -2.9779891967773438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687721252441406,-122.35271453857422,3a,75y,57.10714340209961h,90.0t/data=!3m4!1e1!3m2!1sF61pVy7bbyGPQJ5qwW--uQ!2e0"
             }
         },
@@ -3626,6 +3740,7 @@
                 "pano_height": 8192,
                 "camera_heading": 268.12213134765625,
                 "camera_pitch": -2.9779891967773438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6876220703125,-122.35270690917969,3a,75y,137.91964721679688h,55.0t/data=!3m4!1e1!3m2!1sF61pVy7bbyGPQJ5qwW--uQ!2e0"
             }
         },
@@ -3678,6 +3793,7 @@
                 "pano_height": 8192,
                 "camera_heading": 308.5310974121094,
                 "camera_pitch": -0.3853759765625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68701171875,-122.35250854492188,3a,75y,62.5h,57.3125t/data=!3m4!1e1!3m2!1s41j_K2cuiFRl0WWt-mppeg!2e0"
             }
         },
@@ -3730,6 +3846,7 @@
                 "pano_height": 8192,
                 "camera_heading": 308.5310974121094,
                 "camera_pitch": -0.3853759765625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68690872192383,-122.35250854492188,3a,75y,133.1875h,57.6875t/data=!3m4!1e1!3m2!1s41j_K2cuiFRl0WWt-mppeg!2e0"
             }
         },
@@ -3782,6 +3899,7 @@
                 "pano_height": 8192,
                 "camera_heading": 308.5310974121094,
                 "camera_pitch": -0.3853759765625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6868896484375,-122.35272216796875,3a,75y,203.875h,55.375t/data=!3m4!1e1!3m2!1s41j_K2cuiFRl0WWt-mppeg!2e0"
             }
         },
@@ -3834,6 +3952,7 @@
                 "pano_height": 8192,
                 "camera_heading": 308.5310974121094,
                 "camera_pitch": -0.3853759765625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687007904052734,-122.35272979736328,3a,75y,271.9375h,60.625t/data=!3m4!1e1!3m2!1s41j_K2cuiFRl0WWt-mppeg!2e0"
             }
         },
@@ -3861,10 +3980,14 @@
                 "osm_way_id": 6428527,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 1,
+                "agree_count": 2,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "f69858b5-c091-409c-902c-2ae05998a7fe",
                         "validation": "agree"
@@ -3886,6 +4009,7 @@
                 "pano_height": 8192,
                 "camera_heading": 190.74777221679688,
                 "camera_pitch": 0.177734375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6861686706543,-122.35263061523438,3a,75y,169.75h,64.0t/data=!3m4!1e1!3m2!1s3QBAkA6yzN3-srq44lI-ew!2e0"
             }
         },
@@ -3913,16 +4037,20 @@
                 "osm_way_id": 6428527,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 3,
+                "agree_count": 4,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "c74affdb-42a2-400d-a674-153cf7c54eb9",
+                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "c74affdb-42a2-400d-a674-153cf7c54eb9",
                         "validation": "agree"
                     },
                     {
@@ -3946,6 +4074,7 @@
                 "pano_height": 8192,
                 "camera_heading": 190.74777221679688,
                 "camera_pitch": 0.177734375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686283111572266,-122.35244750976562,3a,75y,67.375h,55.0t/data=!3m4!1e1!3m2!1s3QBAkA6yzN3-srq44lI-ew!2e0"
             }
         },
@@ -3998,6 +4127,7 @@
                 "pano_height": 8192,
                 "camera_heading": 134.68118286132812,
                 "camera_pitch": 0.6593704223632812,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6861572265625,-122.35242462158203,3a,75y,89.125h,58.5625t/data=!3m4!1e1!3m2!1sa3vuUe1Zq3dC-CCnBpn1Kw!2e0"
             }
         },
@@ -4031,12 +4161,12 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
                         "validation": "unsure"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 47745,
@@ -4055,6 +4185,7 @@
                 "pano_height": 8192,
                 "camera_heading": 1.7746275663375854,
                 "camera_pitch": 1.1864242553710938,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68700408935547,-122.35513305664062,3a,75y,60.546875h,73.703125t/data=!3m4!1e1!3m2!1sfSbHHwFzH3_abS-6vKfiqw!2e0"
             }
         },
@@ -4087,12 +4218,12 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "18b26a38-24ab-402d-a64e-158fc0bb8a8a",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "disagree"
                     },
                     {
                         "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
@@ -4115,6 +4246,7 @@
                 "pano_height": 8192,
                 "camera_heading": 1.7746275663375854,
                 "camera_pitch": 1.1864242553710938,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68685531616211,-122.35547637939453,3a,75y,237.78125h,81.0625t/data=!3m4!1e1!3m2!1sfSbHHwFzH3_abS-6vKfiqw!2e0"
             }
         },
@@ -4167,6 +4299,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.12933349609375,
                 "camera_pitch": 4.210639953613281,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68687057495117,-122.35586547851562,3a,75y,133.5200958251953h,67.50223159790039t/data=!3m4!1e1!3m2!1sWZh8S-HrWmv47eQ5ZZ9L-w!2e0"
             }
         },
@@ -4219,6 +4352,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.12933349609375,
                 "camera_pitch": 4.210639953613281,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6868896484375,-122.35587310791016,3a,75y,133.5200958251953h,67.50223159790039t/data=!3m4!1e1!3m2!1sWZh8S-HrWmv47eQ5ZZ9L-w!2e0"
             }
         },
@@ -4271,6 +4405,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.76737213134766,
                 "camera_pitch": 1.1199951171875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68687057495117,-122.35657501220703,3a,75y,181.2075958251953h,59.285715103149414t/data=!3m4!1e1!3m2!1s9OYDXiG6z91X3e7WFP1_Rg!2e0"
             }
         },
@@ -4296,10 +4431,14 @@
                 "osm_way_id": 6428527,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 1,
+                "agree_count": 2,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "a13f5713-6fdb-401b-968a-7dc96eea0cd4",
                         "validation": "agree"
@@ -4321,6 +4460,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.55267333984375,
                 "camera_pitch": 1.4994659423828125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686279296875,-122.35709381103516,3a,75y,333.8125h,63.9375t/data=!3m4!1e1!3m2!1s1ioKosQPz7aS5bW9VT78-A!2e0"
             }
         },
@@ -4346,12 +4486,16 @@
                 "osm_way_id": 6428527,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 1,
+                "agree_count": 2,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
                     {
                         "user_id": "a13f5713-6fdb-401b-968a-7dc96eea0cd4",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -4371,6 +4515,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.55267333984375,
                 "camera_pitch": 1.4994659423828125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68614959716797,-122.35708618164062,3a,75y,183.8125h,55.5625t/data=!3m4!1e1!3m2!1s1ioKosQPz7aS5bW9VT78-A!2e0"
             }
         },
@@ -4398,12 +4543,12 @@
                 "osm_way_id": 6428527,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 3,
+                "agree_count": 4,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "3b2fd903-741f-42c8-8590-f310d84232f1",
+                        "user_id": "1ed1d7b9-bc76-4e40-b096-3c9e31a8f537",
                         "validation": "agree"
                     },
                     {
@@ -4415,7 +4560,11 @@
                         "validation": "disagree"
                     },
                     {
-                        "user_id": "1ed1d7b9-bc76-4e40-b096-3c9e31a8f537",
+                        "user_id": "3b2fd903-741f-42c8-8590-f310d84232f1",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -4435,6 +4584,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.55267333984375,
                 "camera_pitch": 1.4994659423828125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686161041259766,-122.35709381103516,3a,75y,194.88392639160156h,55.0t/data=!3m4!1e1!3m2!1s1ioKosQPz7aS5bW9VT78-A!2e0"
             }
         },
@@ -4462,20 +4612,24 @@
                 "osm_way_id": 6428527,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 3,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
                         "validation": "agree"
                     }
                 ],
@@ -4495,6 +4649,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.55267333984375,
                 "camera_pitch": 1.4994659423828125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68627166748047,-122.3570785522461,3a,75y,346.3839416503906h,55.0t/data=!3m4!1e1!3m2!1s1ioKosQPz7aS5bW9VT78-A!2e0"
             }
         },
@@ -4547,6 +4702,7 @@
                 "pano_height": 8192,
                 "camera_heading": 95.43375396728516,
                 "camera_pitch": 4.994621276855469,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6862678527832,-122.3526382446289,3a,75y,32.81919479370117h,69.22098159790039t/data=!3m4!1e1!3m2!1smSxNHVb_sNuFH30-rbCouQ!2e0"
             }
         },
@@ -4579,15 +4735,15 @@
                 "unsure_count": 0,
                 "validations": [
                     {
+                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
                     {
                         "user_id": "dc9c7b1a-e2bd-4e7f-9d7e-dd239d7c7062",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
                     }
                 ],
@@ -4607,6 +4763,7 @@
                 "pano_height": 8192,
                 "camera_heading": 95.43375396728516,
                 "camera_pitch": 4.994621276855469,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686187744140625,-122.3526382446289,3a,75y,97.83705139160156h,55.75t/data=!3m4!1e1!3m2!1smSxNHVb_sNuFH30-rbCouQ!2e0"
             }
         },
@@ -4639,16 +4796,16 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "9b80d661-61fd-414e-9004-1a80eee33bca",
-                        "validation": "unsure"
-                    },
-                    {
                         "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
                         "validation": "agree"
                     },
                     {
                         "user_id": "24e0a596-2733-44c3-b7af-0cea29097309",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "9b80d661-61fd-414e-9004-1a80eee33bca",
+                        "validation": "unsure"
                     }
                 ],
                 "audit_task_id": 49822,
@@ -4667,6 +4824,7 @@
                 "pano_height": 8192,
                 "camera_heading": 75.3803939819336,
                 "camera_pitch": 0.5916061401367188,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686161041259766,-122.35260772705078,3a,75y,236.21205139160156h,55.0t/data=!3m4!1e1!3m2!1scUJUiRafsd0DJLOKzR_8xw!2e0"
             }
         },
@@ -4699,7 +4857,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
+                        "user_id": "dc9c7b1a-e2bd-4e7f-9d7e-dd239d7c7062",
                         "validation": "agree"
                     },
                     {
@@ -4707,7 +4865,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "dc9c7b1a-e2bd-4e7f-9d7e-dd239d7c7062",
+                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
                         "validation": "agree"
                     }
                 ],
@@ -4727,6 +4885,7 @@
                 "pano_height": 8192,
                 "camera_heading": 75.3803939819336,
                 "camera_pitch": 0.5916061401367188,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68617630004883,-122.3523941040039,3a,75y,119.77455139160156h,62.125t/data=!3m4!1e1!3m2!1scUJUiRafsd0DJLOKzR_8xw!2e0"
             }
         },
@@ -4787,6 +4946,7 @@
                 "pano_height": 8192,
                 "camera_heading": 75.3803939819336,
                 "camera_pitch": 0.5916061401367188,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686161041259766,-122.35244750976562,3a,75y,119.77455139160156h,62.125t/data=!3m4!1e1!3m2!1scUJUiRafsd0DJLOKzR_8xw!2e0"
             }
         },
@@ -4814,7 +4974,7 @@
                 "osm_way_id": 6428527,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 3,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
@@ -4824,6 +4984,10 @@
                     },
                     {
                         "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -4843,6 +5007,7 @@
                 "pano_height": 8192,
                 "camera_heading": 216.23699951171875,
                 "camera_pitch": 0.23272705078125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68629837036133,-122.35261535644531,3a,75y,350.5625h,64.375t/data=!3m4!1e1!3m2!1sglElz2pBH-5WQx75Gn1Mxw!2e0"
             }
         },
@@ -4879,11 +5044,11 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
                         "validation": "agree"
                     }
                 ],
@@ -4903,6 +5068,7 @@
                 "pano_height": 8192,
                 "camera_heading": 75.98619842529297,
                 "camera_pitch": 0.59967041015625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68630599975586,-122.35247039794922,3a,75y,17.1875h,73.9375t/data=!3m4!1e1!3m2!1sJsDzKAzspf7EBkwrdzmCCw!2e0"
             }
         },
@@ -4935,15 +5101,15 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
                     },
                     {
                         "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -4963,6 +5129,7 @@
                 "pano_height": 8192,
                 "camera_heading": 75.98619842529297,
                 "camera_pitch": 0.59967041015625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686283111572266,-122.35242462158203,3a,75y,17.1875h,73.9375t/data=!3m4!1e1!3m2!1sJsDzKAzspf7EBkwrdzmCCw!2e0"
             }
         },
@@ -5020,6 +5187,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.13282012939453,
                 "camera_pitch": 1.9368209838867188,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68584060668945,-122.35238647460938,3a,75y,115.58705139160156h,69.36160659790039t/data=!3m4!1e1!3m2!1saXTTrG-7jmPKizd-FRwtEQ!2e0"
             }
         },
@@ -5052,11 +5220,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
                         "validation": "agree"
                     }
                 ],
@@ -5076,6 +5244,7 @@
                 "pano_height": 6656,
                 "camera_heading": 336.9849548339844,
                 "camera_pitch": 1.010772705078125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685543060302734,-122.35255432128906,3a,75y,286.9866027832031h,74.2410717010498t/data=!3m4!1e1!3m2!1sX3qsFgf5-PKPnm6ImNz2yw!2e0"
             }
         },
@@ -5108,11 +5277,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
+                        "user_id": "752f2f58-5ddd-45f6-8c58-e91f33af4b13",
                         "validation": "agree"
                     },
                     {
@@ -5120,7 +5289,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "752f2f58-5ddd-45f6-8c58-e91f33af4b13",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     }
                 ],
@@ -5140,6 +5309,7 @@
                 "pano_height": 8192,
                 "camera_heading": 223.69140625,
                 "camera_pitch": -0.319580078125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6854248046875,-122.3525161743164,3a,75y,177.0580291748047h,75.7075891494751t/data=!3m4!1e1!3m2!1swYRM8WgMFPSAx4w2SrO25g!2e0"
             }
         },
@@ -5172,11 +5342,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "4abada05-8742-420f-9988-f134806d30fa",
+                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
+                        "user_id": "4abada05-8742-420f-9988-f134806d30fa",
                         "validation": "agree"
                     }
                 ],
@@ -5196,6 +5366,7 @@
                 "pano_height": 8192,
                 "camera_heading": 223.69140625,
                 "camera_pitch": -0.319580078125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6854133605957,-122.35250091552734,3a,75y,177.0580291748047h,75.7075891494751t/data=!3m4!1e1!3m2!1swYRM8WgMFPSAx4w2SrO25g!2e0"
             }
         },
@@ -5228,11 +5399,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     }
                 ],
@@ -5252,6 +5423,7 @@
                 "pano_height": 6656,
                 "camera_heading": 336.9849548339844,
                 "camera_pitch": 1.010772705078125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6854248046875,-122.35236358642578,3a,75y,162.8549041748047h,75.2388391494751t/data=!3m4!1e1!3m2!1sX3qsFgf5-PKPnm6ImNz2yw!2e0"
             }
         },
@@ -5284,15 +5456,15 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
                         "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
                         "validation": "agree"
                     }
                 ],
@@ -5312,6 +5484,7 @@
                 "pano_height": 6656,
                 "camera_heading": 336.9849548339844,
                 "camera_pitch": 1.010772705078125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685447692871094,-122.35234069824219,3a,75y,162.8549041748047h,75.2388391494751t/data=!3m4!1e1!3m2!1sX3qsFgf5-PKPnm6ImNz2yw!2e0"
             }
         },
@@ -5364,6 +5537,7 @@
                 "pano_height": 6656,
                 "camera_heading": 336.9849548339844,
                 "camera_pitch": 1.010772705078125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685523986816406,-122.35238647460938,3a,75y,48.91741180419922h,55.0t/data=!3m4!1e1!3m2!1sX3qsFgf5-PKPnm6ImNz2yw!2e0"
             }
         },
@@ -5396,7 +5570,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "96c6caca-4803-4469-901c-735d1ea7aef3",
+                        "user_id": "752f2f58-5ddd-45f6-8c58-e91f33af4b13",
                         "validation": "agree"
                     },
                     {
@@ -5404,7 +5578,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "752f2f58-5ddd-45f6-8c58-e91f33af4b13",
+                        "user_id": "96c6caca-4803-4469-901c-735d1ea7aef3",
                         "validation": "agree"
                     },
                     {
@@ -5432,6 +5606,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.8234558105469,
                 "camera_pitch": 0.9305343627929688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68557357788086,-122.35134887695312,3a,75y,328.7678527832031h,73.96428489685059t/data=!3m4!1e1!3m2!1sMAB6_0O3MJ1urD1ySwGAsA!2e0"
             }
         },
@@ -5486,6 +5661,7 @@
                 "pano_height": 8192,
                 "camera_heading": 88.8271484375,
                 "camera_pitch": -0.7085723876953125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684722900390625,-122.34903717041016,3a,75y,207.6875h,66.203125t/data=!3m4!1e1!3m2!1ss6kMVR7xZx5SprN8XYHVvA!2e0"
             }
         },
@@ -5513,7 +5689,7 @@
                 "osm_way_id": 158718276,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 4,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
@@ -5523,6 +5699,14 @@
                     },
                     {
                         "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "c6b6ad2d-298f-465d-8dc4-c1a746108e25",
                         "validation": "agree"
                     }
                 ],
@@ -5542,6 +5726,7 @@
                 "pano_height": 8192,
                 "camera_heading": 74.05171966552734,
                 "camera_pitch": -0.7230377197265625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68482208251953,-122.34978485107422,3a,75y,17.890625h,64.1875t/data=!3m4!1e1!3m2!1sl9WGL1jqYc7bV3OW4MyzEg!2e0"
             }
         },
@@ -5569,10 +5754,14 @@
                 "osm_way_id": 158718276,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 3,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
@@ -5598,6 +5787,7 @@
                 "pano_height": 8192,
                 "camera_heading": 74.05171966552734,
                 "camera_pitch": -0.7230377197265625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68474197387695,-122.34981536865234,3a,75y,135.453125h,55.0t/data=!3m4!1e1!3m2!1sl9WGL1jqYc7bV3OW4MyzEg!2e0"
             }
         },
@@ -5625,16 +5815,20 @@
                 "osm_way_id": 158718276,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 1,
+                "agree_count": 2,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -5654,6 +5848,7 @@
                 "pano_height": 8192,
                 "camera_heading": 74.05171966552734,
                 "camera_pitch": -0.7230377197265625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684852600097656,-122.34984588623047,3a,75y,344.328125h,68.125t/data=!3m4!1e1!3m2!1sl9WGL1jqYc7bV3OW4MyzEg!2e0"
             }
         },
@@ -5681,7 +5876,7 @@
                 "osm_way_id": 158718269,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 3,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
@@ -5691,6 +5886,10 @@
                     },
                     {
                         "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -5710,6 +5909,7 @@
                 "pano_height": 8192,
                 "camera_heading": 96.98966979980469,
                 "camera_pitch": 0.915771484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68484878540039,-122.3499526977539,3a,75y,17.140625h,60.8125t/data=!3m4!1e1!3m2!1sIAmvaHL7WpjvsHKQLBSGGA!2e0"
             }
         },
@@ -5742,7 +5942,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
                     {
@@ -5750,7 +5950,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
                     }
                 ],
@@ -5770,6 +5970,7 @@
                 "pano_height": 8192,
                 "camera_heading": 69.00459289550781,
                 "camera_pitch": 0.422637939453125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684814453125,-122.35234069824219,3a,75y,13.696428298950195h,65.546875t/data=!3m4!1e1!3m2!1sa1EDzLtuTS3rNdx-7jXNFA!2e0"
             }
         },
@@ -5797,12 +5998,16 @@
                 "osm_way_id": 519402253,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 3,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
                     {
                         "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "c6b6ad2d-298f-465d-8dc4-c1a746108e25",
                         "validation": "agree"
                     },
                     {
@@ -5826,6 +6031,7 @@
                 "pano_height": 8192,
                 "camera_heading": 69.00459289550781,
                 "camera_pitch": 0.422637939453125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684837341308594,-122.35236358642578,3a,75y,13.696428298950195h,65.546875t/data=!3m4!1e1!3m2!1sa1EDzLtuTS3rNdx-7jXNFA!2e0"
             }
         },
@@ -5853,7 +6059,7 @@
                 "osm_way_id": 158718269,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 5,
+                "agree_count": 6,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
@@ -5862,7 +6068,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "d427fdc6-e034-41a2-b1d4-70465700b27a",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
@@ -5870,11 +6076,15 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "2828641a-3745-4b41-acbf-6c8a686d8ea1",
+                        "user_id": "401c9479-4760-432e-b198-058c17ec6aef",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "401c9479-4760-432e-b198-058c17ec6aef",
+                        "user_id": "d427fdc6-e034-41a2-b1d4-70465700b27a",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "2828641a-3745-4b41-acbf-6c8a686d8ea1",
                         "validation": "agree"
                     }
                 ],
@@ -5894,6 +6104,7 @@
                 "pano_height": 8192,
                 "camera_heading": 69.00459289550781,
                 "camera_pitch": 0.422637939453125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68473434448242,-122.35236358642578,3a,75y,182.44642639160156h,56.6875t/data=!3m4!1e1!3m2!1sa1EDzLtuTS3rNdx-7jXNFA!2e0"
             }
         },
@@ -5921,7 +6132,7 @@
                 "osm_way_id": 519402253,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 3,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
@@ -5931,6 +6142,10 @@
                     },
                     {
                         "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "c6b6ad2d-298f-465d-8dc4-c1a746108e25",
                         "validation": "agree"
                     },
                     {
@@ -5954,6 +6169,7 @@
                 "pano_height": 8192,
                 "camera_heading": 69.00459289550781,
                 "camera_pitch": 0.422637939453125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68467712402344,-122.35237121582031,3a,75y,182.44642639160156h,56.6875t/data=!3m4!1e1!3m2!1sa1EDzLtuTS3rNdx-7jXNFA!2e0"
             }
         },
@@ -5986,11 +6202,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
@@ -6018,6 +6234,7 @@
                 "pano_height": 8192,
                 "camera_heading": 107.62940979003906,
                 "camera_pitch": 4.416435241699219,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68467330932617,-122.35247039794922,3a,75y,145.88392639160156h,62.5t/data=!3m4!1e1!3m2!1sEOuQDopS1oYnQHh_RLWTPQ!2e0"
             }
         },
@@ -6050,15 +6267,15 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "7a607bdc-4b04-4302-adf1-d8c2086acbea",
                         "validation": "agree"
                     },
                     {
                         "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -6078,6 +6295,7 @@
                 "pano_height": 8192,
                 "camera_heading": 107.62940979003906,
                 "camera_pitch": 4.416435241699219,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68471145629883,-122.3525161743164,3a,75y,145.88392639160156h,62.5t/data=!3m4!1e1!3m2!1sEOuQDopS1oYnQHh_RLWTPQ!2e0"
             }
         },
@@ -6110,15 +6328,15 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "401c9479-4760-432e-b198-058c17ec6aef",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
                         "user_id": "36a2aa57-e9d6-4258-b0a1-c258f435701c",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "401c9479-4760-432e-b198-058c17ec6aef",
                         "validation": "agree"
                     }
                 ],
@@ -6138,6 +6356,7 @@
                 "pano_height": 8192,
                 "camera_heading": 107.62940979003906,
                 "camera_pitch": 4.416435241699219,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684837341308594,-122.35248565673828,3a,75y,24.008928298950195h,63.25t/data=!3m4!1e1!3m2!1sEOuQDopS1oYnQHh_RLWTPQ!2e0"
             }
         },
@@ -6170,11 +6389,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     }
                 ],
@@ -6194,6 +6413,7 @@
                 "pano_height": 8192,
                 "camera_heading": 107.62940979003906,
                 "camera_pitch": 4.416435241699219,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68480682373047,-122.3525161743164,3a,75y,24.008928298950195h,63.25t/data=!3m4!1e1!3m2!1sEOuQDopS1oYnQHh_RLWTPQ!2e0"
             }
         },
@@ -6226,11 +6446,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b932edaf-0749-4b49-b3e7-310aef16d253",
+                        "user_id": "de335890-76a7-4f96-86f9-0709e56c7c5f",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "de335890-76a7-4f96-86f9-0709e56c7c5f",
+                        "user_id": "b932edaf-0749-4b49-b3e7-310aef16d253",
                         "validation": "agree"
                     }
                 ],
@@ -6250,6 +6470,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.137451171875,
                 "camera_pitch": 6.6026611328125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684844970703125,-122.35274505615234,3a,75y,8.383928298950195h,64.2589282989502t/data=!3m4!1e1!3m2!1sDs299-cTWwCymHwIYbj-jA!2e0"
             }
         },
@@ -6282,12 +6503,12 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "unsure"
-                    },
-                    {
                         "user_id": "9b80d661-61fd-414e-9004-1a80eee33bca",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "unsure"
                     }
                 ],
                 "audit_task_id": 50448,
@@ -6306,6 +6527,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.08839416503906,
                 "camera_pitch": 6.605766296386719,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68465805053711,-122.35372161865234,3a,75y,163.7299041748047h,74.1741075515747t/data=!3m4!1e1!3m2!1s0tAs7WADSt6VMP-UdSzd6A!2e0"
             }
         },
@@ -6338,15 +6560,15 @@
                 "unsure_count": 1,
                 "validations": [
                     {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "bfe97bf1-83e5-445a-9ddd-8749c49c7758",
                         "validation": "unsure"
                     },
                     {
                         "user_id": "2ac9dc5d-d40c-40d6-b7d7-0e5d540fde97",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     }
                 ],
@@ -6366,6 +6588,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.03932189941406,
                 "camera_pitch": 6.536399841308594,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68463897705078,-122.35470581054688,3a,75y,223.40847778320312h,78.9308032989502t/data=!3m4!1e1!3m2!1s5mFnNMirZ4zYc194uKnWbA!2e0"
             }
         },
@@ -6398,6 +6621,18 @@
                 "unsure_count": 0,
                 "validations": [
                     {
+                        "user_id": "a5b7ac3b-a186-4142-9504-c58b41707766",
+                        "validation": "disagree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "disagree"
+                    },
+                    {
                         "user_id": "40c5d4b5-a5e8-481e-8c2b-3165ac7be46d",
                         "validation": "disagree"
                     },
@@ -6406,20 +6641,8 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
-                    },
-                    {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "a5b7ac3b-a186-4142-9504-c58b41707766",
-                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 50449,
@@ -6438,6 +6661,7 @@
                 "pano_height": 6656,
                 "camera_heading": 80.4963607788086,
                 "camera_pitch": 1.6434478759765625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684810638427734,-122.35542297363281,3a,75y,287.5758972167969h,68.85490989685059t/data=!3m4!1e1!3m2!1sG6wIy_IyynOUf80XMsLRfw!2e0"
             }
         },
@@ -6474,15 +6698,15 @@
                         "validation": "disagree"
                     },
                     {
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "disagree"
                     },
                     {
                         "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     }
                 ],
@@ -6502,6 +6726,7 @@
                 "pano_height": 6656,
                 "camera_heading": 80.4963607788086,
                 "camera_pitch": 1.6434478759765625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68483352661133,-122.35521697998047,3a,75y,25.63839340209961h,58.542409896850586t/data=!3m4!1e1!3m2!1sG6wIy_IyynOUf80XMsLRfw!2e0"
             }
         },
@@ -6558,6 +6783,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.8055419921875,
                 "camera_pitch": -1.6784286499023438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684818267822266,-122.3559341430664,3a,75y,31.90625h,66.28125t/data=!3m4!1e1!3m2!1sBlsSMUnQeMjTJfkwCbjukg!2e0"
             }
         },
@@ -6610,6 +6836,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.30322265625,
                 "camera_pitch": 0.232635498046875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684814453125,-122.35677337646484,3a,75y,22.40625h,60.821428298950195t/data=!3m4!1e1!3m2!1sexIbbebaqF5-1AsMS4jtkA!2e0"
             }
         },
@@ -6662,6 +6889,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.32867431640625,
                 "camera_pitch": -0.8817214965820312,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.685546875,-122.3567123413086,3a,75y,3.0h,66.15625t/data=!3m4!1e1!3m2!1sbX3DiSo1n068FcHASpmw5A!2e0"
             }
         },
@@ -6694,11 +6922,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "9569381e-36d3-4123-a2c5-33f4de8a7e58",
+                        "user_id": "872c4137-400f-4c54-8fbb-f9ba0cda5ff7",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "872c4137-400f-4c54-8fbb-f9ba0cda5ff7",
+                        "user_id": "9569381e-36d3-4123-a2c5-33f4de8a7e58",
                         "validation": "agree"
                     },
                     {
@@ -6722,6 +6950,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.5653381347656,
                 "camera_pitch": -1.7810211181640625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6855583190918,-122.3565902709961,3a,75y,354.3571472167969h,67.03125t/data=!3m4!1e1!3m2!1slmen1N-DXAVSutJdKK7vNQ!2e0"
             }
         },
@@ -6776,6 +7005,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.9292907714844,
                 "camera_pitch": -2.0323486328125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68555450439453,-122.356201171875,3a,75y,54.98214340209961h,71.49553489685059t/data=!3m4!1e1!3m2!1s0FZVz3EzP6F5kiy67WRa6Q!2e0"
             }
         },
@@ -6806,12 +7036,12 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "19c53063-633e-4bc1-9259-57b495916066",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "disagree"
+                    },
+                    {
+                        "user_id": "19c53063-633e-4bc1-9259-57b495916066",
+                        "validation": "agree"
                     },
                     {
                         "user_id": "562165c5-f77a-426d-a080-d251710fb0de",
@@ -6834,6 +7064,7 @@
                 "pano_height": 8192,
                 "camera_heading": 359.6782531738281,
                 "camera_pitch": 1.4884872436523438,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68603515625,-122.35515594482422,3a,75y,115.828125h,69.390625t/data=!3m4!1e1!3m2!1sSbXHCchrz7IJrDk5IRIQSw!2e0"
             }
         },
@@ -6864,12 +7095,12 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "a6646536-6210-4d7f-bc0a-e6e847b29dac",
                         "validation": "disagree"
+                    },
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 53145,
@@ -6888,6 +7119,7 @@
                 "pano_height": 8192,
                 "camera_heading": 179.59237670898438,
                 "camera_pitch": -1.3335342407226562,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68665313720703,-122.3554916381836,3a,75y,312.9375h,77.3125t/data=!3m4!1e1!3m2!1se9evXVacQFZQw6CagkG6VA!2e0"
             }
         },
@@ -6938,6 +7170,7 @@
                 "pano_height": 8192,
                 "camera_heading": 179.66799926757812,
                 "camera_pitch": -1.3454055786132812,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68666458129883,-122.35517883300781,3a,75y,65.390625h,78.859375t/data=!3m4!1e1!3m2!1sWcyyjnFfohtN1ZJ-tZlpQA!2e0"
             }
         },
@@ -6988,6 +7221,7 @@
                 "pano_height": 8192,
                 "camera_heading": 179.76048278808594,
                 "camera_pitch": -1.2710189819335938,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68680953979492,-122.35518646240234,3a,75y,46.171875h,80.921875t/data=!3m4!1e1!3m2!1s5tFZiNRRbWM5uP6pSTPr_g!2e0"
             }
         },
@@ -7020,12 +7254,12 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "19c53063-633e-4bc1-9259-57b495916066",
                         "validation": "unsure"
+                    },
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 53174,
@@ -7044,6 +7278,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.7236328125,
                 "camera_pitch": -2.4409255981445312,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68690872192383,-122.34959411621094,3a,75y,126.40178680419922h,62.6875t/data=!3m4!1e1!3m2!1sZJeOLOM4dArOjnivRiBdmg!2e0"
             }
         },
@@ -7100,6 +7335,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.94796752929688,
                 "camera_pitch": -1.2497100830078125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687049865722656,-122.34895324707031,3a,75y,350.22991943359375h,75.25t/data=!3m4!1e1!3m2!1suBYbYtH6LTj0eeHIgyBguw!2e0"
             }
         },
@@ -7157,6 +7393,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.40884399414062,
                 "camera_pitch": -0.9110107421875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686912536621094,-122.34881591796875,3a,75y,228.65847778320312h,58.75t/data=!3m4!1e1!3m2!1snFZxLfOavvQo95DEMxefPA!2e0"
             }
         },
@@ -7209,6 +7446,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.40884399414062,
                 "camera_pitch": -0.9110107421875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686927795410156,-122.34879302978516,3a,75y,203.43527221679688h,55.32589340209961t/data=!3m4!1e1!3m2!1snFZxLfOavvQo95DEMxefPA!2e0"
             }
         },
@@ -7261,6 +7499,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.40884399414062,
                 "camera_pitch": -0.9110107421875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686927795410156,-122.34879302978516,3a,75y,153.9263458251953h,55.0t/data=!3m4!1e1!3m2!1snFZxLfOavvQo95DEMxefPA!2e0"
             }
         },
@@ -7313,6 +7552,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.25732421875,
                 "camera_pitch": 1.2904281616210938,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68776321411133,-122.34867858886719,3a,75y,346.0625h,70.375t/data=!3m4!1e1!3m2!1s3QK_e5nDvJC_Ra_qIjZ-4Q!2e0"
             }
         },
@@ -7343,12 +7583,12 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "f1ecaac2-ab7e-4804-85cf-f1792a595394",
                         "validation": "disagree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 53176,
@@ -7367,6 +7607,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.72418212890625,
                 "camera_pitch": 2.14642333984375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687583923339844,-122.3505859375,3a,75y,174.5h,73.25t/data=!3m4!1e1!3m2!1sFZRQsbvVvNVxTSppR4uSRg!2e0"
             }
         },
@@ -7397,11 +7638,11 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "a6646536-6210-4d7f-bc0a-e6e847b29dac",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "a6646536-6210-4d7f-bc0a-e6e847b29dac",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
@@ -7425,6 +7666,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.6075134277344,
                 "camera_pitch": 2.26593017578125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68775939941406,-122.35112762451172,3a,75y,1.34375h,70.65625t/data=!3m4!1e1!3m2!1sKP5z5wil-489LTZj0aEdvw!2e0"
             }
         },
@@ -7455,12 +7697,12 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "e595ae5a-cae4-41b6-befc-b6d5cfd9b0b9",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "e595ae5a-cae4-41b6-befc-b6d5cfd9b0b9",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 53176,
@@ -7479,6 +7721,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.59710693359375,
                 "camera_pitch": 1.3121490478515625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68777847290039,-122.35110473632812,3a,75y,43.015625h,79.328125t/data=!3m4!1e1!3m2!1sTVqM_nS0UE3FAs68wCt7nw!2e0"
             }
         },
@@ -7509,11 +7752,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "a18e057a-09cb-4ac6-a8fc-81d89fb62909",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "dc9c7b1a-e2bd-4e7f-9d7e-dd239d7c7062",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
@@ -7525,7 +7764,11 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "a18e057a-09cb-4ac6-a8fc-81d89fb62909",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "dc9c7b1a-e2bd-4e7f-9d7e-dd239d7c7062",
                         "validation": "agree"
                     }
                 ],
@@ -7545,6 +7788,7 @@
                 "pano_height": 6656,
                 "camera_heading": 88.6446533203125,
                 "camera_pitch": -0.6695480346679688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68775177001953,-122.3525619506836,3a,75y,13.178571701049805h,71.09821510314941t/data=!3m4!1e1!3m2!1scbaUqLCsAUOQ_cJOKNDjBg!2e0"
             }
         },
@@ -7579,7 +7823,7 @@
                         "validation": "unsure"
                     },
                     {
-                        "user_id": "6b928149-807c-4d40-94e0-9a1021d43a2d",
+                        "user_id": "03a971c4-673f-436e-9a69-0d37e3870630",
                         "validation": "agree"
                     },
                     {
@@ -7587,7 +7831,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "03a971c4-673f-436e-9a69-0d37e3870630",
+                        "user_id": "6b928149-807c-4d40-94e0-9a1021d43a2d",
                         "validation": "agree"
                     }
                 ],
@@ -7607,6 +7851,7 @@
                 "pano_height": 6656,
                 "camera_heading": 88.6446533203125,
                 "camera_pitch": -0.6695480346679688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687618255615234,-122.3525619506836,3a,75y,166.79464721679688h,63.10714340209961t/data=!3m4!1e1!3m2!1scbaUqLCsAUOQ_cJOKNDjBg!2e0"
             }
         },
@@ -7637,7 +7882,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "4722f01d-c3da-4f6e-b0f9-145c6573e27a",
                         "validation": "agree"
                     },
                     {
@@ -7645,7 +7890,7 @@
                         "validation": "disagree"
                     },
                     {
-                        "user_id": "4722f01d-c3da-4f6e-b0f9-145c6573e27a",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -7665,6 +7910,7 @@
                 "pano_height": 6656,
                 "camera_heading": 88.6446533203125,
                 "camera_pitch": -0.6695480346679688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68761444091797,-122.3526611328125,3a,75y,241.0625h,72.7410717010498t/data=!3m4!1e1!3m2!1scbaUqLCsAUOQ_cJOKNDjBg!2e0"
             }
         },
@@ -7695,6 +7941,14 @@
                 "unsure_count": 0,
                 "validations": [
                     {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "6b928149-807c-4d40-94e0-9a1021d43a2d",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "4f2a3a9a-a5d5-4d57-b2d1-6be61a6c2184",
                         "validation": "agree"
                     },
@@ -7704,14 +7958,6 @@
                     },
                     {
                         "user_id": "86c6ef58-c719-432b-9642-a875aa094c48",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "6b928149-807c-4d40-94e0-9a1021d43a2d",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -7731,6 +7977,7 @@
                 "pano_height": 6656,
                 "camera_heading": 88.6446533203125,
                 "camera_pitch": -0.6695480346679688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68762969970703,-122.35271453857422,3a,75y,246.59375h,74.3816967010498t/data=!3m4!1e1!3m2!1scbaUqLCsAUOQ_cJOKNDjBg!2e0"
             }
         },
@@ -7756,16 +8003,20 @@
                 "osm_way_id": 6394741,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 2,
+                "agree_count": 3,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "dc580f85-40af-4229-b8ca-4d9c21610720",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "c6b6ad2d-298f-465d-8dc4-c1a746108e25",
                         "validation": "agree"
                     }
                 ],
@@ -7785,6 +8036,7 @@
                 "pano_height": 6656,
                 "camera_heading": 88.6446533203125,
                 "camera_pitch": -0.6695480346679688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687747955322266,-122.35269165039062,3a,75y,312.96875h,76.3504467010498t/data=!3m4!1e1!3m2!1scbaUqLCsAUOQ_cJOKNDjBg!2e0"
             }
         },
@@ -7815,11 +8067,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "790cbebd-0985-4734-a122-75f493087a2b",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "03a971c4-673f-436e-9a69-0d37e3870630",
+                        "user_id": "790cbebd-0985-4734-a122-75f493087a2b",
                         "validation": "agree"
                     },
                     {
@@ -7827,7 +8079,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "03a971c4-673f-436e-9a69-0d37e3870630",
                         "validation": "agree"
                     }
                 ],
@@ -7847,6 +8099,7 @@
                 "pano_height": 6656,
                 "camera_heading": 88.6446533203125,
                 "camera_pitch": -0.6695480346679688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687721252441406,-122.35272216796875,3a,75y,305.28125h,76.9598217010498t/data=!3m4!1e1!3m2!1scbaUqLCsAUOQ_cJOKNDjBg!2e0"
             }
         },
@@ -7881,16 +8134,16 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "e595ae5a-cae4-41b6-befc-b6d5cfd9b0b9",
-                        "validation": "disagree"
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
                     },
                     {
                         "user_id": "31a10f12-d9ef-4bd9-9ae6-1d7196abc42b",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "agree"
+                        "user_id": "e595ae5a-cae4-41b6-befc-b6d5cfd9b0b9",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 53178,
@@ -7909,6 +8162,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.1134948730469,
                 "camera_pitch": -2.2171478271484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687774658203125,-122.3533706665039,3a,75y,309.96875h,82.02232122421265t/data=!3m4!1e1!3m2!1sodU3icCL0mH5RXOVFy1AZw!2e0"
             }
         },
@@ -7939,11 +8193,11 @@
                 "unsure_count": 2,
                 "validations": [
                     {
-                        "user_id": "19c53063-633e-4bc1-9259-57b495916066",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "unsure"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "19c53063-633e-4bc1-9259-57b495916066",
                         "validation": "unsure"
                     }
                 ],
@@ -7963,6 +8217,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.1134948730469,
                 "camera_pitch": -2.2171478271484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68777084350586,-122.3532485961914,3a,75y,334.53125h,74.1473217010498t/data=!3m4!1e1!3m2!1sodU3icCL0mH5RXOVFy1AZw!2e0"
             }
         },
@@ -7993,12 +8248,12 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "07ce6c3f-cd73-4bbf-94d4-7eb3bef7d339",
                         "validation": "unsure"
+                    },
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
                     },
                     {
                         "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
@@ -8021,6 +8276,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.1134948730469,
                 "camera_pitch": -2.2171478271484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6877555847168,-122.35313415527344,3a,75y,17.03125h,72.18303489685059t/data=!3m4!1e1!3m2!1sodU3icCL0mH5RXOVFy1AZw!2e0"
             }
         },
@@ -8079,6 +8335,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.8611145019531,
                 "camera_pitch": -3.3962554931640625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687747955322266,-122.3537826538086,3a,75y,30.912946701049805h,72.4598217010498t/data=!3m4!1e1!3m2!1sLFVoFAXBtcTshnmFNc_X8g!2e0"
             }
         },
@@ -8129,6 +8386,7 @@
                 "pano_height": 8192,
                 "camera_heading": 269.5865173339844,
                 "camera_pitch": -4.383880615234375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68756103515625,-122.35432434082031,3a,75y,231.67857360839844h,84.125t/data=!3m4!1e1!3m2!1sj_UJvxUtS7nYGaQVVDlcmw!2e0"
             }
         },
@@ -8179,6 +8437,7 @@
                 "pano_height": 8192,
                 "camera_heading": 270.1146545410156,
                 "camera_pitch": 2.7382583618164062,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687744140625,-122.35736083984375,3a,75y,329.4352722167969h,73.375t/data=!3m4!1e1!3m2!1sYtG7VMKrMRBhEkVcZZYVRg!2e0"
             }
         },
@@ -8233,6 +8492,7 @@
                 "pano_height": 8192,
                 "camera_heading": 270.1146545410156,
                 "camera_pitch": 2.7382583618164062,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687744140625,-122.35736083984375,3a,75y,329.4352722167969h,73.375t/data=!3m4!1e1!3m2!1sYtG7VMKrMRBhEkVcZZYVRg!2e0"
             }
         },
@@ -8293,6 +8553,7 @@
                 "pano_height": 8192,
                 "camera_heading": 16.17203140258789,
                 "camera_pitch": 0.3874664306640625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68473434448242,-122.35237884521484,3a,75y,139.59152221679688h,55.0t/data=!3m4!1e1!3m2!1sHIppWPjkz7XSkgsH0ILYJg!2e0"
             }
         },
@@ -8320,10 +8581,14 @@
                 "osm_way_id": 519402253,
                 "neighborhood": "Greenwood",
                 "correct": true,
-                "agree_count": 1,
+                "agree_count": 2,
                 "disagree_count": 0,
                 "unsure_count": 0,
                 "validations": [
+                    {
+                        "user_id": "550b3637-a668-4eee-a0fb-2e7f076ce874",
+                        "validation": "agree"
+                    },
                     {
                         "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
@@ -8349,6 +8614,7 @@
                 "pano_height": 8192,
                 "camera_heading": 16.17203140258789,
                 "camera_pitch": 0.3874664306640625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68470001220703,-122.35237121582031,3a,75y,166.6450958251953h,58.839284896850586t/data=!3m4!1e1!3m2!1sHIppWPjkz7XSkgsH0ILYJg!2e0"
             }
         },
@@ -8385,11 +8651,11 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "0049716f-f35e-4846-8737-71a74784a0fe",
+                        "user_id": "a22b44eb-e584-41ee-994d-1dad1a714068",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "a22b44eb-e584-41ee-994d-1dad1a714068",
+                        "user_id": "0049716f-f35e-4846-8737-71a74784a0fe",
                         "validation": "agree"
                     }
                 ],
@@ -8409,6 +8675,7 @@
                 "pano_height": 8192,
                 "camera_heading": 16.17203140258789,
                 "camera_pitch": 0.3874664306640625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68467330932617,-122.35253143310547,3a,75y,240.03794860839844h,75.625t/data=!3m4!1e1!3m2!1sHIppWPjkz7XSkgsH0ILYJg!2e0"
             }
         },
@@ -8441,11 +8708,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -8465,6 +8732,7 @@
                 "pano_height": 8192,
                 "camera_heading": 16.17203140258789,
                 "camera_pitch": 0.3874664306640625,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68470001220703,-122.35255432128906,3a,75y,249.45982360839844h,76.515625t/data=!3m4!1e1!3m2!1sHIppWPjkz7XSkgsH0ILYJg!2e0"
             }
         },
@@ -8497,11 +8765,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "80a4a5aa-36d2-48d1-8f46-b6aebcbd29c2",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "80a4a5aa-36d2-48d1-8f46-b6aebcbd29c2",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -8521,6 +8789,7 @@
                 "pano_height": 8192,
                 "camera_heading": 94.15420532226562,
                 "camera_pitch": 1.1702804565429688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68482208251953,-122.35253143310547,3a,75y,326.0h,78.2678575515747t/data=!3m4!1e1!3m2!1sSfVGKWCPbIUE3Ou_Uj-fsQ!2e0"
             }
         },
@@ -8553,7 +8822,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "d62ce2ba-eff3-4c78-9293-5361736a47eb",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
@@ -8561,7 +8830,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "d62ce2ba-eff3-4c78-9293-5361736a47eb",
                         "validation": "agree"
                     }
                 ],
@@ -8581,6 +8850,7 @@
                 "pano_height": 8192,
                 "camera_heading": 94.15420532226562,
                 "camera_pitch": 1.1702804565429688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68484115600586,-122.35250854492188,3a,75y,338.84375h,75.4084825515747t/data=!3m4!1e1!3m2!1sSfVGKWCPbIUE3Ou_Uj-fsQ!2e0"
             }
         },
@@ -8633,6 +8903,7 @@
                 "pano_height": 8192,
                 "camera_heading": 94.15420532226562,
                 "camera_pitch": 1.1702804565429688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684837341308594,-122.35235595703125,3a,75y,27.40625h,74.2834825515747t/data=!3m4!1e1!3m2!1sSfVGKWCPbIUE3Ou_Uj-fsQ!2e0"
             }
         },
@@ -8665,11 +8936,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -8689,6 +8960,7 @@
                 "pano_height": 8192,
                 "camera_heading": 94.15420532226562,
                 "camera_pitch": 1.1702804565429688,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.684818267822266,-122.35233306884766,3a,75y,27.40625h,74.2834825515747t/data=!3m4!1e1!3m2!1sSfVGKWCPbIUE3Ou_Uj-fsQ!2e0"
             }
         },
@@ -8736,6 +9008,7 @@
                 "pano_height": 8192,
                 "camera_heading": 352.52777099609375,
                 "camera_pitch": -0.7161636352539062,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68701171875,-122.35274505615234,3a,75y,289.703125h,75.8370532989502t/data=!3m4!1e1!3m2!1sbX0gebx18gKSxIcHzAT2Sw!2e0"
             }
         },
@@ -8768,11 +9041,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "3b2fd903-741f-42c8-8590-f310d84232f1",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "3b2fd903-741f-42c8-8590-f310d84232f1",
                         "validation": "agree"
                     }
                 ],
@@ -8792,6 +9065,7 @@
                 "pano_height": 8192,
                 "camera_heading": 352.52777099609375,
                 "camera_pitch": -0.7161636352539062,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6868896484375,-122.35272979736328,3a,75y,218.46652221679688h,78.6785717010498t/data=!3m4!1e1!3m2!1sbX0gebx18gKSxIcHzAT2Sw!2e0"
             }
         },
@@ -8839,6 +9113,7 @@
                 "pano_height": 8192,
                 "camera_heading": 352.68743896484375,
                 "camera_pitch": 0.06591033935546875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686885833740234,-122.35248565673828,3a,75y,149.86607360839844h,75.3705358505249t/data=!3m4!1e1!3m2!1sMIFuzJ_hvGZsN5U_f3dPnQ!2e0"
             }
         },
@@ -8895,6 +9170,7 @@
                 "pano_height": 8192,
                 "camera_heading": 352.68743896484375,
                 "camera_pitch": 0.06591033935546875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68700408935547,-122.35250854492188,3a,75y,71.05357360839844h,68.32589340209961t/data=!3m4!1e1!3m2!1sMIFuzJ_hvGZsN5U_f3dPnQ!2e0"
             }
         },
@@ -8947,6 +9223,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.27467346191406,
                 "camera_pitch": -1.9605941772460938,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68693161010742,-122.35211944580078,3a,75y,218.50892639160156h,63.625t/data=!3m4!1e1!3m2!1smYIANHXRRrGjYkaW512cDg!2e0"
             }
         },
@@ -8979,16 +9256,16 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "disagree"
+                        "user_id": "752f2f58-5ddd-45f6-8c58-e91f33af4b13",
+                        "validation": "agree"
                     },
                     {
                         "user_id": "de335890-76a7-4f96-86f9-0709e56c7c5f",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "752f2f58-5ddd-45f6-8c58-e91f33af4b13",
-                        "validation": "agree"
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 54083,
@@ -9007,6 +9284,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.85871124267578,
                 "camera_pitch": -1.4932174682617188,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686927795410156,-122.35128784179688,3a,75y,164.69642639160156h,55.0t/data=!3m4!1e1!3m2!1sJSAJNjWa5UP3nmCWCDiWlA!2e0"
             }
         },
@@ -9059,6 +9337,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.40483093261719,
                 "camera_pitch": -1.3631057739257812,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687049865722656,-122.35086822509766,3a,75y,7.857142925262451h,76.0714282989502t/data=!3m4!1e1!3m2!1sEBnu9968gn-Z05HmAOUOfQ!2e0"
             }
         },
@@ -9091,24 +9370,24 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "700ec25e-8175-4ad5-aedd-747fcfce033a",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "disagree"
                     },
                     {
                         "user_id": "de335890-76a7-4f96-86f9-0709e56c7c5f",
                         "validation": "unsure"
                     },
                     {
-                        "user_id": "55f42085-dc2a-4dfd-80f9-5cc617614548",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "55f42085-dc2a-4dfd-80f9-5cc617614548",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 58053,
@@ -9127,6 +9406,7 @@
                 "pano_height": 8192,
                 "camera_heading": 359.4712829589844,
                 "camera_pitch": 0.41817474365234375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68511199951172,-122.35514831542969,3a,75y,102.125h,58.125t/data=!3m4!1e1!3m2!1s1WcUmkc4zIki9X7OsIFarA!2e0"
             }
         },
@@ -9179,6 +9459,7 @@
                 "pano_height": 8192,
                 "camera_heading": 0.13824108242988586,
                 "camera_pitch": 0.0364837646484375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68486785888672,-122.35514068603516,3a,75y,115.390625h,77.8125t/data=!3m4!1e1!3m2!1sqFuW0ArxsqZ42JfypAyXFw!2e0"
             }
         },
@@ -9231,6 +9512,7 @@
                 "pano_height": 8192,
                 "camera_heading": 352.68743896484375,
                 "camera_pitch": 0.06591033935546875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687007904052734,-122.35275268554688,3a,75y,299.0h,73.5625t/data=!3m4!1e1!3m2!1sMIFuzJ_hvGZsN5U_f3dPnQ!2e0"
             }
         },
@@ -9278,6 +9560,7 @@
                 "pano_height": 8192,
                 "camera_heading": 352.68743896484375,
                 "camera_pitch": 0.06591033935546875,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68700408935547,-122.35249328613281,3a,75y,60.875h,55.0t/data=!3m4!1e1!3m2!1sMIFuzJ_hvGZsN5U_f3dPnQ!2e0"
             }
         },
@@ -9334,6 +9617,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.6583480834961,
                 "camera_pitch": 2.7096939086914062,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.6868782043457,-122.35266876220703,3a,75y,184.25h,55.0t/data=!3m4!1e1!3m2!1sMoAVhHKvf1MzRJtRMT2iqQ!2e0"
             }
         },
@@ -9390,6 +9674,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.6583480834961,
                 "camera_pitch": 2.7096939086914062,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68693161010742,-122.35274505615234,3a,75y,184.25h,55.0t/data=!3m4!1e1!3m2!1sMoAVhHKvf1MzRJtRMT2iqQ!2e0"
             }
         },
@@ -9445,6 +9730,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.9199447631836,
                 "camera_pitch": 5.257743835449219,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68703842163086,-122.3530502319336,3a,75y,355.625h,59.125t/data=!3m4!1e1!3m2!1sBVBL2Z2dmpTPLGCHjWusrw!2e0"
             }
         },
@@ -9501,6 +9787,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.0282211303711,
                 "camera_pitch": 5.137535095214844,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68690872192383,-122.35325622558594,3a,75y,208.25h,55.0t/data=!3m4!1e1!3m2!1s_np_qpJRRAcJuDVq4rBv4Q!2e0"
             }
         },
@@ -9553,6 +9840,7 @@
                 "pano_height": 8192,
                 "camera_heading": 88.75361633300781,
                 "camera_pitch": 4.896324157714844,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686912536621094,-122.35337829589844,3a,75y,139.25h,55.0t/data=!3m4!1e1!3m2!1sUhJ0QKFJs-X2ZrRc28L-NA!2e0"
             }
         },
@@ -9605,6 +9893,7 @@
                 "pano_height": 8192,
                 "camera_heading": 88.75361633300781,
                 "camera_pitch": 4.896324157714844,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68692398071289,-122.35340881347656,3a,75y,180.6875h,55.0t/data=!3m4!1e1!3m2!1sUhJ0QKFJs-X2ZrRc28L-NA!2e0"
             }
         },
@@ -9657,6 +9946,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.23081970214844,
                 "camera_pitch": 4.8604583740234375,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686893463134766,-122.35363006591797,3a,75y,159.5h,56.6875t/data=!3m4!1e1!3m2!1sOW4K8GUc5_rR9OLYXnZhAg!2e0"
             }
         },
@@ -9709,6 +9999,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.44660186767578,
                 "camera_pitch": 4.8657989501953125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.686920166015625,-122.35380554199219,3a,75y,185.9375h,55.0t/data=!3m4!1e1!3m2!1sMRqBOy6qkktODccf93eLMA!2e0"
             }
         },
@@ -9762,6 +10053,7 @@
                 "pano_height": 8192,
                 "camera_heading": 89.44660186767578,
                 "camera_pitch": 4.8657989501953125,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.687034606933594,-122.35382080078125,3a,75y,328.625h,60.8125t/data=!3m4!1e1!3m2!1sMRqBOy6qkktODccf93eLMA!2e0"
             }
         },
@@ -9815,6 +10107,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.05526733398438,
                 "camera_pitch": 5.184074401855469,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68691635131836,-122.35447692871094,3a,75y,175.8125h,56.6875t/data=!3m4!1e1!3m2!1s-3LlTEmOJHntcd9zHm_s6w!2e0"
             }
         },
@@ -9841,11 +10134,16 @@
                 "street_edge_id": 8655,
                 "osm_way_id": 6488959,
                 "neighborhood": "Greenwood",
-                "correct": null,
-                "agree_count": 0,
+                "correct": true,
+                "agree_count": 1,
                 "disagree_count": 0,
                 "unsure_count": 0,
-                "validations": [],
+                "validations": [
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    }
+                ],
                 "audit_task_id": 58072,
                 "mission_id": 59237,
                 "image_capture_date": "2021-07",
@@ -9862,6 +10160,7 @@
                 "pano_height": 8192,
                 "camera_heading": 90.05175018310547,
                 "camera_pitch": 5.373802185058594,
+                "camera_roll": null,
                 "image_url": "https://www.google.com/maps/@47.68690872192383,-122.35501098632812,3a,75y,157.625h,55.0t/data=!3m4!1e1!3m2!1sAVdBtan5c1RjQkNubQJI9g!2e0"
             }
         }
