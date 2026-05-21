@@ -279,7 +279,8 @@
     <div class="l-row"><div class="dot" style="background:#00e5a0;border:2px solid #fff"></div> Normal node</div>
     <div class="l-row"><div class="dot" style="background:#ff5f5f;border:2px solid #fff"></div> Missing curb ramp node</div>
     <div class="l-row"><div class="dot" style="background:#800080;border:2px solid #fff"></div> Surface problem node</div>
-    <div class="l-row"><div style="width:24px;height:2px;background:#4a9eff"></div> Edge</div>
+    <div class="l-row"><div style="width:24px;height:2px;background:#35da1c"></div> Edge</div>
+    <div class="l-row"><div style="width:24px;height:2px;background:#ff13f0"></div> Optimal Path </div>
   </div>
 </div>
 
@@ -451,6 +452,7 @@ function render() {
     });
   });
 
+
   // Draw edges
   let edgeCount = 0;
   Object.entries(edges).forEach(([fromId, targets]) => {
@@ -472,6 +474,17 @@ function render() {
       }
     });
   });
+
+
+  // Draw optimal path between start and endpoint
+  const ids = ['12291636486', '5443848984', '8211131573', '12289930215', '8211131579',
+    '12289930212', '7960032581', '12291196076', '12291636540', '12291636467',
+    '12291196077', '12234374525'];
+  for (let i = 0; i < ids.length - 1; i++) {
+    const src = latlngOf[ids[i]];
+    const dst = latlngOf[ids[i+1]];
+    L.polyline([src, dst], { color: "#ff13f0", weight: 6, opacity: 0.65 }).addTo(layerGroup);
+  }
 
   // Draw nodes
   let issueCount = 0;

@@ -30,11 +30,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "87aaffc1-f017-4eac-8a24-f19fd060dc4d",
+                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
+                        "user_id": "87aaffc1-f017-4eac-8a24-f19fd060dc4d",
                         "validation": "agree"
                     }
                 ],
@@ -197,12 +197,12 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "68792edc-d74f-4228-8d31-9a7895327818",
                         "validation": "disagree"
+                    },
+                    {
+                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 2072,
@@ -519,12 +519,12 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "unsure"
-                    },
-                    {
                         "user_id": "9b595ba6-529b-4d37-93d7-dd189184e15a",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "unsure"
                     }
                 ],
                 "audit_task_id": 2072,
@@ -1572,12 +1572,12 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "8bea027e-7d62-47d9-92a3-6b8d38550984",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "8bea027e-7d62-47d9-92a3-6b8d38550984",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 3747,
@@ -1631,11 +1631,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
+                        "user_id": "83106828-bcb6-441f-bb48-c6f2984d6a52",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "83106828-bcb6-441f-bb48-c6f2984d6a52",
+                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
                         "validation": "agree"
                     }
                 ],
@@ -1691,11 +1691,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "4f2a3a9a-a5d5-4d57-b2d1-6be61a6c2184",
+                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
+                        "user_id": "4f2a3a9a-a5d5-4d57-b2d1-6be61a6c2184",
                         "validation": "agree"
                     }
                 ],
@@ -1749,12 +1749,12 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "18b26a38-24ab-402d-a64e-158fc0bb8a8a",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "cd3f4580-462f-4c11-a132-6b65e36e0af2",
                         "validation": "disagree"
+                    },
+                    {
+                        "user_id": "18b26a38-24ab-402d-a64e-158fc0bb8a8a",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 3747,
@@ -1866,12 +1866,12 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "14916b64-edfc-4877-bd62-a3ee88caae26",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "717a56a8-a7f8-4a98-9b30-c2eab3ae85ff",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "14916b64-edfc-4877-bd62-a3ee88caae26",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 3747,
@@ -1929,12 +1929,12 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "d8ca6ac6-7dcf-441f-80f1-083c141162f6",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "e0b3316c-6d15-48ab-9bd3-3eceafc14059",
                         "validation": "disagree"
+                    },
+                    {
+                        "user_id": "d8ca6ac6-7dcf-441f-80f1-083c141162f6",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 3747,
@@ -1988,11 +1988,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
+                        "user_id": "4f2a3a9a-a5d5-4d57-b2d1-6be61a6c2184",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "4f2a3a9a-a5d5-4d57-b2d1-6be61a6c2184",
+                        "user_id": "549187e0-82c9-4014-a48d-31f18083d575",
                         "validation": "agree"
                     }
                 ],
@@ -3005,16 +3005,16 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
-                        "validation": "agree"
+                        "user_id": "220cbb63-a723-41e1-98a9-6970ab463545",
+                        "validation": "disagree"
                     },
                     {
                         "user_id": "ac349bea-1449-4aeb-8508-762919160edc",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "220cbb63-a723-41e1-98a9-6970ab463545",
-                        "validation": "disagree"
+                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
+                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 19846,
@@ -3229,12 +3229,12 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "231a7ad5-13ef-4eb7-bd5f-c3066e30be0d",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "231a7ad5-13ef-4eb7-bd5f-c3066e30be0d",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 19852,
@@ -3341,7 +3341,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "894855b1-1cee-4ec5-9ab5-43dc10a4d13f",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
                         "validation": "agree"
                     },
                     {
@@ -3353,11 +3357,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "894855b1-1cee-4ec5-9ab5-43dc10a4d13f",
                         "validation": "agree"
                     },
                     {
@@ -3426,11 +3426,11 @@
                         "validation": "disagree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "80cae3e2-9cf1-452c-9c61-2a5757bc1130",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "80cae3e2-9cf1-452c-9c61-2a5757bc1130",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -3483,7 +3483,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
                         "validation": "agree"
                     },
                     {
@@ -3491,7 +3491,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -3544,7 +3544,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
+                        "user_id": "2b80fb60-17f2-4b92-a49a-871ae98f7bba",
                         "validation": "agree"
                     },
                     {
@@ -3552,7 +3552,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "2b80fb60-17f2-4b92-a49a-871ae98f7bba",
+                        "user_id": "7486977c-f91a-4ce0-be11-c0c8a0b38e12",
                         "validation": "agree"
                     },
                     {
@@ -3655,15 +3655,15 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "d00ac1a7-027a-4dbb-ba10-f1f3cdbdd612",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "a57ff659-a9bb-4836-8b0b-e41894142a5b",
                         "validation": "unsure"
                     },
                     {
                         "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "d00ac1a7-027a-4dbb-ba10-f1f3cdbdd612",
                         "validation": "agree"
                     }
                 ],
@@ -3985,11 +3985,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "f69858b5-c091-409c-902c-2ae05998a7fe",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "f69858b5-c091-409c-902c-2ae05998a7fe",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -4046,7 +4046,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "2b80fb60-17f2-4b92-a49a-871ae98f7bba",
                         "validation": "agree"
                     },
                     {
@@ -4054,7 +4054,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "2b80fb60-17f2-4b92-a49a-871ae98f7bba",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -4436,11 +4436,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "a13f5713-6fdb-401b-968a-7dc96eea0cd4",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "a13f5713-6fdb-401b-968a-7dc96eea0cd4",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -4491,11 +4491,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "a13f5713-6fdb-401b-968a-7dc96eea0cd4",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "a13f5713-6fdb-401b-968a-7dc96eea0cd4",
                         "validation": "agree"
                     }
                 ],
@@ -4617,11 +4617,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
                         "validation": "agree"
                     },
                     {
@@ -4629,7 +4625,11 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -4735,11 +4735,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
                     },
                     {
@@ -4861,11 +4861,11 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     }
                 ],
@@ -5040,7 +5040,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "c74affdb-42a2-400d-a674-153cf7c54eb9",
+                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
                         "validation": "agree"
                     },
                     {
@@ -5048,7 +5048,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "a707e8b6-5008-4f8f-87e3-1d60149941bb",
+                        "user_id": "c74affdb-42a2-400d-a674-153cf7c54eb9",
                         "validation": "agree"
                     }
                 ],
@@ -5163,11 +5163,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "e730399b-a309-4045-8096-7493e43b7359",
+                        "user_id": "696831b9-7f72-42a3-ac48-2cc87749d823",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "696831b9-7f72-42a3-ac48-2cc87749d823",
+                        "user_id": "e730399b-a309-4045-8096-7493e43b7359",
                         "validation": "agree"
                     }
                 ],
@@ -5220,11 +5220,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     }
                 ],
@@ -5277,6 +5277,10 @@
                 "unsure_count": 0,
                 "validations": [
                     {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "931e700a-76ce-4720-81b8-43dfdaae5db7",
                         "validation": "agree"
                     },
@@ -5286,10 +5290,6 @@
                     },
                     {
                         "user_id": "d7703151-4339-4cca-b2a0-511d9d36fac9",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     }
                 ],
@@ -5570,10 +5570,6 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "752f2f58-5ddd-45f6-8c58-e91f33af4b13",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "18b26a38-24ab-402d-a64e-158fc0bb8a8a",
                         "validation": "agree"
                     },
@@ -5582,11 +5578,15 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "3da7922f-5880-40bc-9e96-f2c568740ab4",
+                        "user_id": "a574ccc7-6633-4052-aec3-c0e1b620292c",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "a574ccc7-6633-4052-aec3-c0e1b620292c",
+                        "user_id": "752f2f58-5ddd-45f6-8c58-e91f33af4b13",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "3da7922f-5880-40bc-9e96-f2c568740ab4",
                         "validation": "agree"
                     }
                 ],
@@ -5694,11 +5694,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "4e537456-aa6e-4372-9bcb-51e0eb7699c9",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
+                        "user_id": "c6b6ad2d-298f-465d-8dc4-c1a746108e25",
                         "validation": "agree"
                     },
                     {
@@ -5706,7 +5702,11 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "c6b6ad2d-298f-465d-8dc4-c1a746108e25",
+                        "user_id": "4e537456-aa6e-4372-9bcb-51e0eb7699c9",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
                     }
                 ],
@@ -5881,11 +5881,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "2eb16df0-b9d5-4540-86ac-cabfa6c79edd",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "2eb16df0-b9d5-4540-86ac-cabfa6c79edd",
                         "validation": "agree"
                     },
                     {
@@ -5942,11 +5942,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
                     {
@@ -6064,18 +6064,6 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "4a3b0cac-1ae1-462d-bcb9-c61dff044b8a",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "dcf7d759-135c-4ce9-95df-9cd7a58a5855",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "401c9479-4760-432e-b198-058c17ec6aef",
                         "validation": "agree"
                     },
@@ -6085,6 +6073,18 @@
                     },
                     {
                         "user_id": "2828641a-3745-4b41-acbf-6c8a686d8ea1",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "dcf7d759-135c-4ce9-95df-9cd7a58a5855",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "4a3b0cac-1ae1-462d-bcb9-c61dff044b8a",
                         "validation": "agree"
                     }
                 ],
@@ -6137,11 +6137,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
@@ -6149,7 +6145,11 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     }
                 ],
@@ -6206,15 +6206,15 @@
                         "validation": "agree"
                     },
                     {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     },
                     {
                         "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     }
                 ],
@@ -6267,11 +6267,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "7a607bdc-4b04-4302-adf1-d8c2086acbea",
+                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
+                        "user_id": "7a607bdc-4b04-4302-adf1-d8c2086acbea",
                         "validation": "agree"
                     },
                     {
@@ -6332,11 +6332,11 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "36a2aa57-e9d6-4258-b0a1-c258f435701c",
+                        "user_id": "401c9479-4760-432e-b198-058c17ec6aef",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "401c9479-4760-432e-b198-058c17ec6aef",
+                        "user_id": "36a2aa57-e9d6-4258-b0a1-c258f435701c",
                         "validation": "agree"
                     }
                 ],
@@ -6446,11 +6446,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "de335890-76a7-4f96-86f9-0709e56c7c5f",
+                        "user_id": "b932edaf-0749-4b49-b3e7-310aef16d253",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b932edaf-0749-4b49-b3e7-310aef16d253",
+                        "user_id": "de335890-76a7-4f96-86f9-0709e56c7c5f",
                         "validation": "agree"
                     }
                 ],
@@ -6560,12 +6560,12 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "bfe97bf1-83e5-445a-9ddd-8749c49c7758",
                         "validation": "unsure"
+                    },
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "agree"
                     },
                     {
                         "user_id": "2ac9dc5d-d40c-40d6-b7d7-0e5d540fde97",
@@ -6621,19 +6621,15 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "a5b7ac3b-a186-4142-9504-c58b41707766",
-                        "validation": "disagree"
-                    },
-                    {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "40c5d4b5-a5e8-481e-8c2b-3165ac7be46d",
                         "validation": "disagree"
                     },
                     {
-                        "user_id": "40c5d4b5-a5e8-481e-8c2b-3165ac7be46d",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "disagree"
                     },
                     {
@@ -6641,8 +6637,12 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "a5b7ac3b-a186-4142-9504-c58b41707766",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 50449,
@@ -6694,10 +6694,6 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "3316a611-25b0-454e-9b00-fe204914d3fb",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "b98e5db3-e835-427a-a5fd-2d8fa43a166c",
                         "validation": "agree"
                     },
@@ -6708,6 +6704,10 @@
                     {
                         "user_id": "e3719212-9702-4bd6-89a4-a73fe38d76ca",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "3316a611-25b0-454e-9b00-fe204914d3fb",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 50449,
@@ -6922,7 +6922,7 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "872c4137-400f-4c54-8fbb-f9ba0cda5ff7",
+                        "user_id": "2b6c2b4a-f54a-46ce-b3fd-1f719783a216",
                         "validation": "agree"
                     },
                     {
@@ -6930,7 +6930,7 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "2b6c2b4a-f54a-46ce-b3fd-1f719783a216",
+                        "user_id": "872c4137-400f-4c54-8fbb-f9ba0cda5ff7",
                         "validation": "agree"
                     }
                 ],
@@ -7040,11 +7040,11 @@
                         "validation": "disagree"
                     },
                     {
-                        "user_id": "19c53063-633e-4bc1-9259-57b495916066",
+                        "user_id": "562165c5-f77a-426d-a080-d251710fb0de",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "562165c5-f77a-426d-a080-d251710fb0de",
+                        "user_id": "19c53063-633e-4bc1-9259-57b495916066",
                         "validation": "agree"
                     }
                 ],
@@ -7095,12 +7095,12 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "a6646536-6210-4d7f-bc0a-e6e847b29dac",
-                        "validation": "disagree"
-                    },
-                    {
                         "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
+                    },
+                    {
+                        "user_id": "a6646536-6210-4d7f-bc0a-e6e847b29dac",
+                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 53145,
@@ -7638,11 +7638,11 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "a6646536-6210-4d7f-bc0a-e6e847b29dac",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "a6646536-6210-4d7f-bc0a-e6e847b29dac",
                         "validation": "agree"
                     },
                     {
@@ -7752,6 +7752,14 @@
                 "unsure_count": 0,
                 "validations": [
                     {
+                        "user_id": "a18e057a-09cb-4ac6-a8fc-81d89fb62909",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "dc9c7b1a-e2bd-4e7f-9d7e-dd239d7c7062",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
@@ -7761,14 +7769,6 @@
                     },
                     {
                         "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "a18e057a-09cb-4ac6-a8fc-81d89fb62909",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "dc9c7b1a-e2bd-4e7f-9d7e-dd239d7c7062",
                         "validation": "agree"
                     }
                 ],
@@ -7819,19 +7819,19 @@
                 "unsure_count": 1,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "unsure"
-                    },
-                    {
                         "user_id": "03a971c4-673f-436e-9a69-0d37e3870630",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "agree"
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "unsure"
                     },
                     {
                         "user_id": "6b928149-807c-4d40-94e0-9a1021d43a2d",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     }
                 ],
@@ -7882,16 +7882,16 @@
                 "unsure_count": 0,
                 "validations": [
                     {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "4722f01d-c3da-4f6e-b0f9-145c6573e27a",
                         "validation": "agree"
                     },
                     {
                         "user_id": "155caf67-7a34-400a-963f-5b7a2598b3a5",
                         "validation": "disagree"
-                    },
-                    {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
                     }
                 ],
                 "audit_task_id": 53178,
@@ -7941,10 +7941,6 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
-                        "validation": "agree"
-                    },
-                    {
                         "user_id": "6b928149-807c-4d40-94e0-9a1021d43a2d",
                         "validation": "agree"
                     },
@@ -7958,6 +7954,10 @@
                     },
                     {
                         "user_id": "86c6ef58-c719-432b-9642-a875aa094c48",
+                        "validation": "agree"
+                    },
+                    {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -8134,11 +8134,11 @@
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "31a10f12-d9ef-4bd9-9ae6-1d7196abc42b",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "31a10f12-d9ef-4bd9-9ae6-1d7196abc42b",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
@@ -8248,15 +8248,15 @@
                 "unsure_count": 1,
                 "validations": [
                     {
+                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
+                        "validation": "agree"
+                    },
+                    {
                         "user_id": "07ce6c3f-cd73-4bbf-94d4-7eb3bef7d339",
                         "validation": "unsure"
                     },
                     {
                         "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "agree"
-                    },
-                    {
-                        "user_id": "51b0b927-3c8a-45b2-93de-bd878d1e5cf4",
                         "validation": "agree"
                     }
                 ],
@@ -8525,11 +8525,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "cf31ccea-180a-4b29-bff3-aab8ebdf9549",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "cf31ccea-180a-4b29-bff3-aab8ebdf9549",
                         "validation": "agree"
                     },
                     {
@@ -9041,11 +9041,11 @@
                 "unsure_count": 0,
                 "validations": [
                     {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "user_id": "3b2fd903-741f-42c8-8590-f310d84232f1",
                         "validation": "agree"
                     },
                     {
-                        "user_id": "3b2fd903-741f-42c8-8590-f310d84232f1",
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
                         "validation": "agree"
                     }
                 ],
@@ -9256,16 +9256,16 @@
                 "unsure_count": 0,
                 "validations": [
                     {
+                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
+                        "validation": "disagree"
+                    },
+                    {
                         "user_id": "752f2f58-5ddd-45f6-8c58-e91f33af4b13",
                         "validation": "agree"
                     },
                     {
                         "user_id": "de335890-76a7-4f96-86f9-0709e56c7c5f",
                         "validation": "agree"
-                    },
-                    {
-                        "user_id": "b27c37b6-2bd8-4738-adc3-a67b280e9625",
-                        "validation": "disagree"
                     }
                 ],
                 "audit_task_id": 54083,
