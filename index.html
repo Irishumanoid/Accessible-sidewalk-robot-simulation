@@ -214,18 +214,6 @@
       <hr class="section-divider"/>
 
       <div>
-        <label>Bounding Box <span style="font-size:10px;opacity:.6;text-transform:none;letter-spacing:0">from your .osm file</span></label>
-        <div class="row">
-          <div><label>Min Lng</label><input type="number" id="bb-min-lng" step="any" placeholder="-122.357"/></div>
-          <div><label>Max Lng</label><input type="number" id="bb-max-lng" step="any" placeholder="-122.348"/></div>
-        </div>
-        <div class="row" style="margin-top:8px">
-          <div><label>Min Lat</label><input type="number" id="bb-min-lat" step="any" placeholder="47.684"/></div>
-          <div><label>Max Lat</label><input type="number" id="bb-max-lat" step="any" placeholder="47.688"/></div>
-        </div>
-      </div>
-
-      <div>
         <label>Node coordinate type</label>
         <div class="pill-bar">
           <input type="radio" name="coord-mode" id="cm-tangent" value="tangent" checked/>
@@ -280,7 +268,6 @@
           <button class="pin-clear" id="btn-clear-end" title="Clear">✕</button>
         </div>
 
-        <div style="font-size:10px;color:var(--muted);margin-top:2px">Or enter coordinates manually:</div>
         <div class="row">
           <div><label>Start Lng</label><input type="text" id="inp-start-lng" placeholder="-122.356"/></div>
           <div><label>Start Lat</label><input type="text" id="inp-start-lat" placeholder="47.685"/></div>
@@ -347,6 +334,9 @@ let endNodeId    = null;
 let selecting    = null;
 let startMarker  = null;
 let endMarker    = null;
+
+let minLat = 90, maxLat = -90, minLng = 180, maxLng = -180;
+
 
 document.querySelectorAll('.tab-bar button').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -614,11 +604,6 @@ function render() {
 
   const nodeIds = Object.keys(nodes);
   if (!nodeIds.length) { showError('No nodes found.'); return; }
-
-  const minLng = parseFloat(document.getElementById('bb-min-lng').value);
-  const maxLng = parseFloat(document.getElementById('bb-max-lng').value);
-  const minLat = parseFloat(document.getElementById('bb-min-lat').value);
-  const maxLat = parseFloat(document.getElementById('bb-max-lat').value);
   if ([minLng,maxLng,minLat,maxLat].some(isNaN)) { showError('Fill in all four bounding box coordinates.'); return; }
 
   centerLat  = (minLat + maxLat) / 2;
@@ -636,6 +621,14 @@ function render() {
   latlngOf = {};
   graphNodes = nodes;
   graphEdges = edges;
+
+  for (const id in graphNodes) {
+    const n = graphNodes[id];
+    if (n.x < minLng) minLng = n.x;
+    if (n.x > maxLng) maxLng = n.x;
+    if (n.y < minLat) minLat = n.y;
+    if (n.y > maxLat) maxLat = n.y;
+  }
 
   nodeIds.forEach(id => {
     const {x, y} = nodes[id];
@@ -782,10 +775,10 @@ document.getElementById('btn-set-coords').addEventListener('click', () => {
   if (!graphRendered) { showPathError('Render the graph first.'); return; }
   clearPathError();
 
-  const sLng = parseFloat(document.getElementById('inp-start-lng').value);
-  const sLat = parseFloat(document.getElementById('inp-start-lat').value);
-  const eLng = parseFloat(document.getElementById('inp-end-lng').value);
-  const eLat = parseFloat(document.getElementById('inp-end-lat').value);
+  const sLng = minLng;
+  const sLat = minLat;
+  const eLng = maxLng;
+  const eLat = maxLat;
 
   if (isNaN(sLng) || isNaN(sLat) || isNaN(eLng) || isNaN(eLat)) {
     showPathError('Enter valid numbers for all four coordinate fields.'); return;
