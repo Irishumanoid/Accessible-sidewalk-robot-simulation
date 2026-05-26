@@ -229,6 +229,12 @@
       <hr class="section-divider"/>
 
       <div style="display:flex;flex-direction:column;gap:8px">
+        <label>Route Filtering</label>
+        <div class="option-row"><input type="checkbox" id="avoid-missing-curb-ramps" unchecked/> Avoid missing curb ramps </div>
+        <div class="option-row"><input type="checkbox" id="avoid-surface-problems" unchecked/> Avoid missing surface problems </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
         <label>Display Options</label>
         <div class="option-row"><input type="checkbox" id="opt-costs" checked/> Show edge costs on hover</div>
         <div class="option-row" style="flex-wrap:wrap;gap:4px">
@@ -324,7 +330,6 @@ let pathLayer   = L.layerGroup().addTo(leafletMap);  // separate layer for path 
 let graphNodes   = {};   // {id: {x, y, issue, issueType}}
 let graphEdges   = {};   // {id: [{to, cost}]}
 let latlngOf     = {};   // {id: [lat, lng]}
-let coordMode    = 'tangent';
 let centerLat    = 47.686;
 let centerLng    = -122.352;
 let graphRendered = false;
@@ -334,6 +339,7 @@ let endNodeId    = null;
 let selecting    = null;
 let startMarker  = null;
 let endMarker    = null;
+let blockedNodes = new Set();
 
 let minLat = 90, maxLat = -90, minLng = 180, maxLng = -180;
 
@@ -410,14 +416,9 @@ function costToColor(cost, minCost, maxCost) {
 
 function nodeHeuristic(idA, idB) {
   const a = graphNodes[idA], b = graphNodes[idB];
-  if (coordMode === 'latlng') {
-    const dx = (b.x - a.x) * Math.PI / 180 * EARTH_RAD * Math.cos((a.y + b.y) / 2 * Math.PI / 180);
-    const dy = (b.y - a.y) * Math.PI / 180 * EARTH_RAD;
-    return Math.sqrt(dx*dx + dy*dy);
-  } else {
-    const dx = b.x - a.x, dy = b.y - a.y;
-    return Math.sqrt(dx*dx + dy*dy);
-  }
+  const dx = (b.x - a.x) * Math.PI / 180 * EARTH_RAD * Math.cos((a.y + b.y) / 2 * Math.PI / 180);
+  const dy = (b.y - a.y) * Math.PI / 180 * EARTH_RAD;
+  return Math.sqrt(dx*dx + dy*dy);
 }
 
 function closestNode(queryX, queryY) {
@@ -455,9 +456,10 @@ function runAstar(startId, endId) {
       const toId = String(edge.to);
       if (closed.has(toId)) continue;
       if (!graphNodes[toId]) continue;
+      if (blockedNodes.has(toId)) continue;
 
       const nFrom = graphNodes[current];
-      const nTo   = graphNodes[toId];
+      const nTo = graphNodes[toId];
 
       const curYaw = Math.atan2(nTo.y - nFrom.y, nTo.x - nFrom.x);
       let prevYaw = curYaw;
@@ -505,6 +507,96 @@ function runAstar(startId, endId) {
   }
 
   return { path, totalCost };
+}
+
+function reconnectStrandedNodes(nodes, edges, blocked) {
+  const patchedEdges = {};
+
+  for (const id in nodes) {
+    if (blocked.has(id)) continue;
+    patchedEdges[id] = (edges[id] || []).filter(e => !blocked.has(String(e.to)));
+  }
+
+  const incomingOf = {};
+  for (const id in nodes) incomingOf[id] = [];
+  for (const fromId in edges) {
+    for (const edge of (edges[fromId] || [])) {
+      const toId = String(edge.to);
+      if (incomingOf[toId]) incomingOf[toId].push({ fromId, cost: edge.cost });
+    }
+  }
+
+  // Check if segment from node A to node B passes within threshold of any blocked node
+  function segmentCrossesBlocked(idA, idB) {
+    const a = nodes[idA], b = nodes[idB];
+    if (!a || !b) return true;
+    const dx = b.x - a.x, dy = b.y - a.y;
+    const lenSq = dx*dx + dy*dy;
+
+    for (const blockedId of blocked) {
+      const p = nodes[blockedId];
+      if (!p) continue;
+      const t = lenSq === 0 ? 0 :
+        Math.max(0, Math.min(1, ((p.x - a.x)*dx + (p.y - a.y)*dy) / lenSq));
+      const cx = a.x + t*dx, cy = a.y + t*dy;
+      const dist = Math.sqrt((p.x-cx)**2 + (p.y-cy)**2);
+      if (dist < 2) return true;  // 2 meter threshold
+    }
+    return false;
+  }
+
+  for (const id in patchedEdges) {
+    const hasOutgoing = patchedEdges[id].length > 0;
+    const hasIncoming = (incomingOf[id] || []).some(e => !blocked.has(e.fromId));
+    if (hasOutgoing && hasIncoming) continue;
+
+    const visited = new Set([id]);
+    const queue = [{ nodeId: id, cost: 0 }];
+    const found = [];
+
+    while (queue.length > 0 && found.length < 3) {
+      const { nodeId, cost } = queue.shift();
+
+      for (const edge of (edges[nodeId] || [])) {
+        const toId = String(edge.to);
+        if (visited.has(toId)) continue;
+        visited.add(toId);
+        const newCost = cost + edge.cost;
+
+        if (!blocked.has(toId)) {
+          if (!segmentCrossesBlocked(id, toId)) {
+            found.push({ toId, cost: newCost });
+          }
+        } else {
+          queue.push({ nodeId: toId, cost: newCost });
+        }
+      }
+
+      for (const { fromId, cost: eCost } of (incomingOf[nodeId] || [])) {
+        if (visited.has(fromId)) continue;
+        visited.add(fromId);
+        const newCost = cost + eCost;
+
+        if (!blocked.has(fromId)) {
+          if (!segmentCrossesBlocked(id, fromId)) {
+            found.push({ toId: fromId, cost: newCost });
+          }
+        } else {
+          queue.push({ nodeId: fromId, cost: newCost });
+        }
+      }
+    }
+
+    for (const { toId, cost } of found) {
+      if (!patchedEdges[id].find(e => String(e.to) === toId)) {
+        patchedEdges[id].push({ to: toId, cost });
+      }
+      if (patchedEdges[toId] && !patchedEdges[toId].find(e => String(e.to) === id)) {
+        patchedEdges[toId].push({ to: id, cost });
+      }
+    }
+  }
+  return patchedEdges;
 }
 
 function updatePinDisplay(which, nodeId) {
@@ -578,6 +670,7 @@ function render() {
   clearError();
   layerGroup.clearLayers();
   pathLayer.clearLayers();
+  blockedNodes = new Set();
   graphRendered = false;
   checkFindPathEnabled();
 
@@ -608,19 +701,21 @@ function render() {
 
   centerLat  = (minLat + maxLat) / 2;
   centerLng  = (minLng + maxLng) / 2;
-  coordMode  = document.querySelector('input[name=coord-mode]:checked').value;
   const flipY = document.getElementById('opt-flip-y').checked;
 
-  let xMin, xMax, yMin, yMax;
-  if (coordMode === 'lerp') {
-    const xs = nodeIds.map(id => nodes[id].x); const ys = nodeIds.map(id => nodes[id].y);
-    xMin = Math.min(...xs); xMax = Math.max(...xs);
-    yMin = Math.min(...ys); yMax = Math.max(...ys);
-  }
+  // Remove selected issue nodes
+  const remCurbs = document.getElementById('avoid-missing-curb-ramps').checked;
+  const remSurfaceProbs = document.getElementById('avoid-surface-problems').checked;
+  nodeIds.forEach(id => {
+    const type = nodes[id].issueType;
+    if (remCurbs && type === 'NoCurbRamp') blockedNodes.add(id);
+    if (remSurfaceProbs && type === 'SurfaceProblem') blockedNodes.add(id);
+  });
 
   latlngOf = {};
   graphNodes = nodes;
   graphEdges = edges;
+  graphEdges = reconnectStrandedNodes(nodes, edges, blockedNodes);
 
   for (const id in graphNodes) {
     const n = graphNodes[id];
@@ -632,15 +727,7 @@ function render() {
 
   nodeIds.forEach(id => {
     const {x, y} = nodes[id];
-    let lat, lng;
-    if (coordMode === 'tangent') {
-      [lat, lng] = tangentToLatLng(x, y, centerLat, centerLng);
-    } else if (coordMode === 'latlng') {
-      lat = y; lng = x;
-    } else {
-      lng = lerp(x, xMin, xMax, minLng, maxLng);
-      lat = flipY ? lerp(y, yMin, yMax, maxLat, minLat) : lerp(y, yMin, yMax, minLat, maxLat);
-    }
+    let lat = y, lng = x;
     latlngOf[id] = [lat, lng];
   });
 
@@ -655,15 +742,39 @@ function render() {
     });
   });
 
+const intersectsBlockedNode = (start_ll, end_ll) => {
+  for (const id of blockedNodes) {
+    const ll = latlngOf[id];
+    if (!ll) continue;
+
+    const dx = end_ll[0] - start_ll[0];
+    const dy = end_ll[1] - start_ll[1];
+    const lenSq = dx*dx + dy*dy;
+
+    // Project onto the segment
+    const t = lenSq === 0 ? 0 :
+      Math.max(0, Math.min(1, ((ll[0] - start_ll[0]) * dx + (ll[1] - start_ll[1]) * dy) / lenSq));
+
+    // Closest point on segment to ll
+    const closestX = start_ll[0] + t * dx;
+    const closestY = start_ll[1] + t * dy;
+
+    const dist = Math.sqrt((ll[0]-closestX)**2 + (ll[1]-closestY)**2);
+    if (dist < 9e-6) return true; // about 1 meter
+  }
+  return false;
+};
 
   // Draw edges
   let edgeCount = 0;
-  Object.entries(edges).forEach(([fromId, targets]) => {
+  Object.entries(graphEdges).forEach(([fromId, targets]) => {
     if (!Array.isArray(targets)) return;
     targets.forEach(({to, cost}) => {
+      if (blockedNodes.has(String(fromId)) || blockedNodes.has(String(to))) return;
       const toStr = String(to);
       const src = latlngOf[String(fromId)], dst = latlngOf[toStr];
       if (!src || !dst) return;
+
       edgeCount++;
       const color = costToColor(cost, minCost, maxCost);
       const line = L.polyline([src, dst], { color, weight: 1.5, opacity: 0.65 }).addTo(layerGroup);
@@ -681,13 +792,18 @@ function render() {
   nodeIds.forEach(id => {
     const n  = nodes[id];
     const ll = latlngOf[id];
+    if (!ll) return;
     const isIssue = !!n.issue;
     if (isIssue) issueCount++;
 
     let color;
-    if (n.issueType === 'SurfaceProblem') color = '#800080';
-    else if (n.issueType === 'NoCurbRamp') color = '#ff5f5f';
-    else color = '#00e5a0';
+    if (n.issueType === 'SurfaceProblem') {
+      color = '#800080';
+    } else if (n.issueType === 'NoCurbRamp') {
+      color = '#ff5f5f';
+    } else {
+      color = '#00e5a0';
+    }
 
     const circle = L.circleMarker(ll, {
       radius, fillColor: color, fillOpacity: 0.9, color: '#fff', weight: isIssue ? 2 : 1.5,
@@ -695,7 +811,6 @@ function render() {
 
     const connCount = Array.isArray(edges[id]) ? edges[id].length : 0;
     circle.bindTooltip(
-      `<b>${id}</b><br/>x: ${n.x?.toFixed(4)}  y: ${n.y?.toFixed(4)}<br/>` +
       `lat: ${ll[0].toFixed(6)},  lng: ${ll[1].toFixed(6)}<br/>` +
       `issue: ${isIssue} | out-edges: ${connCount}`,
       { className: 'node-tooltip' }
@@ -775,38 +890,24 @@ document.getElementById('btn-set-coords').addEventListener('click', () => {
   if (!graphRendered) { showPathError('Render the graph first.'); return; }
   clearPathError();
 
-  const sLng = minLng;
-  const sLat = minLat;
-  const eLng = maxLng;
-  const eLat = maxLat;
+  const sLng = parseFloat(document.getElementById('inp-start-lng').value);
+  const sLat = parseFloat(document.getElementById('inp-start-lat').value);
+  const eLng = parseFloat(document.getElementById('inp-end-lng').value);
+  const eLat = parseFloat(document.getElementById('inp-end-lat').value);
 
   if (isNaN(sLng) || isNaN(sLat) || isNaN(eLng) || isNaN(eLat)) {
     showPathError('Enter valid numbers for all four coordinate fields.'); return;
   }
 
   let sQuery, eQuery;
-  if (coordMode === 'latlng') {
-    sQuery = { x: sLng, y: sLat };
-    eQuery = { x: eLng, y: eLat };
-  } else if (coordMode === 'tangent') {
-    sQuery = latLngToTangent(sLat, sLng, centerLat, centerLng);
-    eQuery = latLngToTangent(eLat, eLng, centerLat, centerLng);
-  } else {
-    sQuery = { x: sLng, y: sLat };
-    eQuery = { x: eLng, y: eLat };
-  }
+  sQuery = { x: sLng, y: sLat };
+  eQuery = { x: eLng, y: eLat };
 
   function closestInNodeSpace(qx, qy) {
     let bestId = null, bestD = Infinity;
     for (const id in graphNodes) {
       const n = graphNodes[id];
-      let dx, dy;
-      if (coordMode === 'lerp') {
-        const ll = latlngOf[id];
-        dx = ll[1] - qx; dy = ll[0] - qy;
-      } else {
-        dx = n.x - qx; dy = n.y - qy;
-      }
+      let dx = n.x - qx, dy = n.y - qy;
       const d = Math.sqrt(dx*dx + dy*dy);
       if (d < bestD) { bestD = d; bestId = id; }
     }
