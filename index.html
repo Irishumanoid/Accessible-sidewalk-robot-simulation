@@ -195,11 +195,6 @@
           <label>Edges JSON <span style="font-size:10px;opacity:.6;text-transform:none;letter-spacing:0">{id:[{to,cost}]}</span></label>
           <textarea id="inp-edges" rows="4" placeholder='{"abc": [{"to": "def", "cost": 7.2}], ...}'></textarea>
         </div>
-        <div style="font-size:10px;color:var(--muted);line-height:1.5">
-          Or paste the full <code style="color:var(--accent)">adjacency_map.json</code>
-          (with <code style="color:var(--accent)">nodes</code> +
-          <code style="color:var(--accent)">adjacency</code> keys) into the Nodes field.
-        </div>
       </div>
 
       <div id="tab-file" class="tab-panel">
@@ -209,21 +204,6 @@
           <div class="dz-label">Drop <b>adjacency_map.json</b> here<br/>or click to browse</div>
         </div>
         <div id="file-status"></div>
-      </div>
-
-      <hr class="section-divider"/>
-
-      <div>
-        <label>Node coordinate type</label>
-        <div class="pill-bar">
-          <input type="radio" name="coord-mode" id="cm-tangent" value="tangent" checked/>
-          <label for="cm-tangent">dx/dy meters<br/><span style="font-size:9px;opacity:.7">project_sidewalk</span></label>
-          <input type="radio" name="coord-mode" id="cm-latlng" value="latlng"/>
-          <label for="cm-latlng">lng / lat<br/><span style="font-size:9px;opacity:.7">raw coords</span></label>
-        </div>
-        <div id="lerp-flipy" style="display:none;margin-top:8px">
-          <div class="option-row"><input type="checkbox" id="opt-flip-y" checked/> Flip Y axis (origin top-left)</div>
-        </div>
       </div>
 
       <hr class="section-divider"/>
@@ -350,12 +330,6 @@ document.querySelectorAll('.tab-bar button').forEach(btn => {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById(btn.dataset.tab).classList.add('active');
-  });
-});
-document.querySelectorAll('input[name=coord-mode]').forEach(r => {
-  r.addEventListener('change', () => {
-    document.getElementById('lerp-flipy').style.display =
-      document.querySelector('input[name=coord-mode]:checked').value === 'lerp' ? 'block' : 'none';
   });
 });
 
@@ -701,7 +675,6 @@ function render() {
 
   centerLat  = (minLat + maxLat) / 2;
   centerLng  = (minLng + maxLng) / 2;
-  const flipY = document.getElementById('opt-flip-y').checked;
 
   // Remove selected issue nodes
   const remCurbs = document.getElementById('avoid-missing-curb-ramps').checked;
