@@ -181,8 +181,8 @@
       <div>
         <label>Input Mode</label>
         <div class="tab-bar">
-          <button class="active" data-tab="tab-paste">Paste JSON</button>
           <button data-tab="tab-file">Upload File</button>
+          <button class="active" data-tab="tab-paste">Paste JSON</button>
         </div>
       </div>
 
@@ -210,8 +210,9 @@
 
       <div style="display:flex;flex-direction:column;gap:8px">
         <label>Route Filtering</label>
-        <div class="option-row"><input type="checkbox" id="avoid-missing-curb-ramps" unchecked/> Avoid missing curb ramps </div>
-        <div class="option-row"><input type="checkbox" id="avoid-surface-problems" unchecked/> Avoid missing surface problems </div>
+        <div class="option-row"><input type="checkbox" id="avoid-missing-curb-ramps"/> Avoid missing curb ramps</div>
+        <div class="option-row"><input type="checkbox" id="avoid-surface-problems"/> Avoid surface problems</div>
+        <div class="option-row"><input type="checkbox" id="avoid-no-sidewalk"/> Avoid missing sidewalks</div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:8px">
@@ -294,6 +295,7 @@
     <div class="l-row"><div class="dot" style="background:#00e5a0;border:2px solid #fff"></div> Normal node</div>
     <div class="l-row"><div class="dot" style="background:#ff5f5f;border:2px solid #fff"></div> Missing curb ramp</div>
     <div class="l-row"><div class="dot" style="background:#800080;border:2px solid #fff"></div> Surface problem</div>
+    <div class="l-row"><div class="dot" style="background:#f59e0b;border:2px solid #fff"></div> No sidewalk</div>
     <div class="l-row"><div style="width:24px;height:2px;background:#35da1c"></div> Edge</div>
     <div class="l-row"><div style="width:24px;height:2px;background:#ff13f0"></div> Optimal Path</div>
   </div>
@@ -304,25 +306,28 @@ const leafletMap = L.map('map', { zoomControl: true }).setView([47.686, -122.352
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   attribution: '© OpenStreetMap © CARTO', maxZoom: 19
 }).addTo(leafletMap);
-let layerGroup  = L.layerGroup().addTo(leafletMap);
-let pathLayer   = L.layerGroup().addTo(leafletMap);  // separate layer for path so it renders on top
+let layerGroup = L.layerGroup().addTo(leafletMap);
+let pathLayer = L.layerGroup().addTo(leafletMap);  // separate layer for path so it renders on top
 
-let graphNodes   = {};   // {id: {x, y, issue, issueType}}
-let graphEdges   = {};   // {id: [{to, cost}]}
-let latlngOf     = {};   // {id: [lat, lng]}
-let centerLat    = 47.686;
-let centerLng    = -122.352;
+let graphNodes = {};   // {id: {x, y, issue, issueType}}
+let graphEdges = {};   // {id: [{to, cost}]}
+let baseGraphNodes = {};
+let baseGraphEdges = {};
+let latlngOf = {};   // {id: [lat, lng]}
+let centerLat = 47.686;
+let centerLng = -122.352;
 let graphRendered = false;
+let usesLatLngCoords = true;
 
-let startNodeId  = null;
-let endNodeId    = null;
-let selecting    = null;
-let startMarker  = null;
-let endMarker    = null;
+let startNodeId = null;
+let endNodeId = null;
+let selecting = null;
+let startMarker = null;
+let endMarker = null;
 let blockedNodes = new Set();
 
 let minLat = 90, maxLat = -90, minLng = 180, maxLng = -180;
-
+const ISSUE_BUFFER_M = 3;
 
 document.querySelectorAll('.tab-bar button').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -388,11 +393,104 @@ function costToColor(cost, minCost, maxCost) {
   return `rgb(${r},${g},50)`;
 }
 
+function detectLatLngCoords(nodes) {
+  for (const id in nodes) {
+    const n = nodes[id];
+    if (Math.abs(n.x) > 180 || Math.abs(n.y) > 90) return false;
+  }
+  for (const id in nodes) {
+    const n = nodes[id];
+    if (n.x <= -50 && n.x >= -180 && n.y >= 15 && n.y <= 75) return true;
+  }
+  return false;
+}
+
+function distMeters(ax, ay, bx, by, latLng) {
+  if (latLng) {
+    const dx = (bx - ax) * Math.PI / 180 * EARTH_RAD * Math.cos((ay + by) / 2 * Math.PI / 180);
+    const dy = (by - ay) * Math.PI / 180 * EARTH_RAD;
+    return Math.hypot(dx, dy);
+  }
+  return Math.hypot(bx - ax, by - ay);
+}
+
+function segmentPointDistMeters(ax, ay, bx, by, px, py, latLng) {
+  const dx = bx - ax, dy = by - ay;
+  const lenSq = dx * dx + dy * dy;
+  if (lenSq === 0) return distMeters(ax, ay, px, py, latLng);
+  const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / lenSq));
+  return distMeters(ax + t * dx, ay + t * dy, px, py, latLng);
+}
+
+function getRouteFilterState() {
+  return {
+    remCurbs: document.getElementById('avoid-missing-curb-ramps').checked,
+    remSurface: document.getElementById('avoid-surface-problems').checked,
+    remSidewalk: document.getElementById('avoid-no-sidewalk').checked,
+  };
+}
+
+function computeBlockedNodes(nodes, filters) {
+  const blocked = new Set();
+  const { remCurbs, remSurface, remSidewalk } = filters;
+  const anyFilter = remCurbs || remSurface || remSidewalk;
+  if (!anyFilter) return blocked;
+
+  for (const id in nodes) {
+    const n = nodes[id];
+    const type = n.issueType;
+    if (remCurbs && type === 'NoCurbRamp') { blocked.add(id); continue; }
+    if (remSurface && type === 'SurfaceProblem') { blocked.add(id); continue; }
+    if (remSidewalk && type === 'NoSidewalk') { blocked.add(id); continue; }
+    if (n.issue && !type && anyFilter) blocked.add(id);
+  }
+  return blocked;
+}
+
+function segmentCrossesBlocked(idA, idB, nodes, blocked, latLng) {
+  const a = nodes[idA], b = nodes[idB];
+  if (!a || !b) return true;
+  for (const blockedId of blocked) {
+    const p = nodes[blockedId];
+    if (!p) continue;
+    if (segmentPointDistMeters(a.x, a.y, b.x, b.y, p.x, p.y, latLng) < ISSUE_BUFFER_M) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function buildRoutingGraph(nodes, edges, blocked, latLng) {
+  const routed = {};
+  for (const id in nodes) {
+    if (blocked.has(id)) continue;
+    routed[id] = [];
+    for (const edge of (edges[id] || [])) {
+      const toId = String(edge.to);
+      if (blocked.has(toId)) continue;
+      if (!nodes[toId]) continue;
+      if (segmentCrossesBlocked(id, toId, nodes, blocked, latLng)) continue;
+      routed[id].push(edge);
+    }
+  }
+  return routed;
+}
+
+function applyRouteFilters() {
+  const filters = getRouteFilterState();
+  blockedNodes = computeBlockedNodes(baseGraphNodes, filters);
+  graphNodes = baseGraphNodes;
+  graphEdges = buildRoutingGraph(baseGraphNodes, baseGraphEdges, blockedNodes, usesLatLngCoords);
+}
+
 function nodeHeuristic(idA, idB) {
   const a = graphNodes[idA], b = graphNodes[idB];
-  const dx = (b.x - a.x) * Math.PI / 180 * EARTH_RAD * Math.cos((a.y + b.y) / 2 * Math.PI / 180);
-  const dy = (b.y - a.y) * Math.PI / 180 * EARTH_RAD;
-  return Math.sqrt(dx*dx + dy*dy);
+  if (usesLatLngCoords) {
+    const dx = (b.x - a.x) * Math.PI / 180 * EARTH_RAD * Math.cos((a.y + b.y) / 2 * Math.PI / 180);
+    const dy = (b.y - a.y) * Math.PI / 180 * EARTH_RAD;
+    return Math.hypot(dx, dy);
+  }
+  return Math.hypot(b.x - a.x, b.y - a.y);
 }
 
 function closestNode(queryX, queryY) {
@@ -422,8 +520,9 @@ function runAstar(startId, endId) {
     if (closed.has(current)) continue;
     if (current === endId) break;
     closed.add(current);
+    if (blockedNodes.has(current) && current !== startId && current !== endId) continue;
 
-    const neighbors = graphEdges[current];
+    const neighbors = graphEdges[current] || graphEdges[String(current)];
     if (!neighbors) continue;
 
     for (const edge of neighbors) {
@@ -473,104 +572,15 @@ function runAstar(startId, endId) {
   path.push(startId);
   path.reverse();
 
-  let totalCost = 0;
+  let totalDistanceM = 0;
   for (let i = 0; i < path.length - 1; i++) {
-    const edgesFrom = graphEdges[path[i]] || [];
-    const edge = edgesFrom.find(e => String(e.to) === path[i+1]);
-    if (edge) totalCost += edge.cost;
-  }
-
-  return { path, totalCost };
-}
-
-function reconnectStrandedNodes(nodes, edges, blocked) {
-  const patchedEdges = {};
-
-  for (const id in nodes) {
-    if (blocked.has(id)) continue;
-    patchedEdges[id] = (edges[id] || []).filter(e => !blocked.has(String(e.to)));
-  }
-
-  const incomingOf = {};
-  for (const id in nodes) incomingOf[id] = [];
-  for (const fromId in edges) {
-    for (const edge of (edges[fromId] || [])) {
-      const toId = String(edge.to);
-      if (incomingOf[toId]) incomingOf[toId].push({ fromId, cost: edge.cost });
+    const a = graphNodes[path[i]], b = graphNodes[path[i + 1]];
+    if (a && b) {
+      totalDistanceM += distMeters(a.x, a.y, b.x, b.y, usesLatLngCoords);
     }
   }
 
-  // Check if segment from node A to node B passes within threshold of any blocked node
-  function segmentCrossesBlocked(idA, idB) {
-    const a = nodes[idA], b = nodes[idB];
-    if (!a || !b) return true;
-    const dx = b.x - a.x, dy = b.y - a.y;
-    const lenSq = dx*dx + dy*dy;
-
-    for (const blockedId of blocked) {
-      const p = nodes[blockedId];
-      if (!p) continue;
-      const t = lenSq === 0 ? 0 :
-        Math.max(0, Math.min(1, ((p.x - a.x)*dx + (p.y - a.y)*dy) / lenSq));
-      const cx = a.x + t*dx, cy = a.y + t*dy;
-      const dist = Math.sqrt((p.x-cx)**2 + (p.y-cy)**2);
-      if (dist < 2) return true;  // 2 meter threshold
-    }
-    return false;
-  }
-
-  for (const id in patchedEdges) {
-    const hasOutgoing = patchedEdges[id].length > 0;
-    const hasIncoming = (incomingOf[id] || []).some(e => !blocked.has(e.fromId));
-    if (hasOutgoing && hasIncoming) continue;
-
-    const visited = new Set([id]);
-    const queue = [{ nodeId: id, cost: 0 }];
-    const found = [];
-
-    while (queue.length > 0 && found.length < 3) {
-      const { nodeId, cost } = queue.shift();
-
-      for (const edge of (edges[nodeId] || [])) {
-        const toId = String(edge.to);
-        if (visited.has(toId)) continue;
-        visited.add(toId);
-        const newCost = cost + edge.cost;
-
-        if (!blocked.has(toId)) {
-          if (!segmentCrossesBlocked(id, toId)) {
-            found.push({ toId, cost: newCost });
-          }
-        } else {
-          queue.push({ nodeId: toId, cost: newCost });
-        }
-      }
-
-      for (const { fromId, cost: eCost } of (incomingOf[nodeId] || [])) {
-        if (visited.has(fromId)) continue;
-        visited.add(fromId);
-        const newCost = cost + eCost;
-
-        if (!blocked.has(fromId)) {
-          if (!segmentCrossesBlocked(id, fromId)) {
-            found.push({ toId: fromId, cost: newCost });
-          }
-        } else {
-          queue.push({ nodeId: fromId, cost: newCost });
-        }
-      }
-    }
-
-    for (const { toId, cost } of found) {
-      if (!patchedEdges[id].find(e => String(e.to) === toId)) {
-        patchedEdges[id].push({ to: toId, cost });
-      }
-      if (patchedEdges[toId] && !patchedEdges[toId].find(e => String(e.to) === id)) {
-        patchedEdges[toId].push({ to: id, cost });
-      }
-    }
-  }
-  return patchedEdges;
+  return { path, totalDistanceM };
 }
 
 function updatePinDisplay(which, nodeId) {
@@ -671,38 +681,31 @@ function render() {
 
   const nodeIds = Object.keys(nodes);
   if (!nodeIds.length) { showError('No nodes found.'); return; }
-  if ([minLng,maxLng,minLat,maxLat].some(isNaN)) { showError('Fill in all four bounding box coordinates.'); return; }
 
-  centerLat  = (minLat + maxLat) / 2;
-  centerLng  = (minLng + maxLng) / 2;
+  baseGraphNodes = nodes;
+  baseGraphEdges = edges;
+  usesLatLngCoords = detectLatLngCoords(nodes);
 
-  // Remove selected issue nodes
-  const remCurbs = document.getElementById('avoid-missing-curb-ramps').checked;
-  const remSurfaceProbs = document.getElementById('avoid-surface-problems').checked;
-  nodeIds.forEach(id => {
-    const type = nodes[id].issueType;
-    if (remCurbs && type === 'NoCurbRamp') blockedNodes.add(id);
-    if (remSurfaceProbs && type === 'SurfaceProblem') blockedNodes.add(id);
-  });
-
+  minLat = 90; maxLat = -90; minLng = 180; maxLng = -180;
   latlngOf = {};
-  graphNodes = nodes;
-  graphEdges = edges;
-  graphEdges = reconnectStrandedNodes(nodes, edges, blockedNodes);
-
-  for (const id in graphNodes) {
-    const n = graphNodes[id];
-    if (n.x < minLng) minLng = n.x;
-    if (n.x > maxLng) maxLng = n.x;
-    if (n.y < minLat) minLat = n.y;
-    if (n.y > maxLat) maxLat = n.y;
-  }
-
   nodeIds.forEach(id => {
-    const {x, y} = nodes[id];
-    let lat = y, lng = x;
-    latlngOf[id] = [lat, lng];
+    const { x, y } = nodes[id];
+    if (usesLatLngCoords) {
+      latlngOf[id] = [y, x];
+    } else {
+      latlngOf[id] = tangentToLatLng(x, y, centerLat, centerLng);
+    }
+    const [lat, lng] = latlngOf[id];
+    if (lat < minLat) minLat = lat;
+    if (lat > maxLat) maxLat = lat;
+    if (lng < minLng) minLng = lng;
+    if (lng > maxLng) maxLng = lng;
   });
+
+  centerLat = (minLat + maxLat) / 2;
+  centerLng = (minLng + maxLng) / 2;
+
+  applyRouteFilters();
 
   const showCosts = document.getElementById('opt-costs').checked;
   const radius = parseInt(document.getElementById('opt-radius').value);
@@ -715,30 +718,7 @@ function render() {
     });
   });
 
-const intersectsBlockedNode = (start_ll, end_ll) => {
-  for (const id of blockedNodes) {
-    const ll = latlngOf[id];
-    if (!ll) continue;
-
-    const dx = end_ll[0] - start_ll[0];
-    const dy = end_ll[1] - start_ll[1];
-    const lenSq = dx*dx + dy*dy;
-
-    // Project onto the segment
-    const t = lenSq === 0 ? 0 :
-      Math.max(0, Math.min(1, ((ll[0] - start_ll[0]) * dx + (ll[1] - start_ll[1]) * dy) / lenSq));
-
-    // Closest point on segment to ll
-    const closestX = start_ll[0] + t * dx;
-    const closestY = start_ll[1] + t * dy;
-
-    const dist = Math.sqrt((ll[0]-closestX)**2 + (ll[1]-closestY)**2);
-    if (dist < 9e-6) return true; // about 1 meter
-  }
-  return false;
-};
-
-  // Draw edges
+  // edges only filtered when route options are checked
   let edgeCount = 0;
   Object.entries(graphEdges).forEach(([fromId, targets]) => {
     if (!Array.isArray(targets)) return;
@@ -774,18 +754,23 @@ const intersectsBlockedNode = (start_ll, end_ll) => {
       color = '#800080';
     } else if (n.issueType === 'NoCurbRamp') {
       color = '#ff5f5f';
+    } else if (n.issueType === 'NoSidewalk') {
+      color = '#f59e0b';
+    } else if (n.issue) {
+      color = '#ff5f5f';
     } else {
       color = '#00e5a0';
     }
 
     const circle = L.circleMarker(ll, {
-      radius, fillColor: color, fillOpacity: 0.9, color: '#fff', weight: isIssue ? 2 : 1.5,
+      radius, fillColor: color, fillOpacity: 1, color: '#fff', weight: isIssue ? 2 : 1.5,
     }).addTo(layerGroup);
 
-    const connCount = Array.isArray(edges[id]) ? edges[id].length : 0;
+    const connCount = Array.isArray(graphEdges[id]) ? graphEdges[id].length : 0;
     circle.bindTooltip(
       `lat: ${ll[0].toFixed(6)},  lng: ${ll[1].toFixed(6)}<br/>` +
-      `issue: ${isIssue} | out-edges: ${connCount}`,
+      `type: ${n.issueType || (n.issue ? 'issue' : 'none')} | out-edges: ${connCount}` +
+      (blockedNodes.has(id) ? '<br/><b>filtered out</b>' : ''),
       { className: 'node-tooltip' }
     );
 
@@ -807,6 +792,9 @@ const intersectsBlockedNode = (start_ll, end_ll) => {
   document.getElementById('st-edges').textContent  = edgeCount;
   document.getElementById('st-issues').textContent = issueCount;
   document.getElementById('st-issues').style.color = issueCount ? '#ff5f5f' : 'var(--text)';
+  if (blockedNodes.size) {
+    document.getElementById('st-issues').textContent += ` (${blockedNodes.size} filtered)`;
+  }
   document.getElementById('st-center').textContent = `${centerLat.toFixed(5)}, ${centerLng.toFixed(5)}`;
   document.getElementById('legend').style.display  = 'block';
 
@@ -819,32 +807,40 @@ function findPath() {
   pathLayer.clearLayers();
   document.getElementById('path-info').style.display = 'none';
 
+  if (!graphRendered) { showPathError('Render the graph first.'); return; }
   if (!startNodeId || !endNodeId) { showPathError('Set both start and end nodes first.'); return; }
+
+  applyRouteFilters();
+
+  if (blockedNodes.has(startNodeId) || blockedNodes.has(endNodeId)) {
+    showPathError('Start or end is on a filtered accessibility issue. Choose different points.');
+    return;
+  }
 
   const result = runAstar(startNodeId, endNodeId);
 
   if (!result) {
-    showPathError(`No path found between ${startNodeId} → ${endNodeId}.`);
+    showPathError(`No path found between ${startNodeId} → ${endNodeId} with current filters.`);
     return;
   }
 
-  const { path, totalCost } = result;
+  const { path, totalDistanceM } = result;
+  const blockedOnPath = path.filter(id => blockedNodes.has(id));
+  if (blockedOnPath.length) {
+    showPathError(`Path still passes through ${blockedOnPath.length} filtered issue node(s).`);
+    return;
+  }
 
   // Draw path on top layer
   for (let i = 0; i < path.length - 1; i++) {
     const src = latlngOf[path[i]], dst = latlngOf[path[i+1]];
     if (!src || !dst) continue;
     const line = L.polyline([src, dst], { color: '#ff13f0', weight: 5, opacity: 0.85 }).addTo(pathLayer);
-    const neighbors = graphEdges[path[i]];
-    let edge_cost = -1;
-    for (const edge of neighbors) {
-      const toId = String(edge.to);
-      if (toId == path[i+1]) {
-        edge_cost = edge.cost;
-      }
-    }
+    const a = graphNodes[path[i]], b = graphNodes[path[i + 1]];
+    let edge_dist_m = -1;
+    if (a && b) edge_dist_m = distMeters(a.x, a.y, b.x, b.y, usesLatLngCoords);
     line.bindTooltip(
-      `<b>${path[i]}</b> → <b>${path[i+1]}</b><br/>cost: ${edge_cost}`,
+      `<b>${path[i]}</b> → <b>${path[i+1]}</b><br/>distance: ${edge_dist_m >= 0 ? edge_dist_m.toFixed(1) + ' m' : '—'}`,
       { className: 'node-tooltip', sticky: true }
     );
   }
@@ -856,12 +852,13 @@ function findPath() {
   infoEl.style.display = 'block';
   infoEl.innerHTML =
     `<div class="pi-label">Path Result</div>` +
-    `Nodes: <b>${path.length}</b> &nbsp;|&nbsp; Cost: <b>${totalCost.toFixed(2)}</b><br/>`;
+    `Nodes: <b>${path.length}</b> &nbsp;|&nbsp; Distance: <b>${totalDistanceM.toFixed(1)} m</b><br/>`;
 }
 
 document.getElementById('btn-set-coords').addEventListener('click', () => {
   if (!graphRendered) { showPathError('Render the graph first.'); return; }
   clearPathError();
+  applyRouteFilters();
 
   const sLng = parseFloat(document.getElementById('inp-start-lng').value);
   const sLat = parseFloat(document.getElementById('inp-start-lat').value);
@@ -879,6 +876,7 @@ document.getElementById('btn-set-coords').addEventListener('click', () => {
   function closestInNodeSpace(qx, qy) {
     let bestId = null, bestD = Infinity;
     for (const id in graphNodes) {
+      if (blockedNodes.has(id)) continue;
       const n = graphNodes[id];
       let dx = n.x - qx, dy = n.y - qy;
       const d = Math.sqrt(dx*dx + dy*dy);
@@ -933,6 +931,17 @@ leafletMap.on('click', () => { if (selecting) setSelecting(null); });
 
 document.getElementById('opt-radius').addEventListener('input', e => {
   document.getElementById('radius-val').textContent = e.target.value;
+});
+
+// re-render graph whenever a checkbox state changes
+['avoid-missing-curb-ramps', 'avoid-surface-problems', 'avoid-no-sidewalk'].forEach(id => {
+  document.getElementById(id).addEventListener('change', () => {
+    if (!graphRendered) return;
+    pathLayer.clearLayers();
+    document.getElementById('path-info').style.display = 'none';
+    clearPathError();
+    render();
+  });
 });
 </script>
 </body>
