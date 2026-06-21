@@ -1,6 +1,7 @@
 # general
 .conda
 .vscode
+.venv
 ../build
 .DS_Store
 ._*
